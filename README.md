@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Production links
+Inspect: https://vercel.com/ultrayumm/ultrayumm-fs-app/krqitokfq [5s]
+✅  Production: https://ultrayumm-fs-app.now.sh
+
+### Dependencies
+npm install react-test-renderer -D
