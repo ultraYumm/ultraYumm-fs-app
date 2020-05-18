@@ -1,0 +1,102 @@
+/* Color Theme Swatches in RGBA - represents color and font palette for this app*/
+
+.plum { 
+    color: rgba(166, 88, 94, 1);
+  }
+  
+.plumBackground { 
+  background-color: rgba(166, 88, 94, 1);  
+}
+
+.mauve { 
+  color: rgba(140, 108, 126, 1);
+}
+
+.mauveBackground { 
+  background-color: rgba(140, 108, 126, 1);
+}
+
+.red { 
+  color: rgba(191, 4, 4)
+}
+
+.black { 
+  color: rgba(38, 11, 9, 1); 
+}
+
+.dark { 
+  color: black; 
+}
+
+.lighter {
+  color: rgb(92, 59, 57)
+}
+
+.blackBackground { 
+  background-color: rgba(38, 11, 9, 1); 
+}
+
+.salmon { 
+color: rgba(242, 76, 61, 1); 
+}
+
+.salmonBackground { 
+background-color: rgba(242, 76, 61, 1); 
+}
+
+.white {
+color: white;
+}
+
+.skin {
+color: rgba(242, 230, 223);
+}
+
+.skinBackground {
+background-color: rgba(242, 230, 223);
+}
+
+.whiteBackground {
+background-color: white}
+
+.blue {
+color: rgba(3, 52, 115);
+}
+
+.blueBackground {
+background-color: rgba(3, 52, 115);
+}
+
+.purple {
+color: rgba(49, 31, 115); 
+} 
+
+.purpleBackground {
+background-color: rgba(49, 31, 115);    
+} 
+
+.green {
+  color: rgba(99, 140, 69)
+}
+
+.greenBackground {
+  background-color: rgba(99, 140, 69)
+}
+
+
+@font-face {
+  font-family: 'Montebello-Sans';
+  src: url('FontFiles/Montebello-Sans.ttf') format('truetype');
+}
+
+.primaryFont {
+font-family: 'Poppins', sans-serif;
+}
+
+.montebello {
+  font-family: 'Montebello-Sans',truetype;
+  font-weight: lighter
+  }
+
+/* End of color-font*/
+  

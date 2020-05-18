@@ -118,14 +118,24 @@ const ITEMS= [
     "image": "https://nix-tag-images.s3.amazonaws.com/5149_thumb.jpg",
     "serving_weight_grams": 5,
     "calPerServing": 21
+      },
+
+  {
+    "id": "7",
+    "food_name": "doggieKibble",
+    "brand": 	null,
+    "serving_unit": "tsp",
+    "serving_qty": 1,
+    "image": "https://nix-tag-images.s3.amazonaws.com/5149_thumb.jpg",
+    "serving_weight_grams": 5,
+    "calPerServing": 21
       }
+    
 
 
 ]
 
-  
-
-   
+     
  const MENUTYPES= [
   {"id": "b",
   "name": "Breakfast"},
@@ -135,13 +145,14 @@ const ITEMS= [
   "name": "Dinner"},
   {"id": "s",
   "name": "Snack"},
-  {"id": "0",
+  {"id": "o",
   "name": "Other"},
 ]
 
  
 const PACKITEMS= [
-  { "itemId":  "384",
+  { "packItemId": "1000p",
+    "itemId":  "1",
     "tripId": "e",
     "tripDay": 1,  
     "travId": "ja",
@@ -149,7 +160,8 @@ const PACKITEMS= [
     "selected_serving_qty": 1
 },
 
-{ "itemId":  "384",
+  { "packItemId": "2000p",
+    "itemId":  "2",
     "tripId": "e",
     "tripDay": 1,  
     "travId": "st",
@@ -157,7 +169,8 @@ const PACKITEMS= [
     "selected_serving_qty": 1
 },
 
-{ "itemId":  "384",
+  { "packItemId": "3000p",
+    "itemId":  "3",
     "tripId": "e",
     "tripDay": 1,  
     "travId": "ma",
@@ -165,13 +178,50 @@ const PACKITEMS= [
     "selected_serving_qty": 1
 }, 
 
-{ "itemId":  "384",
+{   "packItemId": "4000p",
+    "itemId":  "4",
     "tripId": "e",
     "tripDay": 1,  
     "travId": "em",
     "type": "b",
     "selected_serving_qty": 1
 },
+{ "packItemId": "5000p",
+    "itemId":  "5",
+    "tripId": "t",
+    "tripDay": 2,  
+    "travId": "su",
+    "type": "s",
+    "selected_serving_qty": 2
+},
+
+  { "packItemId": "6000p",
+    "itemId":  "6",
+    "tripId": "t",
+    "tripDay": 2,  
+    "travId": "jo",
+    "type": "d",
+    "selected_serving_qty": 3
+},
+
+  { "packItemId": "7000p",
+    "itemId":  "1",
+    "tripId": "m",
+    "tripDay": 3,  
+    "travId": "je",
+    "type": "l",
+    "selected_serving_qty": 2
+}, 
+
+{   "packItemId": "8000p",
+    "itemId":  "7",
+    "tripId": "m",
+    "tripDay": 1,  
+    "travId": "ma",
+    "type": "o",
+    "selected_serving_qty": 1
+},
+
 
 ]
  
@@ -180,4 +230,12 @@ const PACKITEMS= [
  
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App 
+  trips = {TRIPS}
+  travelers = {TRAVELERS}
+  travelerTrips = {TRAVELERTRIPS}
+  menuTypes = {MENUTYPES}
+  items = {ITEMS}
+  packItems = {PACKITEMS}
+  
+  />, document.getElementById('root'));

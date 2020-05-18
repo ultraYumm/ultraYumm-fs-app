@@ -73,3 +73,8 @@ Inspect: https://vercel.com/ultrayumm/ultrayumm-fs-app/krqitokfq [5s]
 
 ### Dependencies
 npm install react-test-renderer -D
+npm install enzyme enzyme-adapter-react-16 --save-dev
+npm install enzyme-to-json --save-dev
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/react-fontawesome
