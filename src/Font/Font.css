@@ -83,20 +83,79 @@ background-color: rgba(49, 31, 115);
   background-color: rgba(99, 140, 69)
 }
 
+@import url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap');
 
 @font-face {
   font-family: 'Montebello-Sans';
   src: url('FontFiles/Montebello-Sans.ttf') format('truetype');
 }
 
-.primaryFont {
-font-family: 'Poppins', sans-serif;
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap')
 }
 
 .montebello {
   font-family: 'Montebello-Sans',truetype;
   font-weight: lighter
-  }
+}
+
+.primaryFont {
+    font-family: 'Poppins', sans-serif;
+}
 
 /* End of color-font*/
-  
+
+
+body {
+  font-size: 14px;
+  color: rgba(38, 11, 9, 1)4;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  padding: 1px;
+}
+
+
+h2 {
+  font-size: 45px;
+  text-align: center;
+}
+
+
+h3 {
+  font-size: 15px;
+  color: rgba(242, 76, 61, 1);
+  text-align: center;
+  padding: 5px;
+  font-family:  'Montebello-Sans', truetype;
+  font-weight: lighter;
+  z-index: 200;
+}
+
+
+h4 {
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Montebello-Sans', truetype;
+  font-weight: lighter;
+  line-height: 1.7;
+}
+
+p {
+  padding: 1%;
+  color: rgba(38, 11, 9, 1); 
+  border: 1px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+
+
+
+span {
+  padding-right: 10px;
+}
+
+.noDeco{
+  text-decoration: none;
+ } 

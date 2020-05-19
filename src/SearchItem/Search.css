@@ -2,7 +2,7 @@
  .uYtitle {
     width:20%;
     display: block;
-    padding-top: 30px;
+    padding-top: 65px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -15,5 +15,16 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -15px;
+  /*margin-top: -15px;*/
+}
+
+
+
+.search {
+  text-align: left;
+}
+
+
+.searchForm {
+  margin-top: -30px;
 }

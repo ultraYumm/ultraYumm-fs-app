@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './Font/Font.css';
 import NavBar from './NavHome/NavBar';
-import SearchForm from './SearchItem/SearchForm';
+import Search from './SearchItem/Search';
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
             <NavBar></NavBar>
-            <SearchForm></SearchForm>
+            <Search></Search>
       </div>
     );
   }
