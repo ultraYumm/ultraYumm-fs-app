@@ -3,6 +3,7 @@ import './Search.css';
 import '../Font/Font.css';
 import config from '../config'
 import GoButton from '../FormElements/GoButton';
+import '../FormElements/FormElements.css';
 
 
 
@@ -75,19 +76,21 @@ class searchForm extends Component {
 
    
     return (
-        <form className= "searchForm" onSubmit={onSubmitForm}>
+        <form onSubmit={onSubmitForm}>
+
          <h2>Quick search!</h2>
-            <label className= "search" >Search by name or brand</label>
+            <label for= "searchTerm">Search by name or brand</label>
                <input  className= "plumBackground white search"
                 name='searchTerm'
                 type='search'
                 placeholder='Granola'
                 required
+                id= "searchTerm"
+
               />
           <GoButton></GoButton>
-       
-
-      </form>
+        </form>
+        
    )}
   
 }

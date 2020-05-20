@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './Font/Font.css';
 import NavBar from './NavHome/NavBar';
-import Search from './SearchItem/Search';
+import HomePage from './NavHome/HomePage';
+import TripNav from './TripList/TripNav';
 
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
     return (
       <div className="App">
             <NavBar></NavBar>
-            <Search></Search>
+            <HomePage></HomePage>
+            <TripNav></TripNav>
       </div>
     );
   }

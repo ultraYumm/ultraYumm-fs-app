@@ -1,61 +1,88 @@
+form, section {
+    margin: 1%;
+    border-radius: 10px;
+}
+
+
+form {
+    background-color: lightblue;
+}    
+
+
+section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+}   
+
+
+label {
+    font-family: 'Poppins', sans-serif;
+    padding-left: 10px;
+     
+}
+
+.labelWidth {
+   width: 10%;
+   display: inline-block
+}
+
 
 input {
     display: inline-block;
     font-size: 16px;
-    height: 45px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 1%;
     border: 1px solid rgba(166, 88, 94, 1);
     transition: 0.1s;
     margin-left: 4px;
-  }
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+}
   
 input[type=date] {
-    width: 350px;
+    width: 30%;
     margin-top: 4px;
-  }
+}
   
 input::placeholder { 
     color: rgba(242, 230, 223);
-  } 
+} 
   
 input:hover, input:active {
     border: 1px solid rgba(3, 52, 115);
-  }
+}
   
 input[type="search"]{
-    width: 100%;
-  }
+    width: 60%;
+}
   
 input[type="text"]{
-    width: 15%;
-    text-align: left
-  }
-    
-input[type="date"]{
-    font-family: 'Poppins', sans-serif;
-  }
+    width: 35%;
+
+}
   
-input[type="submit"]{
-    height: 45px;
+button[type="submit"]{
     width: 60px;
-    font-size: 30px;
-    border-radius: 5px;
-    padding: 1px;
-    transition: 0.1s;
-  }
+
+}
   
 button {
-    height: 35px;
-    max-width: 60px;
-    color: white;
+    font-size: 30px;
+    height: 60px;
     width: 90px;
     border-radius: 5px;
-    padding: 1px;
     transition: 0.1s;
     border: 1px solid rgba(166, 88, 94, 1);
     z-index: 200px;
     font-weight: lighter;
+    margin: 10px
+}
+
+  
+button:hover {
+    border: 2px solid rgba(191, 4, 4);
 }
   
 .button {
@@ -67,12 +94,8 @@ button {
     transition: 0.1s;
     z-index: 200px;
     display: inline-block;
-  }
-  
-input[type="submit"]:hover,
-  button:hover
-   {
-    border: 2px solid rgba(191, 4, 4);
-  }
+}
 
-  
+.go {
+    text-align: center;
+}

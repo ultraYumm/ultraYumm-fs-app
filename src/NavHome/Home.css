@@ -8,6 +8,7 @@
     top: 0;
     left: 0;
     right: 0;
+    width: auto;
     background-color:rgba(38, 11, 9, 1); 
     transition: 0.3s;
 }
@@ -33,4 +34,16 @@
     font-weight: bolder;
 }
     
-
+.home {
+    display: block;
+    padding-top: 65px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+  
+.uYtitle {
+    width:20%;
+    margin-bottom: -50px;
+   
+}
+  

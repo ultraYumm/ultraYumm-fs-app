@@ -6,21 +6,23 @@ import './FormElements.css';
 
 
 
-class goButton extends Component {
+class GoButton extends Component {
 
   
   render() {
 
     
     return (
+      <div className= "go">
           <button 
             className= "white montebello blackBackground go"
             type = "submit">
             Go!
           </button>
+      </div>
     )
  }  
 }
   
 
-export default goButton
+export default GoButton

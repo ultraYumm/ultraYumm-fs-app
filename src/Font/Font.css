@@ -102,6 +102,7 @@ background-color: rgba(49, 31, 115);
 
 .primaryFont {
     font-family: 'Poppins', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap')
 }
 
 /* End of color-font*/
@@ -112,13 +113,21 @@ body {
   color: rgba(38, 11, 9, 1)4;
   line-height: 1.5;
   font-family: 'Poppins', sans-serif;
-  padding: 1px;
+  width: auto;
+}
+
+
+h1 {
+  font-size: 50px;
+  text-align: center;
 }
 
 
 h2 {
   font-size: 45px;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
+  padding: 1%;
 }
 
 
@@ -126,7 +135,6 @@ h3 {
   font-size: 15px;
   color: rgba(242, 76, 61, 1);
   text-align: center;
-  padding: 5px;
   font-family:  'Montebello-Sans', truetype;
   font-weight: lighter;
   z-index: 200;
@@ -142,20 +150,17 @@ h4 {
 }
 
 p {
-  padding: 1%;
+ 
   color: rgba(38, 11, 9, 1); 
   border: 1px;
   line-height: 1.8;
-  text-align: center;
+
 }
 
-
-
-
 span {
-  padding-right: 10px;
+  padding: 5px;
 }
 
 .noDeco{
   text-decoration: none;
- } 
+} 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
-import './NavBar.css';
+import './Home.css';
 
 
 class MyTrips extends Component {
