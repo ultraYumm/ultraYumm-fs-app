@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 
 
 
-class searchForm extends Component {
+class SearchForm extends Component {
 
   
   render() {
@@ -79,7 +79,7 @@ class searchForm extends Component {
         <form onSubmit={onSubmitForm}>
 
          <h2>Quick search!</h2>
-            <label for= "searchTerm">Search by name or brand</label>
+            <label htmlFor= "searchTerm">Search by name or brand</label>
                <input  className= "plumBackground white search"
                 name='searchTerm'
                 type='search'
@@ -96,4 +96,4 @@ class searchForm extends Component {
 }
   
 
-export default searchForm
+export default SearchForm

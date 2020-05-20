@@ -107,27 +107,27 @@ background-color: rgba(49, 31, 115);
 
 /* End of color-font*/
 
+/*body {
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+}*/
 
 body {
   font-size: 14px;
   color: rgba(38, 11, 9, 1)4;
   line-height: 1.5;
   font-family: 'Poppins', sans-serif;
-  width: auto;
 }
-
 
 h1 {
-  font-size: 50px;
+  font-size: 22px;
   text-align: center;
 }
 
-
 h2 {
-  font-size: 45px;
+  font-size: 18px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  padding: 1%;
 }
 
 
@@ -154,11 +154,13 @@ p {
   color: rgba(38, 11, 9, 1); 
   border: 1px;
   line-height: 1.8;
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif;
 
 }
 
 span {
-  padding: 5px;
+  padding: 2px;
 }
 
 .noDeco{

@@ -39,4 +39,5 @@ table {
 html {
     scroll-behavior: smooth;
     background-color:rgba(242, 230, 223);
+    width: auto;
 }

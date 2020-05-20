@@ -9,10 +9,12 @@ import uYhomeLogo from '../Images/uYhomeLogo.png';
 class NavBar extends Component {
   render() {
     return (
-      <nav className= "navbar skin" role= "navigation">
-          <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/>
-          <MyTrips></MyTrips>          
+     <div className= "navContainer">
+         <nav className= "navbar skin" role= "navigation">
+          <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/> 
+          <MyTrips></MyTrips>     
       </nav>
+      </div>
     );
   }
 }

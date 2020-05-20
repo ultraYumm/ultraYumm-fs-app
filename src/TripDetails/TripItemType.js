@@ -5,7 +5,7 @@ import '../FormElements/FormElements.css';
 
 
 
-class TripPackGraph extends Component {
+class TripItemType extends Component {
 
   
   render() {
@@ -17,4 +17,4 @@ class TripPackGraph extends Component {
 }
   
 
-export default TripPackGraph
+export default TripItemType

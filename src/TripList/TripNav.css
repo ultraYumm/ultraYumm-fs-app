@@ -4,7 +4,6 @@
 }
 
 
-
 .trips {
     text-align: left;
     width: 900px;
@@ -31,7 +30,6 @@
   .trip {
     display: inline-block; 
     width: 10%; 
-    font-size: 40px;
     padding-left: 30px;
     vertical-align: middle;
     height: 50px;

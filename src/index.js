@@ -6,7 +6,8 @@ import './index.css';
 const TRIPS = [
   {"id": "e",
   "name":"Escalante",
-  "traveler_names": ["Jack", "Stef", "Marielle", "Emilie", "Ringo"], 
+  "traveler_names": ["Jack", "Stef", "Marielle", "Emilie", "Ringo"],
+  "iframe": "https://www.google.com/maps/embed?pb=!4v1589308620339!6m8!1m7!1sH9R4rDjmbhhsQVA2f0Dq8Q!2m2!1d36.03291467946964!2d-111.8531019810478!3f9.17!4f0!5f0.7820865974627469", 
   "trip_dates": 
   [
     {"2019-03-23T09:25:43.511Z": [
@@ -63,7 +64,8 @@ const TRIPS = [
 
 {"id": "t",
   "name":"Tende",
-  "traveler_names": ["Suzy", "Michael", "Jack", "Stef", "Ringo"], 
+  "traveler_names": ["Suzy", "Michael", "Jack", "Stef", "Ringo"],
+  "iframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6991.493885443003!2d83.8670621985494!3d28.81661413001174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be1420f935fa2f%3A0xb6f4363b17b0a97f!2sShree%20Muktinath%20Temple%2C%20Nepal!5e0!3m2!1sen!2sus!4v1589311708705!5m2!1sen!2sus" , 
   "trip_dates": [
     {"2021-03-23T09:25:43.511Z": [
       {"other": [

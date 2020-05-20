@@ -12,7 +12,7 @@ class HomePage extends Component {
     <div>
       <div className= "home">
         <img className= "uYtitle" src={uYtitle} alt= "ultraYumm logo"/>
-        <h1  className= "black montebello">Get more energy!<span>&nbsp;&nbsp;</span><span className= "lighter">pack lighter</span></h1> 
+        <h1  className= "black montebello title">Get more energy!<span>&nbsp;&nbsp;</span><span className= "lighter">pack lighter</span></h1> 
 
        </div>
       

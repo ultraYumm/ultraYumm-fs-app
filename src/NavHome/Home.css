@@ -1,16 +1,15 @@
-
+.navContainer {
+    width: 100%;
+    background-color:rgba(38, 11, 9, 1);  
+    transition: 0.3s;
+    height: 65px;
+    position: fixed;
+}
 
 .navbar {
-    height: 60px;
-    padding: 5px;
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: auto;
-    background-color:rgba(38, 11, 9, 1); 
-    transition: 0.3s;
+   transition: 0.3s;
+   z-index: 100;
+   position: fixed;
 }
   
 .navbar:hover, .navbar:active {
@@ -27,8 +26,7 @@
   
 .myTrips {
     top: 0;
-    margin-right: 20px;
-    right: 0;
+    padding-left: 270px;
     position: inherit;
     padding-top: 15px;
     font-weight: bolder;
@@ -38,12 +36,17 @@
     display: block;
     padding-top: 65px;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
-  
+
+/*need responsive*/
 .uYtitle {
     width:20%;
-    margin-bottom: -50px;
-   
+    margin-bottom: -20px;
+    padding-top: 0;
+}
+
+.title {
+    margin-bottom: -20px;
 }
   
