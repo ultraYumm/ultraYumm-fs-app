@@ -7,6 +7,8 @@ import NavBar from './NavHome/NavBar';
 import HomePage from './NavHome/HomePage';
 import TripNav from './TripList/TripNav';
 import TripFilterForm from './TripFilter/TripFilterForm';
+import AddCustomItemForm from './CustomItem/AddCustomItemForm';
+
 
 
 class App extends Component {
@@ -40,8 +42,11 @@ class App extends Component {
     for (let i = 0; i < items.length; i++) {
     if (items[i].id == selectedTripItemsId[i]) {
         tripItems.push(items[i]);
+      }
     }
-}
+
+    const itemTypes = this.props.itemTypes
+
     
 
     return (
@@ -53,14 +58,27 @@ class App extends Component {
        <HomePage></HomePage>
        
        <TripNav
-        trips= {trips}
+          trips= {trips}
         ></TripNav>
-        
+      
        <TripFilterForm
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
           tripItems = {tripItems}>
        </TripFilterForm>
+
+
+       <AddCustomItemForm
+          trips= {trips}
+          items= {items}
+          selectedTrip= {selectedTrip}
+          selectedTripItems= {selectedTripItems}
+          tripItems = {tripItems}
+          itemTypes = {itemTypes}
+          >
+       
+      </AddCustomItemForm>
+
 
       </div>
     

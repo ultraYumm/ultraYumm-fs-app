@@ -22,7 +22,7 @@ class AddTripForm extends Component {
         <form onSubmit={onSubmitForm}>
          <h2>Plan a trip!</h2>
             <p>
-                <label htmlFor= "new-trip-name"><span className= "labelWidth">New trip Name</span>
+                <label htmlFor= "new-trip-name"><span className= "labelWidth">New trip name</span>
                     <input type="text" name="newTripName" className="salmonBackground white search" id= "new-trip-name" placeholder="Escalante" required/>
                 </label>
             </p>
@@ -35,7 +35,7 @@ class AddTripForm extends Component {
             </p>
 
             <p>
-                 <label htmlFor= "traveler-name"><span className= "labelWidth">  Traveler Names</span>
+                 <label htmlFor= "traveler-name"><span className= "labelWidth">  Traveler names</span>
                  <input type="text" name="traveler-name" className= "mauveBackground white names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
                 </label>
             </p>

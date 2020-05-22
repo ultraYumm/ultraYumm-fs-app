@@ -40,6 +40,11 @@ const USERS = [
  },
 ]
 
+const ITEMTYPES = [
+  {"type": ["Breakfast", "Lunch", "Dinner", "Snack", "Other"]}
+  
+]
+
 
 const ITEMS= [
     {
@@ -195,5 +200,6 @@ ReactDOM.render(
   users = {USERS}
   items = {ITEMS}
   packItems = {PACKITEMS}
+  itemTypes = {ITEMTYPES}
   />
   </BrowserRouter>, document.getElementById('root'));
