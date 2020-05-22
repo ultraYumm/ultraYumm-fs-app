@@ -32,10 +32,7 @@ class App extends Component {
 
     const selectedTripItems = packItems.filter(items => items.tripId === selectedTripId)
 
-    console.log(selectedTripItems)
-
     const selectedTripItemsId = selectedTripItems.map((item)=> item.itemId)
-
 
     const items= this.props.items
     
@@ -45,7 +42,6 @@ class App extends Component {
         tripItems.push(items[i]);
     }
 }
-  console.log(tripItems); 
     
 
     return (

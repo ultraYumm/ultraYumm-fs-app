@@ -7,6 +7,7 @@ import TripDates from '../TripDetails/TripDates';
 import TripItemType from '../TripDetails/TripItemType';
 import TripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
+import TripName from '../TripDetails/TripName';
 
 import '../FormElements/FormElements.css';
 
@@ -27,33 +28,39 @@ class TripFilterForm extends Component {
     const tripItems = this.props.tripItems
 
     return (
-        <form id="filter" className= "filter" onSubmit={onSubmitForm}>
+      <div className= "filterForm">
+        <form id="filter" onSubmit={onSubmitForm}>
 
-         <h2 className= "montebello">Escalante</h2>
+         <h2 className= "montebello"><TripName
+          selectedTrip = {selectedTrip}
+          ></TripName></h2>
          
-          <FilterButton></FilterButton>
-          <ResetButton></ResetButton>
+            <div className= "filterButtonContainer" >
+            <FilterButton></FilterButton>
+            <ResetButton></ResetButton>
+            </div>
 
-          <div className= "filterContainer">
-            <TripDates
-             selectedTrip = {selectedTrip}
-            ></TripDates>
-            
-            <TripItemType
-            selectedTripItems= {selectedTripItems}        
-            >           
-            </TripItemType>
-            
-            <TripItems
-             tripItems = {tripItems}
-              ></TripItems>
-            
-            <TripTravelers
-             selectedTrip = {selectedTrip}       
-            ></TripTravelers>
-          </div>
+            <div className= "filterContainer">
+              <TripDates
+              selectedTrip = {selectedTrip}
+              ></TripDates>
+              
+              <TripItemType
+              selectedTripItems= {selectedTripItems}        
+              >           
+              </TripItemType>
+              
+              <TripItems
+              tripItems = {tripItems}
+                ></TripItems>
+              
+              <TripTravelers
+              selectedTrip = {selectedTrip}       
+              ></TripTravelers>
+            </div>
 
         </form>
+      </div>
         
    )}
   

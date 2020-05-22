@@ -61,8 +61,8 @@ input[type="text"]{
     width: 50%;
 }
   
-button[type="submit"]{
-   width: 23%;
+button[type="submit"], button[type="reset"]{
+   width: 30%;
 }
   
 button {
@@ -92,27 +92,62 @@ button:hover {
     display: inline-block;
 }
 
+
+.filterButtonContainer {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+
+}  
+
 .go, .filter, .reset {
+   display: inline-block
+}
+
+.filter, .reset {
+    width: 50%;
     text-align: center;
+    padding: 0;
+    font-size: 20px;
 }
 
 
+
+.goContainer {
+    text-align: center;
+    width: 100%;
+}
+
+
+.go {
+   margin-right: 0;
+   margin-left: 0;
+   display: inline-block
+}
+
+
+
 .scroll {
-    height: 180px;
+    height: 80px;
     overflow-x: hidden;
     overflow-y: auto;
     margin-right: 40px;
 }
 
-
+.filterForm {
+   text-align: center;
+   display: block;
+}
 
 .filterContainer {
-    /*width: 24%;*/
     height: auto;
     display: inline-block;
     background-color: white;
     border-radius: 3%;
     padding: 10px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
 }  
   
 .filterCategory {
@@ -126,7 +161,7 @@ button:hover {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 12px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

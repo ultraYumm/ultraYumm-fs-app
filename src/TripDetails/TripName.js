@@ -7,11 +7,13 @@ import '../FormElements/FormElements.css';
 
 class TripName extends Component {
 
-  
   render() {
-       
+  
+    const selectedTrip = this.props.selectedTrip
+    const tripName = selectedTrip[0].name
+  
     return (
-        <div></div>
+        <div>{tripName}</div>
    )}
   
 }
