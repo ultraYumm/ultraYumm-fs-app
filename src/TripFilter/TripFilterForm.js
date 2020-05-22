@@ -21,7 +21,10 @@ class TripFilterForm extends Component {
     const onSubmitForm = (e) => {
      
     }
-    
+
+    const selectedTrip = this.props.selectedTrip
+    const selectedTripItems = this.props.selectedTripItems
+    const tripItems = this.props.tripItems
 
     return (
         <form id="filter" className= "filter" onSubmit={onSubmitForm}>
@@ -30,11 +33,24 @@ class TripFilterForm extends Component {
          
           <FilterButton></FilterButton>
           <ResetButton></ResetButton>
-          <div>
-            <TripDates></TripDates>
-            <TripItemType></TripItemType>
-            <TripItems></TripItems>
-            <TripTravelers></TripTravelers>
+
+          <div className= "filterContainer">
+            <TripDates
+             selectedTrip = {selectedTrip}
+            ></TripDates>
+            
+            <TripItemType
+            selectedTripItems= {selectedTripItems}        
+            >           
+            </TripItemType>
+            
+            <TripItems
+             tripItems = {tripItems}
+              ></TripItems>
+            
+            <TripTravelers
+             selectedTrip = {selectedTrip}       
+            ></TripTravelers>
           </div>
 
         </form>

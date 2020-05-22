@@ -9,10 +9,34 @@ class TripItems extends Component {
 
   
   render() {
-       
-    return (
-        <div></div>
-   )}
+      
+    
+    const tripItems = this.props.tripItems
+
+    const tripItemNames = tripItems.map((items) => (items.food_name))
+    
+    const uniqueTypes = [... new Set(tripItemNames)]
+    
+
+   
+  
+  
+      return (
+        <div className= "filterSelection"> 
+        <h3 className = "filterCategory">Item name</h3>
+          <ul className= "scroll"> 
+          {uniqueTypes.map((name)=> (
+            <li key= {name}>
+          
+            <label className="labelContainer"> {name}
+                 <input type="checkbox"/>
+                 <span className="checkmark"></span>
+             </label>
+            </li>
+          ))}   
+          </ul>
+     </div>
+     )}
   
 }
   
