@@ -5,7 +5,7 @@ import FilterButton from '../FormElements/FilterButton';
 import ResetButton from '../FormElements/ResetButton';
 import TripDates from '../TripDetails/TripDates';
 import TripItemType from '../TripDetails/TripItemType';
-import TripItems from '../TripDetails/TripItems';
+import UniqueTripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripName from '../TripDetails/TripName';
 
@@ -41,19 +41,23 @@ class TripFilterForm extends Component {
             </div>
 
             <div className= "filterContainer">
+              <h3 className = "filterCategory">Dates</h3>
               <TripDates
               selectedTrip = {selectedTrip}
               ></TripDates>
               
+              <h3 className= "filterCategory">Type</h3>
               <TripItemType
               selectedTripItems= {selectedTripItems}        
               >           
               </TripItemType>
-              
-              <TripItems
+
+              <h3 className= "filterCategory">Item name</h3>
+              <UniqueTripItems
               tripItems = {tripItems}
-                ></TripItems>
+                ></UniqueTripItems>
               
+              <h3 className = "filterCategory">Tavelers</h3>
               <TripTravelers
               selectedTrip = {selectedTrip}       
               ></TripTravelers>

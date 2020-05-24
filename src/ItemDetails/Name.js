@@ -13,12 +13,11 @@ class UniqueTripItems extends Component {
     
     const tripItems = this.props.tripItems
     const tripItemNames = tripItems.map((items) => (items.food_name))
-    const uniqueNames = [...new Set(tripItemNames)]
- 
+    
       return (
         <div className= "filterSelection"> 
            <ul className= "scroll"> 
-           {uniqueNames.map((name)=> (
+           {tripItemNames.map((name)=> (
             <li key= {name}>
               <label className="labelContainer"> {name}
                  <input type="checkbox"/>

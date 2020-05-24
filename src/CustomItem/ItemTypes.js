@@ -13,11 +13,9 @@ class ItemTypes extends Component {
     
     const itemTypes = this.props.itemTypes
     const itemTypesArray = itemTypes[0].type
-    console.log(itemTypesArray)
  
       return (
         <div className= "filterSelection"> 
-        <h3 className= "filterCategory">Type</h3>
           <ul className= "scroll">
           {itemTypesArray.map((type)=> (
             <li key= {type}>
@@ -27,8 +25,7 @@ class ItemTypes extends Component {
                  <span className="checkmark"></span>
              </label>
             </li>
-          ))}   
-           
+          ))}        
           </ul>
      </div>
      )}

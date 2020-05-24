@@ -11,12 +11,13 @@ class TripItemType extends Component {
     render() {
       
       const selectedTripItems = this.props.selectedTripItems
+      
+
       const tripItemTypes = selectedTripItems.map((items) => (items.type))
       const uniqueTypes = [...new Set(tripItemTypes)]
       
       return (
           <div className= "filterSelection"> 
-          <h3 className= "filterCategory">Type</h3>
             <ul className= "scroll"> 
             {uniqueTypes.map((type)=> (
               <li key= {type}>
@@ -28,7 +29,7 @@ class TripItemType extends Component {
               </li>
             ))}   
             </ul>
-       </div>
+          </div>
        )}
     
 }

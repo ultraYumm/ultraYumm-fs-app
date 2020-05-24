@@ -15,7 +15,6 @@ class TripNames extends Component {
        
     return (
         <div className= "filterSelection"> 
-          <h3 className = "filterCategory">Trip</h3>
             <ul className= "scroll"> 
             {trips.map((trips, key)=> (
               <li key= {key}>

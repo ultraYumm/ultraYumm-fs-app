@@ -9,6 +9,8 @@ import TripNav from './TripList/TripNav';
 import TripFilterForm from './TripFilter/TripFilterForm';
 import AddCustomItemForm from './CustomItem/AddCustomItemForm';
 
+import Results from './Tables/Results';
+
 
 
 class App extends Component {
@@ -32,8 +34,9 @@ class App extends Component {
  
     const packItems = this.props.packItems
 
-    const selectedTripItems = packItems.filter(items => items.tripId === selectedTripId)
 
+    const selectedTripItems = packItems.filter(items => items.tripId === selectedTripId)
+    
     const selectedTripItemsId = selectedTripItems.map((item)=> item.itemId)
 
     const items= this.props.items
@@ -45,6 +48,7 @@ class App extends Component {
       }
     }
 
+    
     const itemTypes = this.props.itemTypes
 
     
@@ -64,7 +68,7 @@ class App extends Component {
        <TripFilterForm
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
-          tripItems = {tripItems}>
+          tripItems= {tripItems}>
        </TripFilterForm>
 
 
@@ -73,14 +77,23 @@ class App extends Component {
           items= {items}
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
-          tripItems = {tripItems}
-          itemTypes = {itemTypes}
+          tripItems= {tripItems}
+          itemTypes= {itemTypes}
           >
        
       </AddCustomItemForm>
 
+      <Results
+          selectedTrip= {selectedTrip}
+          selectedTripItems= {selectedTripItems}
+          tripItems= {tripItems}
+          itemTypes= {itemTypes}>
+          
+      ></Results>
 
       </div>
+      
+     
     
     );
   }

@@ -1,0 +1,130 @@
+
+table {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+   
+th {
+     font-size: 7px;
+     font-weight: bolder;
+     border: 1px solid  rgba(3, 52, 115); 
+     margin-left: auto;
+     margin-right: auto;
+     transition: 0.3s;
+}
+   
+th, td {
+     padding: 4px;
+     border: 4px;
+     text-align: left;
+     transition: 0.3s;
+}
+   
+td {
+     border-bottom: 1px solid rgba(242, 230, 223);
+     font-size: 7px;
+}
+   
+.servingH, .weightH, .unitH, .caloriesH{
+     width: 5%;
+} 
+   
+.calPserv:hover {
+     font-size: 14px;
+}
+   
+.brandH {
+     width: 10%;
+}
+   
+.imageH {
+     width: 10%;
+     color: rgba(3, 52, 115);
+     /*display: none;*/
+}
+   
+.itemH{
+     width: 10%;
+}
+   
+.tableImage {
+     width: 10px;
+    /*display: none;*/
+}
+   
+.quant, .gram, .cal {
+     font-size: 7px; 
+     font-weight: bold;
+     transition: 0.3s;
+}
+   
+.brandId {
+     font-size: 7px; 
+     font-weight: bold;
+     transition: 0.3s;
+}
+   
+.quant:hover, .quant:active {
+     font-size: 20px; 
+}
+   
+.calG:hover, .calG:active {
+     font-size: 22px; 
+     transition: 0.3s;
+}
+   
+.resultsButtons {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 4%;
+}
+   
+.tooltip {
+     position: relative;
+}
+   
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 10px;
+    color: rgba(49, 31, 115);
+    opacity: 80%;
+    text-align: bottom;
+    border-radius: 6px;
+    font-size: 7px;
+    padding-left: 2px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 40;
+}
+   
+.tooltip:hover .tooltiptext,  .tooltip:active .tooltiptext{
+    visibility: visible;
+}    
+
+
+.content {
+    padding-top: 200px;
+}
+
+
+
+.deleteH {
+    background-color: rgba(242, 76, 61, 1);     
+}
+
+.delete:hover {
+    background-color: rgba(242, 76, 61, 1); 
+    zoom:0.9;
+    text-align: center;
+}
+
+input.delete {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(242, 76, 61, 1); 
+}
+  
