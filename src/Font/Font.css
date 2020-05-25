@@ -5,15 +5,18 @@
   }
   
 .plumBackground { 
-  background-color: rgba(166, 88, 94, 1);  
-}
+  background-color: rgba(166, 88, 94, 1);
+  fill: rgba(166, 88, 94, 1);
+  
 
+}
 .mauve { 
   color: rgba(140, 108, 126, 1);
 }
 
 .mauveBackground { 
   background-color: rgba(140, 108, 126, 1);
+  fill: rgba(140, 108, 126, 1);
 }
 
 .red { 
@@ -33,46 +36,55 @@
 }
 
 .blackBackground { 
-  background-color: rgba(38, 11, 9, 1); 
+  background-color: rgba(38, 11, 9, 1);
+  fill: rgba(38, 11, 9, 1); 
+ 
 }
 
 .salmon { 
-color: rgba(242, 76, 61, 1); 
+  color: rgba(242, 76, 61, 1); 
 }
 
 .salmonBackground { 
-background-color: rgba(242, 76, 61, 1); 
+  background-color: rgba(242, 76, 61, 1);
+  fill: rgba(242, 76, 61, 1);
 }
 
 .white {
-color: white;
-}
-
-.skin {
-color: rgba(242, 230, 223);
-}
-
-.skinBackground {
-background-color: rgba(242, 230, 223);
+  color: white;
 }
 
 .whiteBackground {
-background-color: white}
+  background-color: white;
+  fill: white
+}
+
+.skin {
+  color: rgba(242, 230, 223);
+}
+
+.skinBackground {
+  background-color: rgba(242, 230, 223);
+  fill: rgba(242, 230, 223);
+}
+
 
 .blue {
-color: rgba(3, 52, 115);
+  color: rgba(3, 52, 115);
 }
 
 .blueBackground {
-background-color: rgba(3, 52, 115);
+  background-color: rgba(3, 52, 115);
+  fill: rgba(3, 52, 115);
 }
 
 .purple {
-color: rgba(49, 31, 115); 
+  color: rgba(49, 31, 115); 
 } 
 
 .purpleBackground {
-background-color: rgba(49, 31, 115);    
+  background-color: rgba(49, 31, 115);
+  fill: rgba(49, 31, 115);
 } 
 
 .green {
@@ -80,11 +92,13 @@ background-color: rgba(49, 31, 115);
 }
 
 .greenBackground {
-  background-color: rgba(99, 140, 69)
+  background-color: rgba(99, 140, 69);
+  fill: rgba(99, 140, 69);
 }
 
 .pinkBackground {
-background-color:rgba(242, 133, 173, 1);
+  background-color:rgba(242, 133, 173, 1);
+  fill:rgba(242, 133, 173, 1);
 }
 
 @import url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap');
@@ -161,10 +175,6 @@ p {
   font-size: 13px;
   font-family: 'Poppins', sans-serif;
 
-}
-
-span {
-  padding: 2px;
 }
 
 .noDeco{

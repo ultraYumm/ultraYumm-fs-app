@@ -9,11 +9,18 @@ class TripPackGraph extends Component {
 
   
   render() {
+
+
+    const weight= this.props.weight*20
+    const weightText = this.props.weight.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')    
+        
        
     return (
-      <svg className= "pack" width="400" height="200">
-      <text x="0" y="0" dy=".70em">Pack weight: 80 lbs.</text>
-      <rect x="50" y="20" rx="20" ry="20" width="120" height="150"/>
+      <svg width="100" height="130">
+       <g className= "bar skinBackground">
+       <rect className= "blackBackground" width={weight} height="120"  rx="15" ry="15"></rect>
+       <text className= "primaryFont" x="0" y="12" dy=".35em">{weightText}kg</text>
+     </g>
     </svg>
    )}
   

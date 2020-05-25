@@ -131,23 +131,23 @@ const PACKITEMS= [
     "tripId": "e",
     "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Jack",
-    "type": "Lunch",
+    "type": "Breakfast",
     "selected_serving_qty": 1
 },
 
 { "itemId":  "2",
     "tripId": "e",
-    "tripDay": "2019-03-24T09:25:43.511Z",
+    "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Stef",
-    "type": "Breakfast",
+    "type": "Lunch",
     "selected_serving_qty": 2
 },
 
 { "itemId":  "3",
     "tripId": "e",
-    "tripDay": "2019-03-23T09:25:43.511Z", 
+    "tripDay": "2019-03-24T09:25:43.511Z", 
     "travName": "Marielle",
-    "type": "Snack",
+    "type": "Dinner",
     "selected_serving_qty": 3
 }, 
 
@@ -163,7 +163,7 @@ const PACKITEMS= [
     "tripId": "t",
     "tripDay": "2019-03-26T09:25:43.511Z",  
     "travName": "Stef",
-    "type": "Dinner",
+    "type": "Breakfast",
     "selected_serving_qty": 5
 }, 
 

@@ -14,7 +14,7 @@ class AddCustomButton extends Component {
     
     return (
         <div 
-            className= "primaryFont white blackBackground moreButton">
+            className= "primaryFont white plumBackground moreButton">
             Add custom item
         </div>
     

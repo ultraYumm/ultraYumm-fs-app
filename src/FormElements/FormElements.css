@@ -153,6 +153,11 @@ button:hover {
 }
 
 
+.moreButton:hover {
+    font-weight: bolder;
+}
+
+
 
 .go {
    margin-right: 0;
@@ -268,7 +273,43 @@ button:hover {
 
 
 
-.pack {
+.charts {
+    padding: 10px;
     float: right;
     font-weight: bolder;
 }
+
+
+text {
+    text-align: center;
+    font-size: 25px;
+  
+}
+
+.bar {
+    height: 21px;
+    transition: fill .3s ease;
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+}
+.bar text {
+    color: black;
+}
+
+rect:hover,
+rect:focus,
+.bar:hover,
+.bar:focus {
+    fill: rgba(49, 31, 115);
+}
+
+.bar:hover text,
+.bar:focus text {
+    fill: white; 
+}
+
+svg {
+    float: right;
+    padding-right: 10px;
+}
+

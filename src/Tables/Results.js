@@ -16,6 +16,7 @@ import PrintButton from '../FormElements/PrintButton';
 import AddCustomButton from '../FormElements/AddCustomButton';
 import SearchMoreButton from '../FormElements/SearchMoreButton';
 import TripPackGraph from '../TripDetails/TripPackGraph';
+import TripCalorieGraph from '../TripDetails/TripCalorieGraph';
 
 
 
@@ -30,7 +31,7 @@ class Results extends Component {
     const selectedTripItems = this.props.selectedTripItems
 
     const tripItems = this.props.tripItems
-    console.log(tripItems)
+   
 
     const imageArray = tripItems.map((items) => items.image)
 
@@ -42,14 +43,14 @@ class Results extends Component {
 
     const fixedCalPerUnitArray = tripItems.map((items) => items.calPerServing)
 
-    console.log(fixedUnitArray)
+    const selectServingQuantArray = selectedTripItems.map((items) => items.selected_serving_qty).sort()
 
-    const servingWeightArray = tripItems.map((items) => items.serving_weight_grams)
+    const fixedServingWeightArray = tripItems.map((items) => items.serving_weight_grams)
 
        
-   const itemTypes = this.props.itemTypes  
+    const itemTypes = this.props.itemTypes.sort()  
 
-   const results = selectedTripItems.map((item,i) => {
+    const results = selectedTripItems.map((item,i) => {
     
            const name = nameArray[i]
 
@@ -61,7 +62,7 @@ class Results extends Component {
 
            const calPerServing = fixedCalPerUnitArray[i]
 
-           const weightPerServing = servingWeightArray[i]
+           const weightPerServing = fixedServingWeightArray[i]
 
            const resultsObject = {image, name, brand,fixedUnit,weightPerServing,calPerServing,...item}
         
@@ -69,9 +70,32 @@ class Results extends Component {
 
         })
 
+    const reducer = (accumulator, currentValue) => accumulator + currentValue
+
+    const sumCalsPerServing = fixedCalPerUnitArray.reduce(reducer)
+ 
+    const sumWeightsPerServing = fixedServingWeightArray.reduce(reducer)
+
+    const sumServings = selectServingQuantArray.reduce(reducer)
+
+    const totalCals = sumCalsPerServing * sumServings
+
+    const totalWeightKg = (sumWeightsPerServing * sumServings)/1000
+
+   
+
     return (
 
-      <form>      
+      <form>
+          <div className= "charts salmonBackground">
+          <TripCalorieGraph
+          cals = {totalCals}        
+          ></TripCalorieGraph>
+          <TripPackGraph
+          weight = {totalWeightKg}
+          ></TripPackGraph>
+         
+          </div>         
        <div>
            <h2 className= "montebello">
             <span className= "resultsTitle montebello">
@@ -84,7 +108,6 @@ class Results extends Component {
                 ></TripYear>
             </span>
            </h2>
-           <TripPackGraph></TripPackGraph>
        </div> 
         
        <div className= "filterButtonContainer" >
@@ -141,7 +164,7 @@ class Results extends Component {
               ></ItemTypes></div>        
             </td>
             
-            <td className= "traveler">            {item.travName}
+            <td className= "traveler">{item.travName}
             <div className= "tableScroll">   
             <TripTravelers
               selectedTrip = {selectedTrip}
