@@ -60,10 +60,17 @@ input[type="search"]{
   
 input[type="text"]{
     width: 50%;
+   
+}
+
+input[type="number"]{
+    width: 70%;
+    font-size: 12px;
+    text-align: center;
 }
   
 button[type="submit"], button[type="reset"]{
-   width: 30%;
+   width: 80%;
 }
   
 button {
@@ -101,14 +108,20 @@ button:hover {
 
 }  
 
-.go, .filter, .reset {
+.go, .filter, .reset, .moreButton {
    display: inline-block
 }
 
 .filter, .reset {
-    width: 50%;
+    width: 20%;
     text-align: center;
     padding: 0;
+    font-size: 20px;
+}
+
+
+.reset {
+    color: red; 
     font-size: 20px;
 }
 
@@ -116,8 +129,29 @@ button:hover {
 
 .goContainer {
     text-align: center;
-    width: 100%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+
+.moreContainer {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.moreButton {
+    display: inline-block;
+    font-size: 12px;
+    width: 20%;
+    margin:10px;
+    padding: 10px;
+}
+
 
 
 .go {
@@ -132,7 +166,7 @@ button:hover {
     height: 80px;
     overflow-x: hidden;
     overflow-y: auto;
-    margin-right: 40px;
+    /*margin-right: 40px;*/
 }
 
 .filterForm {
@@ -140,19 +174,29 @@ button:hover {
    display: block;
 }
 
+/*.filterSelection {
+  width: 45%;
+ 
+ display: inline-block
+}*/
+
+
+
 .filterContainer {
     height: auto;
-    display: inline-block;
     background-color: white;
     border-radius: 3%;
     padding: 10px;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-}  
+    width: 60%;
+}
   
 .filterCategory {
-    text-align: left
+    text-align: left;
+    display: inline-block;
+    width: 10%;
 }
 
 
@@ -162,7 +206,7 @@ button:hover {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -184,8 +228,8 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: #eee;
     border-radius: 50%;
 }
@@ -197,31 +241,34 @@ button:hover {
   
   /* When the radio button is checked, add a blue background */
 .labelContainer input:checked ~ .checkmark {
-background-color:  rgba(242, 76, 61, 1); 
+    background-color:  rgba(242, 76, 61, 1); 
 }
   
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
-content: "";
-position: absolute;
-display: none;
+    content: "";
+    position: absolute;
+    display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
 .labelContainer input:checked ~ .checkmark:after {
-display: block;
+    display: block;
 }
 
 /* Style the indicator (dot/circle) */
 .labelContainer .checkmark:after {
-top: 9px;
-left: 9px;
-width: 8px;
-height: 8px;
-border-radius: 50%;
-background: white;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }
 
-.spreadsheet {
-    width: 320px
+
+
+.pack {
+    float: right;
+    font-weight: bolder;
 }

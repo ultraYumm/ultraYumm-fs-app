@@ -56,22 +56,21 @@ class AddCustomItemForm extends Component {
                 trips = {trips}       
               ></TripNames> 
             
-            <h3 className = "filterCategory">Dates</h3>
+             <h3 className = "filterCategory">Dates</h3>
               <TripDates
               selectedTrip = {selectedTrip}
               ></TripDates>
               
-            <h3 className = "filterCategory">Type</h3>           
+              <h3 className = "filterCategory">Type</h3>           
               <ItemTypes
               itemTypes = {itemTypes}
               ></ItemTypes>
               
-             <h3 className = "filterCategory">Traveler</h3>                        
+              <h3 className = "filterCategory">Traveler</h3>                        
               <TripTravelers
               selectedTrip = {selectedTrip}       
-              ></TripTravelers>
-            </div>
-
+              ></TripTravelers></div>
+           
         </form>
       </div>
         

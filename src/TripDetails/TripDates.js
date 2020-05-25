@@ -19,7 +19,7 @@ class TripDates extends Component {
           {tripDates.map((date)=> (
             <li key= {date}>
           
-            <label className="labelContainer"> <Moment format= "MMM/DD">{date}</Moment>
+            <label className="labelContainer"><Moment format= "MMM/DD">{date}</Moment>
                  <input type="checkbox"/>
                  <span className="checkmark"></span>
              </label>

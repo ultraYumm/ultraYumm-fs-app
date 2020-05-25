@@ -8,6 +8,7 @@ import TripItemType from '../TripDetails/TripItemType';
 import UniqueTripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripName from '../TripDetails/TripName';
+import TripYear from '../TripDetails/TripYear';
 
 import '../FormElements/FormElements.css';
 
@@ -27,13 +28,21 @@ class TripFilterForm extends Component {
     const selectedTripItems = this.props.selectedTripItems
     const tripItems = this.props.tripItems
 
+
     return (
       <div className= "filterForm">
         <form id="filter" onSubmit={onSubmitForm}>
 
-         <h2 className= "montebello"><TripName
+         <h2 className= "montebello">
+           <TripName
           selectedTrip = {selectedTrip}
-          ></TripName></h2>
+          ></TripName>
+          <TripYear
+          selectedTrip = {selectedTrip}
+          ></TripYear>
+          
+          
+          </h2>
          
             <div className= "filterButtonContainer" >
             <FilterButton></FilterButton>
@@ -52,7 +61,7 @@ class TripFilterForm extends Component {
               >           
               </TripItemType>
 
-              <h3 className= "filterCategory">Item name</h3>
+              <h3 className= "filterCategory">Item</h3>
               <UniqueTripItems
               tripItems = {tripItems}
                 ></UniqueTripItems>

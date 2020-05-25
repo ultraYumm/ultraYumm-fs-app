@@ -7,7 +7,7 @@ table {
 }
    
 th {
-     font-size: 7px;
+     font-size: 9px;
      font-weight: bolder;
      border: 1px solid  rgba(3, 52, 115); 
      margin-left: auto;
@@ -24,7 +24,9 @@ th, td {
    
 td {
      border-bottom: 1px solid rgba(242, 230, 223);
-     font-size: 7px;
+     border-left: 1px solid white;
+     border-right: 1px solid white;
+     font-size: 10px;
 }
    
 .servingH, .weightH, .unitH, .caloriesH{
@@ -42,7 +44,6 @@ td {
 .imageH {
      width: 10%;
      color: rgba(3, 52, 115);
-     /*display: none;*/
 }
    
 .itemH{
@@ -50,19 +51,17 @@ td {
 }
    
 .tableImage {
-     width: 10px;
-    /*display: none;*/
+     width: 20px;   
 }
    
 .quant, .gram, .cal {
-     font-size: 7px; 
-     font-weight: bold;
+     font-size: 9px; 
+     /*font-weight: bold;*/
      transition: 0.3s;
 }
    
 .brandId {
      font-size: 7px; 
-     font-weight: bold;
      transition: 0.3s;
 }
    
@@ -104,11 +103,9 @@ td {
     visibility: visible;
 }    
 
-
 .content {
     padding-top: 200px;
 }
-
 
 
 .deleteH {
@@ -123,8 +120,18 @@ td {
 
 input.delete {
     text-align: center;
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     background-color: rgba(242, 76, 61, 1); 
 }
-  
+ 
+
+.tableScroll {
+     margin-left: -40px;
+ }
+
+.resultsTitle {
+     display: inline-block;
+     width: 20%;
+}
+ 

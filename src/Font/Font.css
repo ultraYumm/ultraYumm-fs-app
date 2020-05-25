@@ -83,6 +83,10 @@ background-color: rgba(49, 31, 115);
   background-color: rgba(99, 140, 69)
 }
 
+.pinkBackground {
+background-color:rgba(242, 133, 173, 1);
+}
+
 @import url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap');
 
 @font-face {
@@ -165,4 +169,8 @@ span {
 
 .noDeco{
   text-decoration: none;
-} 
+}
+
+.hidden {
+  display: none;
+}
