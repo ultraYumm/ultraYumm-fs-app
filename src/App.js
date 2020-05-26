@@ -12,6 +12,10 @@ import AddCustomItemForm from './CustomItem/AddCustomItemForm';
 import TripResults from './Tables/TripResults';
 
 
+import SearchResults from './Tables/SearchResults';
+
+
+
 
 class App extends Component {
 
@@ -78,15 +82,9 @@ class App extends Component {
        <NavBar></NavBar>
        
        <HomePage
-       searchTerm={this.state.searchTerm}
-
-       searchResults= {this.state.searchResults}
-
        handleUpdate={(searchTerm)=>this.updateSearchTerm(searchTerm)}
 
-       handleResults={(searchResults)=>this.updateSearchResults(searchResults)}
-       
-       
+       handleResults={(searchResults)=>this.updateSearchResults(searchResults)} 
        >
        
        
@@ -119,8 +117,14 @@ class App extends Component {
           selectedTripItems= {selectedTripItems}
           tripItems= {tripItems}
           itemTypes= {itemTypes}>
-          
       ></TripResults>
+
+
+      <SearchResults
+         common= {this.state.searchResults.common}
+         branded= {this.state.searchResults.branded}
+         >
+      </SearchResults>
 
       </div>
       

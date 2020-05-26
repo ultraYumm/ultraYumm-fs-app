@@ -15,8 +15,6 @@ class NewItemBrand extends Component {
         <label htmlFor= "custom-brand-name"><span className= "labelWidth">Brand</span>
         <input type="text" name="customBrandName" className="salmonBackground white search" id= "custom-brand-name" placeholder="Trader Go" required/>
         </label>
-     
-           
         
    )}
   

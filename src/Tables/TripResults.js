@@ -46,7 +46,7 @@ class TripResults extends Component {
     const fixedServingWeightArray = tripItems.map((items) => items.serving_weight_grams)
 
        
-    const itemTypes = this.props.itemTypes.sort()  
+    const itemTypes = this.props.itemTypes
 
     const results = selectedTripItems.map((item,i) => {
     

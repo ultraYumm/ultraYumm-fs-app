@@ -24,8 +24,7 @@ class HomePage extends Component {
        </div>
       
       <SearchForm
-      
-      
+        
       handleUpdate={this.props.handleUpdate}
       
       handleResults={this.props.handleResults}

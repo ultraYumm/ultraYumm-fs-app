@@ -15,103 +15,43 @@ import SearchMoreButton from '../FormElements/SearchMoreButton';
 import TripPackGraph from '../TripDetails/TripPackGraph';
 import TripCalorieGraph from '../TripDetails/TripCalorieGraph';
 import Quant from '../CustomItem/Quant';
-
-
-
 import './Tables.css';
 
 
 class SearchResults extends Component {
+
+  
+
 
     render() {
 
     const common = this.props.common
     const branded = this.props.branded
 
+
+    console.log(common)
     console.log(branded)
 
-    const selectedTrip = this.props.selectedTrip
-    const selectedTripItems = this.props.selectedTripItems
 
-    const tripItems = this.props.tripItems
-   
+    //console.log(common[0][food_name])
 
-    const imageArray = tripItems.map((items) => items.image)
+    /*const nameAr = () => {
+      common.map(item=> (item[food_name]))
+    }*/
 
-    const nameArray = tripItems.map((items) => items.food_name)
+    //console.log(nameAr)
 
-    const brandArray = tripItems.map((items) => items.brand)
 
-    const fixedUnitArray = tripItems.map((items) => items.serving_unit)
 
-    const fixedCalPerUnitArray = tripItems.map((items) => items.calPerServing)
-
-    const selectServingQuantArray = selectedTripItems.map((items) => items.selected_serving_qty).sort()
-
-    const fixedServingWeightArray = tripItems.map((items) => items.serving_weight_grams)
-
-       
-    const itemTypes = this.props.itemTypes.sort()  
-
-    const results = selectedTripItems.map((item,i) => {
     
-           const name = nameArray[i]
-
-           const image = imageArray[i]
-
-           const brand = brandArray[i]
-
-           const fixedUnit = fixedUnitArray[i]
-
-           const calPerServing = fixedCalPerUnitArray[i]
-
-           const weightPerServing = fixedServingWeightArray[i]
-
-           const resultsObject = {image, name, brand,fixedUnit,weightPerServing,calPerServing,...item}
-        
-           return resultsObject
-
-        })
-
-    const reducer = (accumulator, currentValue) => accumulator + currentValue
-
-    const sumCalsPerServing = fixedCalPerUnitArray.reduce(reducer)
- 
-    const sumWeightsPerServing = fixedServingWeightArray.reduce(reducer)
-
-    const sumServings = selectServingQuantArray.reduce(reducer)
-
-    const totalCals = sumCalsPerServing * sumServings
-
-    const totalWeightKg = (sumWeightsPerServing * sumServings)/1000
-
-    console.log(results)
-
-   
 
     return (
+    <div></div>
 
-      <form>
-          <div className= "charts salmonBackground">
-          <TripCalorieGraph
-          cals = {totalCals}        
-          ></TripCalorieGraph>
-          <TripPackGraph
-          weight = {totalWeightKg}
-          ></TripPackGraph>
+      /*<form>
          
-          </div>         
        <div>
-           <h2 className= "montebello">
-            <span className= "resultsTitle montebello">
-                <TripName
-                selectedTrip = {selectedTrip}
-                ></TripName></span>
-            <span className= "resultsTitle"> 
-                <TripYear
-                selectedTrip = {selectedTrip}
-                ></TripYear>
-            </span>
+           <h2 className= "montebello resultsTitle"> See your highest energy results!
            </h2>
        </div> 
         
@@ -131,72 +71,43 @@ class SearchResults extends Component {
             <tbody>             
                   
             <tr className= "blueBackground white">
-              <th className= "imageH hidden"></th>
-              <th className= "date">Date (ajdust)
-              </th>
-              <th className= "type">Type (adjust)
-              </th>
-              <th className= "traveler">Traveler (adjust)</th>
+              <th className= "imageH"></th>
               <th className= "itemH">Item</th>
               <th className= "brandH hidden">Brand</th>
-              <th className= "servingH">Serving Quantity (adjust)</th>
+              <th className= "servingH">Serving Quantity</th>
               <th className= "unitH">Unit</th>
               <th className= "weightH tooltip gram">Weight (grams)</th>
               <th className= "caloriesH cal calS">Calories</th>
-              <th className= "deleteH">Delete</th>
-             </tr>
+              <th class= "caloriesH">Calories per 100g</th>
+              <th class= "addH">Add to pack</th>
+            </tr>
 
-            {results.map((item, key)=> (
+            {common.map((item, key)=> (
 
             <tr className= "one whiteBackground black" key= {item.itemId}>
               
-            <td className= "imageH hidden"><img className= "tableImage" src={item.image} alt= "Item"/> </td>
-            
-            
-      
-            <td className= "date">
-            <Moment format= "ddd-MMM-DD">
-            {item.tripDay}</Moment>
-            <div className= "tableScroll">         <TripDates
-              selectedTrip = {selectedTrip}
-              ></TripDates></div>
-            </td>
-
-            <td className= "type">
-            {item.type}
-            <div className= "tableScroll">         
-            <ItemTypes
-             itemTypes = {itemTypes}    
-              ></ItemTypes></div>        
-            </td>
-            
-            <td className= "traveler">{item.travName}
-            <div className= "tableScroll">   
-            <TripTravelers
-              selectedTrip = {selectedTrip}
-              ></TripTravelers></div>
-            </td>
-            
+            <td className= "imageH"><img className= "tableImage" src={item.image} alt= "Item"/> </td>
+                                  
             <td className= "itemH">
-            {item.name}
+            {item.food_name}
              </td>
           
-            <td className= "brandId hidden">
+            <td className= "brandId">
             {item.brand}
             </td>
 
             <td className= "servingH">
-                {item.selected_serving_qty}
+                {item.serving_qty}
                 <Quant></Quant></td>
               
 
-            <td className= "unitH"> {item.fixedUnit}
+            <td className= "unitH"> {item.serving_unit}
                 </td>                
                 
-            <td className= "weightH">{item.selected_serving_qty*item.weightPerServing    
+            <td className= "weightH">{item.serving_weight_grams
             }</td>
     
-            <td className="caloriesH tooltip cal calS">{(item.selected_serving_qty*item.calPerServing).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')    
+            <td className="caloriesH tooltip cal calS">{(item.alPerServing).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')    
             }</td>
 
             <td className ="delete">  <input type="checkbox" className = "delete"/>
@@ -208,7 +119,7 @@ class SearchResults extends Component {
           </tbody>
         </table>
         
-    </form>
+    </form>*/
 
          
    )}
