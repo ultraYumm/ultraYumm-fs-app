@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
-import config from '../config'
-import GoButton from '../FormElements/GoButton';
 
 import TripName from '../TripDetails/TripName';
 import TripDates from '../TripDetails/TripDates';
-import TripItems from '../TripDetails/TripItems';
 import ItemTypes from '../CustomItem/ItemTypes';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripYear from '../TripDetails/TripYear';
@@ -17,15 +14,21 @@ import AddCustomButton from '../FormElements/AddCustomButton';
 import SearchMoreButton from '../FormElements/SearchMoreButton';
 import TripPackGraph from '../TripDetails/TripPackGraph';
 import TripCalorieGraph from '../TripDetails/TripCalorieGraph';
+import Quant from '../CustomItem/Quant';
 
 
 
 import './Tables.css';
 
 
-class Results extends Component {
+class SearchResults extends Component {
 
     render() {
+
+    const common = this.props.common
+    const branded = this.props.branded
+
+    console.log(branded)
 
     const selectedTrip = this.props.selectedTrip
     const selectedTripItems = this.props.selectedTripItems
@@ -82,6 +85,8 @@ class Results extends Component {
 
     const totalWeightKg = (sumWeightsPerServing * sumServings)/1000
 
+    console.log(results)
+
    
 
     return (
@@ -117,12 +122,13 @@ class Results extends Component {
              </div>
     
         <div className= "filterButtonContainer moreContainer">   
-                <AddCustomButton></AddCustomButton>    
+               <AddCustomButton></AddCustomButton>    
                <SearchMoreButton></SearchMoreButton>
         </div>   
            
 
-          <table id= "results-filtered" className= "primaryFont">              
+          <table id= "results-filtered" className= "primaryFont"> 
+            <tbody>             
                   
             <tr className= "blueBackground white">
               <th className= "imageH hidden"></th>
@@ -140,11 +146,11 @@ class Results extends Component {
               <th className= "deleteH">Delete</th>
              </tr>
 
-            {results.map((item)=> (
+            {results.map((item, key)=> (
 
-            <tr className= "one whiteBackground black" key= {item}>
+            <tr className= "one whiteBackground black" key= {item.itemId}>
               
-            <td className= "imageH hidden"><img className= "tableImage" src={item.image} alt= "Item image"/> </td>
+            <td className= "imageH hidden"><img className= "tableImage" src={item.image} alt= "Item"/> </td>
             
             
       
@@ -181,7 +187,7 @@ class Results extends Component {
 
             <td className= "servingH">
                 {item.selected_serving_qty}
-                <input type="number" className = "adjust" min="0" step="0.1"/></td>
+                <Quant></Quant></td>
               
 
             <td className= "unitH"> {item.fixedUnit}
@@ -199,7 +205,7 @@ class Results extends Component {
           </tr>
             ))} 
 
-          
+          </tbody>
         </table>
         
     </form>
@@ -212,4 +218,4 @@ class Results extends Component {
 
 
 
-export default Results
+export default SearchResults

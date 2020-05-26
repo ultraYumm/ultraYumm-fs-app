@@ -8,6 +8,13 @@ import AddTripForm from '../AddTrip/AddTripForm';
 
 class HomePage extends Component {
   render() {
+
+    const handleResults = this.props.handleResults
+
+    console.log(handleResults)
+
+
+
     return (
     <div>
       <div className= "home">
@@ -16,7 +23,13 @@ class HomePage extends Component {
 
        </div>
       
-      <SearchForm></SearchForm>
+      <SearchForm
+      
+      
+      handleUpdate={this.props.handleUpdate}
+      
+      handleResults={this.props.handleResults}
+      ></SearchForm>
             
       <AddTripForm></AddTripForm>
    </div>

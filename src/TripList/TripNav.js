@@ -3,10 +3,6 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
 
-import TripImages from './TripImages';
-
-
-
 
 class TripNav extends Component {
 

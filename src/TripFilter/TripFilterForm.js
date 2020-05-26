@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
-import config from '../config'
 import FilterButton from '../FormElements/FilterButton';
 import ResetButton from '../FormElements/ResetButton';
 import TripDates from '../TripDetails/TripDates';

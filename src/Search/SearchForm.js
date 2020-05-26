@@ -4,6 +4,7 @@ import '../Font/Font.css';
 import config from '../config'
 import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
+import SearchResults from '../Tables/SearchResults';
 
 
 
@@ -12,13 +13,18 @@ class SearchForm extends Component {
   
   render() {
 
-    
+        
     const onSubmitForm = (e) => {
       e.preventDefault()
-      let searchTerm = e.target.searchTerm.value
+
+    let searchTerm = e.target.searchTerm.value
+
+
+
+    this.props.handleUpdate(searchTerm)
+    
     console.log(searchTerm)
-
-
+    
     const apId = config.APID
     
     const apiKey = config.API_KEY
@@ -35,10 +41,12 @@ class SearchForm extends Component {
       return queryItems.join('&')
     }
     
-    function displayResults(responseJson) {
-      console.log(responseJson.common)
-      console.log(responseJson.branded)           
-        }
+     const displayResults = (responseJson) => {
+      let searchResults = responseJson
+      return this.props.handleResults(searchResults)
+      
+    }
+
     
     function getResults(query) {
       
@@ -72,10 +80,10 @@ class SearchForm extends Component {
     }
     console.log(getResults(searchTerm))
   }
-    
 
-   
+     
     return (
+      <div>
         <form onSubmit={onSubmitForm}>
 
          <h2>Quick search!</h2>
@@ -85,11 +93,13 @@ class SearchForm extends Component {
                 type='search'
                 placeholder='Granola'
                 required
-                id= "searchTerm"
+                id= 'searchTerm'
 
               />
           <GoButton></GoButton>
         </form>
+
+        </div>
         
    )}
   

@@ -9,15 +9,34 @@ import TripNav from './TripList/TripNav';
 import TripFilterForm from './TripFilter/TripFilterForm';
 import AddCustomItemForm from './CustomItem/AddCustomItemForm';
 
-import Results from './Tables/Results';
+import TripResults from './Tables/TripResults';
 
 
 
 class App extends Component {
 
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: '',
+      searchResults: {}
+    };
+  }
 
-  renderNavRoutes() {
+  updateSearchTerm = (searchTerm) => {
+    this.setState({
+      searchTerm: searchTerm,
+    })
+  }
+
+ 
+  updateSearchResults = (searchResults) => {
+    this.setState({
+      searchResults: searchResults
+    })
+  }
+
+  renderNavRoutes = () => {
     return (
         <>
         <Route path="/my-trips" component={TripNav} />
@@ -33,7 +52,6 @@ class App extends Component {
     const selectedTrip = trips.filter(trip => trip.id === selectedTripId);
  
     const packItems = this.props.packItems
-
 
     const selectedTripItems = packItems.filter(items => items.tripId === selectedTripId)
     
@@ -59,7 +77,20 @@ class App extends Component {
        
        <NavBar></NavBar>
        
-       <HomePage></HomePage>
+       <HomePage
+       searchTerm={this.state.searchTerm}
+
+       searchResults= {this.state.searchResults}
+
+       handleUpdate={(searchTerm)=>this.updateSearchTerm(searchTerm)}
+
+       handleResults={(searchResults)=>this.updateSearchResults(searchResults)}
+       
+       
+       >
+       
+       
+       </HomePage>
        
        <TripNav
           trips= {trips}
@@ -83,13 +114,13 @@ class App extends Component {
        
       </AddCustomItemForm>
 
-      <Results
+      <TripResults
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
           tripItems= {tripItems}
           itemTypes= {itemTypes}>
           
-      ></Results>
+      ></TripResults>
 
       </div>
       

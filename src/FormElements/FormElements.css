@@ -271,8 +271,6 @@ button:hover {
     background: white;
 }
 
-
-
 .charts {
     padding: 10px;
     float: right;
@@ -312,4 +310,43 @@ svg {
     float: right;
     padding-right: 10px;
 }
+
+
+.inputBox, .resultBox{
+    margin-left: auto;
+    width: 20%;
+    display: inline-block;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
+.dataInput, .dataResult {
+    width: 60%;
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+
+.textInput {
+    width: 100%;
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+
+
+.calcBox {
+    width: 100%;
+
+}
+
+.inputsContainer, .resultsContainer {
+    width: 100%;
+
+}
+
+
 
