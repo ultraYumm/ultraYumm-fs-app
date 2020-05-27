@@ -123,6 +123,8 @@ class App extends Component {
       <SearchResults
          common= {this.state.searchResults.common}
          branded= {this.state.searchResults.branded}
+         trips = {trips}
+
          >
       </SearchResults>
 

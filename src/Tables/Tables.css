@@ -51,19 +51,20 @@ td {
 }
    
 .tableImage {
-     width: 20px;   
+     width: 50px;   
+}
+
+   
+.tableImage:hover {
+     width: 200px;   
 }
    
-.quant, .gram, .cal {
+.quant, .gram, .cal, .brandId {
      font-size: 9px; 
      /*font-weight: bold;*/
      transition: 0.3s;
 }
-   
-.brandId {
-     font-size: 7px; 
-     transition: 0.3s;
-}
+
    
 .quant:hover, .quant:active {
      font-size: 20px; 
