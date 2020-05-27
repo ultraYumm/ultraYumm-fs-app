@@ -30,7 +30,7 @@ class AddCustomItemForm extends Component {
     const itemTypes = this.props.itemTypes
 
     const totalWeight = 20
-    const totaCal = 20
+    const totalCal = 200
     
     return (
       <div className= "filterForm">
@@ -82,7 +82,7 @@ class AddCustomItemForm extends Component {
 
                 <div className = "resultBox">
                 <label htmlFor= "custom-item-total-cal" className= "labelWidth">Total Calories</label>
-                <p className= "dataResult blackBackground white">{totaCal}</p>
+                <p className= "dataResult blackBackground white">{totalCal}</p>
                 </div>
 
               </div>

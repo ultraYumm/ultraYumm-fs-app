@@ -67,6 +67,8 @@ input[type="number"]{
     width: 70%;
     font-size: 12px;
     text-align: center;
+    background-color: rgba(166, 88, 94, 1);
+    color: white;
 }
   
 button[type="submit"], button[type="reset"]{
@@ -326,6 +328,7 @@ svg {
     display: inline-block;
     padding-left: 20px;
     margin-left: 20px;
+    border-radius: 10%;
 }
 
 

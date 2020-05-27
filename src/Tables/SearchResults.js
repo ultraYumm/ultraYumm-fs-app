@@ -18,24 +18,25 @@ class SearchResults extends Component {
     branded: [],
   };
   render() {
+
     
     const common = this.props.common;
     const branded = this.props.branded;
 
     const trips = this.props.trips
 
+    function compare(a, b){
+      if (a < b){return -1;}
+      if (a > b){return 1;}
+      if (a === b){return 0;}
+    }
+
     
     Array.prototype.push.apply(common, branded);
 
-    const calPer100 = (calPerServing, servingWeightg) => {
-      if(!servingWeightg){
-        var result = Math.round(calPerServing)}
-      else {
-        var result = Math.round((calPerServing / servingWeightg) * 100)
-      }
-      ;
-      return result;
-    };
+    
+
+  
 
 
     const commonNutrients = () => {
@@ -60,18 +61,28 @@ class SearchResults extends Component {
       
       for (let i = 0; i < common.length; i++){
         common[i].full_nutrients = calorieArray[i]
+        common[i].calPhG = 
+        (!common[i].serving_weight_grams ? 
+          Math.round(common[i].full_nutrients[0].value) : 
+          Math.round((common[i].full_nutrients[0].value/common[i].serving_weight_grams*100))
+        
+        )
       }
       return common
     }
 
     const newBrandCommonArr = (removeNoCalNutrients())  
     console.log(newBrandCommonArr)
-    
+
+    newBrandCommonArr.sort((b, a) => parseFloat(a.calPhG) - parseFloat(b.calPhG));
+
+
+      
 
     return (
       <form>
         <div>
-          <h2 className="montebello resultsTitle">
+          <h2 className="montebello searchResultsTitle">
             {" "}
             See your highest energy results!
           </h2>
@@ -88,7 +99,7 @@ class SearchResults extends Component {
           <SearchMoreButton></SearchMoreButton>
         </div>
 
-        <table id="results-filtered" className="primaryFont">
+        <table id= "search-results" className="primaryFont">
           <tbody>
             <tr className="blueBackground white">
               <th className="imageH"></th>
@@ -99,7 +110,7 @@ class SearchResults extends Component {
               <th className="weightH tooltip gram">Weight (grams)</th>
               <th className="caloriesH cal calS">Calories</th>
               <th class="caloriesH">Calories per 100g</th>
-              <th class="addH">Add to pack</th>
+              <th class="addH itemH">Add to pack</th>
             </tr>
 
             {newBrandCommonArr.map((item, key) => (
@@ -126,20 +137,19 @@ class SearchResults extends Component {
                 <td className="weightH tooltip gram">
                   {Math.round(item.serving_weight_grams)}
                   <span className="tooltiptext">grams</span>
+                  <p className= "dataResult blackBackground white">100</p>
                 </td>
 
                 <td className="caloriesH tooltip cal calS">  {Math.round(item.full_nutrients[0].value)}
                 <span class="tooltiptext">cal per serving</span>
+                <p className= "dataResult blackBackground white">100</p>
                 </td>
 
                 <td className="caloriesH tooltip calG">
-                  {calPer100(
-                    item.full_nutrients[0].value,
-                    item.serving_weight_grams
-                  )}
+                  {item.calPhG}
                 </td>
 
-                <td className= "add"><TripNames
+                <td className= "add itemH"><TripNames
                 trips = {trips}     
                 
                 ></TripNames>

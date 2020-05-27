@@ -189,10 +189,13 @@ class TripResults extends Component {
                 </td>                
                 
             <td className= "weightH">{item.selected_serving_qty*item.weightPerServing    
-            }</td>
+            } <p className= "dataResult blackBackground white">10</p>
+            
+            </td>
     
             <td className="caloriesH tooltip cal calS">{(item.selected_serving_qty*item.calPerServing).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')    
-            }</td>
+            } <p className= "dataResult blackBackground white">100</p>
+            </td>
 
             <td className ="delete">  <input type="checkbox" className = "delete"/>
                 </td>
