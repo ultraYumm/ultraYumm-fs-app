@@ -22,9 +22,11 @@
     "react-spreadsheet": "^0.4.46",
     "react-spreadsheet-grid": "^2.0.0",
     "react-table": "^7.1.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "node-pre-gyp": "0.6.x"
   },
   "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
     "start": "react-scripts start",
     "prebuild": "react-scripts test",
     "build": "react-scripts build",
@@ -53,6 +55,17 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "file-loader": "^6.0.0",
-    "react-test-renderer": "^16.13.1"
-  }
+    "react-test-renderer": "^16.13.1",
+    "aws-sdk": "2.x"
+  },
+
+  "bundledDependencies":["node-pre-gyp"],
+
+  "binary": {
+    "module_name": "your_module",
+    "module_path": "./lib/binding/",
+    "host": "https://your_module.s3-us-west-1.amazonaws.com"
 }
+
+}
+
