@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Home.css';
 import '../Font/Font.css';
-
+import { NavLink} from 'react-router-dom'
 import MyTrips from './MyTrips';
 import uYhomeLogo from '../Images/uYhomeLogo.png';
+
 
 
 class NavBar extends Component {
@@ -11,9 +12,15 @@ class NavBar extends Component {
     return (
      <div className= "navContainer">
          <nav className= "navbar skin" role= "navigation">
-          <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/> 
-          <MyTrips></MyTrips>     
+         <NavLink
+         to={`/`}>
+          <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/>
+          </NavLink> 
+      
       </nav>
+      
+      
+      <MyTrips></MyTrips>   
       </div>
     );
   }

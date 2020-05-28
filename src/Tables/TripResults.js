@@ -11,11 +11,12 @@ import SaveButton from '../FormElements/SaveButton';
 import ResetButton from '../FormElements/ResetButton';
 import PrintButton from '../FormElements/PrintButton';
 import AddCustomButton from '../FormElements/AddCustomButton';
+import GoToFiltersButton from '../FormElements/GoToFiltersButton';
 import SearchMoreButton from '../FormElements/SearchMoreButton';
 import TripPackGraph from '../TripDetails/TripPackGraph';
 import TripCalorieGraph from '../TripDetails/TripCalorieGraph';
 import Quant from '../CustomItem/Quant';
-
+import { NavLink} from 'react-router-dom'
 
 
 import './Tables.css';
@@ -26,6 +27,9 @@ class TripResults extends Component {
     render() {
 
     const selectedTrip = this.props.selectedTrip
+
+    console.log(selectedTrip)
+
     const selectedTripItems = this.props.selectedTripItems
 
     const tripItems = this.props.tripItems
@@ -82,12 +86,14 @@ class TripResults extends Component {
 
 
 
+
+
    
 
     return (
 
       <form>
-          <div className= "charts salmonBackground">
+          <div className= "charts mauveBackground">
           <TripCalorieGraph
           cals = {totalCals}        
           ></TripCalorieGraph>
@@ -117,8 +123,21 @@ class TripResults extends Component {
              </div>
     
         <div className= "filterButtonContainer moreContainer">   
-               <AddCustomButton></AddCustomButton>    
-               <SearchMoreButton></SearchMoreButton>
+               
+             <NavLink to={`/trip-filter/${selectedTrip[0].name}`}>
+               <GoToFiltersButton/>
+             </NavLink>
+
+             <NavLink to={`/add-custom/${selectedTrip[0].name}`}>       
+               <AddCustomButton/>
+              </NavLink>            
+             
+             <NavLink to={`/`}>     
+              <SearchMoreButton/>
+              </NavLink>
+
+       
+       
         </div>   
            
 

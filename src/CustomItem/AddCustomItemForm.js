@@ -10,6 +10,7 @@ import NewItemName from './NewItemName';
 import NewItemBrand from './NewItemBrand';
 import Quant from './Quant';
 import Text from './Text';
+import { NavLink} from 'react-router-dom'
 
 import '../FormElements/FormElements.css';
 import '../Font/Font.css';
@@ -39,7 +40,9 @@ class AddCustomItemForm extends Component {
          <h2 className= "montebello">Custom Item</h2>
          
           <div className= "filterButtonContainer" >
-          <SaveButton></SaveButton>
+          <NavLink to={`/trip/${selectedTrip[0].name}`}>
+          <SaveButton/>
+          </NavLink>
           <ResetButton></ResetButton>
           </div>
         

@@ -1,3 +1,4 @@
+
 .navContainer {
     width: 100%;
     background-color:rgba(38, 11, 9, 1);  
@@ -26,7 +27,8 @@
   
 .myTrips {
     top: 0;
-    padding-left: 270px;
+    right: 0; 
+    padding-right: 10px;
     position: inherit;
     padding-top: 15px;
     font-weight: bolder;
@@ -49,4 +51,4 @@
 .title {
     margin-bottom: -20px;
 }
-  
+

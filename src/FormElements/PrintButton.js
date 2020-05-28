@@ -10,11 +10,12 @@ class PrintButton extends Component {
 
   
   render() {
-
+    const print = () => window.print()
     
     return (
       <div className= "filter">
           <button 
+            onClick = {print}
             className= "black montebello skinBackground filter"
             type = "submit">Print
           </button>

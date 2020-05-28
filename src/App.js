@@ -78,29 +78,44 @@ class App extends Component {
     return (
 
       <div className="App">
-       
-       <NavBar></NavBar>
-       
-       <HomePage
-       handleUpdate={(searchTerm)=>this.updateSearchTerm(searchTerm)}
 
-       handleResults={(searchResults)=>this.updateSearchResults(searchResults)} 
-       >
+      <Route
+      exact path='/'
+      component= {NavBar}
+     />
+  
+
+      <Route
+        exact path='/'
+        render = { () =>
+        <HomePage
+        handleUpdate={(searchTerm)=>this.updateSearchTerm(searchTerm)}
+        handleResults={(searchResults)=>this.updateSearchResults(searchResults)} 
+        />}
+        />
        
-       
-       </HomePage>
-       
+       <Route
+        path = '/my-trips'
+        render = {() =>
        <TripNav
           trips= {trips}
-        ></TripNav>
-      
+        />
+        }/>
+
+      <Route
+        path='/trip-filter/:tripId'
+        render = { () =>
        <TripFilterForm
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
           tripItems= {tripItems}>
        </TripFilterForm>
+       }
+       />
 
-
+        <Route
+        path='/add-custom/:tripId'
+        render = { () =>
        <AddCustomItemForm
           trips= {trips}
           items= {items}
@@ -109,30 +124,37 @@ class App extends Component {
           tripItems= {tripItems}
           itemTypes= {itemTypes}
           >
-       
       </AddCustomItemForm>
+        }
+        />
+
+      <Route
+        path='/trip/:tripId'
+        render = { () =>
 
       <TripResults
           selectedTrip= {selectedTrip}
           selectedTripItems= {selectedTripItems}
           tripItems= {tripItems}
           itemTypes= {itemTypes}>
-      ></TripResults>
+      </TripResults>}
+      />
 
-
-      <SearchResults
-         common= {this.state.searchResults.common}
-         branded= {this.state.searchResults.branded}
-         trips = {trips}
-
-         >
-      </SearchResults>
-
-      </div>
-      
-     
+          <SearchResults
+            common= {this.state.searchResults.common}
+            branded= {this.state.searchResults.branded}
+            trips = {trips}>
+          </SearchResults>
+      </div>   
     
     );
   }
 }
 export default App;
+/*
+<Route
+           path='/search-results'
+           render={() =>
+      
+           }
+           />*/

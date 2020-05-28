@@ -120,6 +120,10 @@ td {
     text-align: center;
 }
 
+td.delete {
+     text-align: center;    
+}
+
 input.delete {
     text-align: center;
     width: 20px;
@@ -145,7 +149,8 @@ input.delete {
 .addH {
      background-color:rgba(49, 31, 115)
      
-   }
+}
+
 .add:hover {
      background-color: lightpink;
      zoom:0.9;

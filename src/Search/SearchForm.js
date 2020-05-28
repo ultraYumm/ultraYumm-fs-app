@@ -4,7 +4,8 @@ import '../Font/Font.css';
 import config from '../config'
 import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
-import SearchResults from '../Tables/SearchResults';
+
+import { NavLink} from 'react-router-dom'
 
 
 
@@ -18,6 +19,8 @@ class SearchForm extends Component {
       e.preventDefault()
 
     let searchTerm = e.target.searchTerm.value
+
+    console.log(searchTerm)
 
 
 
@@ -84,6 +87,8 @@ class SearchForm extends Component {
      
     return (
       <div>
+
+       
         <form onSubmit={onSubmitForm}>
 
          <h2>Quick search!</h2>
@@ -96,8 +101,12 @@ class SearchForm extends Component {
                 id= 'searchTerm'
 
               />
-          <GoButton></GoButton>
+            
+            <GoButton></GoButton>
+            
+       
         </form>
+   
 
         </div>
         
@@ -107,3 +116,6 @@ class SearchForm extends Component {
   
 
 export default SearchForm
+
+/*</NavLink>
+<NavLink to={`/search-results`}>*/

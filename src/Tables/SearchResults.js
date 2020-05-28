@@ -10,6 +10,7 @@ import Quant from "../CustomItem/Quant";
 import "./Tables.css";
 import TripNames from "../CustomItem/TripNames";
 import "./Tables.css";
+import { NavLink} from 'react-router-dom'
 
 
 class SearchResults extends Component {
@@ -81,6 +82,7 @@ class SearchResults extends Component {
 
     return (
       <form>
+      
         <div>
           <h2 className="montebello searchResultsTitle">
             {" "}
@@ -95,9 +97,16 @@ class SearchResults extends Component {
         </div>
 
         <div className="filterButtonContainer moreContainer">
-          <AddCustomButton></AddCustomButton>
-          <SearchMoreButton></SearchMoreButton>
-        </div>
+
+          <NavLink to={`/add-custom`}>  
+          <AddCustomButton/>
+          </NavLink>  
+
+          <NavLink to={`/`}>     
+          <SearchMoreButton/>
+          </NavLink>
+      
+      </div>
 
         <table id= "search-results" className="primaryFont">
           <tbody>
@@ -109,8 +118,8 @@ class SearchResults extends Component {
               <th className="unitH">Unit</th>
               <th className="weightH tooltip gram">Weight (grams)</th>
               <th className="caloriesH cal calS">Calories</th>
-              <th class="caloriesH">Calories per 100g</th>
-              <th class="addH itemH">Add to pack</th>
+              <th className ="caloriesH">Calories per 100g</th>
+              <th className ="addH itemH">Add to pack</th>
             </tr>
 
             {newBrandCommonArr.map((item, key) => (
@@ -159,6 +168,7 @@ class SearchResults extends Component {
             ))}
           </tbody>
         </table>
+
       </form>
     );
   }

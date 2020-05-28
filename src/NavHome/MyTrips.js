@@ -7,10 +7,10 @@ import { NavLink} from 'react-router-dom'
 class MyTrips extends Component {
   render() {
     return (
-      <div  className= "myTrips white montebello">
+      <div  className= "myTrips montebello">
         <NavLink className = "noDeco"
         to={`/my-trips`}
-        >My trips</NavLink>
+        ><span className = "my Trips white">My trips</span></NavLink>
       </div>
     );
   }

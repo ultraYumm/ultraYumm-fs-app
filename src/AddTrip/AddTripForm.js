@@ -3,7 +3,7 @@ import './AddTrip.css';
 import '../Font/Font.css';
 import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
-
+import { NavLink} from 'react-router-dom'
 
 
 class AddTripForm extends Component {
@@ -47,7 +47,10 @@ class AddTripForm extends Component {
             </p>
 
 
-          <GoButton></GoButton>
+          
+            <NavLink to={`/my-trips`}>
+            <GoButton/>
+            </NavLink>  
         </form>
         
    )}

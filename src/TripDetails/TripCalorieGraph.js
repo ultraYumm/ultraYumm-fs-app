@@ -18,7 +18,7 @@ class TripCalorieGraph extends Component {
     
 
     return (
-      <svg width="300"> 
+      <svg width="280" height= "50"> 
      
      <g className= "bar skinBackground">
        <rect className= "blackBackground" width= {cals} height="30"></rect>

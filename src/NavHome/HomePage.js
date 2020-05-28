@@ -4,6 +4,7 @@ import '../Font/Font.css';
 import uYtitle from '../Images/uYtitle.png';
 import SearchForm from '../Search/SearchForm';
 import AddTripForm from '../AddTrip/AddTripForm';
+import { NavLink} from 'react-router-dom'
 
 
 class HomePage extends Component {
@@ -22,13 +23,14 @@ class HomePage extends Component {
         <h1  className= "black montebello title">Get more energy!<span>&nbsp;&nbsp;</span><span className= "lighter">pack lighter</span></h1> 
 
        </div>
-      
+       
+       
       <SearchForm
-        
       handleUpdate={this.props.handleUpdate}
-      
       handleResults={this.props.handleResults}
       ></SearchForm>
+
+    
             
       <AddTripForm></AddTripForm>
    </div>

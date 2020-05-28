@@ -1,4 +1,4 @@
-form, section {
+form, section, .chart {
     margin: 1%;
     border-radius: 10px;
     padding: 0;
@@ -275,6 +275,7 @@ button:hover {
 
 .charts {
     padding: 10px;
+    margin: 10px;
     float: right;
     font-weight: bolder;
 }
@@ -292,6 +293,7 @@ text {
     cursor: pointer;
     font-family: Helvetica, sans-serif;
 }
+
 .bar text {
     color: black;
 }

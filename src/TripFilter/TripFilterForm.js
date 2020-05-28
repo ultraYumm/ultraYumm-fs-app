@@ -8,7 +8,7 @@ import UniqueTripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripName from '../TripDetails/TripName';
 import TripYear from '../TripDetails/TripYear';
-
+import { NavLink} from 'react-router-dom'
 import '../FormElements/FormElements.css';
 
 
@@ -44,7 +44,9 @@ class TripFilterForm extends Component {
           </h2>
          
             <div className= "filterButtonContainer" >
+            <NavLink to={`/trip/${selectedTrip[0].name}`}>
             <FilterButton></FilterButton>
+            </NavLink>
             <ResetButton></ResetButton>
             </div>
 

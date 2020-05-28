@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
-
+import { NavLink} from 'react-router-dom'
 
 class TripNav extends Component {
 
@@ -15,18 +15,27 @@ class TripNav extends Component {
        
     return (
       <section className = "tripSection">
+       
        <h2 className= "montebello">My trips!</h2>
-          <ul className= "trips">
+          <ul className= "trips pinkBackground">
             
               {trips.map ((trip, key) => 
               <li className= "trips tripLi"
-             key = {key}
+             key = {trip.id}
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
+               <NavLink to={`/trip/${trip.name}`}>
               <p 
               className = "trip"
               >{trip.name}</p>
-              </li>)}     
+              </NavLink>
+              
+
+              </li>
+              
+              )}
+           
            </ul>
+      
       </section>
         
    )}
