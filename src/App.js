@@ -65,7 +65,7 @@ class App extends Component {
     
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
-    if (items[i].id == selectedTripItemsId[i]) {
+    if (items[i].id === selectedTripItemsId[i]) {
         tripItems.push(items[i]);
       }
     }
