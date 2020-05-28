@@ -34,7 +34,7 @@ class AddCustomItemForm extends Component {
     const totalCal = 200
     
     return (
-      <div className= "filterForm">
+      <section className= "filterForm">
         <form id="filter" onSubmit={onSubmitForm}>
 
          <h2 className= "montebello">Custom Item</h2>
@@ -116,7 +116,7 @@ class AddCustomItemForm extends Component {
             ></TripTravelers></div>
           
         </form>
-      </div>
+      </section>
         
    )}
   

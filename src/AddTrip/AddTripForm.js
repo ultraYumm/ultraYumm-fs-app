@@ -41,7 +41,7 @@ class AddTripForm extends Component {
             </p>
 
             <p>
-                 <label htmlFor= "map-link"><span className= "labelWidth"><a href= "google.com/maps" target= "_blank">Link</a></span>
+                 <label htmlFor= "map-link"><span className= "labelWidth"><a href= "https://www.google.com/maps" target= "_blank">Link</a></span>
                  <input type="url" name="map-link" className= "mauveBackground white names" placeholder = "https://www.google.com/maps/embed?pb=!4v1589308620339!6m8!1m7!1sH9R4rDjmbhhsQVA2f0Dq8Q!2m2!1d36.03291467946964!2d-111.8531019810478!3f9.17!4f0!5f0.7820865974627469" id= "map-link"/>  
                 </label>
             </p>

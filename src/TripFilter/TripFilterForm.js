@@ -29,7 +29,7 @@ class TripFilterForm extends Component {
 
 
     return (
-      <div className= "filterForm">
+      <section className= "filterForm">
         <form id="filter" onSubmit={onSubmitForm}>
 
          <h2 className= "montebello">
@@ -74,7 +74,7 @@ class TripFilterForm extends Component {
             </div>
 
         </form>
-      </div>
+      </section>
         
    )}
   

@@ -14,6 +14,7 @@ section {
     background-size: cover;
     background-position: center;
     background-color:rgba(242, 133, 173, 1);
+    padding-top: 60px;
 }   
 
 label {
@@ -64,7 +65,7 @@ input[type="text"]{
 }
 
 input[type="number"]{
-    width: 70%;
+    width: 50%;
     font-size: 12px;
     text-align: center;
     background-color: rgba(166, 88, 94, 1);

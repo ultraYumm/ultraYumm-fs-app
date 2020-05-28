@@ -92,7 +92,7 @@ class TripResults extends Component {
 
     return (
 
-      <form>
+      <section>
           <div className= "charts mauveBackground">
           <TripCalorieGraph
           cals = {totalCals}        
@@ -100,8 +100,7 @@ class TripResults extends Component {
           <TripPackGraph
           weight = {totalWeightKg}
           ></TripPackGraph>
-         
-          </div>         
+          </div>           
        <div>
            <h2 className= "montebello">
             <span className= "resultsTitle montebello">
@@ -115,7 +114,7 @@ class TripResults extends Component {
             </span>
            </h2>
        </div> 
-        
+       <form>     
        <div className= "filterButtonContainer" >
             <SaveButton></SaveButton>
             <PrintButton></PrintButton>
@@ -135,12 +134,9 @@ class TripResults extends Component {
              <NavLink to={`/`}>     
               <SearchMoreButton/>
               </NavLink>
-
-       
        
         </div>   
            
-
           <table id= "results-filtered" className= "primaryFont"> 
             <tbody>             
                   
@@ -225,7 +221,8 @@ class TripResults extends Component {
           </tbody>
         </table>
         
-    </form>
+      </form>
+    </section>
 
          
    )}

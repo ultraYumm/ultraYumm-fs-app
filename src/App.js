@@ -79,10 +79,7 @@ class App extends Component {
 
       <div className="App">
 
-      <Route
-      exact path='/'
-      component= {NavBar}
-     />
+      <NavBar></NavBar>
   
 
       <Route
@@ -114,7 +111,7 @@ class App extends Component {
        />
 
         <Route
-        path='/add-custom/:tripId'
+        path='/add-custom'
         render = { () =>
        <AddCustomItemForm
           trips= {trips}

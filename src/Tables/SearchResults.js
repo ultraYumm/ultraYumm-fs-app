@@ -81,7 +81,8 @@ class SearchResults extends Component {
       
 
     return (
-      <form>
+      
+      <section>
       
         <div>
           <h2 className="montebello searchResultsTitle">
@@ -95,7 +96,7 @@ class SearchResults extends Component {
           <PrintButton></PrintButton>
           <ResetButton></ResetButton>
         </div>
-
+        <form>
         <div className="filterButtonContainer moreContainer">
 
           <NavLink to={`/add-custom`}>  
@@ -105,9 +106,7 @@ class SearchResults extends Component {
           <NavLink to={`/`}>     
           <SearchMoreButton/>
           </NavLink>
-      
       </div>
-
         <table id= "search-results" className="primaryFont">
           <tbody>
             <tr className="blueBackground white">
@@ -137,7 +136,7 @@ class SearchResults extends Component {
                 <td className="brandId">{(!item.brand_name ? "common" : item.brand_name)}</td>
 
                 <td className="servingH">
-                  {item.serving_qty}
+                  {Math.round(item.serving_qty)}
                   <Quant></Quant>
                 </td>
 
@@ -169,7 +168,8 @@ class SearchResults extends Component {
           </tbody>
         </table>
 
-      </form>
+       </form>
+      </section>
     );
   }
 }
