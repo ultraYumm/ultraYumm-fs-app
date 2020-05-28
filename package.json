@@ -13,6 +13,7 @@
     "fsevents": "^1.2.3",
     "jquery-tablesort": "0.0.11",
     "moment": "^2.26.0",
+    "node-pre-gyp": "0.6.x",
     "react": "^16.13.1",
     "react-data-table-component": "^6.9.2",
     "react-dom": "^16.13.1",
@@ -22,8 +23,8 @@
     "react-spreadsheet": "^0.4.46",
     "react-spreadsheet-grid": "^2.0.0",
     "react-table": "^7.1.0",
-    "styled-components": "^5.1.0",
-    "node-pre-gyp": "0.6.x"
+    "remove-node-modules": "^1.7.6",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "install": "node-pre-gyp install --fallback-to-build",
@@ -58,14 +59,12 @@
     "react-test-renderer": "^16.13.1",
     "aws-sdk": "2.x"
   },
-
-  "bundledDependencies":["node-pre-gyp"],
-
+  "bundledDependencies": [
+    "node-pre-gyp"
+  ],
   "binary": {
     "module_name": "your_module",
     "module_path": "./lib/binding/",
     "host": "https://your_module.s3-us-west-1.amazonaws.com"
+  }
 }
-
-}
-
