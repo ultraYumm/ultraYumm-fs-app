@@ -110,7 +110,7 @@ class SearchResults extends Component {
         <table id= "search-results" className="primaryFont">
           <tbody>
             <tr className="blueBackground white">
-              <th className="imageH hidden">Image</th>
+              <th className="imageH"><span className = "hidden">Image</span></th>
               <th className="itemH">Item</th>
               <th className="brandH">Brand</th>
               <th className="servingH">Serving Quantity (adjust)</th>

@@ -174,3 +174,7 @@ input.add {
      background-color: lightpink;
      color: black
 }
+
+.bolder {
+     font-weight: bolder;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
 import {Route, Link} from 'react-router-dom';
 import './App.css';
 import './Font/Font.css';
@@ -33,6 +33,8 @@ class App extends Component {
     })
   }
 
+
+
  
   updateSearchResults = (searchResults) => {
     this.setState({
@@ -42,11 +44,41 @@ class App extends Component {
 
   renderNavRoutes = () => {
     return (
-        <>
+        
         <Route path="/my-trips" component={TripNav} />
-        </>
+    
+        
     );
 }
+
+/*renderSearchRoutes = () => {
+  
+  const common= this.state.searchResults.common
+  const branded= this.state.searchResults.branded
+  const trips = {trips}
+  
+  return (
+    <>
+       <Route
+        path="/search-results"
+        render={() => {
+           
+          <SearchResults
+          common= {this.state.searchResults.common}
+          branded= {this.state.searchResults.branded}
+          trips = {trips}>
+        </SearchResults>} 
+        }
+    />
+  
+    </>
+  );
+}*/
+  
+
+
+
+
   render() {
 
     const trips = this.props.trips
@@ -84,10 +116,17 @@ class App extends Component {
 
       <Route
         exact path='/'
-        render = { () =>
-        <HomePage
+
+        render = { (routerProps) =>
+
+          <HomePage
+        routerProps = {routerProps}
         handleUpdate={(searchTerm)=>this.updateSearchTerm(searchTerm)}
-        handleResults={(searchResults)=>this.updateSearchResults(searchResults)} 
+        handleResults={(searchResults)=>this.updateSearchResults(searchResults)}
+        common= {this.state.searchResults.common}
+        branded= {this.state.searchResults.branded}
+        trips = {trips}   
+       
         />}
         />
        
@@ -137,21 +176,38 @@ class App extends Component {
       </TripResults>}
       />
 
-          <SearchResults
+
+        <Route
+        path='/search-results'
+        
+        render = { () => {
+          console.log(this.state)
+          return (
+            <SearchResults
             common= {this.state.searchResults.common}
             branded= {this.state.searchResults.branded}
             trips = {trips}>
           </SearchResults>
+          )}}/>
+          
+
       </div>   
     
     );
   }
 }
 export default App;
+
 /*
-<Route
-           path='/search-results'
-           render={() =>
-      
-           }
-           />*/
+
+        <Route
+        path='/search-results'
+        render = { () =>
+
+          <SearchResults
+            common= {this.state.searchResults.common}
+            branded= {this.state.searchResults.branded}
+            trips = {trips}>
+          </SearchResults>
+        }/>*/
+          

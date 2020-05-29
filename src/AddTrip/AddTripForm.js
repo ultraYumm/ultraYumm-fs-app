@@ -20,7 +20,7 @@ class AddTripForm extends Component {
    
     return (
         <form onSubmit={onSubmitForm}>
-         <h2>Plan a trip!</h2>
+         <h2 className = "white">Plan a trip!</h2>
             <p>
                 <label htmlFor= "new-trip-name"><span className= "labelWidth white">New trip name</span>
                     <input type="text" name="newTripName" className="redBackground white search" id= "new-trip-name" placeholder="Escalante" required/>

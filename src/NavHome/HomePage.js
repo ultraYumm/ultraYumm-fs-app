@@ -14,8 +14,6 @@ class HomePage extends Component {
 
     console.log(handleResults)
 
-
-
     return (
     <div>
       <div className= "home">
@@ -26,6 +24,7 @@ class HomePage extends Component {
        
        
       <SearchForm
+      routerProps = {this.props.routerProps}
       handleUpdate={this.props.handleUpdate}
       handleResults={this.props.handleResults}
       ></SearchForm>
