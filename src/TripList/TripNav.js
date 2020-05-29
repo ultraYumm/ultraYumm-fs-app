@@ -17,15 +17,15 @@ class TripNav extends Component {
       <section className = "tripSection">
        
        <h2 className= "montebello">My trips!</h2>
-          <ul className= "trips pinkBackground">
+          <ul className= "trips skinBackground">
             
               {trips.map ((trip, key) => 
-              <li className= "trips tripLi"
+              <li className= "tripLi"
              key = {trip.id}
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
                <NavLink to={`/trip/${trip.name}`}>
               <p 
-              className = "trip"
+              className = "trip red"
               >{trip.name}</p>
               </NavLink>
               

@@ -14,7 +14,7 @@ class GoToFiltersButton extends Component {
     
     return (
       <div 
-            className= "primaryFont white plumBackground moreButton">
+            className= "primaryFont red skinBackground moreButton">
             Go to filters
       </div>
     )

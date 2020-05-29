@@ -91,9 +91,9 @@ class SearchForm extends Component {
        
         <form onSubmit={onSubmitForm}>
 
-         <h2>Quick search!</h2>
-            <label htmlFor= "searchTerm">Search by name or brand</label>
-               <input  className= "plumBackground white search"
+         <h2 className= "white">Quick search!</h2>
+            <label htmlFor= "searchTerm" className= "white">Search by name or brand</label>
+               <input  className= "redBackground white search"
                 name='searchTerm'
                 type='search'
                 placeholder='Granola'

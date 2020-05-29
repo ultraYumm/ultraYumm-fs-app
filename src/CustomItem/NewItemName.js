@@ -12,8 +12,8 @@ class NewItemName extends Component {
    
     return (
        
-        <label htmlFor= "custom-item-name"><span className= "labelWidth">Item name</span>
-        <input type="text" name="customItemName" className="salmonBackground white search" id= "custom-item-name" placeholder="Spicy Mango" required/>
+        <label htmlFor= "custom-item-name"><span className= "labelWidth white">Item name</span>
+        <input type="text" name="customItemName" className="redBackground white search" id= "custom-item-name" placeholder="Spicy Mango" required/>
         </label>      
         
    )}

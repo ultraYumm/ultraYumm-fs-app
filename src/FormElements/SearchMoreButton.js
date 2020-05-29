@@ -14,7 +14,7 @@ class SearchMoreButton extends Component {
     
     return (
       <div 
-            className= "primaryFont white plumBackground moreButton">
+            className= "primaryFont red skinBackground moreButton">
             Search more items
       </div>
     )

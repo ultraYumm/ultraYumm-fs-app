@@ -93,7 +93,7 @@ class TripResults extends Component {
     return (
 
       <section>
-          <div className= "charts mauveBackground">
+          <div className= "charts redBackground">
           <TripCalorieGraph
           cals = {totalCals}        
           ></TripCalorieGraph>
@@ -141,7 +141,7 @@ class TripResults extends Component {
             <tbody>             
                   
             <tr className= "blueBackground white">
-              <th className= "imageH hidden"></th>
+              <th className= "imageH hidden">Image</th>
               <th className= "date">Date (ajdust)
               </th>
               <th className= "type">Type (adjust)

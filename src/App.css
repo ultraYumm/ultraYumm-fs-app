@@ -38,6 +38,9 @@ table {
 
 html {
     scroll-behavior: smooth;
-    background-color:rgba(242, 230, 223);
+    background-color:rgba(242, 242, 242);
+    /*rgba(242, 230, 223);*/
     width: auto;
 }
+
+

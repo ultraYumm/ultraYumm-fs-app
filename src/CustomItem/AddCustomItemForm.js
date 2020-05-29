@@ -37,7 +37,7 @@ class AddCustomItemForm extends Component {
       <section className= "filterForm">
         <form id="filter" onSubmit={onSubmitForm}>
 
-         <h2 className= "montebello">Custom Item</h2>
+         <h2 className= "montebello white">Custom Item</h2>
          
           <div className= "filterButtonContainer" >
           <NavLink to={`/trip/${selectedTrip[0].name}`}>
@@ -47,8 +47,12 @@ class AddCustomItemForm extends Component {
           </div>
         
           <div>
+               <div className= "newItems">
                 <NewItemName></NewItemName>
-                <NewItemBrand></NewItemBrand>
+               </div>
+               <div className= "newItems">
+               <NewItemBrand></NewItemBrand>
+               </div>
             
 
               <div className = "calcBox">
@@ -56,22 +60,22 @@ class AddCustomItemForm extends Component {
                <div className= "inputsContainer">
              
                 <div className = "inputBox">
-                <label htmlFor= "custom-item-quantity" className= "labelWidth">Serving Quantity</label>
+                <label htmlFor= "custom-item-quantity" className= "labelWidth white">Serving Quantity</label>
                 <p className= "dataInput"><Quant></Quant></p>
                 </div>
 
                 <div className = "inputBox">
-                <label htmlFor= "custom-item-unit" className= "labelWidth">Serving unit</label>
+                <label htmlFor= "custom-item-unit" className= "labelWidth white">Serving unit</label>
                 <p className= "textInput"><Text></Text></p>
                 </div>
 
                 <div className = "inputBox">
-                <label htmlFor= "custom-item-weight" className= "labelWidth">Weight per serving</label>
+                <label htmlFor= "custom-item-weight" className= "labelWidth white">Weight per serving</label>
                 <p className= "dataInput"><Quant></Quant></p>
                 </div>
 
                 <div className = "inputBox">
-                <label htmlFor= "custom-item-calories" className= "labelWidth">Calories per serving</label>
+                <label htmlFor= "custom-item-calories" className= "labelWidth white">Calories per serving</label>
                 <p className= "dataInput"><Quant></Quant></p>
                 </div>
 
@@ -79,12 +83,12 @@ class AddCustomItemForm extends Component {
 
                <div className= "resultsContainer">
                 <div className = "resultBox">
-                <label htmlFor= "custom-item-total-weight" className= "labelWidth">Total Weight</label>
+                <label htmlFor= "custom-item-total-weight" className= "labelWidth white">Total Weight</label>
                 <p className= "dataResult blackBackground white">{totalWeight}</p>
                 </div>
 
                 <div className = "resultBox">
-                <label htmlFor= "custom-item-total-cal" className= "labelWidth">Total Calories</label>
+                <label htmlFor= "custom-item-total-cal" className= "labelWidth white">Total Calories</label>
                 <p className= "dataResult blackBackground white">{totalCal}</p>
                 </div>
 

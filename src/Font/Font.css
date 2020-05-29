@@ -23,6 +23,11 @@
   color: rgba(191, 4, 4)
 }
 
+.redBackground { 
+  background-color: rgba(191, 4, 4);
+  fill: rgba(191, 4, 4)
+}
+
 .black { 
   color: rgba(38, 11, 9, 1); 
 }
@@ -42,12 +47,13 @@
 }
 
 .salmon { 
-  color: rgba(242, 76, 61, 1); 
+  color: rgba(242, 76, 61, 1)
+ 
 }
 
 .salmonBackground { 
   background-color: rgba(242, 76, 61, 1);
-  fill: rgba(242, 76, 61, 1);
+  fill:rgba(242, 76, 61, 1)
 }
 
 .white {
@@ -133,7 +139,7 @@
 body {
   font-size: 14px;
   color: rgba(38, 11, 9, 1)4;
-  line-height: 1.5;
+    line-height: 1.5;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -151,7 +157,8 @@ h2 {
 
 h3 {
   font-size: 15px;
-  color: rgba(242, 76, 61, 1);
+  /*color: rgba(242, 76, 61, 1);*/
+  color: rgba(191, 4, 4);
   text-align: center;
   font-family:  'Montebello-Sans', truetype;
   font-weight: lighter;

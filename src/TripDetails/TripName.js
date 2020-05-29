@@ -13,7 +13,7 @@ class TripName extends Component {
     const tripName = selectedTrip[0].name
   
     return (
-        <div>{tripName}</div>
+        <div className = "white">{tripName}!</div>
    )}
   
 }

@@ -111,11 +111,12 @@ td {
 
 
 .deleteH {
-    background-color: rgba(242, 76, 61, 1);     
+    background-color: rgba( 191, 4, 4);  
+    text-align: center;   
 }
 
 .delete:hover {
-    background-color: rgba(242, 76, 61, 1); 
+    background-color: rgba( 191, 4, 4); 
     zoom:0.9;
     text-align: center;
 }
@@ -128,7 +129,7 @@ input.delete {
     text-align: center;
     width: 20px;
     height: 20px;
-    background-color: rgba(242, 76, 61, 1); 
+    background-color: rgba( 191, 4, 4); 
 }
  
 
@@ -147,7 +148,8 @@ input.delete {
  
 
 .addH {
-     background-color:rgba(49, 31, 115)
+     background-color:rgba(49, 31, 115);
+     text-align: center;
      
 }
 

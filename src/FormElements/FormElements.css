@@ -5,7 +5,11 @@ form, section, .chart {
 }
 
 form {
-    background-color:  rgba(242, 133, 173, 1);
+    background-color:  rgba(3, 52, 115);
+    /*173, 192, 217
+    83, 119, 166
+    pink 242, 133, 173, 1*/
+    
 }    
 
 
@@ -13,13 +17,15 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color:rgba(242, 133, 173, 1);
+    background-color:rgba(83, 119, 166);
     padding-top: 60px;
 }   
 
 label {
     font-family: 'Poppins', sans-serif;
     padding-left: 10px;
+    font-weight: 400; 
+    
      
 }
 
@@ -33,9 +39,9 @@ label {
 input {
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 1%;
-    border: 1px solid rgba(166, 88, 94, 1);
+    border: 1px solid white;
     transition: 0.1s;
     margin-left: 4px;
     font-family: 'Poppins', sans-serif;
@@ -48,28 +54,34 @@ input[type=date] {
 }
   
 input::placeholder { 
-    color: rgba(242, 230, 223);
+    color: rgba(173, 192, 217);
 } 
   
-input:hover, input:active {
-    border: 1px solid rgba(3, 52, 115);
+input:hover, input:active, input[type="text"]:hover, input[type="search"]:hover, input[type="url"]:hover  {
+    border: 2px solid rgba(3, 52, 115);
 }
   
 input[type="search"]{
     width: 60%;
 }
   
-input[type="text"]{
+input[type="text"], input[type="search"]{
     width: 50%;
+}
+
+input[type="text"], input[type="search"], input[type="url"]{
+    border: 1px solid rgba(191, 4, 4);
    
 }
+
+
 
 input[type="number"]{
     width: 50%;
     font-size: 12px;
     text-align: center;
-    background-color: rgba(166, 88, 94, 1);
-    color: white;
+    background-color: rgba(173, 192, 217);
+    color: black;
 }
   
 button[type="submit"], button[type="reset"]{
@@ -79,9 +91,9 @@ button[type="submit"], button[type="reset"]{
 button {
     font-size: 28px;
     height: 60px;
-    border-radius: 5px;
+    border-radius: 20px;
     transition: 0.1s;
-    border: 1px solid rgba(166, 88, 94, 1);
+    border: 1px solid rgba(242, 133, 173, 1);
     z-index: 200px;
     font-weight: lighter;
     margin: 10px;
@@ -124,7 +136,7 @@ button:hover {
 
 
 .reset {
-    color: red; 
+    color:  rgba(191, 4, 4);
     font-size: 20px;
 }
 
@@ -153,6 +165,7 @@ button:hover {
     width: 20%;
     margin:10px;
     padding: 10px;
+    border-radius: 10px;
 }
 
 
@@ -249,7 +262,7 @@ button:hover {
   
   /* When the radio button is checked, add a blue background */
 .labelContainer input:checked ~ .checkmark {
-    background-color:  rgba(242, 76, 61, 1); 
+    background-color:   rgba(191, 4, 4); 
 }
   
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -354,5 +367,8 @@ svg {
 
 }
 
+.newItems {
+    padding-top: 1px;
+}
 
 

@@ -85,7 +85,7 @@ class SearchResults extends Component {
       <section>
       
         <div>
-          <h2 className="montebello searchResultsTitle">
+          <h2 className="montebello searchResultsTitle white">
             {" "}
             See your highest energy results!
           </h2>
@@ -110,7 +110,7 @@ class SearchResults extends Component {
         <table id= "search-results" className="primaryFont">
           <tbody>
             <tr className="blueBackground white">
-              <th className="imageH"></th>
+              <th className="imageH hidden">Image</th>
               <th className="itemH">Item</th>
               <th className="brandH">Brand</th>
               <th className="servingH">Serving Quantity (adjust)</th>
