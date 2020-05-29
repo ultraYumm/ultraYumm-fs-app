@@ -107,6 +107,16 @@
   fill:rgba(242, 133, 173, 1);
 }
 
+.lightBlueBackground {
+  background-color:rgba(83, 119, 166)
+}
+
+.cloudBlueBackground {
+  background-color:rgba(173, 192, 217)
+
+}
+   
+
 @import url('https://fonts.googleapis.com/css?family=Halant%7CPoppins%7CMontserrat%7CQuicksand&display=swap');
 
 @font-face {

@@ -92,7 +92,7 @@ class TripResults extends Component {
 
     return (
 
-      <section>
+      <section className = "lightBlueBackground">
           <div className= "charts redBackground">
           <TripCalorieGraph
           cals = {totalCals}        
@@ -103,10 +103,10 @@ class TripResults extends Component {
           </div>           
        <div>
            <h2 className= "montebello">
-            <span className= "resultsTitle montebello">
+            <span className= "resultsTitle montebello white">
                 <TripName
                 selectedTrip = {selectedTrip}
-                ></TripName></span>
+                ></TripName>Results!</span>
             <span className= "resultsTitle"> 
                 <TripYear
                 selectedTrip = {selectedTrip}
