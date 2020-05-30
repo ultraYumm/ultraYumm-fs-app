@@ -52,3 +52,40 @@
     margin-bottom: -20px;
 }
 
+.description {
+    padding-top: 25px;
+    padding-bottom: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    text-align: center;
+}   
+
+
+.descriptionText {
+    padding-top: 140px;
+    position: absolute;
+    font-weight: 500;
+    left: 0;
+    right: 0;
+
+} 
+
+
+
+.snowyOwl {
+    border-radius: 5px;
+    animation-duration: 4s;
+    animation-name: slidein;
+    transition-timing-function: ease-in;
+    z-index: 1; 
+   
+  }
+
+
+.snowyOwlContainer {
+    text-align: center;
+    width: 100px;
+  
+  }
+  
