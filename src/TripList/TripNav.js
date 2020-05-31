@@ -17,7 +17,7 @@ class TripNav extends Component {
       <section className = "tripSection">
        
        <h2 className= "montebello">My trips!</h2>
-          <ul className= "trips skinBackground">
+          <ul className= "trips blueBackground">
             
               {trips.map ((trip, key) => 
               <li className= "tripLi"
@@ -25,7 +25,7 @@ class TripNav extends Component {
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
                <NavLink to={`/trip/${trip.name}`}>
               <p 
-              className = "trip red"
+              className = "trip skin"
               >{trip.name}</p>
               </NavLink>
               

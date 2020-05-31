@@ -5,6 +5,9 @@
     background-position: center;
     background-image: url("https://i.ibb.co/3dHk6Dh/ostrander.jpg");
     opacity: 1;
+    /*background-image: url("https://i.ibb.co/Bzx3zKz/ostrander-Original.jpg");*/
+
+    
    
     
 }
@@ -15,12 +18,10 @@
     width: auto;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: inline-block;
     border-radius: 10px;
-    opacity: 0.6;
     padding: 10px;
     /*border: 1px solid rgba(191, 4, 4);*/
-
    
 
 }
@@ -28,8 +29,10 @@
 
 
 .trips:hover {
-    opacity: 0.9;
+    opacity: 3;
     padding: 10px;
+    transform: scale(1.5);
+    transition: 0.3s;
     /*border: 1px solid rgba(191, 4, 4);*/  
 }
 
