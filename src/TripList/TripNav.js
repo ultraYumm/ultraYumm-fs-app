@@ -3,8 +3,14 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
 import { NavLink} from 'react-router-dom'
+import UltraContext from '../UltraContext'
+
 
 class TripNav extends Component {
+
+
+static contextType = UltraContext;
+
 
   
   render() {
@@ -16,17 +22,24 @@ class TripNav extends Component {
     return (
       <section className = "tripSection">
        
-       <h2 className= "montebello">My trips!</h2>
+       <h2 className= "montebello">My trips!cd</h2>
           <ul className= "trips blueBackground">
             
               {trips.map ((trip, key) => 
               <li className= "tripLi"
              key = {trip.id}
+            
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
                <NavLink to={`/trip/${trip.name}`}>
-              <p 
+              <p
               className = "trip skin"
-              >{trip.name}</p>
+              onClick={() => {
+                 const selectTripId = trip.id
+                 this.props.handleSelectTrip(selectTripId)
+               
+               }}
+              >{trip.name}  
+              </p>
               </NavLink>
               
 
@@ -46,7 +59,8 @@ class TripNav extends Component {
 export default TripNav
 
 
-   
+/*onClick={() => console.log()}*/
+              
 
 
   /*return (

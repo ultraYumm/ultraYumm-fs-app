@@ -8,6 +8,7 @@ import HomePage from './NavHome/HomePage';
 import TripNav from './TripList/TripNav';
 import TripFilterForm from './TripFilter/TripFilterForm';
 import AddCustomItemForm from './CustomItem/AddCustomItemForm';
+import UltraContext from './UltraContext'
 
 import TripResults from './Tables/TripResults';
 
@@ -23,7 +24,8 @@ class App extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      searchResults: {}
+      searchResults: {},
+      selectedTripId: ''
     };
   }
 
@@ -33,8 +35,6 @@ class App extends Component {
     })
   }
 
-
-
  
   updateSearchResults = (searchResults) => {
     this.setState({
@@ -42,48 +42,18 @@ class App extends Component {
     })
   }
 
-  renderNavRoutes = () => {
-    return (
-        
-        <Route path="/my-trips" component={TripNav} />
-    
-        
-    );
-}
-
-/*renderSearchRoutes = () => {
-  
-  const common= this.state.searchResults.common
-  const branded= this.state.searchResults.branded
-  const trips = {trips}
-  
-  return (
-    <>
-       <Route
-        path="/search-results"
-        render={() => {
-           
-          <SearchResults
-          common= {this.state.searchResults.common}
-          branded= {this.state.searchResults.branded}
-          trips = {trips}>
-        </SearchResults>} 
-        }
-    />
-  
-    </>
-  );
-}*/
-  
-
-
+  selectTrip = (selectedTripId) => {
+    this.setState({
+      selectedTripId: selectedTripId
+    })
+  }
 
 
   render() {
 
     const trips = this.props.trips
  
-    const selectedTripId = "e" 
+    const selectedTripId = this.state.selectedTripId
  
     const selectedTrip = trips.filter(trip => trip.id === selectedTripId);
  
@@ -94,13 +64,20 @@ class App extends Component {
     const selectedTripItemsId = selectedTripItems.map((item)=> item.itemId)
 
     const items= this.props.items
+
+    console.log(items)
+    console.log(selectedTripItemsId)
+
+    console.log(items[0].id)
     
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
-    if (items[i].id === selectedTripItemsId[i]) {
+      if (selectedTripItemsId.includes(items[i].id)) {
         tripItems.push(items[i]);
       }
+      
     }
+    console.log(tripItems)
 
     
     const itemTypes = this.props.itemTypes
@@ -135,6 +112,7 @@ class App extends Component {
         render = {() =>
        <TripNav
           trips= {trips}
+          handleSelectTrip={(selectedTripId)=>this.selectTrip(selectedTripId)}
         />
         }/>
 
@@ -198,16 +176,3 @@ class App extends Component {
 }
 export default App;
 
-/*
-
-        <Route
-        path='/search-results'
-        render = { () =>
-
-          <SearchResults
-            common= {this.state.searchResults.common}
-            branded= {this.state.searchResults.branded}
-            trips = {trips}>
-          </SearchResults>
-        }/>*/
-          

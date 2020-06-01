@@ -47,7 +47,7 @@ const ITEMTYPES = [
 
 
 const ITEMS= [
-    {
+     {
     "id": "1",
     "food_name": "apple",
     "serving_unit": "medium (3\" dia)",
@@ -123,7 +123,6 @@ const ITEMS= [
     "serving_weight_grams": 5,
     "calPerServing": 21
     }
-
 ]
 
 const PACKITEMS= [
@@ -161,28 +160,27 @@ const PACKITEMS= [
 
 { "itemId":  "5",
     "tripId": "t",
-    "tripDay": "2019-03-26T09:25:43.511Z",  
+    "tripDay": "2020-03-23T09:25:43.511Z",  
     "travName": "Stef",
-    "type": "Breakfast",
-    "selected_serving_qty": 5
-}, 
+    "type": "Snack",
+    "selected_serving_qty": 4
+},
 
 { "itemId":  "6",
     "tripId": "t",
     "tripDay": "2020-03-23T09:25:43.511Z",  
-    "travId": "Suzy",
-    "type": "Dinner",
-    "selected_serving_qty": 6
+    "travName": "Suzy",
+    "type": "Snack",
+    "selected_serving_qty": 4
 },
 
 { "itemId":  "7",
     "tripId": "t",
-    "tripDay": "2020-03-24T09:25:43.511Z",  
-    "travId": "Ringo",
-    "type": "Other",
-    "selected_serving_qty": 7
+    "tripDay": "2020-03-23T09:25:43.511Z",  
+    "travName": "Ringo",
+    "type": "Snack",
+    "selected_serving_qty": 4
 },
-
 
 ]
 

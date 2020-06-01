@@ -35,12 +35,7 @@ class SearchResults extends Component {
     
     Array.prototype.push.apply(common, branded);
 
-    
-
-  
-
-
-    const commonNutrients = () => {
+     const commonNutrients = () => {
       var results = common.map((item) => item.full_nutrients);
       return results;
     };

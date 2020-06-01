@@ -24,6 +24,10 @@ import './Tables.css';
 
 class TripResults extends Component {
 
+  static defaultProps = {
+    selectedTrip: [],
+  };
+
     render() {
 
     const selectedTrip = this.props.selectedTrip
@@ -33,6 +37,9 @@ class TripResults extends Component {
     const selectedTripItems = this.props.selectedTripItems
 
     const tripItems = this.props.tripItems
+
+    console.log(selectedTripItems)
+    console.log(tripItems)
    
 
     const imageArray = tripItems.map((items) => items.image)
@@ -72,23 +79,47 @@ class TripResults extends Component {
 
         })
 
+        console.log(results)
+
+       
+
     const reducer = (accumulator, currentValue) => accumulator + currentValue
 
-    const sumCalsPerServing = fixedCalPerUnitArray.reduce(reducer)
+    const sumCalsPerServing = () => {
+      if (fixedCalPerUnitArray.length === 0) {
+        const defaultResult = 1
+        return defaultResult
+      }
+      return fixedCalPerUnitArray.reduce(reducer)}  
+
  
-    const sumWeightsPerServing = fixedServingWeightArray.reduce(reducer)
-
-    const sumServings = selectServingQuantArray.reduce(reducer)
-
-    const totalCals = sumCalsPerServing * sumServings
-
-    const totalWeightKg = (sumWeightsPerServing * sumServings)/1000
-
+    const sumWeightsPerServing = () => {
+      if (fixedServingWeightArray.length === 0) {
+        const defaultResult = 1
+        return defaultResult
+      }
+    return fixedServingWeightArray.reduce(reducer)}
 
 
+    console.log(sumWeightsPerServing())
 
+    
+    const sumServings = () => {
+      
+      if (selectServingQuantArray.length === 0) {
+        const defaultResult = 1
+        return defaultResult
+      }
+      
+      return selectServingQuantArray.reduce(reducer)
+    
+    }
 
-   
+        
+    
+    const totalCals = sumCalsPerServing() * sumServings()
+
+    const totalWeightKg = (sumWeightsPerServing() * sumServings())/1000
 
     return (
 

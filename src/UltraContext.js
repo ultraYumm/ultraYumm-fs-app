@@ -1,6 +1,6 @@
 import React from 'react'
 
-/*const UltraContext = React.createContext({
+const UltraContext = React.createContext({
   folders: [],
   notes: [],
   handleSearch: () => {},
@@ -9,7 +9,8 @@ import React from 'react'
   handleAddCustomItem: () => {},
   deleteItem: () => {},
   updateItem: () => {},
+  selectTrip: () => {}
   
 })
 
-export default UltraContext*/
+export default UltraContext
