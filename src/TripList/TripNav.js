@@ -35,7 +35,9 @@ static contextType = UltraContext;
               className = "trip skin"
               onClick={() => {
                  const selectTripId = trip.id
-                 this.props.handleSelectTrip(selectTripId)
+                 const tripName = trip.name
+                 console.log(tripName)
+                 this.props.handleSelectTrip(selectTripId, tripName)
                
                }}
               >{trip.name}  

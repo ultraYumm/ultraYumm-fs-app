@@ -26,11 +26,11 @@ class SearchResults extends Component {
 
     const trips = this.props.trips
 
-    function compare(a, b){
+    /*function compare(a, b){
       if (a < b){return -1;}
       if (a > b){return 1;}
       if (a === b){return 0;}
-    }
+    }*/
 
     
     Array.prototype.push.apply(common, branded);
@@ -86,10 +86,10 @@ class SearchResults extends Component {
           </h2>
         </div>
 
-        <div className="filterButtonContainer">
-          <SaveButton></SaveButton>
-          <PrintButton></PrintButton>
-          <ResetButton></ResetButton>
+        <div className="filterButtonContainer tableAdjust">
+          <SaveButton/>
+          <PrintButton/>
+          <ResetButton/>
         </div>
         <form>
         <div className="filterButtonContainer moreContainer">
@@ -106,9 +106,9 @@ class SearchResults extends Component {
           <tbody>
             <tr className="blueBackground white">
               <th className="imageH"><span className = "hidden">Image</span></th>
-              <th className="itemH">Item</th>
+              <th className="itemH">Item<span className ="mobile">(Click)</span></th>
               <th className="brandH">Brand</th>
-              <th className="servingH">Serving Quantity (adjust)</th>
+              <th className="servingH">Serving Quantity <span className ="tableAdjust">(adjust)</span></th>
               <th className="unitH">Unit</th>
               <th className="weightH tooltip gram">Weight (grams)</th>
               <th className="caloriesH cal calS">Calories</th>
@@ -126,13 +126,21 @@ class SearchResults extends Component {
                   />{" "}
                 </td>
 
+                <NavLink 
+                to={`/item/${item.tag_name}`}
+                >
                 <td className="itemH">{item.food_name}</td>
+                </NavLink>
+                
+
+                
 
                 <td className="brandId">{(!item.brand_name ? "common" : item.brand_name)}</td>
 
                 <td className="servingH">
                   {Math.round(item.serving_qty)}
-                  <Quant></Quant>
+                  <p className="tableAdjust">
+                  <Quant/></p>
                 </td>
 
                 <td className="unitH"> {item.serving_unit}</td>
@@ -140,22 +148,24 @@ class SearchResults extends Component {
                 <td className="weightH tooltip gram">
                   {Math.round(item.serving_weight_grams)}
                   <span className="tooltiptext">grams</span>
-                  <p className= "dataResult blackBackground white">100</p>
+                  <p className= "tableAdjust dataResult blackBackground white">100</p>
                 </td>
 
                 <td className="caloriesH tooltip cal calS">  {Math.round(item.full_nutrients[0].value)}
-                <span class="tooltiptext">cal per serving</span>
-                <p className= "dataResult blackBackground white">100</p>
+                <span className="tooltiptext">cal per serving</span>
+                <p className="tableAdjust dataResult blackBackground white">100</p>
                 </td>
 
                 <td className="caloriesH tooltip calG">
                   {item.calPhG}
                 </td>
 
-                <td className= "add itemH"><TripNames
+                <td>
+                  <span className = "add">
+                  <TripNames
                 trips = {trips}     
-                
-                ></TripNames>
+                />
+                </span>
                 
                   </td>
               </tr>

@@ -25,7 +25,8 @@ class App extends Component {
     this.state = {
       searchTerm: '',
       searchResults: {},
-      selectedTripId: ''
+      selectedTripId: 'e',
+      tripName: 'Escalante'
     };
   }
 
@@ -42,9 +43,10 @@ class App extends Component {
     })
   }
 
-  selectTrip = (selectedTripId) => {
+  selectTrip = (selectedTripId, tripName) => {
     this.setState({
-      selectedTripId: selectedTripId
+      selectedTripId: selectedTripId,
+      tripName: tripName
     })
   }
 
@@ -64,11 +66,6 @@ class App extends Component {
     const selectedTripItemsId = selectedTripItems.map((item)=> item.itemId)
 
     const items= this.props.items
-
-    console.log(items)
-    console.log(selectedTripItemsId)
-
-    console.log(items[0].id)
     
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
@@ -112,7 +109,7 @@ class App extends Component {
         render = {() =>
        <TripNav
           trips= {trips}
-          handleSelectTrip={(selectedTripId)=>this.selectTrip(selectedTripId)}
+          handleSelectTrip={(selectedTripId, tripName)=>this.selectTrip(selectedTripId, tripName)}
         />
         }/>
 
@@ -137,13 +134,14 @@ class App extends Component {
           selectedTripItems= {selectedTripItems}
           tripItems= {tripItems}
           itemTypes= {itemTypes}
+          tripName = {this.state.tripName}
           >
       </AddCustomItemForm>
         }
         />
 
       <Route
-        path='/trip/:tripId'
+        path='/trip/:tripName'
         render = { () =>
 
       <TripResults
@@ -157,6 +155,19 @@ class App extends Component {
 
         <Route
         path='/search-results'
+        
+        render = { () => {
+          console.log(this.state)
+          return (
+            <SearchResults
+            common= {this.state.searchResults.common}
+            branded= {this.state.searchResults.branded}
+            trips = {trips}>
+          </SearchResults>
+          )}}/>
+
+      <Route
+        path='/item/:itemId'
         
         render = { () => {
           console.log(this.state)

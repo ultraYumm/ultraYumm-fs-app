@@ -84,7 +84,7 @@ class SearchForm extends Component {
           <input
             className="redBackground white search"
             name="searchTerm"
-            type="search"
+            type="search" 
             placeholder="Granola"
             required
             id="searchTerm"

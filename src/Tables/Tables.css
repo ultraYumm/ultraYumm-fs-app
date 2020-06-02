@@ -8,7 +8,6 @@ table {
 }
    
 th {
-     font-size: 9px;
      font-weight: bolder;
      border: 1px solid  rgba(3, 52, 115); 
      margin-left: auto;
@@ -17,42 +16,56 @@ th {
 }
    
 th, td {
-     padding: 4px;
-     border: 4px;
+     /*padding: 1px;*/
+     border: 1px;
      text-align: left;
      transition: 0.3s;
+}
+
+td, th {
+     font-size: 7px;
+
 }
    
 td {
      border-bottom: 1px solid rgba(242, 230, 223);
      border-left: 1px solid white;
      border-right: 1px solid white;
-     font-size: 10px;
+  
+}
+
+.itemH {
+     border-bottom: 1px solid white;
+     /*border-right: 1px solid white;*/
+
 }
    
 .servingH, .weightH, .unitH, .caloriesH{
-     width: 5%;
+     width: 3%;
 } 
+
+
+.itemH, .addH, .brandH {
+     width: 4%;
+}
+
+
+.imageH {
+     width: 1%;
+     color: rgba(3, 52, 115);
+}
+
+.block {
+     display: block;
+}
    
 .calPserv:hover {
      font-size: 14px;
 }
-   
-.brandH {
-     width: 10%;
-}
-   
-.imageH {
-     width: 10%;
-     color: rgba(3, 52, 115);
-}
-   
-.itemH{
-     width: 10%;
-}
+     
    
 .tableImage {
-     width: 50px;   
+     width: 10px;   
 }
 
    
@@ -62,7 +75,6 @@ td {
 }     
    
 .quant, .gram, .cal, .brandId {
-     font-size: 9px; 
      /*font-weight: bold;*/
      transition: 0.3s;
 }
@@ -135,7 +147,7 @@ input.delete {
  
 
 .tableScroll {
-     margin-left: -40px;
+     /*margin-left: -10px;*/
  }
 
 .resultsTitle {
@@ -149,14 +161,13 @@ input.delete {
  
 
 .addH {
-     background-color:rgba(49, 31, 115);
      text-align: center;
      
 }
 
 .add:hover {
      background-color: lightpink;
-     zoom:0.9;
+     /*zoom: 1.2;*/
      text-align: center;
 }
    
@@ -178,4 +189,51 @@ input.add {
 
 .bolder {
      font-weight: bolder;
+}
+
+.tableAdjust, .add {
+     display: none;
+}
+
+
+@media only screen and (min-width: 666px) {
+
+.tableAdjust {
+     display: block;
+     height: 40%
+}
+
+
+.add {
+     display: block;
+}
+
+td, th {
+     font-size: 10px;
+
+}
+
+td {
+     height: 15px;
+} 
+
+.servingH, .weightH, .unitH, .caloriesH{
+     width: 10%;
+} 
+
+
+
+.itemH, .brandH {
+     width: 14%;
+}
+
+
+.imageH {
+     width: 8%;
+}
+   
+.tableImage {
+     width: 20px;   
+}
+
 }

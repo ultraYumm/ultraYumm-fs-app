@@ -20,14 +20,14 @@ section {
 
 label {
     font-family: 'Poppins', sans-serif;
-    padding-left: 10px;
+    padding-left: 5px;
     font-weight: 400; 
     
      
 }
 
 .labelWidth {
-   width: 40%;
+   width: 100%;
    display: inline-block;
    font-size: 15px;
    text-align: left;
@@ -49,7 +49,8 @@ input[type=date] {
     width: 40%;
     margin-top: 4px;
 }
-  
+
+ 
 input::placeholder { 
     color: rgba(173, 192, 217);
 } 
@@ -62,20 +63,22 @@ input[type="search"]{
     width: 60%;
 }
   
-input[type="text"], input[type="search"]{
-    width: 50%;
+input[type="text"] {
+    width: 80%;
+
 }
 
 input[type="text"], input[type="search"], input[type="url"]{
     border: 1px solid rgba(191, 4, 4);
-   
+    height: 50px;
 }
 
 
 
 input[type="number"]{
-    width: 50%;
+    width: 60%;
     font-size: 12px;
+    height: 50px;
     text-align: center;
     background-color: rgba(173, 192, 217);
     color: black;
@@ -252,16 +255,19 @@ button:hover {
     width: 20px;
     background-color: #eee;
     border-radius: 50%;
+    z-index: 1;
 }
 
 /* On mouse-over, add a grey background color */
 .labelContainer:hover input ~ .checkmark {
     background-color: #ccc;
+    z-index: 1;
   }
   
   /* When the radio button is checked, add a blue background */
 .labelContainer input:checked ~ .checkmark {
-    background-color:   rgba(191, 4, 4); 
+    background-color:   rgba(191, 4, 4);
+    
 }
   
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -283,7 +289,7 @@ button:hover {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    /*background: white;*/
 }
 
 .charts {
@@ -331,7 +337,7 @@ svg {
 
 .inputBox, .resultBox{
     margin-left: auto;
-    width: 20%;
+    width: 25%;
     display: inline-block;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -340,34 +346,40 @@ svg {
 
 .dataInput, .dataResult {
     width: 60%;
+    height: 50px;
     display: inline-block;
-    padding-left: 20px;
-    margin-left: 20px;
+    /*padding-left: 20px;*/
+    /*margin-left: 20px;*/
     border-radius: 10%;
+    vertical-align: middle;
+    z-index: 1;
 }
 
 
 .textInput {
     width: 100%;
     display: inline-block;
-    padding-left: 20px;
-    margin-left: 20px;
+    /*padding-left: 20px;*/
+    /*margin-left: 20px;*/
 }
 
 
 
 .calcBox {
     width: 100%;
+   text-align: center;
 
 }
 
 .inputsContainer, .resultsContainer {
     width: 100%;
+    text-align: center;
 
 }
 
 .newItems {
     padding-top: 1px;
 }
+
 
 

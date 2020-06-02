@@ -29,6 +29,7 @@ class AddCustomItemForm extends Component {
     const trips = this.props.trips
     const selectedTrip = this.props.selectedTrip
     const itemTypes = this.props.itemTypes
+    const tripName = this.props.tripName
 
     const totalWeight = 20
     const totalCal = 200

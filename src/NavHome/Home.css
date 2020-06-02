@@ -39,6 +39,7 @@
     padding-top: 65px;
     text-align: center;
     padding-bottom: 5px;
+    z-index: 10;
 }
 
 /*need responsive*/
@@ -68,6 +69,9 @@
     font-weight: 500;
     left: 0;
     right: 0;
+    z-index: 4;
+    padding-left: 4px;
+    padding-right: 4px;
 
 } 
 
@@ -78,7 +82,9 @@
     animation-duration: 4s;
     animation-name: slidein;
     transition-timing-function: ease-in;
-    z-index: 1; 
+    z-index: 1;
+    opacity: 0.6;
+    
    
   }
 
@@ -86,6 +92,6 @@
 .snowyOwlContainer {
     text-align: center;
     width: 100px;
-  
+    
   }
   

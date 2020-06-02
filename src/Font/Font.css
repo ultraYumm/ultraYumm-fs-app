@@ -185,12 +185,12 @@ h4 {
 }
 
 p {
- 
   color: rgba(38, 11, 9, 1); 
   border: 1px;
   line-height: 1.8;
   font-size: 13px;
   font-family: 'Poppins', sans-serif;
+  z-index: 1;
 
 }
   
@@ -201,4 +201,8 @@ p {
 
 .hidden {
   display: none;
+}
+
+ul {
+  padding: 0;
 }
