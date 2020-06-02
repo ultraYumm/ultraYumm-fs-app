@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
+import Moment from 'react-moment';
 import "../Tables/Tables.css";
-import { DEFAULTITEM } from "../Defaults";
 
 
 
-class ServingQuant extends Component {
 
-    static defaultProps = {
-        item:  {DEFAULTITEM},
-      }
+class ItemImage extends Component {
+
+  static defaultProps = {
+    item: [
+      {photo: {
+      thumb: "https://nix-tag-images.s3.amazonaws.com/3839_thumb.jpg"}},
+      ]
+  };
      
   render() {
       
@@ -28,4 +32,4 @@ class ServingQuant extends Component {
 }
   
 
-export default ServingQuant
+export default ItemImage

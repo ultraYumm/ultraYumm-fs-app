@@ -55,6 +55,12 @@ td {
      color: rgba(3, 52, 115);
 }
 
+
+.imageH:hover {
+    zoom: 500%;
+    transition: transform .9s ease;
+}
+
 .block {
      display: block;
 }
@@ -65,14 +71,15 @@ td {
      
    
 .tableImage {
-     width: 10px;   
+     width: 10px;
+     border-radius: 5%;   
 }
 
    
-.tableImage:hover {
+/*.tableImage:hover {
      width: 200px;
      transition: 0.3s;
-}     
+}*/    
    
 .quant, .gram, .cal, .brandId {
      /*font-weight: bold;*/

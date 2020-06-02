@@ -11,6 +11,19 @@ import "./Tables.css";
 import TripNames from "../CustomItem/TripNames";
 import "./Tables.css";
 import { NavLink} from 'react-router-dom'
+import ItemImage from "../ItemDetails/ItemImage"
+import ItemName from "../ItemDetails/ItemName"
+import ItemBrand from "../ItemDetails/ItemBrand"
+import ServingQuant from "../ItemDetails/ServingQuant"
+import ServingUnit from "../ItemDetails/ServingUnit"
+import TotalCalories from "../ItemDetails/TotalCalories"
+import TotalWeight from "../ItemDetails/TotalWeight"
+import CalsPerHg from "../ItemDetails/CalsPerHg"
+import CalsPerServing from "../ItemDetails/CalsPerServing"
+
+
+
+
 
 
 class SearchResults extends Component {
@@ -60,17 +73,21 @@ class SearchResults extends Component {
         common[i].calPhG = 
         (!common[i].serving_weight_grams ? 
           Math.round(common[i].full_nutrients[0].value) : 
-          Math.round((common[i].full_nutrients[0].value/common[i].serving_weight_grams*100))
-        
+          Math.round((common[i].full_nutrients[0].value/common[i].serving_weight_grams*100))  
         )
+        const replace = '%'
+        common[i].itemId = common[i].food_name.replace(replace,'')
+        
       }
       return common
     }
 
     const newBrandCommonArr = (removeNoCalNutrients())  
-    console.log(newBrandCommonArr)
+  
 
     newBrandCommonArr.sort((b, a) => parseFloat(a.calPhG) - parseFloat(b.calPhG));
+
+    console.log(common)
 
 
       
@@ -119,31 +136,43 @@ class SearchResults extends Component {
             {newBrandCommonArr.map((item, key) => (
               <tr className="one whiteBackground black" key={key}>
                 <td className="imageH">
-                  <img
-                    className="tableImage"
-                    src={item.photo.thumb}
-                    alt="Item"
-                  />{" "}
+                   <ItemImage
+                  item = {item}
+                  ></ItemImage>
                 </td>
 
-                <NavLink 
-                to={`/item/${item.tag_name}`}
-                >
-                <td className="itemH">{item.food_name}</td>
-                </NavLink>
                 
+                <td className="itemH">
+                <NavLink 
+                to={`/item/${item.itemId}`}
+                onClick={() => {
+                  const selectedItem = item
+                  console.log(selectedItem)
+                  this.props.handleSelectedItem(selectedItem)
+            
+                }}
+                >
+                  <ItemName
+                  name = {item.food_name}/>
+                  </NavLink></td>
 
                 
 
                 <td className="brandId">{(!item.brand_name ? "common" : item.brand_name)}</td>
 
                 <td className="servingH">
-                  {Math.round(item.serving_qty)}
+                  <ServingQuant
+                  quant =  {Math.round(item.serving_qty)}
+                  />
                   <p className="tableAdjust">
                   <Quant/></p>
                 </td>
 
-                <td className="unitH"> {item.serving_unit}</td>
+                <td className="unitH">
+                  <ServingUnit
+                  unit =  {item.serving_unit}
+                  />
+                 </td>
 
                 <td className="weightH tooltip gram">
                   {Math.round(item.serving_weight_grams)}

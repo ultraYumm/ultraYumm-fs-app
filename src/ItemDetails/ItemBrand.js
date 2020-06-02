@@ -6,7 +6,7 @@ import { DEFAULTITEM } from "../Defaults";
 
 
 
-class ServingQuant extends Component {
+class ItemBrand extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
@@ -28,4 +28,4 @@ class ServingQuant extends Component {
 }
   
 
-export default ServingQuant
+export default ItemBrand

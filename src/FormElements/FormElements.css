@@ -382,4 +382,12 @@ svg {
 }
 
 
+.adjustImage {
+  float: right;
+  top: 0;
+  padding: 2px;
+  zoom: 10;
+}
 
+
+  

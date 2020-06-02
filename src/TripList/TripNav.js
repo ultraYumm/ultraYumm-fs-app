@@ -30,7 +30,7 @@ static contextType = UltraContext;
              key = {trip.id}
             
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
-               <NavLink to={`/trip/${trip.name}`}>
+             <NavLink to={`/trip/${trip.name}`}>
               <p
               className = "trip skin"
               onClick={() => {
