@@ -10,18 +10,18 @@ class ItemBrand extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        brand: ""
       }
      
   render() {
-      
- const item = this.props.item
- const source = item.photo.thumb
+  const brand = this.props.brand     
+
+ 
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
+      <div>
+          {brand}
+      </div>
           
    )}
   

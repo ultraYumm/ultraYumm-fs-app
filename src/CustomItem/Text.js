@@ -6,13 +6,20 @@ import '../FormElements/FormElements.css';
 
 class Text extends Component {
 
+  static defaultProps = {
+    input:  "",
+  }
+
   
   render() {
-      
+     
+    const input = this.props.input
    
     return (
        
-        <input type="text" placeholder = "cup"/>
+        <input type="text" 
+        //value = {input}
+        placeholder = {input}/>
         
    )}
   

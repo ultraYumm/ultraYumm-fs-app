@@ -14,15 +14,14 @@ class ServingWeight extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const weight = this.props.weight
+ 
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
-          
+      <div>
+          {weight}
+
+      </div>
    )}
   
 }

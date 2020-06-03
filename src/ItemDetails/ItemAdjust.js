@@ -25,11 +25,19 @@ import { DEFAULTITEM } from "../Defaults";
 class ItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
+    photo: {},
+    thumb: "",
+    name: "",
+    brand: "",
+    input: "",
+
   }
+
+
 
   render() {
     const trips = this.props.trips;
-    const bla = "blabla"
+    
     const selectedTrip = this.props.selectedTrip;
     const itemTypes = this.props.itemTypes;
 
@@ -37,23 +45,25 @@ class ItemAdjust extends Component {
 
     const item = this.props.selectedItem;
 
-    const photo = item.photo.thumb;
-    console.log(photo)
-
     const name = item.food_name;
 
     const brand = !item.brand_name ? "common" : item.brand_name;
 
-    const serving_qty = Math.round(item.serving_qty);
+    const quant = Math.round(item.serving_qty);
 
-    const weightG = Math.round(item.serving_weight_grams);
+    const unit = item.serving_unit
 
-    const calPs = Math.round(item.full_nutrients[0].value);
+    const weight = Math.round(item.serving_weight_grams);
 
-    const calPhG = item.calPhG;
+    const calsPs = Math.round(item.full_nutrients[0].value);
 
-    const totalWeight = 20;
-    const totalCal = 200;
+    const totalWeight = (quant * weight)
+    const totalCal = (quant * calsPs)
+
+    //const totalWeight = totalWeightnf.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    //const totalCal = totalCalnf.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    
+
 
     return (
       <section className="filterForm">
@@ -76,12 +86,14 @@ class ItemAdjust extends Component {
 
           <div>
             <div className="newItems">
-              <ItemName
+              <NewItemName
               name = {name}
-              ></ItemName>
+              />
             </div>
             <div className="newItems">
-              <NewItemBrand></NewItemBrand>
+              <NewItemBrand
+              brand = {brand}
+              />
             </div>
 
             <div className="calcBox">
@@ -94,7 +106,9 @@ class ItemAdjust extends Component {
                     Serving Quantity
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant
+                    input = {quant}
+                    />
                   </p>
                 </div>
 
@@ -106,7 +120,9 @@ class ItemAdjust extends Component {
                     Serving unit
                   </label>
                   <p className="textInput">
-                    <Text></Text>
+                    <Text
+                    input = {unit}
+                    />
                   </p>
                 </div>
 
@@ -118,7 +134,9 @@ class ItemAdjust extends Component {
                     Weight per serving
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant
+                    input = {weight}
+                    />
                   </p>
                 </div>
 
@@ -130,7 +148,8 @@ class ItemAdjust extends Component {
                     Calories per serving
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant
+                    input = {calsPs}/>
                   </p>
                 </div>
               </div>

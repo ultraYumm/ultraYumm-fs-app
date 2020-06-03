@@ -14,14 +14,13 @@ class CalsPerHg extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const calsPHg = this.props.calsPHg
+
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
+    <div>
+        {calsPHg}
+    </div>
           
    )}
   

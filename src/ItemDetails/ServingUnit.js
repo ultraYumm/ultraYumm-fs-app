@@ -14,15 +14,13 @@ class ServingUnit extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const unit = this.props.unit
+ 
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
-          
+      <div>
+          {unit}
+      </div>
    )}
   
 }

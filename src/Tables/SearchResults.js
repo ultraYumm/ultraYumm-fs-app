@@ -10,34 +10,30 @@ import Quant from "../CustomItem/Quant";
 import "./Tables.css";
 import TripNames from "../CustomItem/TripNames";
 import "./Tables.css";
-import { NavLink} from 'react-router-dom'
-import ItemImage from "../ItemDetails/ItemImage"
-import ItemName from "../ItemDetails/ItemName"
-import ItemBrand from "../ItemDetails/ItemBrand"
-import ServingQuant from "../ItemDetails/ServingQuant"
-import ServingUnit from "../ItemDetails/ServingUnit"
-import TotalCalories from "../ItemDetails/TotalCalories"
-import TotalWeight from "../ItemDetails/TotalWeight"
-import CalsPerHg from "../ItemDetails/CalsPerHg"
-import CalsPerServing from "../ItemDetails/CalsPerServing"
-
-
-
-
-
+import { NavLink } from "react-router-dom";
+import ItemImage from "../ItemDetails/ItemImage";
+import ItemName from "../ItemDetails/ItemName";
+import ItemBrand from "../ItemDetails/ItemBrand";
+import ServingQuant from "../ItemDetails/ServingQuant";
+import ServingUnit from "../ItemDetails/ServingUnit";
+import TotalCalories from "../ItemDetails/TotalCalories";
+import TotalWeight from "../ItemDetails/TotalWeight";
+import CalsPerHg from "../ItemDetails/CalsPerHg";
+import CalsPerServing from "../ItemDetails/CalsPerServing";
+import ServingWeight from "../ItemDetails/ServingWeight";
+import { DEFAULTITEM } from "../Defaults";
 
 class SearchResults extends Component {
   static defaultProps = {
     common: [],
     branded: [],
+    item:  {DEFAULTITEM},
   };
   render() {
-
-    
     const common = this.props.common;
     const branded = this.props.branded;
 
-    const trips = this.props.trips
+    const trips = this.props.trips;
 
     /*function compare(a, b){
       if (a < b){return -1;}
@@ -45,10 +41,9 @@ class SearchResults extends Component {
       if (a === b){return 0;}
     }*/
 
-    
     Array.prototype.push.apply(common, branded);
 
-     const commonNutrients = () => {
+    const commonNutrients = () => {
       var results = common.map((item) => item.full_nutrients);
       return results;
     };
@@ -65,37 +60,32 @@ class SearchResults extends Component {
 
     const calorieArray = commonCalsPerS();
 
-
     const removeNoCalNutrients = () => {
-      
-      for (let i = 0; i < common.length; i++){
-        common[i].full_nutrients = calorieArray[i]
-        common[i].calPhG = 
-        (!common[i].serving_weight_grams ? 
-          Math.round(common[i].full_nutrients[0].value) : 
-          Math.round((common[i].full_nutrients[0].value/common[i].serving_weight_grams*100))  
-        )
-        const replace = '%'
-        common[i].itemId = common[i].food_name.replace(replace,'')
-        
+      for (let i = 0; i < common.length; i++) {
+        common[i].full_nutrients = calorieArray[i];
+        common[i].calPhG = !common[i].serving_weight_grams
+          ? Math.round(common[i].full_nutrients[0].value)
+          : Math.round(
+              (common[i].full_nutrients[0].value /
+                common[i].serving_weight_grams) *
+                100
+            );
+        const replace = "%";
+        common[i].itemId = common[i].food_name.replace(replace, "");
       }
-      return common
-    }
+      return common;
+    };
 
-    const newBrandCommonArr = (removeNoCalNutrients())  
-  
+    const newBrandCommonArr = removeNoCalNutrients();
 
-    newBrandCommonArr.sort((b, a) => parseFloat(a.calPhG) - parseFloat(b.calPhG));
+    newBrandCommonArr.sort(
+      (b, a) => parseFloat(a.calPhG) - parseFloat(b.calPhG)
+    );
 
-    console.log(common)
-
-
-      
+    console.log(common);
 
     return (
-      
       <section>
-      
         <div>
           <h2 className="montebello searchResultsTitle white">
             {" "}
@@ -104,105 +94,116 @@ class SearchResults extends Component {
         </div>
 
         <div className="filterButtonContainer tableAdjust">
-          <SaveButton/>
-          <PrintButton/>
-          <ResetButton/>
+          <SaveButton />
+          <PrintButton />
+          <ResetButton />
         </div>
         <form>
-        <div className="filterButtonContainer moreContainer">
+          <div className="filterButtonContainer moreContainer">
+            <NavLink to={`/add-custom`}>
+              <AddCustomButton />
+            </NavLink>
 
-          <NavLink to={`/add-custom`}>  
-          <AddCustomButton/>
-          </NavLink>  
-
-          <NavLink to={`/`}>     
-          <SearchMoreButton/>
-          </NavLink>
-      </div>
-        <table id= "search-results" className="primaryFont">
-          <tbody>
-            <tr className="blueBackground white">
-              <th className="imageH"><span className = "hidden">Image</span></th>
-              <th className="itemH">Item<span className ="mobile">(Click)</span></th>
-              <th className="brandH">Brand</th>
-              <th className="servingH">Serving Quantity <span className ="tableAdjust">(adjust)</span></th>
-              <th className="unitH">Unit</th>
-              <th className="weightH tooltip gram">Weight (grams)</th>
-              <th className="caloriesH cal calS">Calories</th>
-              <th className ="caloriesH">Calories per 100g</th>
-              <th className ="addH itemH">Add to pack</th>
-            </tr>
-
-            {newBrandCommonArr.map((item, key) => (
-              <tr className="one whiteBackground black" key={key}>
-                <td className="imageH">
-                   <ItemImage
-                  item = {item}
-                  ></ItemImage>
-                </td>
-
-                
-                <td className="itemH">
-                <NavLink 
-                to={`/item/${item.itemId}`}
-                onClick={() => {
-                  const selectedItem = item
-                  console.log(selectedItem)
-                  this.props.handleSelectedItem(selectedItem)
-            
-                }}
-                >
-                  <ItemName
-                  name = {item.food_name}/>
-                  </NavLink></td>
-
-                
-
-                <td className="brandId">{(!item.brand_name ? "common" : item.brand_name)}</td>
-
-                <td className="servingH">
-                  <ServingQuant
-                  quant =  {Math.round(item.serving_qty)}
-                  />
-                  <p className="tableAdjust">
-                  <Quant/></p>
-                </td>
-
-                <td className="unitH">
-                  <ServingUnit
-                  unit =  {item.serving_unit}
-                  />
-                 </td>
-
-                <td className="weightH tooltip gram">
-                  {Math.round(item.serving_weight_grams)}
-                  <span className="tooltiptext">grams</span>
-                  <p className= "tableAdjust dataResult blackBackground white">100</p>
-                </td>
-
-                <td className="caloriesH tooltip cal calS">  {Math.round(item.full_nutrients[0].value)}
-                <span className="tooltiptext">cal per serving</span>
-                <p className="tableAdjust dataResult blackBackground white">100</p>
-                </td>
-
-                <td className="caloriesH tooltip calG">
-                  {item.calPhG}
-                </td>
-
-                <td>
-                  <span className = "add">
-                  <TripNames
-                trips = {trips}     
-                />
-                </span>
-                
-                  </td>
+            <NavLink to={`/`}>
+              <SearchMoreButton />
+            </NavLink>
+          </div>
+          <table id="search-results" className="primaryFont">
+            <tbody>
+              <tr className="blueBackground white">
+                <th className="imageH">
+                  <span className="hidden">Image</span>
+                </th>
+                <th className="itemH">
+                  Item<span className="mobile">(Click)</span>
+                </th>
+                <th className="brandH">Brand</th>
+                <th className="servingH">
+                  Serving Quantity <span className="tableAdjust">(adjust)</span>
+                </th>
+                <th className="unitH">Unit</th>
+                <th className="weightH tooltip gram">Weight (grams)</th>
+                <th className="caloriesH cal calS">Calories</th>
+                <th className="caloriesH">Calories per 100g</th>
+                <th className="addH itemH">Add to pack</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
 
-       </form>
+              {newBrandCommonArr.map((item, key) => (
+                <tr className="one whiteBackground black" key={key}>
+                  <td className="imageH">
+                    <ItemImage item = {item}/>
+                  </td>
+
+                  <td className="itemH">
+                    <NavLink
+                      to={`/item/${item.itemId}`}
+                      onClick={() => {
+                        const selectedItem = item;
+                        console.log(selectedItem);
+                        this.props.handleSelectedItem(selectedItem);
+                      }}
+                    >
+                      <ItemName 
+                      item = {item} />
+                    </NavLink>
+                  </td>
+
+                  <td className="brandId">
+                    <ItemBrand
+                    brand = {!item.brand_name ? "common" : item.brand_name}
+                    />
+                  </td>
+
+                  <td className="servingH">
+                    
+                    <ServingQuant 
+                    quant = {Math.round(item.serving_qty)} />
+                    <p className="tableAdjust">
+                      <Quant />
+                    </p>
+                  </td>
+
+                  <td className="unitH">
+                    <ServingUnit unit={item.serving_unit} />
+                  </td>
+
+                  <td className="weightH tooltip gram">
+                    <ServingWeight
+                    weight =  {Math.round(item.serving_weight_grams)}
+                    />
+                    <span className="tooltiptext">grams</span>
+                    <p className="tableAdjust dataResult blackBackground white">
+                      10
+                    </p>
+                  </td>
+
+                  <td className="caloriesH tooltip cal calS">
+                    <CalsPerServing
+                    calsPs =  {Math.round(item.full_nutrients[0].value)}
+                    />
+                    <span className="tooltiptext">cal per serving</span>
+                    <p className="tableAdjust dataResult blackBackground white">
+                      100
+                    </p>
+                  </td>
+
+                  <td className="caloriesH tooltip calG">
+                    
+                    <CalsPerHg
+                      calsPHg = {item.calPhG}
+                    />
+                  </td>
+
+                  <td>
+                    <span className="add">
+                      <TripNames trips={trips} />
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </form>
       </section>
     );
   }

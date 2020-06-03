@@ -14,14 +14,13 @@ class ServingQuant extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const quant = this.props.quant
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
+      <div>
+          {quant}
+      </div>
+     
           
    )}
   

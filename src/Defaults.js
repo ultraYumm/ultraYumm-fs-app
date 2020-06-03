@@ -14,4 +14,3 @@ export const DEFAULTITEM = [
     {serving_unit: "oz"},
     {serving_weight_grams: 28.35}]
   
-  

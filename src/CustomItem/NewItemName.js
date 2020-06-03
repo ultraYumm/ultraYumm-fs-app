@@ -4,9 +4,15 @@ import "../FormElements/FormElements.css";
 import { renderToString } from 'react-dom/server';
 
 class NewItemName extends Component {
+
+  static defaultProps = {
+    name:  "",
+  }
+  
   render() {
+    
+    
     const name = this.props.name;
-    console.log(name)
 
     return (
       <label htmlFor="custom-item-name">

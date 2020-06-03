@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
-import Moment from 'react-moment';
 import "../Tables/Tables.css";
 
 
