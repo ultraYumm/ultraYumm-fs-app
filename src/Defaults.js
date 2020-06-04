@@ -1,5 +1,5 @@
 export const DEFAULTITEM = [
-    {calPhG: 424},
+    {calsPhg: 424},
     {common_type: null},
     {food_name: "light popcorn"},
     {full_nutrients:[

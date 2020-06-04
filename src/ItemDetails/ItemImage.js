@@ -17,8 +17,8 @@ class ItemImage extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const image = this.props.image
+ const source = image
 
     return (
       <img

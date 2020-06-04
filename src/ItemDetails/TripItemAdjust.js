@@ -22,7 +22,7 @@ import ItemName from "../ItemDetails/ItemName"
 
 import { DEFAULTITEM } from "../Defaults";
 
-class ItemAdjust extends Component {
+class TripItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
     photo: {},
@@ -48,7 +48,7 @@ class ItemAdjust extends Component {
     const image = item.image
 
     const name = item.food_name;
-
+ 
     const brand = !item.brand_name ? "common" : item.brand_name;
 
     const quant = Math.round(item.serving_qty);
@@ -58,8 +58,6 @@ class ItemAdjust extends Component {
     const weight = Math.round(item.serving_weight_grams);
 
     const calsPs = Math.round(item.calsPerServing);
-
-    const day = item.tripDay
 
     const totalWeight = (quant * weight)
     const totalCal = (quant * calsPs)
@@ -185,9 +183,7 @@ class ItemAdjust extends Component {
             <TripNames trips={trips}></TripNames>
 
             <h3 className="filterCategory">Dates</h3>
-            <TripDates 
-            placeholder = {day}
-            selectedTrip={selectedTrip}></TripDates>
+            <TripDates selectedTrip={selectedTrip}></TripDates>
 
             <h3 className="filterCategory">Type</h3>
             <ItemTypes itemTypes={itemTypes}></ItemTypes>
@@ -201,4 +197,4 @@ class ItemAdjust extends Component {
   }
 }
 
-export default ItemAdjust;
+export default TripItemAdjust;

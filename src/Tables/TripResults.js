@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
-
 import TripName from "../TripDetails/TripName";
 import TripDates from "../TripDetails/TripDates";
 import ItemTypes from "../CustomItem/ItemTypes";
@@ -17,8 +16,15 @@ import TripPackGraph from "../TripDetails/TripPackGraph";
 import TripCalorieGraph from "../TripDetails/TripCalorieGraph";
 import Quant from "../CustomItem/Quant";
 import { NavLink } from "react-router-dom";
+import ItemImage from "../ItemDetails/ItemImage";
+import ItemName from "../ItemDetails/ItemName";
+import ItemBrand from "../ItemDetails/ItemBrand";
+import ServingQuant from "../ItemDetails/ServingQuant";
+import ServingUnit from "../ItemDetails/ServingUnit";
+import ServingWeight from "../ItemDetails/ServingWeight";
 
 import "./Tables.css";
+import TotalCalories from "../ItemDetails/TotalCalories";
 
 class TripResults extends Component {
   static defaultProps = {
@@ -28,24 +34,19 @@ class TripResults extends Component {
   render() {
     const selectedTrip = this.props.selectedTrip;
 
-    console.log(selectedTrip);
-
     const selectedTripItems = this.props.selectedTripItems;
 
     const tripItems = this.props.tripItems;
 
-    console.log(selectedTripItems);
-    console.log(tripItems);
-
     const imageArray = tripItems.map((items) => items.image);
 
-    const nameArray = tripItems.map((items) => items.food_name);
+    const food_nameArray = tripItems.map((items) => items.food_name);
 
-    const brandArray = tripItems.map((items) => items.brand);
+    const brandArray = tripItems.map((items) => items.brand_name);
 
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
 
-    const fixedCalPerUnitArray = tripItems.map((items) => items.calPerServing);
+    const fixedCalPerUnitArray = tripItems.map((items) => items.calsPerServing);
 
     const selectServingQuantArray = selectedTripItems
       .map((items) => items.selected_serving_qty)
@@ -58,25 +59,25 @@ class TripResults extends Component {
     const itemTypes = this.props.itemTypes;
 
     const results = selectedTripItems.map((item, i) => {
-      const name = nameArray[i];
+      const food_name = food_nameArray[i];
 
       const image = imageArray[i];
 
-      const brand = brandArray[i];
+      const brand_name = brandArray[i];
 
       const fixedUnit = fixedUnitArray[i];
 
-      const calPerServing = fixedCalPerUnitArray[i];
+      const calsPerServing = fixedCalPerUnitArray[i];
 
-      const weightPerServing = fixedServingWeightArray[i];
+      const serving_weight_grams = fixedServingWeightArray[i];
 
       const resultsObject = {
         image,
-        name,
-        brand,
+        food_name,
+        brand_name,
         fixedUnit,
-        weightPerServing,
-        calPerServing,
+        serving_weight_grams,
+        calsPerServing,
         ...item,
       };
 
@@ -142,11 +143,11 @@ class TripResults extends Component {
           </div>
 
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={`/trip-filter/${selectedTrip[0].name}`}>
+            <NavLink to={`/trip-filter/${selectedTrip[0].food_name}`}>
               <GoToFiltersButton />
             </NavLink>
 
-            <NavLink to={`/add-custom/${selectedTrip[0].name}`}>
+            <NavLink to={`/add-custom/${selectedTrip[0].food_name}`}>
               <AddCustomButton />
             </NavLink>
 
@@ -184,7 +185,7 @@ class TripResults extends Component {
               {results.map((item, key) => (
                 <tr className="one whiteBackground black" key={item.itemId}>
                   <td className="imageH hidden">
-                    <img className="tableImage" src={item.image} alt="Item" />{" "}
+                  <ItemImage image = {item.image}/>
                   </td>
 
                   <td className="date">
@@ -211,28 +212,49 @@ class TripResults extends Component {
                     </div>
                   </td>
 
-                  <td className="itemH">{item.name}</td>
+                  <td className="itemH">
+                  <NavLink
+                      to={`/trip/${item.itemId}`}
 
-                  <td className="brandId hidden">{item.brand}</td>
+                    onClick={() => {
+                    const selectTripItem =  item
+                    this.props.handleSelectTripItem(selectTripItem)}}                     
+                       >
+                      <ItemName 
+                      name = {item.food_name} />
+                      </NavLink>
+                    </td>
+
+                  <td className="brand Id hidden">
+                  <ItemBrand
+                    brand = {!item.brand_name ? "common" : item.brand_name}
+                    /></td>
 
                   <td className="servingH">
-                    {item.selected_serving_qty}
+                  <ServingQuant 
+                    quant = {Math.round(item.selected_serving_qty)} />
                     <p className="tableAdjust">
                     <Quant/>
                     </p>
                   </td>
 
-                  <td className="unitH"> {item.fixedUnit}</td>
+                  <td className="unitH">
+                  <ServingUnit unit={item.fixedUnit}/>
+                    </td>
 
                   <td className="weightH">
-                    {item.selected_serving_qty * item.weightPerServing}{" "}
+                  <ServingWeight
+                   weight = {item.selected_serving_qty * item.serving_weight_grams}
+                    />
                     <p className="dataResult blackBackground white tableAdjust">10</p>
                   </td>
 
                   <td className="caloriesH tooltip cal calS">
-                    {(item.selected_serving_qty * item.calPerServing)
+                    <TotalCalories
+                    calories =
+                    {(item.selected_serving_qty * item.calsPerServing)
                       .toFixed(0)
-                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}{" "}
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}/>
                     <p className="dataResult blackBackground white tableAdjust">100</p>
                   </td>
 
@@ -251,3 +273,4 @@ class TripResults extends Component {
 }
 
 export default TripResults;
+

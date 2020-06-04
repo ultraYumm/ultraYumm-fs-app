@@ -25,21 +25,19 @@ import { DEFAULTITEM } from "../Defaults";
 
 class SearchResults extends Component {
   static defaultProps = {
+    results: {},
     common: [],
     branded: [],
     item:  {DEFAULTITEM},
+    thumb: "",
   };
   render() {
+ 
+
     const common = this.props.common;
     const branded = this.props.branded;
 
     const trips = this.props.trips;
-
-    /*function compare(a, b){
-      if (a < b){return -1;}
-      if (a > b){return 1;}
-      if (a === b){return 0;}
-    }*/
 
     Array.prototype.push.apply(common, branded);
 
@@ -63,15 +61,18 @@ class SearchResults extends Component {
     const removeNoCalNutrients = () => {
       for (let i = 0; i < common.length; i++) {
         common[i].full_nutrients = calorieArray[i];
-        common[i].calPhG = !common[i].serving_weight_grams
+        
+        common[i].image = common[i].photo.thumb
+        const replace = "%";
+        common [i].CalsPerServing = common[i].full_nutrients[0].value
+        common[i].itemId = common[i].food_name.replace(replace, "");
+        common[i].calsPhg = !common[i].serving_weight_grams
           ? Math.round(common[i].full_nutrients[0].value)
           : Math.round(
               (common[i].full_nutrients[0].value /
                 common[i].serving_weight_grams) *
                 100
             );
-        const replace = "%";
-        common[i].itemId = common[i].food_name.replace(replace, "");
       }
       return common;
     };
@@ -79,10 +80,10 @@ class SearchResults extends Component {
     const newBrandCommonArr = removeNoCalNutrients();
 
     newBrandCommonArr.sort(
-      (b, a) => parseFloat(a.calPhG) - parseFloat(b.calPhG)
+      (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
 
-    console.log(common);
+    console.log(newBrandCommonArr);
 
     return (
       <section>
@@ -131,7 +132,7 @@ class SearchResults extends Component {
               {newBrandCommonArr.map((item, key) => (
                 <tr className="one whiteBackground black" key={key}>
                   <td className="imageH">
-                    <ItemImage item = {item}/>
+                    <ItemImage image = {item.image}/>
                   </td>
 
                   <td className="itemH">
@@ -139,12 +140,11 @@ class SearchResults extends Component {
                       to={`/item/${item.itemId}`}
                       onClick={() => {
                         const selectedItem = item;
-                        console.log(selectedItem);
                         this.props.handleSelectedItem(selectedItem);
                       }}
                     >
                       <ItemName 
-                      item = {item} />
+                      name = {item.food_name} />
                     </NavLink>
                   </td>
 
@@ -179,7 +179,7 @@ class SearchResults extends Component {
 
                   <td className="caloriesH tooltip cal calS">
                     <CalsPerServing
-                    calsPs =  {Math.round(item.full_nutrients[0].value)}
+                    calsPs =  {Math.round(item.calsPerServing)}
                     />
                     <span className="tooltiptext">cal per serving</span>
                     <p className="tableAdjust dataResult blackBackground white">
@@ -190,7 +190,7 @@ class SearchResults extends Component {
                   <td className="caloriesH tooltip calG">
                     
                     <CalsPerHg
-                      calsPHg = {item.calPhG}
+                      calsPHg = {item.calsPhg}
                     />
                   </td>
 

@@ -36,7 +36,7 @@ class AddCustomItemForm extends Component {
             <NavLink to={`/trip/${selectedTrip[0].name}`}>
               <SaveButton />
             </NavLink>
-            <ResetButton></ResetButton>
+            <ResetButton/>
           </div>
 
           <div>
@@ -44,7 +44,7 @@ class AddCustomItemForm extends Component {
               <NewItemName></NewItemName>
             </div>
             <div className="newItems">
-              <NewItemBrand></NewItemBrand>
+              <NewItemBrand/>
             </div>
 
             <div className="calcBox">
@@ -57,7 +57,7 @@ class AddCustomItemForm extends Component {
                     Serving Quantity
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant/>
                   </p>
                 </div>
 
@@ -69,7 +69,7 @@ class AddCustomItemForm extends Component {
                     Serving unit
                   </label>
                   <p className="textInput">
-                    <Text></Text>
+                    <Text/>
                   </p>
                 </div>
 
@@ -81,7 +81,7 @@ class AddCustomItemForm extends Component {
                     Weight per serving
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant/>
                   </p>
                 </div>
 
@@ -93,7 +93,7 @@ class AddCustomItemForm extends Component {
                     Calories per serving
                   </label>
                   <p className="dataInput">
-                    <Quant></Quant>
+                    <Quant/>
                   </p>
                 </div>
               </div>
@@ -126,16 +126,17 @@ class AddCustomItemForm extends Component {
 
           <div className="filterContainer">
             <h3 className="filterCategory">Trip</h3>
-            <TripNames trips={trips}></TripNames>
+            <TripNames trips={trips}/>
 
             <h3 className="filterCategory">Dates</h3>
-            <TripDates selectedTrip={selectedTrip}></TripDates>
+            <TripDates selectedTrip={selectedTrip}/>
 
             <h3 className="filterCategory">Type</h3>
-            <ItemTypes itemTypes={itemTypes}></ItemTypes>
+            <ItemTypes 
+            itemTypes={itemTypes}/>
 
             <h3 className="filterCategory">Traveler</h3>
-            <TripTravelers selectedTrip={selectedTrip}></TripTravelers>
+            <TripTravelers selectedTrip={selectedTrip}/>
           </div>
         </form>
       </section>

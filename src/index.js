@@ -51,77 +51,77 @@ const ITEMS= [
     "id": "1",
     "food_name": "apple",
     "serving_unit": "medium (3\" dia)",
-    "brand": null,
+    "brand_name": null,
     "serving_qty": 1,
     "image": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg",
     "serving_weight_grams": 182,
-    "calPerServing": 94.64
+    "calsPerServing": 94.64
     },
     
     {
     "id": "2",
     "food_name": "Granola, House Blend",
-    "brand": 	"House Granola",
+    "brand_name": 	"House Granola",
     "serving_unit": "cup",
     "serving_qty": 1,
     "image": "https://nutritionix-api.s3.amazonaws.com/5572031b36869fb5124af830.jpeg",
     "serving_weight_grams": 28,
-    "calPerServing": 500
+    "calsPerServing": 500
     },
     
     {
     "id": "3",
     "food_name": "Intense Dark Twilight Delight 72% Cacao",
-    "brand": 	"Ghirardelli Chocolate",
+    "brand_name": 	"Ghirardelli Chocolate",
     "serving_unit": "square",
     "serving_qty": 1,
     "image": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg",
     "serving_weight_grams": 11,
-    "calPerServing": 545
+    "calsPerServing": 545
     },
     
     {
     "id": "4",
     "food_name": "Beef Jerky",
-    "brand": 	"Lawless Jerky",
+    "brand_name": 	"Lawless Jerky",
     "serving_unit": "oz",
     "serving_qty": 1,
     "image": "https://nutritionix-api.s3.amazonaws.com/55312801c07cd0fd571ee6ee.jpeg",
     "serving_weight_grams": 28,
-    "calPerServing": 383
+    "calsPerServing": 383
     },
     
     {
     "id": "5",
     "food_name": "dry red lentils",
-    "brand": 	null,
+    "brand_name": 	null,
     "serving_unit": "cup",
     "serving_qty": 1,
     "image": "https://nix-tag-images.s3.amazonaws.com/230_thumb.jpg",
     "serving_weight_grams": 192,
-    "calPerServing": 358
+    "calsPerServing": 358
     },
     
     {
     "id": "6",
     "food_name": "hard parmesan",
-    "brand": 	null,
+    "brand_name": 	null,
     "serving_unit": "tsp",
     "serving_qty": 1,
     "image": "https://nix-tag-images.s3.amazonaws.com/5149_thumb.jpg",
     "serving_weight_grams": 5,
-    "calPerServing": 21
+    "calsPerServing": 21
     },
 
     {
     "id": "7",
     "food_name": "doggieKibble",
-    "brand": 	null,
+    "brand_name": 	null,
     "serving_unit": "tsp",
     "serving_qty": 1,
     "image": "https://nutritionix-api.s3.amazonaws.com/555633f508a1194369620ef9.jpeg",
     "serving_weight_grams": 5,
-    "calPerServing": 21
+    "calsPerServing": 21
     }
 ]
 
@@ -185,7 +185,7 @@ const PACKITEMS= [
 ]
 
 const DEFAULTITEM = [
-  {calPhG: 424},
+  {calsPhg: 424},
   {common_type: null},
   {food_name: "light popcorn"},
   {full_nutrients:[

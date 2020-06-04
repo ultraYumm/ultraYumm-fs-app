@@ -14,14 +14,14 @@ class TotalCalories extends Component {
      
   render() {
       
- const item = this.props.item
- const source = item.photo.thumb
+ const calories = this.props.calories
+ 
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
-      alt="Item"/>
+      <div>
+        {calories}
+
+      </div>
           
    )}
   

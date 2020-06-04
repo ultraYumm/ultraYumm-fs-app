@@ -14,6 +14,7 @@ import { DEFAULTITEM } from "./Defaults";
 
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 
+
 import SearchResults from "./Tables/SearchResults";
 
 class App extends Component {
@@ -25,7 +26,8 @@ class App extends Component {
       selectedTripId: "e",
       tripName: "Escalante",
       selectedItem: {DEFAULTITEM},
-      item: {DEFAULTITEM}
+      item: {DEFAULTITEM},
+      selectTripItem: []
     };
   }
 
@@ -54,7 +56,16 @@ class App extends Component {
     });
   };
 
+  selectTripItem = (selectTripItem) => {
+    this.setState({
+      selectTripItem: selectTripItem,
+    });
+  };
+
   render() {
+
+    const TripItem = this.state.selectTripItem
+
     const trips = this.props.trips;
 
     const selectedTripId = this.state.selectedTripId;
@@ -147,6 +158,10 @@ class App extends Component {
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={itemTypes}
+              handleSelectTripItem={(selectTripItem) =>
+                this.selectTripItem(selectTripItem)
+              }
+              
             />
           )}
         />
@@ -157,6 +172,7 @@ class App extends Component {
             console.log(this.state);
             return (
               <SearchResults
+                results= {this.state.searchResults}
                 common={this.state.searchResults.common}
                 branded={this.state.searchResults.branded}
                 trips={trips}
@@ -168,6 +184,9 @@ class App extends Component {
           }}
         />
 
+      
+
+
         <Route
           path="/item/:itemId"
           render={() => {
@@ -178,7 +197,6 @@ class App extends Component {
                 trips={trips}
                 items={items}
                 selectedTrip={selectedTrip}
-                selectedTripItems={selectedTripItems}
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
@@ -186,6 +204,30 @@ class App extends Component {
             );
           }}
         />
+
+          <Route
+          path="/trip/:itemId"
+          render={() => {
+            return (
+              <ItemAdjust
+                selectedItem={this.state.selectTripItem}
+                item= {this.state.item}
+                trips={trips}
+                items={items}
+                selectedTrip={selectedTrip}
+                selectedTripItems={selectedTripItems}
+                tripItems={tripItems}
+                itemTypes={itemTypes}
+                tripName={this.state.tripName}
+              />
+              );
+            }}
+          />
+            
+        
+
+
+
       </div>
     );
   }

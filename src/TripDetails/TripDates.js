@@ -12,6 +12,7 @@ class TripDates extends Component {
       
   const selectedTrip = this.props.selectedTrip
   const tripDates = selectedTrip.map((trip) => (trip.trip_dates))[0]
+  const placeholder = this.props.placeholder
 
     return (
       <div className= "filterSelection"> 
@@ -20,7 +21,8 @@ class TripDates extends Component {
             <li key= {date}>
           
             <label className="labelContainer"><Moment format= "MMM/DD">{date}</Moment>
-                 <input type="checkbox"/>
+                 <input type="checkbox"
+                 placheholder = {placeholder}/>
                  <span className="checkmark"></span>
              </label>
             </li>

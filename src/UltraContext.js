@@ -9,7 +9,8 @@ const UltraContext = React.createContext({
   handleAddCustomItem: () => {},
   deleteItem: () => {},
   updateItem: () => {},
-  selectTrip: () => {}
+  selectTrip: () => {},
+  selectTripItem: () => {} 
   
 })
 

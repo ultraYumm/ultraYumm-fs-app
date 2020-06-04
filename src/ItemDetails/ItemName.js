@@ -14,8 +14,7 @@ class ItemName extends Component {
      
   render() {
       
- const item = this.props.item 
- const name = item.food_name
+ const name = this.props.name
  
 
     return (
