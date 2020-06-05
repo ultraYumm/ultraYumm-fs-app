@@ -17,7 +17,7 @@ const TRIPS = [
   "name":"Tende",
   "traveler_names": ["Suzy", "Michael", "Jack", "Stef", "Ringo"],
   "iframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6991.493885443003!2d83.8670621985494!3d28.81661413001174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be1420f935fa2f%3A0xb6f4363b17b0a97f!2sShree%20Muktinath%20Temple%2C%20Nepal!5e0!3m2!1sen!2sus!4v1589311708705!5m2!1sen!2sus" , 
-  "trip_dates": ["2020-03-23T09:25:43.511Z", "2020-03-24T09:25:43.511Z"],
+  "trip_dates": ["2020-10-01T09:25:43.511Z", "2020-10-02T09:25:43.511Z"],
 }
 ]
 
@@ -119,7 +119,7 @@ const ITEMS= [
     "brand_name": 	null,
     "serving_unit": "tsp",
     "serving_qty": 1,
-    "image": "https://nutritionix-api.s3.amazonaws.com/555633f508a1194369620ef9.jpeg",
+    "image":"",
     "serving_weight_grams": 5,
     "calsPerServing": 21
     }
@@ -160,7 +160,7 @@ const PACKITEMS= [
 
 { "itemId":  "5",
     "tripId": "t",
-    "tripDay": "2020-03-23T09:25:43.511Z",  
+    "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Stef",
     "type": "Snack",
     "selected_serving_qty": 4
@@ -168,7 +168,7 @@ const PACKITEMS= [
 
 { "itemId":  "6",
     "tripId": "t",
-    "tripDay": "2020-03-23T09:25:43.511Z",  
+    "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Suzy",
     "type": "Snack",
     "selected_serving_qty": 4
@@ -176,7 +176,7 @@ const PACKITEMS= [
 
 { "itemId":  "7",
     "tripId": "t",
-    "tripDay": "2020-03-23T09:25:43.511Z",  
+    "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Ringo",
     "type": "Snack",
     "selected_serving_qty": 4

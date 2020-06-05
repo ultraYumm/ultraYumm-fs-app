@@ -14,16 +14,16 @@ import GoToFiltersButton from "../FormElements/GoToFiltersButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
 import TripPackGraph from "../TripDetails/TripPackGraph";
 import TripCalorieGraph from "../TripDetails/TripCalorieGraph";
-import Quant from "../CustomItem/Quant";
 import { NavLink } from "react-router-dom";
 import ItemName from "../ItemDetails/ItemName";
 import ServingQuant from "../ItemDetails/ServingQuant";
 import ServingUnit from "../ItemDetails/ServingUnit";
 import ServingWeight from "../ItemDetails/ServingWeight";
 import "./Tables.css";
-import TotalCalories from "../ItemDetails/TotalCalories";
+import CalsPerServing from "../ItemDetails/CalsPerServing";
+import Delete from "../ItemDetails/Delete";
 import ItemHeader from "./ItemHeader"
-import ServQuantHeader from "./BrandHeader";
+import ServQuantHeader from "./ServQuantHeader";
 import UnitHeader from "./UnitHeader";
 import WeightGHeader from "./WeightGHeader";
 import TotalCalHeader from "./TotalCalHeader";
@@ -37,49 +37,35 @@ import BackButton from '../FormElements/BackButton';
 class TripResults extends Component {
   static defaultProps = {
     selectedTrip: [],
+    
   };
 
   render() {
     const selectedTrip = this.props.selectedTrip;
-
+    
+    console.log(selectedTrip)
     const selectedTripItems = this.props.selectedTripItems;
-
     const tripItems = this.props.tripItems;
-
     const imageArray = tripItems.map((items) => items.image);
-
     const food_nameArray = tripItems.map((items) => items.food_name);
-
     const brandArray = tripItems.map((items) => items.brand_name);
-
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
-
     const fixedCalPerUnitArray = tripItems.map((items) => items.calsPerServing);
-
     const selectServingQuantArray = selectedTripItems
       .map((items) => items.selected_serving_qty)
       .sort();
-
     const fixedServingWeightArray = tripItems.map(
       (items) => items.serving_weight_grams
     );
-
     const itemTypes = this.props.itemTypes;
-
     const results = selectedTripItems.map((item, i) => {
-      const food_name = food_nameArray[i];
-
-      const image = imageArray[i];
-
-      const brand_name = brandArray[i];
-
-      const fixedUnit = fixedUnitArray[i];
-
-      const calsPerServing = fixedCalPerUnitArray[i];
-
-      const serving_weight_grams = fixedServingWeightArray[i];
-
-      const resultsObject = {
+    const food_name = food_nameArray[i];
+    const image = imageArray[i];
+    const brand_name = brandArray[i];
+    const fixedUnit = fixedUnitArray[i];
+    const calsPerServing = fixedCalPerUnitArray[i];
+    const serving_weight_grams = fixedServingWeightArray[i];
+    const resultsObject = {
         image,
         food_name,
         brand_name,
@@ -91,11 +77,7 @@ class TripResults extends Component {
 
       return resultsObject;
     });
-
-    
-
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
     const sumCalsPerServing = () => {
       if (fixedCalPerUnitArray.length === 0) {
         const defaultResult = 1;
@@ -103,7 +85,6 @@ class TripResults extends Component {
       }
       return fixedCalPerUnitArray.reduce(reducer);
     };
-
     const sumWeightsPerServing = () => {
       if (fixedServingWeightArray.length === 0) {
         const defaultResult = 1;
@@ -111,9 +92,7 @@ class TripResults extends Component {
       }
       return fixedServingWeightArray.reduce(reducer);
     };
-
     console.log(sumWeightsPerServing());
-
     const sumServings = () => {
       if (selectServingQuantArray.length === 0) {
         const defaultResult = 1;
@@ -124,13 +103,12 @@ class TripResults extends Component {
     };
 
     const totalCals = sumCalsPerServing() * sumServings();
-
     const totalWeightKg = (sumWeightsPerServing() * sumServings()) / 1000;
 
     return (
       <section className="lightBlueBackground">
         <div className="charts redBackground">
-          <BackButton/>
+         
           <TripCalorieGraph cals={totalCals}/>
           <TripPackGraph weight={totalWeightKg}/>
         </div>
@@ -146,6 +124,7 @@ class TripResults extends Component {
         </div>
         <form>
           <div className="filterButtonContainer">
+          <BackButton/>
             <SaveButton/>
             <PrintButton/>
             <ResetButton/>
@@ -211,6 +190,7 @@ class TripResults extends Component {
 
                   <td className="itemH">
                   <NavLink
+                  className = "noDeco"
                       to={`/trip-item/${item.itemId}`}
 
                     onClick={() => {
@@ -224,38 +204,24 @@ class TripResults extends Component {
 
                  
 
-                  <td className="servingH">
+                 
                   <ServingQuant 
                     quant = {Math.round(item.selected_serving_qty)} />
-                    <p className="tableAdjust">
-                    <Quant/>
-                    </p>
-                  </td>
-
-                  <td className="unitH">
+                  
+                 
                   <ServingUnit unit={item.fixedUnit}/>
-                    </td>
+                 
 
-                  <td className="weightH">
                   <ServingWeight
-                   weight = {item.selected_serving_qty * item.serving_weight_grams}
-                    />
-                    <p className="dataResult blackBackground white tableAdjust">10</p>
-                  </td>
+                   weight = {item.selected_serving_qty * item.serving_weight_grams}/>
 
-                  <td className="caloriesH tooltip cal calS">
-                    <TotalCalories
+                  <CalsPerServing
                     calories =
                     {(item.selected_serving_qty * item.calsPerServing)
                       .toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}/>
-                    <p className="dataResult blackBackground white tableAdjust">100</p>
-                  </td>
-
-                  <td className="delete">
-                    {" "}
-                    <input type="checkbox" className="delete" />
-                  </td>
+                  <Delete/>
+                 
                 </tr>
               ))}
             </tbody>

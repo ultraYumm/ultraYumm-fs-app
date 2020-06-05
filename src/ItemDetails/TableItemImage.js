@@ -3,32 +3,35 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
+import ItemImage from "../ItemDetails/ItemImage";
 
 
 
 
-class ItemImage extends Component {
+class TableItemImage extends Component {
 
   static defaultProps = {
      item:  {DEFAULTITEM},
-     image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
+     image: ""
     
   };
      
   render() {
       
  const image = this.props.image
- const source = image
+ 
 
     return (
-      <img
-      className="tableImage"
-      src = {source}
+        <td className="imageH tableAdjust">
+      <ItemImage
+      className="tableImage tableAdjust"
+      image = {image}
       alt="Item"/>
+       </td>
           
    )}
   
 }
   
 
-export default ItemImage
+export default TableItemImage

@@ -3,6 +3,7 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
+import Quant from "../CustomItem/Quant";
 
 
 
@@ -18,9 +19,12 @@ class ServingQuant extends Component {
  const quant = this.props.quant
 
     return (
-      <div>
+        <td className="servingH">
           {quant}
-      </div>
+          <p className="tableAdjust">
+            <Quant />
+            </p>
+        </td>
      
           
    )}

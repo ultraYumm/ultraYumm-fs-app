@@ -27,7 +27,8 @@ class App extends Component {
       tripName: "Escalante",
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
-      selectTripItem: []
+      selectTripItem: [],
+      
     };
   }
 
@@ -62,26 +63,19 @@ class App extends Component {
     });
   };
 
+
   render() {
 
     const TripItem = this.state.selectTripItem
-
     const trips = this.props.trips;
-
     const selectedTripId = this.state.selectedTripId;
-
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
-
     const packItems = this.props.packItems;
-
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
     );
-
     const selectedTripItemsId = selectedTripItems.map((item) => item.itemId);
-
     const items = this.props.items;
-
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
       if (selectedTripItemsId.includes(items[i].id)) {
@@ -160,6 +154,9 @@ class App extends Component {
               itemTypes={itemTypes}
               handleSelectTripItem={(selectTripItem) =>
                 this.selectTripItem(selectTripItem)
+              }
+              handleSelectTrip={(selectedTripId, tripName) =>
+                this.selectTrip(selectedTripId, tripName)
               }
               
             />

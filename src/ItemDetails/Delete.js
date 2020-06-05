@@ -6,25 +6,26 @@ import { DEFAULTITEM } from "../Defaults";
 
 
 
-class ServingUnit extends Component {
+class Delete extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
-        unit: null
       }
      
   render() {
       
- const unit = this.props.unit
  
 
+
     return (
-        <td className="unitH">
-          {unit}
-          </td>
+        <td className="delete">
+        {" "}
+        <input type="checkbox" className="delete" />
+      </td>
+          
    )}
   
 }
   
 
-export default ServingUnit
+export default Delete

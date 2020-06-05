@@ -126,18 +126,19 @@ button:hover {
 
 .back {
     position: absolute;
-    top: 80px; 
-    left:25px;
+    top: 0px; 
+    left:55px;
 }
 
 button[type="button"]{
-   width: 6%;
+   width: 10%;
    border-radius: 0px;
-   border: none
- }
+   border: none;
+   height: 20px;
+}
 
  .back:hover{
-    left:5px;
+    left:50px;
     transition: 0.5;
   }
 
@@ -148,7 +149,7 @@ button[type="button"]{
 }
 
 
-.reset, .moreButton, .filter {
+.reset, .moreButton, .filter, .back {
     font-size: 8px;
 }
 
@@ -406,22 +407,21 @@ svg {
 @media only screen and (min-width: 666px) {
 
 button {
-    height: 60px;
+    height: 80px;
 
 }
 
-.moreButton {
-    font-size: 12px
-}
-
-
-.reset, .moreButton, .filter {
+.reset, .moreButton, .filter, .back {
     font-size: 12px;
     width: 20%
 
 }
 text {
     font-size: 28px
+}
+
+button[type="button"]{
+    height: 45px
 }
 
 }

@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
-
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
-import Quant from "../CustomItem/Quant";
-import "./Tables.css";
-import TripNames from "../CustomItem/TripNames";
 import "./Tables.css";
 import { NavLink } from "react-router-dom";
-import ItemImage from "../ItemDetails/ItemImage";
+import TableItemImage from "../ItemDetails/TableItemImage";
 import ItemName from "../ItemDetails/ItemName";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import ServingQuant from "../ItemDetails/ServingQuant";
@@ -21,11 +17,12 @@ import TotalWeight from "../ItemDetails/TotalWeight";
 import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
+import Add from "../ItemDetails/Add";
 import { DEFAULTITEM } from "../Defaults";
 import ImageHeader from "./ImageHeader"
 import ItemHeader from "./ItemHeader"
 import BrandHeader from "./BrandHeader";
-import ServQuantHeader from "./BrandHeader";
+import ServQuantHeader from "./ServQuantHeader";
 import UnitHeader from "./UnitHeader";
 import WeightGHeader from "./WeightGHeader";
 import TotalCalHeader from "./TotalCalHeader";
@@ -46,9 +43,7 @@ class SearchResults extends Component {
 
     const common = this.props.common;
     const branded = this.props.branded;
-
     const trips = this.props.trips;
-
     Array.prototype.push.apply(common, branded);
 
     const commonNutrients = () => {
@@ -93,12 +88,9 @@ class SearchResults extends Component {
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
 
-    console.log(newBrandCommonArr);
-
     return (
       <section>
-        <BackButton/>
-        
+        <BackButton/>        
         <div>
           <h2 className="montebello searchResultsTitle white">
             {" "}
@@ -113,7 +105,8 @@ class SearchResults extends Component {
         </div>
         <form>
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={`/add-custom`}>
+            <NavLink to={`/add-custom`}
+           >
               <AddCustomButton />
             </NavLink>
 
@@ -137,12 +130,12 @@ class SearchResults extends Component {
 
               {newBrandCommonArr.map((item, key) => (
                 <tr className="one whiteBackground black" key={key}>
-                  <td className="imageH">
-                    <ItemImage image = {item.image}/>
-                  </td>
-
+               
+                    <TableItemImage image = {item.image}/>
+                 
                   <td className="itemH">
                     <NavLink
+                     className = "noDeco"
                       to={`/item/${item.itemId}`}
                       onClick={() => {
                         const selectedItem = item;
@@ -150,62 +143,43 @@ class SearchResults extends Component {
                       }}
                     >
                       <ItemName 
-                      name = {item.food_name} />
+                      name = {item.food_name} 
+                      item = {item}
+                      handleSelectedItem = {this.props.handleSelectedItem}/>
                     </NavLink>
                   </td>
 
-                  <td className="brandId">
                     <ItemBrand
                     brand = {!item.brand_name ? "common" : item.brand_name}
                     />
-                  </td>
-
-                  <td className="servingH">
-                    
+ 
                     <ServingQuant 
                     quant = {Math.round(item.serving_qty)} />
-                    <p className="tableAdjust">
-                      <Quant />
-                    </p>
-                  </td>
-
-                  <td className="unitH">
+             
                     <ServingUnit unit={item.serving_unit} />
-                  </td>
+                
 
-                  <td className="weightH tooltip gram">
+                 
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
                     />
-                    <span className="tooltiptext">grams</span>
-                    <p className="tableAdjust dataResult blackBackground white">
-                      10
-                    </p>
-                  </td>
+                    
 
-                  <td className="caloriesH tooltip cal calS">
+                 
                     <CalsPerServing
-                    calsPs =  {Math.round(item.calsPerServing)}
+                    calories =  {Math.round(item.calsPerServing)}
                     />
-                    <span className="tooltiptext">cal per serving</span>
-                    <p className="tableAdjust dataResult blackBackground white">
-                      100
-                    </p>
-                  </td>
+                   
 
-                  <td className="caloriesH tooltip calG">
+                 
                     
                     <CalsPerHg
                       calsPHg = {item.calsPhg}
                     />
-                  </td>
+                
 
-                  <td>
-                    <span className="add">
-                      <TripNames trips={trips} />
-                    </span>
-                  </td>
-                </tr>
+                  <Add trips={trips} />
+                                   </tr>
               ))}
             </tbody>
           </table>
@@ -216,3 +190,20 @@ class SearchResults extends Component {
 }
 
 export default SearchResults;
+
+
+/*<td className="itemH">
+<NavLink
+ className = "noDeco"
+  to={`/item/${item.itemId}`}
+  onClick={() => {
+    const selectedItem = item;
+    this.props.handleSelectedItem(selectedItem);
+  }}
+>
+  <ItemName 
+  name = {item.food_name} 
+  item = {item}
+  handleSelectedItem = {this.props.handleSelectedItem}/>
+</NavLink>
+</td>*/

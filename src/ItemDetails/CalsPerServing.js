@@ -14,14 +14,17 @@ class CalsPerServing extends Component {
      
   render() {
       
- const calsPs = this.props.calsPs
+ const calories = this.props.calories
  
 
     return (
-     <div>
-         {calsPs}
-     </div>
-          
+        <td className="caloriesH tooltip cal calS">
+         {calories}
+         <span className="tooltiptext">cal per serving</span>
+                    <p className="tableAdjust dataResult blackBackground white">
+                      100
+                    </p>
+       </td>
    )}
   
 }

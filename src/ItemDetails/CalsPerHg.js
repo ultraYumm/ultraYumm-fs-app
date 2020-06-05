@@ -18,9 +18,9 @@ class CalsPerHg extends Component {
 
 
     return (
-    <div>
+        <td className="caloriesH tooltip calG">
         {calsPHg}
-    </div>
+        </td>
           
    )}
   

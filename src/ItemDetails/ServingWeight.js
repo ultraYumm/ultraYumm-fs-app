@@ -19,10 +19,13 @@ class ServingWeight extends Component {
  
 
     return (
-      <div>
+        <td className="weightH tooltip gram">
           {weight}
-
-      </div>
+          <span className="tooltiptext">grams</span>
+                    <p className="tableAdjust dataResult blackBackground white">
+                      10
+                    </p>
+                  </td>
    )}
   
 }

@@ -19,9 +19,9 @@ class ItemBrand extends Component {
  
 
     return (
-      <div>
+      <td className="brandId">
           {brand}
-      </div>
+          </td>
           
    )}
   
