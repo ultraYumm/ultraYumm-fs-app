@@ -10,6 +10,7 @@ class ServingQuant extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        quant: null
       }
      
   render() {

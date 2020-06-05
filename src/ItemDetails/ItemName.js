@@ -10,6 +10,7 @@ class ItemName extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        name: ""
       }
      
   render() {

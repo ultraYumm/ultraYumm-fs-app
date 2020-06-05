@@ -37,8 +37,6 @@ class TripFilterForm extends Component {
         <form id="filter" onSubmit={onSubmitForm}>
         
         <BackButton
-        onclick="history.back()"
-        
         />
   
          

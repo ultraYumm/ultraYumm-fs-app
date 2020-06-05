@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
+import { DEFAULTITEM } from "../Defaults";
 
 
 
@@ -9,10 +10,9 @@ import "../Tables/Tables.css";
 class ItemImage extends Component {
 
   static defaultProps = {
-    item: [
-      {photo: {
-      thumb: "https://nix-tag-images.s3.amazonaws.com/3839_thumb.jpg"}},
-      ]
+     item:  {DEFAULTITEM},
+     image: ""
+    
   };
      
   render() {

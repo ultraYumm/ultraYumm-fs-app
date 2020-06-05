@@ -10,6 +10,7 @@ class TotalCalories extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        calories: null
       }
      
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "./Tables.css";
-import TotalCalories from "../ItemDetails/TotalCalories";
+
 
 class ImageHeader extends Component {
   

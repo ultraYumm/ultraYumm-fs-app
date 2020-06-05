@@ -10,6 +10,7 @@ class ServingUnit extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        unit: null
       }
      
   render() {

@@ -10,6 +10,7 @@ class ServingWeight extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        weight: 1
       }
      
   render() {

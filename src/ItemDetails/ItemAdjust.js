@@ -5,9 +5,6 @@ import BackButton from "../FormElements/BackButton";
 
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
-import PrintButton from "../FormElements/PrintButton";
-import AddCustomButton from "../FormElements/AddCustomButton";
-import SearchMoreButton from "../FormElements/SearchMoreButton";
 import Quant from "../CustomItem/Quant";
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
@@ -19,7 +16,7 @@ import NewItemName from "../CustomItem//NewItemName";
 import NewItemBrand from "../CustomItem/NewItemBrand";
 import Text from "../CustomItem/Text";
 import ItemImage from "../ItemDetails/ItemImage"
-import ItemName from "../ItemDetails/ItemName"
+
 
 
 import { DEFAULTITEM } from "../Defaults";
@@ -59,7 +56,10 @@ class ItemAdjust extends Component {
     const day = item.tripDay
 
     const totalWeight = (quant * weight)
-    const totalCal = (quant * calsPs)
+    const totalCalnf = (quant * calsPs)
+
+    const totalCal = totalCalnf.toFixed(0)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 
 
     return (

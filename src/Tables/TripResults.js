@@ -16,22 +16,17 @@ import TripPackGraph from "../TripDetails/TripPackGraph";
 import TripCalorieGraph from "../TripDetails/TripCalorieGraph";
 import Quant from "../CustomItem/Quant";
 import { NavLink } from "react-router-dom";
-import ItemImage from "../ItemDetails/ItemImage";
 import ItemName from "../ItemDetails/ItemName";
-import ItemBrand from "../ItemDetails/ItemBrand";
 import ServingQuant from "../ItemDetails/ServingQuant";
 import ServingUnit from "../ItemDetails/ServingUnit";
 import ServingWeight from "../ItemDetails/ServingWeight";
 import "./Tables.css";
 import TotalCalories from "../ItemDetails/TotalCalories";
-import ImageHeader from "./ImageHeader"
 import ItemHeader from "./ItemHeader"
-import BrandHeader from "./BrandHeader";
 import ServQuantHeader from "./BrandHeader";
 import UnitHeader from "./UnitHeader";
 import WeightGHeader from "./WeightGHeader";
 import TotalCalHeader from "./TotalCalHeader";
-import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
 import DateHeader from "./DateHeader";
 import TypeHeader from "./TypeHeader";
 import TravlrHeader from "./TravlrHeader";

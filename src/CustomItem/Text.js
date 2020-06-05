@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 class Text extends Component {
 
   static defaultProps = {
-    input:  "",
+    input:  "pocketful",
   }
 
   

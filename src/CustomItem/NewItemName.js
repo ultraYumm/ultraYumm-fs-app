@@ -6,7 +6,7 @@ import { renderToString } from 'react-dom/server';
 class NewItemName extends Component {
 
   static defaultProps = {
-    name:  "",
+    name:  "Spicy Mango",
   }
   
   render() {

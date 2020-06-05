@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 class NewItemBrand extends Component {
 
   static defaultProps = {
-    brand: ""
+    brand: "Trader Go"
   }
 
   

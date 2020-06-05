@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 class Quant extends Component {
 
   static defaultProps = {
-    input:  null,
+    input:  2,
   }
 
   
@@ -22,7 +22,7 @@ class Quant extends Component {
        
         <input type="number" 
         className = "adjust" min="0" step="0.5"
-        //value = {input}
+        value = {input}
         placeholder = {input}
         />
         
