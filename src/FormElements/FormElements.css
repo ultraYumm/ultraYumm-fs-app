@@ -59,10 +59,6 @@ input:hover, input:active, input[type="text"]:hover, input[type="search"]:hover,
     border: 2px solid rgba(3, 52, 115);
 }
   
-input[type="search"]{
-    width: 60%;
-}
-  
 input[type="text"] {
     width: 80%;
 
@@ -89,12 +85,11 @@ button[type="submit"], button[type="reset"]{
 }
   
 button {
-    font-size: 28px;
-    height: 60px;
+    font-size: 12px;
+    height: 30px;
     border-radius: 20px;
     transition: 0.1s;
     border: 1px solid rgba(242, 133, 173, 1);
-    z-index: 200px;
     font-weight: lighter;
     margin: 10px;
     text-align: center;
@@ -129,17 +124,37 @@ button:hover {
    display: inline-block
 }
 
+.back {
+    position: absolute;
+    top: 80px; 
+    left:25px;
+}
+
+button[type="button"]{
+   width: 6%;
+   border-radius: 0px;
+   border: none
+ }
+
+ .back:hover{
+    left:5px;
+    transition: 0.5;
+  }
+
 .filter, .reset {
-    width: 20%;
+    width: 10%;
     text-align: center;
     padding: 0;
-    font-size: 20px;
 }
 
 
+.reset, .moreButton, .filter {
+    font-size: 8px;
+}
+
 .reset {
     color:  rgba(191, 4, 4);
-    font-size: 20px;
+   
 }
 
 
@@ -163,8 +178,7 @@ button:hover {
 
 .moreButton {
     display: inline-block;
-    font-size: 12px;
-    width: 20%;
+    width: 15%;
     margin:10px;
     padding: 10px;
     border-radius: 10px;
@@ -302,7 +316,7 @@ button:hover {
 
 text {
     text-align: center;
-    font-size: 25px;
+    font-size: 8px;
   
 }
 
@@ -387,6 +401,29 @@ svg {
   top: 0;
   padding: 2px;
   zoom: 10;
+}
+
+@media only screen and (min-width: 666px) {
+
+button {
+    height: 60px;
+
+}
+
+.moreButton {
+    font-size: 12px
+}
+
+
+.reset, .moreButton, .filter {
+    font-size: 12px;
+    width: 20%
+
+}
+text {
+    font-size: 28px
+}
+
 }
 
 

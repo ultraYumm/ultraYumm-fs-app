@@ -1,6 +1,7 @@
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
+import BackButton from "../FormElements/BackButton";
 
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
@@ -20,16 +21,12 @@ import Text from "../CustomItem/Text";
 import ItemImage from "../ItemDetails/ItemImage"
 import ItemName from "../ItemDetails/ItemName"
 
+
 import { DEFAULTITEM } from "../Defaults";
 
 class ItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
-    photo: {},
-    thumb: "",
-    name: "",
-    brand: "",
-    input: "",
 
   }
 
@@ -67,13 +64,14 @@ class ItemAdjust extends Component {
 
     return (
       <section className="filterForm">
+        <BackButton/>
             <div className= "adjustImage">
             <ItemImage 
             image = {image}
             />
             </div>
         <form id="filter" onSubmit={onSubmitForm}>
-          <h2 className="montebello white">Your custom item</h2>
+          <h2 className="montebello white">Customize your item!</h2>
         
 
           <div className="filterButtonContainer">

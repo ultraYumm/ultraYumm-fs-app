@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Search.css";
 import "../Font/Font.css";
 import config from "../config";
 import GoButton from "../FormElements/GoButton";
@@ -82,9 +81,9 @@ class SearchForm extends Component {
             Search by name or brand
           </label>
           <input
-            className="redBackground white search"
+            className="redBackground white"
             name="searchTerm"
-            type="search" 
+            type="text" 
             placeholder="Granola"
             required
             id="searchTerm"

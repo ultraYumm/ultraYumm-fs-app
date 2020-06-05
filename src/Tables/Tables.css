@@ -23,7 +23,7 @@ th, td {
 }
 
 td, th {
-     font-size: 7px;
+     font-size: 6px;
 
 }
    
@@ -40,15 +40,18 @@ td {
 
 }
    
-.servingH, .weightH, .unitH, .caloriesH{
-     width: 3%;
+.servingH, .weightH, .unitH, .caloriesH {
+     width: 1%;
 } 
 
 
-.itemH, .addH, .brandH {
-     width: 4%;
+.itemH, .addH, .brandH, .date, .type, .traveler, .delete {
+     width: 1%;
 }
 
+.traveler, .type, .date {
+     font-weight: bold;
+}
 
 .imageH {
      width: 1%;

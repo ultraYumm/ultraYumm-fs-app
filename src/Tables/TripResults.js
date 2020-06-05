@@ -22,9 +22,22 @@ import ItemBrand from "../ItemDetails/ItemBrand";
 import ServingQuant from "../ItemDetails/ServingQuant";
 import ServingUnit from "../ItemDetails/ServingUnit";
 import ServingWeight from "../ItemDetails/ServingWeight";
-
 import "./Tables.css";
 import TotalCalories from "../ItemDetails/TotalCalories";
+import ImageHeader from "./ImageHeader"
+import ItemHeader from "./ItemHeader"
+import BrandHeader from "./BrandHeader";
+import ServQuantHeader from "./BrandHeader";
+import UnitHeader from "./UnitHeader";
+import WeightGHeader from "./WeightGHeader";
+import TotalCalHeader from "./TotalCalHeader";
+import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
+import DateHeader from "./DateHeader";
+import TypeHeader from "./TypeHeader";
+import TravlrHeader from "./TravlrHeader";
+import DeleteHeader from "./DeleteHeader";
+import BackButton from '../FormElements/BackButton';
+
 
 class TripResults extends Component {
   static defaultProps = {
@@ -84,7 +97,7 @@ class TripResults extends Component {
       return resultsObject;
     });
 
-    console.log(results);
+    
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
@@ -122,8 +135,9 @@ class TripResults extends Component {
     return (
       <section className="lightBlueBackground">
         <div className="charts redBackground">
-          <TripCalorieGraph cals={totalCals}></TripCalorieGraph>
-          <TripPackGraph weight={totalWeightKg}></TripPackGraph>
+          <BackButton/>
+          <TripCalorieGraph cals={totalCals}/>
+          <TripPackGraph weight={totalWeightKg}/>
         </div>
         <div>
           <h2 className="montebello">
@@ -159,38 +173,26 @@ class TripResults extends Component {
           <table id="results-filtered" className="primaryFont">
             <tbody>
               <tr className="blueBackground white">
-                <th className="imageH hidden">Image</th>
-                
-                <th className="date">Date<span className="tableAdjust">(ajdust)</span></th>
-
-                <th className="type">Type<span className="tableAdjust">(ajdust)</span></th>
-                
-                <th className="traveler">Traveler <span className="tableAdjust">(ajdust)</span></th>
-
-                <th className="itemH">Item<span className="tableAdjust">(ajdust)</span></th>
-                
-                <th className="brandH hidden">Brand</th>
-                
-                <th className="servingH">Serving Quantity<span className="tableAdjust">(ajdust)</span></th>
-
-                <th className="unitH">Unit</th>
-                
-                <th className="weightH tooltip gram">Weight (grams)</th>
-                
-                <th className="caloriesH cal calS">Calories</th>
-                
-                <th className="deleteH">Delete</th>
+              
+                <DateHeader/>
+                <TypeHeader/>
+                <TravlrHeader/>
+                <ItemHeader/>
+                <ServQuantHeader/>
+                <UnitHeader/>
+                <WeightGHeader/>
+                <TotalCalHeader/>
+                <DeleteHeader/>
+               
               </tr>
 
               {results.map((item, key) => (
                 <tr className="one whiteBackground black" key={item.itemId}>
-                  <td className="imageH hidden">
-                  <ItemImage image = {item.image}/>
-                  </td>
+                
 
                   <td className="date">
                     <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>
-                    <div className="tableScroll tableAdjust">
+                    <div className="tableScroll tableAdjust add">
                       {" "}
                       <TripDates selectedTrip={selectedTrip}/>
                     </div>
@@ -198,14 +200,14 @@ class TripResults extends Component {
 
                   <td className="type">
                     {item.type}
-                    <div className="tableScroll tableAdjust">
+                    <div className="tableScroll tableAdjust add">
                       <ItemTypes itemTypes={itemTypes}/>
                     </div>
                   </td>
 
                   <td className="traveler">
                     {item.travName}
-                    <div className="tableScroll tableAdjust">
+                    <div className="tableScroll tableAdjust add">
                       <TripTravelers
                         selectedTrip={selectedTrip}
                       />
@@ -214,7 +216,7 @@ class TripResults extends Component {
 
                   <td className="itemH">
                   <NavLink
-                      to={`/trip/${item.itemId}`}
+                      to={`/trip-item/${item.itemId}`}
 
                     onClick={() => {
                     const selectTripItem =  item
@@ -225,10 +227,7 @@ class TripResults extends Component {
                       </NavLink>
                     </td>
 
-                  <td className="brand Id hidden">
-                  <ItemBrand
-                    brand = {!item.brand_name ? "common" : item.brand_name}
-                    /></td>
+                 
 
                   <td className="servingH">
                   <ServingQuant 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
+import BackButton from '../FormElements/BackButton';
 import FilterButton from '../FormElements/FilterButton';
 import ResetButton from '../FormElements/ResetButton';
 import TripDates from '../TripDetails/TripDates';
@@ -8,7 +9,7 @@ import UniqueTripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripName from '../TripDetails/TripName';
 import TripYear from '../TripDetails/TripYear';
-import { NavLink} from 'react-router-dom'
+import { NavLink, Link} from 'react-router-dom'
 import '../FormElements/FormElements.css';
 
 
@@ -29,10 +30,21 @@ class TripFilterForm extends Component {
 
 
     return (
+ 
+      
       <section className= "filterForm">
+        
         <form id="filter" onSubmit={onSubmitForm}>
+        
+        <BackButton
+        onclick="history.back()"
+        
+        />
+  
+         
 
          <h2 className= "montebello">
+
            <TripName
           selectedTrip = {selectedTrip}
           ></TripName>
@@ -75,6 +87,7 @@ class TripFilterForm extends Component {
 
         </form>
       </section>
+
         
    )}
   

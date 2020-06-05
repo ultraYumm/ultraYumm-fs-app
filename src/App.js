@@ -206,7 +206,7 @@ class App extends Component {
         />
 
           <Route
-          path="/trip/:itemId"
+          path="/trip-item/:itemId"
           render={() => {
             return (
               <ItemAdjust

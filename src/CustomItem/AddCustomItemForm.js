@@ -11,6 +11,7 @@ import NewItemBrand from "./NewItemBrand";
 import Quant from "./Quant";
 import Text from "./Text";
 import { NavLink } from "react-router-dom";
+import BackButton from '../FormElements/BackButton';
 
 import "../FormElements/FormElements.css";
 import "../Font/Font.css";
@@ -30,6 +31,7 @@ class AddCustomItemForm extends Component {
     return (
       <section className="filterForm">
         <form id="filter" onSubmit={onSubmitForm}>
+        <BackButton/>
           <h2 className="montebello white">Custom Item</h2>
 
           <div className="filterButtonContainer">
@@ -41,7 +43,7 @@ class AddCustomItemForm extends Component {
 
           <div>
             <div className="newItems">
-              <NewItemName></NewItemName>
+              <NewItemName/>
             </div>
             <div className="newItems">
               <NewItemBrand/>

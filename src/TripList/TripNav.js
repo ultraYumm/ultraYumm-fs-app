@@ -22,7 +22,7 @@ static contextType = UltraContext;
     return (
       <section className = "tripSection">
        
-       <h2 className= "montebello">My trips!cd</h2>
+       <h2 className= "montebello">My trips!</h2>
           <ul className= "trips blueBackground">
             
               {trips.map ((trip, key) => 

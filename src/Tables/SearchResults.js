@@ -22,6 +22,16 @@ import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
 import { DEFAULTITEM } from "../Defaults";
+import ImageHeader from "./ImageHeader"
+import ItemHeader from "./ItemHeader"
+import BrandHeader from "./BrandHeader";
+import ServQuantHeader from "./BrandHeader";
+import UnitHeader from "./UnitHeader";
+import WeightGHeader from "./WeightGHeader";
+import TotalCalHeader from "./TotalCalHeader";
+import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
+import AddHeader from "./AddHeader";
+import BackButton from '../FormElements/BackButton';
 
 class SearchResults extends Component {
   static defaultProps = {
@@ -64,7 +74,7 @@ class SearchResults extends Component {
         
         common[i].image = common[i].photo.thumb
         const replace = "%";
-        common [i].CalsPerServing = common[i].full_nutrients[0].value
+        common [i].calsPerServing = common[i].full_nutrients[0].value
         common[i].itemId = common[i].food_name.replace(replace, "");
         common[i].calsPhg = !common[i].serving_weight_grams
           ? Math.round(common[i].full_nutrients[0].value)
@@ -87,6 +97,8 @@ class SearchResults extends Component {
 
     return (
       <section>
+        <BackButton/>
+        
         <div>
           <h2 className="montebello searchResultsTitle white">
             {" "}
@@ -112,21 +124,15 @@ class SearchResults extends Component {
           <table id="search-results" className="primaryFont">
             <tbody>
               <tr className="blueBackground white">
-                <th className="imageH">
-                  <span className="hidden">Image</span>
-                </th>
-                <th className="itemH">
-                  Item<span className="mobile">(Click)</span>
-                </th>
-                <th className="brandH">Brand</th>
-                <th className="servingH">
-                  Serving Quantity <span className="tableAdjust">(adjust)</span>
-                </th>
-                <th className="unitH">Unit</th>
-                <th className="weightH tooltip gram">Weight (grams)</th>
-                <th className="caloriesH cal calS">Calories</th>
-                <th className="caloriesH">Calories per 100g</th>
-                <th className="addH itemH">Add to pack</th>
+                <ImageHeader/>
+                <ItemHeader/>
+                <BrandHeader/>
+                <ServQuantHeader/>
+                <UnitHeader/>
+                <WeightGHeader/>
+                <TotalCalHeader/> 
+                <TotalCalsPhgHeader/> 
+                <AddHeader/>
               </tr>
 
               {newBrandCommonArr.map((item, key) => (
