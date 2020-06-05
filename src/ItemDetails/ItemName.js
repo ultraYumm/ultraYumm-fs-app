@@ -18,17 +18,11 @@ class ItemName extends Component {
  const name = this.props.name
  /*const item = this.props.item
  const handleSelectedItem = this.props.handleSelectedItem()*/
-
  
-
- 
-
     return (
       <div>
        {name} 
       </div>
-
-     
           
    )}
   
@@ -37,16 +31,3 @@ class ItemName extends Component {
 
 export default ItemName
 
-/*<td className="itemH">
-                    <NavLink
-                     className = "noDeco"
-                      to={`/item/${item.itemId}`}
-                      onClick={() => {
-                        const selectedItem = item;
-                        handleSelectedItem(selectedItem);
-                      }}
-                    >
-                     {name}
-
-                    </NavLink>
-                  </td>*/

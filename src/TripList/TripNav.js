@@ -8,6 +8,8 @@ import UltraContext from '../UltraContext'
 
 class TripNav extends Component {
 
+   
+
 
 static contextType = UltraContext;
 
@@ -36,7 +38,6 @@ static contextType = UltraContext;
               onClick={() => {
                  const selectTripId = trip.id
                  const tripName = trip.name
-                 console.log(tripName)
                  this.props.handleSelectTrip(selectTripId, tripName)
                
                }}
