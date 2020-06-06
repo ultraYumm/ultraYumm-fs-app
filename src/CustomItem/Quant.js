@@ -14,18 +14,29 @@ class Quant extends Component {
   render() {
 
     const input = this.props.input
-    const placeholder = JSON.stringify(input)
+    const placeholder = input.toString()
+
+    const onSubmitForm = (e) => {
+      e.preventDefault()
+
+      const inputValue =  e.target.inputValue.value
+      this.props.handleAdjustQuant(inputValue)
+  
+  }
+
     
       
    
     return (
-       
-        <input type="number" 
+      <form onSubmit={onSubmitForm}>
+        <input type="text" 
         className = "adjust" min="0" step="0.5"
-        value = {input}
-        placeholder = {input}
-        />
-        
+        name= 'inputValue'
+        placeholder = {placeholder}
+       
+             />
+        </form>
+   
    )}
   
 }

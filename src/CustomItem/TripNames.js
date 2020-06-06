@@ -6,6 +6,12 @@ import '../FormElements/FormElements.css';
 
 class TripNames extends Component {
 
+
+  static defaultProps = {
+    trips:  {}
+  }
+  
+
   
   render() {
 
@@ -28,13 +34,9 @@ class TripNames extends Component {
                    name= "check"
                    type= "checkbox"
                    onClick={() => {
-                    const selectTripId = trip.id
-                    const tripName = trip.name
                     const selectedTrip = trip
-                    const tripDates = trip.trip_dates
-        
                     onlyOne(this)
-                    this.props.handleSelectTrip(selectTripId, tripName, selectedTrip, tripDates)
+                    this.props.handleSelectTrip(selectedTrip)
                   
                   }}
                    

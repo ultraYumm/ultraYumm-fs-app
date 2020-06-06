@@ -3,17 +3,42 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import TripNames from "../CustomItem/TripNames";
-import { DEFAULTITEM } from "../Defaults";
-
 
 
 class Add extends Component {
 
-    static defaultProps = {
-        item:  {DEFAULTITEM},
-      }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      tripName: "",
+      selectedTripId: "",
+      selectedTrip: {},
+      tripDates: []
+    };
+  }
+
+  selectTrip = (selectedTrip) => {
+    const tripName = selectedTrip.name
+    const tripDates = selectedTrip.trip_dates
+    const tripTravelers = selectedTrip.traveler_names
+
+    
+
+    this.setState({
+      selectedTrip: selectedTrip,    
+      tripName: tripName,
+      tripDates: tripDates,
+      tripTravelers: tripTravelers
+    });
+  };
+
      
   render() {
+
+
+  
       
  
 const trips = this.props.trips
@@ -21,7 +46,13 @@ const trips = this.props.trips
     return (
         <td className="add">
         <span className="add">
-          <TripNames trips={trips} />
+          <TripNames 
+          trips={trips}
+          handleSelectTrip={(selectedTrip) =>
+            this.selectTrip(selectedTrip)
+          } 
+          
+          />
         </span>
       </td>
           

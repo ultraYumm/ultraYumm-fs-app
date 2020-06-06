@@ -124,10 +124,20 @@ button:hover {
    display: inline-block
 }
 
-.back {
+.back, .forward {
     position: absolute;
-    top: 0px; 
+    top: 0; 
+    
+}
+
+
+.back {
     left:55px;
+}
+
+
+.forward {
+    right:160px;
 }
 
 button[type="button"]{
@@ -140,7 +150,13 @@ button[type="button"]{
  .back:hover{
     left:50px;
     transition: 0.5;
-  }
+}
+
+
+ .forward:hover{
+    right:165px;
+    transition: 0.5;
+}
 
 .filter, .reset {
     width: 10%;
@@ -281,7 +297,7 @@ button[type="button"]{
   
   /* When the radio button is checked, add a blue background */
 .labelContainer input:checked ~ .checkmark {
-    background-color:   rgba(191, 4, 4);
+    background-color:   rgba(191, 4, 4)
     
 }
   

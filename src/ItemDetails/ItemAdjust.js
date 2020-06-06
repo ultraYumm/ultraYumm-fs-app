@@ -24,6 +24,7 @@ import { DEFAULTITEM } from "../Defaults";
 class ItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
+   
 
   }
 
@@ -32,17 +33,21 @@ class ItemAdjust extends Component {
     this.state = {
       tripName: "",
       selectedTripId: "",
-      selectedTrip: [],
+      selectedTrip: {},
       tripDates: []
     };
   }
 
-  selectTrip = (selectedTripId, tripName, selectedTrip, tripDates) => {
+ 
+  selectTrip = (selectedTrip) => {
+    const tripName = selectedTrip.name
+    const tripDates = selectedTrip.trip_dates
+    const tripTravelers = selectedTrip.traveler_names
     this.setState({
-      selectedTripId: selectedTripId,
+      selectedTrip: selectedTrip,    
       tripName: tripName,
-      selectedTrip: selectedTrip,
-      tripDates: tripDates
+      tripDates: tripDates,
+      tripTravelers: tripTravelers
     });
   };
 
@@ -50,22 +55,23 @@ class ItemAdjust extends Component {
 
 
   render() {
-    const trips = this.props.trips;
-    const tripName = this.state.tripName
-    
-    
+
+   
+
+  
+    const trips = this.props.trips;      
     const itemTypes = this.props.itemTypes;
     const onSubmitForm = (e) => {};
     const item = this.props.selectedItem;
+    console.log(item)
     const image = item.image
     const name = item.food_name;
     const brand = !item.brand_name ? "common" : item.brand_name;
     const quant = Math.round(item.serving_qty);
+    console.log(quant)
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
     const calsPs = Math.round(item.calsPerServing);
-
-    const day = item.tripDay
 
     const totalWeight = (quant * weight)
     const totalCalnf = (quant * calsPs)
@@ -193,24 +199,23 @@ class ItemAdjust extends Component {
           </div>
 
           <div className="filterContainer">
-            <h3 className="filterCategory">Trip</h3>
+    <h3 className="filterCategory">Trip</h3>
             <TripNames 
             trips={trips}
-            handleSelectTrip={(selectedTripId, tripName, selectedTrip, tripDates) =>
-              this.selectTrip(selectedTripId, tripName, selectedTrip, tripDates)
+            handleSelectTrip={(selectedTrip) =>
+              this.selectTrip(selectedTrip)
             }
             />
 
             <h3 className="filterCategory">Dates</h3>
             <TripDates 
-            placeholder = {day}
-            tripDates={this.state.tripDates}></TripDates>
+            tripDates={this.state.tripDates}/>
 
             <h3 className="filterCategory">Type</h3>
-            <ItemTypes itemTypes={itemTypes}></ItemTypes>
+            <ItemTypes itemTypes={itemTypes}/>
 
             <h3 className="filterCategory">Traveler</h3>
-            <TripTravelers selectedTrip={this.state.selectedTrip}></TripTravelers>
+            <TripTravelers tripTravelers={this.state.tripTravelers}/>
           </div>
         </form>
       </section>

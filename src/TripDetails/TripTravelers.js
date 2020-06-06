@@ -6,16 +6,28 @@ import '../FormElements/FormElements.css';
 
 
 class TripTravelers extends Component {
+  static defaultProps = {
+    tripTravelers:  [""],
+  }
 
   render() {
       
-    const selectedTrip = this.props.selectedTrip
-    //const tripTravelers = selectedTrip.map((trip) => (trip.traveler_names))
+    const tripTravelers = this.props.tripTravelers
   
   
       return (
         <div className= "filterSelection"> 
-          
+       <ul className= "scroll"> 
+{tripTravelers.map((name)=> (
+  <li key= {name}>
+
+  <label className="labelContainer"> {name}
+       <input type="checkbox"/>
+       <span className="checkmark"></span>
+   </label>
+  </li>
+))}   
+</ul>
         </div>
      )}
     
@@ -25,13 +37,13 @@ class TripTravelers extends Component {
 export default TripTravelers
 
 /*<ul className= "scroll"> 
-            {tripTravelers.map((name)=> (
-              <li key= {name}>
-            
-              <label className="labelContainer"> {name}
-                   <input type="checkbox"/>
-                   <span className="checkmark"></span>
-               </label>
-              </li>
-            ))}   
-            </ul>*/
+{tripTravelers.map((name)=> (
+  <li key= {name}>
+
+  <label className="labelContainer"> {name}
+       <input type="checkbox"/>
+       <span className="checkmark"></span>
+   </label>
+  </li>
+))}   
+</ul>*/

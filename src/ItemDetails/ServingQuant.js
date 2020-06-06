@@ -13,6 +13,26 @@ class ServingQuant extends Component {
         item:  {DEFAULTITEM},
         quant: null
       }
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          quant: 1,
+          
+        };
+      }
+    
+
+  adjustQuant = (input) => {
+    
+    this.setState({
+      quant: input,    
+    
+    });
+  };
+
+
+
      
   render() {
       
@@ -22,7 +42,12 @@ class ServingQuant extends Component {
         <td className="servingH">
           {quant}
           <p className="tableAdjust">
-            <Quant />
+            <Quant
+            handleAdjustQuant = {(input) =>
+              this.adjustQuant(input)
+            }
+            
+            />
             </p>
         </td>
      

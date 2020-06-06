@@ -131,7 +131,7 @@ const PACKITEMS= [
     "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Jack",
     "type": "Breakfast",
-    "selected_serving_qty": 1
+    "serving_qty": 1
 },
 
 { "itemId":  "2",
@@ -139,7 +139,7 @@ const PACKITEMS= [
     "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Stef",
     "type": "Lunch",
-    "selected_serving_qty": 2
+    "serving_qty": 2
 },
 
 { "itemId":  "3",
@@ -147,7 +147,7 @@ const PACKITEMS= [
     "tripDay": "2019-03-24T09:25:43.511Z", 
     "travName": "Marielle",
     "type": "Dinner",
-    "selected_serving_qty": 3
+    "serving_qty": 3
 }, 
 
 { "itemId":  "4",
@@ -155,7 +155,7 @@ const PACKITEMS= [
     "tripDay": "2019-03-24T09:25:43.511Z",  
     "travName": "Emilie",
     "type": "Snack",
-    "selected_serving_qty": 4
+    "serving_qty": 4
 },
 
 { "itemId":  "5",
@@ -163,7 +163,7 @@ const PACKITEMS= [
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Stef",
     "type": "Snack",
-    "selected_serving_qty": 4
+    "serving_qty": 4
 },
 
 { "itemId":  "6",
@@ -171,7 +171,7 @@ const PACKITEMS= [
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Suzy",
     "type": "Snack",
-    "selected_serving_qty": 4
+    "serving_qty": 4
 },
 
 { "itemId":  "7",
@@ -179,7 +179,7 @@ const PACKITEMS= [
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Ringo",
     "type": "Snack",
-    "selected_serving_qty": 4
+    "serving_qty": 4
 },
 
 ]

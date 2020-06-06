@@ -132,7 +132,9 @@ class App extends Component {
         <Route
           path="/add-custom"
           render={() => (
-            <AddCustomItemForm
+            <ItemAdjust
+              selectedItem={this.state.selectedItem}
+              item= {this.state.item}
               trips={trips}
               items={items}
               selectedTrip={selectedTrip}
@@ -173,6 +175,8 @@ class App extends Component {
                 handleSelectedItem={(selectedItem) =>
                   this.selectItem(selectedItem)
                 }
+                handleSelectTripItem={(selectTripItem) =>
+                  this.selectTripItem(selectTripItem)}
               />
             );
           }}

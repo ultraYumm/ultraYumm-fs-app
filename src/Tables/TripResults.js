@@ -32,6 +32,7 @@ import TypeHeader from "./TypeHeader";
 import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
+import ForwardButton from '../FormElements/ForwardButton';
 
 
 class TripResults extends Component {
@@ -43,17 +44,21 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.props.selectedTrip;
+    const tripDates = selectedTrip[0].trip_dates
+    const tripTravelers = selectedTrip[0].traveler_names
+ 
 
-    console.log(selectedTrip)
+    console.log(tripDates)
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
+    console.log(tripItems)
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
     const fixedCalPerUnitArray = tripItems.map((items) => items.calsPerServing);
     const selectServingQuantArray = selectedTripItems
-      .map((items) => items.selected_serving_qty)
+      .map((items) => items.serving_qty)
       .sort();
     const fixedServingWeightArray = tripItems.map(
       (items) => items.serving_weight_grams
@@ -63,14 +68,14 @@ class TripResults extends Component {
     const food_name = food_nameArray[i];
     const image = imageArray[i];
     const brand_name = brandArray[i];
-    const fixedUnit = fixedUnitArray[i];
+    const serving_unit = fixedUnitArray[i];
     const calsPerServing = fixedCalPerUnitArray[i];
     const serving_weight_grams = fixedServingWeightArray[i];
     const resultsObject = {
         image,
         food_name,
         brand_name,
-        fixedUnit,
+        serving_unit,
         serving_weight_grams,
         calsPerServing,
         ...item,
@@ -126,6 +131,7 @@ class TripResults extends Component {
         <form>
           <div className="filterButtonContainer">
           <BackButton/>
+          <ForwardButton/>
             <SaveButton/>
             <PrintButton/>
             <ResetButton/>
@@ -169,7 +175,7 @@ class TripResults extends Component {
                     <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>
                     <div className="tableScroll tableAdjust add">
                       {" "}
-                      <TripDates selectedTrip={selectedTrip}/>
+                      <TripDates tripDates={tripDates}/>
                     </div>
                   </td>
 
@@ -184,7 +190,7 @@ class TripResults extends Component {
                     {item.travName}
                     <div className="tableScroll tableAdjust add">
                       <TripTravelers
-                        selectedTrip={selectedTrip}
+                        tripTravelers={tripTravelers}
                       />
                     </div>
                   </td>
@@ -207,18 +213,18 @@ class TripResults extends Component {
 
                  
                   <ServingQuant 
-                    quant = {Math.round(item.selected_serving_qty)} />
+                    quant = {Math.round(item.serving_qty)} />
                   
                  
-                  <ServingUnit unit={item.fixedUnit}/>
+                  <ServingUnit unit={item.serving_unit}/>
                  
 
                   <ServingWeight
-                   weight = {item.selected_serving_qty * item.serving_weight_grams}/>
+                   weight = {item.serving_qty * item.serving_weight_grams}/>
 
                   <CalsPerServing
                     calories =
-                    {(item.selected_serving_qty * item.calsPerServing)
+                    {(item.serving_qty * item.calsPerServing)
                       .toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}/>
                   <Delete/>

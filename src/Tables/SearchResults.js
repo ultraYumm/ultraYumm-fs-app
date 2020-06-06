@@ -38,12 +38,18 @@ class SearchResults extends Component {
     item:  {DEFAULTITEM},
     thumb: "",
   };
+
+
   render() {
+
+    
+
  
 
     const common = this.props.common;
     const branded = this.props.branded;
     const trips = this.props.trips;
+    console.log(trips)
     Array.prototype.push.apply(common, branded);
 
     const commonNutrients = () => {
@@ -152,33 +158,20 @@ class SearchResults extends Component {
                     <ItemBrand
                     brand = {!item.brand_name ? "common" : item.brand_name}
                     />
- 
                     <ServingQuant 
                     quant = {Math.round(item.serving_qty)} />
-             
                     <ServingUnit unit={item.serving_unit} />
-                
-
-                 
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
                     />
-                    
-
-                 
                     <CalsPerServing
                     calories =  {Math.round(item.calsPerServing)}
-                    />
-                   
-
-                 
-                    
+                    />   
                     <CalsPerHg
                       calsPHg = {item.calsPhg}
                     />
-                
-
-                  <Add trips={trips} />
+                  <Add 
+                  trips={trips} />
                                    </tr>
               ))}
             </tbody>
@@ -191,19 +184,3 @@ class SearchResults extends Component {
 
 export default SearchResults;
 
-
-/*<td className="itemH">
-<NavLink
- className = "noDeco"
-  to={`/item/${item.itemId}`}
-  onClick={() => {
-    const selectedItem = item;
-    this.props.handleSelectedItem(selectedItem);
-  }}
->
-  <ItemName 
-  name = {item.food_name} 
-  item = {item}
-  handleSelectedItem = {this.props.handleSelectedItem}/>
-</NavLink>
-</td>*/

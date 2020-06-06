@@ -13,4 +13,19 @@ export const DEFAULTITEM = [
     {serving_qty: 1},
     {serving_unit: "oz"},
     {serving_weight_grams: 28.35}]
+
+
+
+  export const selectTrip = (selectedTrip) => {
+    const tripName = selectedTrip.name
+    const tripDates = selectedTrip.trip_dates
+    const tripTravelers = selectedTrip.traveler_names
+    this.setState({
+      selectedTrip: selectedTrip,    
+      tripName: tripName,
+      tripDates: tripDates,
+      tripTravelers: tripTravelers
+    });
+  };
+
   
