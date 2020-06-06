@@ -8,8 +8,6 @@ import UltraContext from '../UltraContext'
 
 class TripNav extends Component {
 
-   
-
 
 static contextType = UltraContext;
 

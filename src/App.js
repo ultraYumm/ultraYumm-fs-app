@@ -155,9 +155,6 @@ class App extends Component {
               handleSelectTripItem={(selectTripItem) =>
                 this.selectTripItem(selectTripItem)
               }
-              handleSelectTrip={(selectedTripId, tripName) =>
-                this.selectTrip(selectedTripId, tripName)
-              }
               
             />
           )}

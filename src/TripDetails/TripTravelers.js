@@ -10,12 +10,21 @@ class TripTravelers extends Component {
   render() {
       
     const selectedTrip = this.props.selectedTrip
-    const tripTravelers = selectedTrip.map((trip) => (trip.traveler_names))[0]
+    //const tripTravelers = selectedTrip.map((trip) => (trip.traveler_names))
   
   
       return (
         <div className= "filterSelection"> 
-          <ul className= "scroll"> 
+          
+        </div>
+     )}
+    
+  }
+  
+
+export default TripTravelers
+
+/*<ul className= "scroll"> 
             {tripTravelers.map((name)=> (
               <li key= {name}>
             
@@ -25,11 +34,4 @@ class TripTravelers extends Component {
                </label>
               </li>
             ))}   
-            </ul>
-        </div>
-     )}
-    
-  }
-  
-
-export default TripTravelers
+            </ul>*/

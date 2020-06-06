@@ -201,7 +201,7 @@ button[type="button"]{
 
 
 .scroll {
-    height: 80px;
+    height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
     /*margin-right: 40px;*/
@@ -273,9 +273,9 @@ button[type="button"]{
     z-index: 1;
 }
 
-/* On mouse-over, add a grey background color */
+ /*On mouse-over, add a grey background color*/ 
 .labelContainer:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color:  rgba(191, 4, 4);
     z-index: 1;
   }
   
@@ -286,15 +286,12 @@ button[type="button"]{
 }
   
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+
 
 /* Show the indicator (dot/circle) when checked */
 .labelContainer input:checked ~ .checkmark:after {
     display: block;
+    background-color:   rgba(191, 4, 4);
 }
 
 /* Style the indicator (dot/circle) */
@@ -421,7 +418,7 @@ text {
 }
 
 button[type="button"]{
-    height: 45px
+    height: 4px
 }
 
 }

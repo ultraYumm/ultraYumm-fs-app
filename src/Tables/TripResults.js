@@ -39,21 +39,7 @@ class TripResults extends Component {
     selectedTrip: [],
     
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      tripName: "",
-      selectedTripId: "",
-    };
-  }
-
-  selectTrip = (selectedTripId, tripName) => {
-    this.setState({
-      selectedTripId: selectedTripId,
-      tripName: tripName,
-    });
-  };
-
+ 
 
   render() {
     const selectedTrip = this.props.selectedTrip;

@@ -27,30 +27,42 @@ class ItemAdjust extends Component {
 
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      tripName: "",
+      selectedTripId: "",
+      selectedTrip: [],
+      tripDates: []
+    };
+  }
+
+  selectTrip = (selectedTripId, tripName, selectedTrip, tripDates) => {
+    this.setState({
+      selectedTripId: selectedTripId,
+      tripName: tripName,
+      selectedTrip: selectedTrip,
+      tripDates: tripDates
+    });
+  };
+
+  
 
 
   render() {
     const trips = this.props.trips;
+    const tripName = this.state.tripName
     
-    const selectedTrip = this.props.selectedTrip;
+    
     const itemTypes = this.props.itemTypes;
-
     const onSubmitForm = (e) => {};
-
     const item = this.props.selectedItem;
-
     const image = item.image
-
     const name = item.food_name;
-
     const brand = !item.brand_name ? "common" : item.brand_name;
-
     const quant = Math.round(item.serving_qty);
-
     const unit = item.serving_unit
-
     const weight = Math.round(item.serving_weight_grams);
-
     const calsPs = Math.round(item.calsPerServing);
 
     const day = item.tripDay
@@ -60,6 +72,8 @@ class ItemAdjust extends Component {
 
     const totalCal = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+
+    
 
 
     return (
@@ -78,7 +92,7 @@ class ItemAdjust extends Component {
             <NavLink to={`/search-results`}>
               <SaveButton />
             </NavLink>
-            <ResetButton></ResetButton>
+            <ResetButton/>
             
           </div>
 
@@ -180,18 +194,23 @@ class ItemAdjust extends Component {
 
           <div className="filterContainer">
             <h3 className="filterCategory">Trip</h3>
-            <TripNames trips={trips}></TripNames>
+            <TripNames 
+            trips={trips}
+            handleSelectTrip={(selectedTripId, tripName, selectedTrip, tripDates) =>
+              this.selectTrip(selectedTripId, tripName, selectedTrip, tripDates)
+            }
+            />
 
             <h3 className="filterCategory">Dates</h3>
             <TripDates 
             placeholder = {day}
-            selectedTrip={selectedTrip}></TripDates>
+            tripDates={this.state.tripDates}></TripDates>
 
             <h3 className="filterCategory">Type</h3>
             <ItemTypes itemTypes={itemTypes}></ItemTypes>
 
             <h3 className="filterCategory">Traveler</h3>
-            <TripTravelers selectedTrip={selectedTrip}></TripTravelers>
+            <TripTravelers selectedTrip={this.state.selectedTrip}></TripTravelers>
           </div>
         </form>
       </section>
