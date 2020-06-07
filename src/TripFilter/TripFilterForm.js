@@ -36,36 +36,24 @@ class TripFilterForm extends Component {
 
 
     return (
- 
-      
+
       <section className= "filterForm">
-        
         <form id="filter" onSubmit={onSubmitForm}>
-        
         <BackButton
         />
-  
-         
-
          <h2 className= "montebello">
-
            <TripName
           selectedTrip = {selectedTrip}/>
-     
           <TripYear
           selectedTrip = {selectedTrip}
           />
-          
-          
           </h2>
-         
             <div className= "filterButtonContainer" >
             <NavLink to={`/trip/${selectedTrip[0].name}`}>
             <FilterButton/>
             </NavLink>
             <ResetButton/>
             </div>
-
             <div className= "filterContainer">
               <h3 className = "filterCategory">Dates</h3>
               <TripDates
@@ -77,7 +65,6 @@ class TripFilterForm extends Component {
               selectedTripItems= {selectedTripItems}        
               />           
               
-
               <h3 className= "filterCategory">Item</h3>
               <UniqueTripItems
               tripItems = {tripItems}

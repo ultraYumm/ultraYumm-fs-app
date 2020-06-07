@@ -7,38 +7,24 @@ import '../FormElements/FormElements.css';
 class Quant extends Component {
 
   static defaultProps = {
-    input:  2,
+    input:  "adjust serving",
+    result: 1
   }
+
 
   
   render() {
 
-    const input = this.props.input
-    const placeholder = input.toString()
-
-    const onSubmitForm = (e) => {
-      e.preventDefault()
-
-      const inputValue =  e.target.inputValue.value
-      this.props.handleAdjustQuant(inputValue)
-  
-  }
-
-    
-      
+    const result = this.props.result
    
     return (
-      <form onSubmit={onSubmitForm}>
-        <input type="text" 
-        className = "adjust" min="0" step="0.5"
-        name= 'inputValue'
-        placeholder = {placeholder}
-       
-             />
-        </form>
+      <p className="tableAdjust dataResult blackBackground white">
+      {result.toFixed(0)
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+    </p>
    
    )}
-  
+
 }
   
 

@@ -12,8 +12,6 @@ import ItemName from "../ItemDetails/ItemName";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import ServingQuant from "../ItemDetails/ServingQuant";
 import ServingUnit from "../ItemDetails/ServingUnit";
-import TotalCalories from "../ItemDetails/TotalCalories";
-import TotalWeight from "../ItemDetails/TotalWeight";
 import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
@@ -39,12 +37,27 @@ class SearchResults extends Component {
     thumb: "",
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantInput: null,
+      id: ""
+    
+      
+    };
+  }
+
+  adjustQuant = (input, id) => {
+    
+    this.setState({
+      quantInput: input,
+      id: id
+    });
+  };
+
+
 
   render() {
-
-    
-
- 
 
     const common = this.props.common;
     const branded = this.props.branded;
@@ -76,7 +89,7 @@ class SearchResults extends Component {
         common[i].image = common[i].photo.thumb
         const replace = "%";
         common [i].calsPerServing = common[i].full_nutrients[0].value
-        common[i].itemId = common[i].food_name.replace(replace, "");
+        common[i].id = common[i].food_name.replace(replace, "");
         common[i].calsPhg = !common[i].serving_weight_grams
           ? Math.round(common[i].full_nutrients[0].value)
           : Math.round(
@@ -94,6 +107,7 @@ class SearchResults extends Component {
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
 
+    
     return (
       <section>
         <BackButton/>        
@@ -109,7 +123,7 @@ class SearchResults extends Component {
           <PrintButton />
           <ResetButton />
         </div>
-        <form>
+        
           <div className="filterButtonContainer moreContainer">
             <NavLink to={`/add-custom`}
            >
@@ -142,7 +156,7 @@ class SearchResults extends Component {
                   <td className="itemH">
                     <NavLink
                      className = "noDeco"
-                      to={`/item/${item.itemId}`}
+                      to={`/item/${item.id}`}
                       onClick={() => {
                         const selectedItem = item;
                         this.props.handleSelectedItem(selectedItem);
@@ -159,13 +173,19 @@ class SearchResults extends Component {
                     brand = {!item.brand_name ? "common" : item.brand_name}
                     />
                     <ServingQuant 
-                    quant = {Math.round(item.serving_qty)} />
+                    quant = {Math.round(item.serving_qty)}
+                    id = {item.id}
+                    handleAdjustQuant = {(inputValue, id) =>
+                      this.adjustQuant(inputValue, id)
+                    }/>
                     <ServingUnit unit={item.serving_unit} />
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
+                    result = {Math.round(this.state.quantInput * item.serving_weight_grams )}
                     />
                     <CalsPerServing
                     calories =  {Math.round(item.calsPerServing)}
+                    result = {Math.round(this.state.quantInput * item.calsPerServing )}
                     />   
                     <CalsPerHg
                       calsPHg = {item.calsPhg}
@@ -176,7 +196,7 @@ class SearchResults extends Component {
               ))}
             </tbody>
           </table>
-        </form>
+        
       </section>
     );
   }

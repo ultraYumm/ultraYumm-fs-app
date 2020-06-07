@@ -40,18 +40,32 @@ class TripResults extends Component {
     selectedTrip: [],
     
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      quantInput: null,
+      id: ""
+    
+      
+    };
+  }
+
+  adjustQuant = (input, id) => {
+    
+    this.setState({
+      quantInput: input,
+      id: id
+    });
+  };
  
 
   render() {
     const selectedTrip = this.props.selectedTrip;
     const tripDates = selectedTrip[0].trip_dates
     const tripTravelers = selectedTrip[0].traveler_names
- 
-
-    console.log(tripDates)
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
-    console.log(tripItems)
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
@@ -83,6 +97,8 @@ class TripResults extends Component {
 
       return resultsObject;
     });
+
+    console.log(results)
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     const sumCalsPerServing = () => {
       if (fixedCalPerUnitArray.length === 0) {
@@ -128,7 +144,7 @@ class TripResults extends Component {
             </span>
           </h2>
         </div>
-        <form>
+
           <div className="filterButtonContainer">
           <BackButton/>
           <ForwardButton/>
@@ -138,7 +154,9 @@ class TripResults extends Component {
           </div>
 
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={`/trip-filter/${selectedTrip[0].food_name}`}>
+            <NavLink 
+            className= "hidden" 
+            to={`/trip-filter/${selectedTrip[0].food_name}`}>
               <GoToFiltersButton />
             </NavLink>
 
@@ -168,7 +186,7 @@ class TripResults extends Component {
               </tr>
 
               {results.map((item, key) => (
-                <tr className="one whiteBackground black" key={item.itemId}>
+                <tr className="one whiteBackground black" key={item.id}>
                 
 
                   <td className="date">
@@ -198,7 +216,7 @@ class TripResults extends Component {
                   <td className="itemH">
                   <NavLink
                   className = "noDeco"
-                      to={`/trip-item/${item.itemId}`}
+                      to={`/trip-item/${item.id}`}
 
                     onClick={() => {
                     const selectTripItem =  item
@@ -208,32 +226,34 @@ class TripResults extends Component {
                       name = {item.food_name} />
                       </NavLink>
                     </td>
-
-                 
-
-                 
                   <ServingQuant 
-                    quant = {Math.round(item.serving_qty)} />
-                  
-                 
+                    quant = {Math.round(item.serving_qty)}
+                    id = {item.id}
+                    handleAdjustQuant = {(inputValue, id) =>
+                      this.adjustQuant(inputValue, id)
+                    }
+                    />
+
                   <ServingUnit unit={item.serving_unit}/>
-                 
 
                   <ServingWeight
-                   weight = {item.serving_qty * item.serving_weight_grams}/>
+                   weight = {item.serving_qty * item.serving_weight_grams}
+                   result = {Math.round(this.state.quantInput * item.serving_weight_grams )}
+                   />
 
                   <CalsPerServing
                     calories =
                     {(item.serving_qty * item.calsPerServing)
                       .toFixed(0)
-                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}/>
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                      result = {Math.round(this.state.quantInput * item.calsPerServing )}
+                      />
                   <Delete/>
                  
                 </tr>
               ))}
             </tbody>
           </table>
-        </form>
       </section>
     );
   }

@@ -13,21 +13,12 @@ class SearchForm extends Component {
       e.preventDefault();
 
       let searchTerm = e.target.searchTerm.value;
-
-      console.log(searchTerm);
-
       this.props.handleUpdate(searchTerm);
-
       this.props.routerProps.history.push("/search-results");
-
       const apId = config.APID;
-
       const apiKey = config.API_KEY;
-
       const remoteUser = config.REMOTEUSER;
-
       const detailed = config.DETAILED;
-
       const getURL = config.API_ENDPOINT;
 
       function formatQueryParams(params) {

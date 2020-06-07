@@ -13,42 +13,33 @@ class ServingQuant extends Component {
         item:  {DEFAULTITEM},
         quant: null
       }
-
-      constructor(props) {
-        super(props);
-        this.state = {
-          quant: 1,
-          
-        };
-      }
-    
-
-  adjustQuant = (input) => {
-    
-    this.setState({
-      quant: input,    
-    
-    });
-  };
-
-
-
      
   render() {
       
  const quant = this.props.quant
+ const id = this.props.id
+ 
+  const onSubmitForm = (e) => {
+  e.preventDefault()
+
+  const quantInput =  e.target.quantInput.value
+  this.props.handleAdjustQuant(quantInput, id)
+}
 
     return (
         <td className="servingH">
           {quant}
-          <p className="tableAdjust">
-            <Quant
-            handleAdjustQuant = {(input) =>
-              this.adjustQuant(input)
-            }
-            
-            />
-            </p>
+          
+          <form className= "quant" onSubmit={onSubmitForm}>
+          <p className="tableAdjust" handleAdjustQuant = {(input, id) =>
+              this.adjustQuant(input,id)
+            }>
+            <input type="number" onSubmit={onSubmitForm}
+            className= "adjust" min="0" step="0.5"
+            name= 'quantInput'/>
+               </p>
+          </form>
+      
         </td>
      
           

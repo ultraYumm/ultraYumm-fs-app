@@ -37,7 +37,6 @@ class ItemAdjust extends Component {
       tripDates: []
     };
   }
-
  
   selectTrip = (selectedTrip) => {
     const tripName = selectedTrip.name
@@ -51,13 +50,7 @@ class ItemAdjust extends Component {
     });
   };
 
-  
-
-
   render() {
-
-   
-
   
     const trips = this.props.trips;      
     const itemTypes = this.props.itemTypes;
@@ -68,20 +61,15 @@ class ItemAdjust extends Component {
     const name = item.food_name;
     const brand = !item.brand_name ? "common" : item.brand_name;
     const quant = Math.round(item.serving_qty);
-    console.log(quant)
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
     const calsPs = Math.round(item.calsPerServing);
-
     const totalWeight = (quant * weight)
     const totalCalnf = (quant * calsPs)
-
     const totalCal = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 
     
-
-
     return (
       <section className="filterForm">
         <BackButton/>

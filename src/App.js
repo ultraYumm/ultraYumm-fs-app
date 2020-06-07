@@ -7,7 +7,6 @@ import NavBar from "./NavHome/NavBar";
 import HomePage from "./NavHome/HomePage";
 import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
-import AddCustomItemForm from "./CustomItem/AddCustomItemForm";
 import UltraContext from "./UltraContext";
 import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM } from "./Defaults";
@@ -66,7 +65,7 @@ class App extends Component {
 
   render() {
 
-    const TripItem = this.state.selectTripItem
+    
     const trips = this.props.trips;
     const selectedTripId = this.state.selectedTripId;
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
@@ -74,7 +73,7 @@ class App extends Component {
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
     );
-    const selectedTripItemsId = selectedTripItems.map((item) => item.itemId);
+    const selectedTripItemsId = selectedTripItems.map((item) => item.id);
     const items = this.props.items;
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
@@ -186,7 +185,7 @@ class App extends Component {
 
 
         <Route
-          path="/item/:itemId"
+          path="/item/:id"
           render={() => {
             return (
               <ItemAdjust
@@ -204,7 +203,7 @@ class App extends Component {
         />
 
           <Route
-          path="/trip-item/:itemId"
+          path="/trip-item/:id"
           render={() => {
             return (
               <ItemAdjust

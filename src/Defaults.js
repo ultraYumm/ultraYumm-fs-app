@@ -8,7 +8,7 @@ export const DEFAULTITEM = [
       {value: 120.204}
     ]
     },
-    {itemId: 14},
+    {id: 14},
     {image: "https://nix-tag-images.s3.amazonaws.com/3839_thumb.jpg"},
     {serving_qty: 1},
     {serving_unit: "oz"},

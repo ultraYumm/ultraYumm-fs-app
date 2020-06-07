@@ -7,7 +7,13 @@ form, section, .chart {
 form {
     background-color:  rgba(3, 52, 115);
     
-}    
+}
+
+form.quant {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    background-color: white}
 
 
 section {
@@ -217,7 +223,7 @@ button[type="button"]{
 
 
 .scroll {
-    height: 100px;
+    height: 85px;
     overflow-x: hidden;
     overflow-y: auto;
     /*margin-right: 40px;*/

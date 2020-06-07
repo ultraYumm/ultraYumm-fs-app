@@ -126,7 +126,7 @@ const ITEMS= [
 ]
 
 const PACKITEMS= [
-  { "itemId":  "1",
+  { "id":  "1",
     "tripId": "e",
     "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Jack",
@@ -134,7 +134,7 @@ const PACKITEMS= [
     "serving_qty": 1
 },
 
-{ "itemId":  "2",
+{ "id":  "2",
     "tripId": "e",
     "tripDay": "2019-03-23T09:25:43.511Z",
     "travName": "Stef",
@@ -142,7 +142,7 @@ const PACKITEMS= [
     "serving_qty": 2
 },
 
-{ "itemId":  "3",
+{ "id":  "3",
     "tripId": "e",
     "tripDay": "2019-03-24T09:25:43.511Z", 
     "travName": "Marielle",
@@ -150,7 +150,7 @@ const PACKITEMS= [
     "serving_qty": 3
 }, 
 
-{ "itemId":  "4",
+{ "id":  "4",
     "tripId": "e",
     "tripDay": "2019-03-24T09:25:43.511Z",  
     "travName": "Emilie",
@@ -158,7 +158,7 @@ const PACKITEMS= [
     "serving_qty": 4
 },
 
-{ "itemId":  "5",
+{ "id":  "5",
     "tripId": "t",
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Stef",
@@ -166,7 +166,7 @@ const PACKITEMS= [
     "serving_qty": 4
 },
 
-{ "itemId":  "6",
+{ "id":  "6",
     "tripId": "t",
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Suzy",
@@ -174,7 +174,7 @@ const PACKITEMS= [
     "serving_qty": 4
 },
 
-{ "itemId":  "7",
+{ "id":  "7",
     "tripId": "t",
     "tripDay": "2020-10-01T09:25:43.511Z",  
     "travName": "Ringo",
@@ -193,7 +193,7 @@ const DEFAULTITEM = [
     {value: 120.204}
   ]
   },
-  {itemId: 14},
+  {id: 14},
   {photo: {
   thumb: "https://nix-tag-images.s3.amazonaws.com/3839_thumb.jpg"}},
   {serving_qty: 1},
