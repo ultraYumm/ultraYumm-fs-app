@@ -14,7 +14,7 @@ class HomePage extends Component {
     console.log(handleResults);
 
     return (
-      <div>
+      <div className="home">
         <div className="home">
           <img className="uYtitle" src={uYtitle} alt="ultraYumm logo" />
           <h1 className="black montebello title">
