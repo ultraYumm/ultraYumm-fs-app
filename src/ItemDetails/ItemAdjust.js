@@ -5,7 +5,12 @@ import BackButton from "../FormElements/BackButton";
 
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
-import Quant from "../CustomItem/Quant";
+import Text from "../CustomItem/Text";
+import UnitQuant from "../CustomItem/UnitQuant";
+import WeightQuant from "../CustomItem/WeightQuant";
+import CalsQuant from "../CustomItem/CalsQuant";
+
+import WeightResult from "../CustomItem/WeightResult";
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
 import { NavLink } from "react-router-dom";
@@ -14,27 +19,41 @@ import ItemTypes from "../CustomItem/ItemTypes";
 import TripTravelers from "../TripDetails/TripTravelers";
 import NewItemName from "../CustomItem//NewItemName";
 import NewItemBrand from "../CustomItem/NewItemBrand";
-import Text from "../CustomItem/Text";
 import ItemImage from "../ItemDetails/ItemImage"
-
+import ServingQuant from "../ItemDetails/ServingQuant"
+import ServingUnit from "../ItemDetails/ServingUnit"
+import ServingWeight from "../ItemDetails/ServingWeight"
+import CalsPerServing from "../ItemDetails/CalsPerServing"
 
 
 import { DEFAULTITEM } from "../Defaults";
 
+
 class ItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
-   
+    selectedTrip: [],
+    id: "",
+    serving_unit: "",
+    calsPs: null,
+    serving_qty: null,
+    serving_weight_grams: null
 
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      tripName: "",
+      name: "",
       selectedTripId: "",
       selectedTrip: {},
-      tripDates: []
+      trip_dates: [],
+      id: "",
+      serving_qty: null,
+      item: {},
+      serving_unit: "",
+      calsPs: null,
+      serving_weight_grams: null
     };
   }
  
@@ -44,12 +63,47 @@ class ItemAdjust extends Component {
     const tripTravelers = selectedTrip.traveler_names
     this.setState({
       selectedTrip: selectedTrip,    
-      tripName: tripName,
-      tripDates: tripDates,
-      tripTravelers: tripTravelers
+      name: tripName,
+      trip_dates: tripDates,
+      traveler_names: tripTravelers
     });
   };
 
+  adjustQuant = (input, id) => {
+    
+    this.setState({
+      serving_qty: input,
+      id: id
+    });
+  };
+
+  adjustUnit = (input, id) => {
+    
+    this.setState({
+      serving_unit: input,
+      id: id
+    });
+  };
+
+  adjustWeight = (input, id) => {
+    
+    this.setState({
+      serving_weight_grams: input,
+      id: id
+    });
+  };
+
+  adjustCals = (input, id) => {
+    
+    this.setState({
+      calsPs: input,
+      id: id
+    });
+  };
+
+
+
+  
   render() {
   
     const trips = this.props.trips;      
@@ -63,11 +117,24 @@ class ItemAdjust extends Component {
     const quant = Math.round(item.serving_qty);
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
+    console.log(weight)
     const calsPs = Math.round(item.calsPerServing);
     const totalWeight = (quant * weight)
     const totalCalnf = (quant * calsPs)
     const totalCal = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    const id = item.id
+
+    const stateQty = parseInt(this.state.serving_qty)
+
+    
+
+    const stateServWeight = parseInt(this.state.serving_weight_grams)
+
+   const stateWeight = (stateQty * stateServWeight).toFixed(0)
+   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+
+    console.log(stateWeight)
 
     
     return (
@@ -112,8 +179,13 @@ class ItemAdjust extends Component {
                     Serving Quantity
                   </label>
                   <p className="dataInput">
-                    <Quant
+                    <UnitQuant
                     input = {quant}
+                    id = {id}
+                    handleAdjustQuant = {(inputValue, id) =>
+                      this.adjustQuant(inputValue, id)
+                    }
+
                     />
                   </p>
                 </div>
@@ -127,7 +199,12 @@ class ItemAdjust extends Component {
                   </label>
                   <p className="textInput">
                     <Text
+                    id = {id}
                     input = {unit}
+                    handleAdjustUnit = {(inputValue, id) =>
+                      this.adjustUnit(inputValue, id)
+                    }
+
                     />
                   </p>
                 </div>
@@ -140,10 +217,15 @@ class ItemAdjust extends Component {
                     Weight per serving
                   </label>
                   <p className="dataInput">
-                    <Quant
+                  <WeightQuant
                     input = {weight}
-                    />
+                    id = {id}
+                   handleAdjustWeight = {(inputValue, id) =>
+                    this.adjustWeight(inputValue, id)
+                  }
+                  />
                   </p>
+
                 </div>
 
                 <div className="inputBox">
@@ -154,9 +236,16 @@ class ItemAdjust extends Component {
                     Calories per serving
                   </label>
                   <p className="dataInput">
-                    <Quant
-                    input = {calsPs}/>
+                  <CalsQuant
+                  input = {calsPs}
+                  id = {id}
+                  handleAdjustCals = {(inputValue, id) =>
+                   this.adjustCals(inputValue, id)
+                 }
+                  />
+
                   </p>
+                
                 </div>
               </div>
 
@@ -169,7 +258,9 @@ class ItemAdjust extends Component {
                     Total Weight
                   </label>
                   <p className="dataResult blackBackground white">
-                    {totalWeight}
+                    <WeightResult
+                    const result =
+                    {stateWeight}/>
                   </p>
                 </div>
 
@@ -180,7 +271,7 @@ class ItemAdjust extends Component {
                   >
                     Total Calories
                   </label>
-                  <p className="dataResult blackBackground white">{totalCal}</p>
+                  <p className="dataResult blackBackground white">{!totalWeight? 1 : totalCal}</p>
                 </div>
               </div>
             </div>
@@ -212,3 +303,4 @@ class ItemAdjust extends Component {
 }
 
 export default ItemAdjust;
+

@@ -77,6 +77,11 @@ input[type="text"], input[type="search"], input[type="url"]{
 
 
 
+input[name="unit"], input[name="quantInput"]  {
+    width: 85%;
+}
+
+
 input[type="number"]{
     width: 60%;
     font-size: 12px;
@@ -132,7 +137,8 @@ button:hover {
 
 .back, .forward {
     position: absolute;
-    top: 0; 
+    top: 22px;
+    
     
 }
 
@@ -148,9 +154,7 @@ button:hover {
 
 button[type="button"]{
    width: 10%;
-   border-radius: 0px;
-   border: none;
-   height: 20px;
+   border: solid 1px black;
 }
 
  .back:hover{
@@ -375,12 +379,19 @@ svg {
     display: inline-block;
     padding-bottom: 5px;
     padding-top: 5px;
+    
 }
 
+.dataInput, .textInput {
+    height: 150px;
+}
 
-.dataInput, .dataResult {
+.dataResult {
+    height: 70px;
+}
+
+.dataInput, .dataResult, .textInput {
     width: 60%;
-    height: 50px;
     display: inline-block;
     /*padding-left: 20px;*/
     /*margin-left: 20px;*/

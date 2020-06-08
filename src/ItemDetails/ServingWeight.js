@@ -3,7 +3,7 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
-import Quant from "../CustomItem/Quant";
+import WeightResult from "../CustomItem/WeightResult";
 
 
 
@@ -11,7 +11,8 @@ class ServingWeight extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
-        weight: 1
+        weight: 0,
+        result: 1
       }
      
   render() {
@@ -22,11 +23,11 @@ class ServingWeight extends Component {
 
     return (
         <td className="weightH tooltip gram">
-          {weight}
+         {weight}
           <span className="tooltiptext">grams</span>
-                    <Quant
-                    result = {result}
-                    />
+                   <WeightResult
+                   result = {result}
+                   />
                   </td>
    )}
   

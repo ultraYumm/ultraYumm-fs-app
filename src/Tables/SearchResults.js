@@ -40,7 +40,7 @@ class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantInput: null,
+      serving_qty: null,
       id: ""
     
       
@@ -50,7 +50,7 @@ class SearchResults extends Component {
   adjustQuant = (input, id) => {
     
     this.setState({
-      quantInput: input,
+      serving_qty: input,
       id: id
     });
   };
@@ -106,6 +106,8 @@ class SearchResults extends Component {
     newBrandCommonArr.sort(
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
+
+    console.log(newBrandCommonArr)
 
     
     return (
@@ -181,11 +183,11 @@ class SearchResults extends Component {
                     <ServingUnit unit={item.serving_unit} />
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
-                    result = {Math.round(this.state.quantInput * item.serving_weight_grams )}
+                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams )}
                     />
                     <CalsPerServing
                     calories =  {Math.round(item.calsPerServing)}
-                    result = {Math.round(this.state.quantInput * item.calsPerServing )}
+                    result = {Math.round(this.state.serving_qty * item.calsPerServing )}
                     />   
                     <CalsPerHg
                       calsPHg = {item.calsPhg}

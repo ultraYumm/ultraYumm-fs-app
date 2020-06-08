@@ -20,7 +20,7 @@ class ServingUnit extends Component {
 
     return (
         <td className="unitH">
-          {unit}
+          {!unit? "custom" : unit}
           </td>
    )}
   

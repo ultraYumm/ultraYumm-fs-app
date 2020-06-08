@@ -3,7 +3,7 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
-import Quant from "../CustomItem/Quant";
+import CalResult from "../CustomItem/WeightResult";
 
 
 
@@ -11,6 +11,7 @@ class CalsPerServing extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
+        calories: 0,
       }
      
   render() {
@@ -20,11 +21,11 @@ class CalsPerServing extends Component {
  
 
     return (
-        <td className="caloriesH tooltip cal calS">
+        <td className="weightH tooltip gram">
          {calories}
          <span className="tooltiptext">cal per serving</span>
-         <Quant
-          result = {result}/>
+         <CalResult
+         result = {result}/>
        </td>
    )}
   

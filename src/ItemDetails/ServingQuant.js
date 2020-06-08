@@ -3,7 +3,7 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
-import Quant from "../CustomItem/Quant";
+
 
 
 
@@ -27,8 +27,8 @@ class ServingQuant extends Component {
 }
 
     return (
-        <td className="servingH">
-          {quant}
+        <td className="servingH black">
+          {!quant? "" : quant}
           
           <form className= "quant" onSubmit={onSubmitForm}>
           <p className="tableAdjust" handleAdjustQuant = {(input, id) =>
