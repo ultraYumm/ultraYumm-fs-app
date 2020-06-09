@@ -10,17 +10,16 @@ import { DEFAULTITEM } from "../Defaults";
 class WeightResult extends Component {
 
     static defaultProps = {
-        result: 0
+        result: 1
       }
      
   render() {
       
- const result = this.props.result.toFixed(0)
- .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+ const result = this.props.result
  
 
     return (
-           <p className="tableAdjust dataResult sinkBackground blue">
+           <p className="tableAdjust dataResult skinBackground black">
                     {result}
                   </p>
           )}

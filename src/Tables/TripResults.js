@@ -44,7 +44,7 @@ class TripResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantInput: null,
+      serving_qty: null,
       id: ""
     
       
@@ -54,10 +54,46 @@ class TripResults extends Component {
   adjustQuant = (input, id) => {
     
     this.setState({
-      quantInput: input,
+      serving_qty: input,
+      id: id,
+      trip_dates: [],
+      item: {},
+      serving_unit: "",
+      calsPs: null,
+      serving_weight_grams: null,
+      tripDay: "",
+      type: ""
+    });
+  };
+
+  selectDay = (input, id) => {
+    
+    this.setState({
+      tripDay: input,
       id: id
     });
   };
+
+
+  selectType = (input, id) => {
+    
+    this.setState({
+      type: input,
+      id: id
+    });
+  };
+
+
+  selectTraveler = (input, id) => {
+    
+    this.setState({
+      travName: input,
+      id: id
+    });
+  };
+
+
+
  
 
   render() {
@@ -98,7 +134,6 @@ class TripResults extends Component {
       return resultsObject;
     });
 
-    console.log(results)
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     const sumCalsPerServing = () => {
       if (fixedCalPerUnitArray.length === 0) {
@@ -193,14 +228,23 @@ class TripResults extends Component {
                     <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>
                     <div className="tableScroll tableAdjust add">
                       {" "}
-                      <TripDates tripDates={tripDates}/>
+                      <TripDates tripDates={tripDates}
+                        handleSelectDay={(selectedDay) =>
+                        this.selectDay(selectedDay)
+                        }/>
                     </div>
                   </td>
 
                   <td className="type">
                     {item.type}
                     <div className="tableScroll tableAdjust add">
-                      <ItemTypes itemTypes={itemTypes}/>
+                      <ItemTypes itemTypes={itemTypes}
+                      handleSelectType={(selectedType) =>
+                        this.selectType(selectedType)
+                      }
+                      
+                      
+                      />
                     </div>
                   </td>
 
@@ -209,6 +253,10 @@ class TripResults extends Component {
                     <div className="tableScroll tableAdjust add">
                       <TripTravelers
                         tripTravelers={tripTravelers}
+                        handleSelectTraveler={(selectedTraveler) =>
+                          this.selectTraveler(selectedTraveler)
+                        }
+                        
                       />
                     </div>
                   </td>
@@ -238,7 +286,8 @@ class TripResults extends Component {
 
                   <ServingWeight
                    weight = {item.serving_qty * item.serving_weight_grams}
-                   result = {Math.round(this.state.quantInput * item.serving_weight_grams )}
+                   result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                    />
 
                   <CalsPerServing
@@ -246,7 +295,8 @@ class TripResults extends Component {
                     {(item.serving_qty * item.calsPerServing)
                       .toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
-                      result = {Math.round(this.state.quantInput * item.calsPerServing )}
+                      result = {Math.round(this.state.serving_qty * item.calsPerServing).toFixed(0)
+                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                       />
                   <Delete/>
                  

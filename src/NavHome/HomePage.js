@@ -11,8 +11,7 @@ class HomePage extends Component {
   render() {
     const handleResults = this.props.handleResults;
 
-    console.log(handleResults);
-
+   
     return (
       <div className="home">
         <div className="home">

@@ -13,21 +13,37 @@ class TripTravelers extends Component {
   render() {
       
     const tripTravelers = this.props.tripTravelers
-  
+   
+    function onlyOne(checkbox) {
+   
+      const checkboxes =  document.getElementsByName('check')
+      checkboxes.forEach((item) => {
+          if (item !== checkbox) item.checked = false
+      })
+  }
+    
   
       return (
         <div className= "filterSelection"> 
-       <ul className= "scroll"> 
-{tripTravelers.map((name)=> (
-  <li key= {name}>
+          <ul className= "scroll"> 
+          {tripTravelers.map((name)=> (
+            <li key= {name}>
 
-  <label className="labelContainer"> {name}
-       <input type="checkbox"/>
-       <span className="checkmark"></span>
-   </label>
-  </li>
-))}   
-</ul>
+            <label className="labelContainer"> {name}
+                <input type="checkbox"
+                  name= "check"
+                  onClick={() => {
+                  const selectedTraveler = name
+                  onlyOne(this)
+                  this.props.handleSelectTraveler(selectedTraveler)
+                
+                }}
+                />
+                <span className="checkmark"></span>
+            </label>
+            </li>
+          ))}   
+          </ul>
         </div>
      )}
     
@@ -35,15 +51,3 @@ class TripTravelers extends Component {
   
 
 export default TripTravelers
-
-/*<ul className= "scroll"> 
-{tripTravelers.map((name)=> (
-  <li key= {name}>
-
-  <label className="labelContainer"> {name}
-       <input type="checkbox"/>
-       <span className="checkmark"></span>
-   </label>
-  </li>
-))}   
-</ul>*/

@@ -30,14 +30,12 @@ class ServingQuant extends Component {
         <td className="servingH black">
           {!quant? "" : quant}
           
-          <form className= "quant" onSubmit={onSubmitForm}>
-          <p className="tableAdjust" handleAdjustQuant = {(input, id) =>
-              this.adjustQuant(input,id)
-            }>
-            <input type="number" onSubmit={onSubmitForm}
+          <form className= "quant tableAdjust" onSubmit={onSubmitForm}>
+         
+            <input type="number"
             className= "adjust" min="0" step="0.5"
             name= 'quantInput'/>
-               </p>
+           
           </form>
       
         </td>

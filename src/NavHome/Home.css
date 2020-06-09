@@ -1,15 +1,18 @@
 
+
+
 .navContainer {
     width: 100%;
     background-color:rgba(38, 11, 9, 1);  
     transition: 0.3s;
     height: 65px;
     position: fixed;
+    z-index: 3;
 }
 
 .navbar {
    transition: 0.3s;
-   z-index: 100;
+   z-index: 3;
    position: fixed;
 }
   
@@ -65,14 +68,15 @@
 
 
 .descriptionText {
-    padding-top: 140px;
+    padding-top: 100px;
     position: absolute;
     font-weight: 500;
     left: 0;
     right: 0;
-    z-index: 4;
+    z-index: 2;
     padding-left: 4px;
     padding-right: 4px;
+    width: 100;
 
 } 
 
@@ -83,8 +87,8 @@
     animation-duration: 4s;
     animation-name: slidein;
     transition-timing-function: ease-in;
-    z-index: 1;
     opacity: 0.6;
+    width: 100%
     
    
   }

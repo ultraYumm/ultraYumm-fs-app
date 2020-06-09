@@ -26,16 +26,14 @@ class UnitQuant extends Component {
    
     return (
       <form className= "quant" onSubmit={onSubmitForm}>
-         <p handleAdjustQuant = {(input, id) =>
-              this.adjustQuant(input,id)
-           
-            }>
+        
         
       <input className="tableAdjust dataResult sinkBackground"
       placeholder = {!input? 1 : input}
+      //value =  {!input? 1 : input}
       name= 'quantInput'
       />
-        </p>
+  
     </form>
    
    )}

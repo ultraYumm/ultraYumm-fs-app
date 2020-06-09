@@ -11,11 +11,13 @@ class AddCustomButton extends Component {
   
   render() {
 
+    const text = this.props.text
+
     
     return (
         <div 
             className= "primaryFont red skinBackground moreButton">
-            Add custom item
+            Make your own item
         </div>
     
     )

@@ -12,6 +12,7 @@ class CalsPerServing extends Component {
     static defaultProps = {
         item:  {DEFAULTITEM},
         calories: 0,
+        result: 0,
       }
      
   render() {

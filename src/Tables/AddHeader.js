@@ -11,7 +11,7 @@ class AddHeader extends Component {
 
     return (
         
-        <th className="itemH addH">Add to pack</th>
+        <th className="itemH addH tableAdjust ">Add to pack</th>
     )
 }
 }

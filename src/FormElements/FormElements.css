@@ -1,5 +1,21 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+* {
+    box-sizing: inherit;
+}
+
+
 form, section, .chart {
     margin: 1%;
+    width: 100%;
     border-radius: 10px;
     padding: 0;
 }
@@ -175,7 +191,7 @@ button[type="button"]{
 }
 
 
-.reset, .moreButton, .filter, .back {
+.reset, .moreButton, .filter, .back, .forward {
     font-size: 8px;
 }
 
@@ -383,7 +399,7 @@ svg {
 }
 
 .dataInput, .textInput {
-    height: 150px;
+    height: 50px;
 }
 
 .dataResult {
@@ -441,7 +457,7 @@ button {
 
 }
 
-.reset, .moreButton, .filter, .back {
+.reset, .moreButton, .filter, .back, .forward {
     font-size: 12px;
     width: 20%
 

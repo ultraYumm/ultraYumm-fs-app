@@ -5,12 +5,15 @@ import BackButton from "../FormElements/BackButton";
 
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
-import Text from "../CustomItem/Text";
+import ServUnit from "../CustomItem/ServUnit";
 import UnitQuant from "../CustomItem/UnitQuant";
 import WeightQuant from "../CustomItem/WeightQuant";
 import CalsQuant from "../CustomItem/CalsQuant";
 
 import WeightResult from "../CustomItem/WeightResult";
+import CalResult from "../CustomItem/CalResult";
+
+
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
 import { NavLink } from "react-router-dom";
@@ -33,11 +36,11 @@ class ItemAdjust extends Component {
   static defaultProps = {
     item:  {DEFAULTITEM},
     selectedTrip: [],
-    id: "",
     serving_unit: "",
     calsPs: null,
     serving_qty: null,
-    serving_weight_grams: null
+    serving_weight_grams: null,
+    packItems: {}
 
   }
 
@@ -47,16 +50,37 @@ class ItemAdjust extends Component {
       name: "",
       selectedTripId: "",
       selectedTrip: {},
-      trip_dates: [],
       id: "",
       serving_qty: null,
       item: {},
       serving_unit: "",
       calsPs: null,
-      serving_weight_grams: null
+      serving_weight_grams: null,
+      tripDay: "",
+      type: "",
+      food_name: "",
+      brand_name: "",
+      packItems: {}
+
     };
   }
  
+  adjustItemName = (newName, id) => {
+    
+    this.setState({
+      food_name: newName,
+      id: id
+    }); 
+  };
+
+  adjustItemBrand = (newBrand) => {
+    
+    this.setState({
+      brand_name: newBrand,
+    });
+  };
+
+
   selectTrip = (selectedTrip) => {
     const tripName = selectedTrip.name
     const tripDates = selectedTrip.trip_dates
@@ -101,41 +125,103 @@ class ItemAdjust extends Component {
     });
   };
 
+  selectDay = (input, id) => {
+    
+    this.setState({
+      tripDay: input,
+      id: id
+    });
+  };
 
 
+  selectType = (input, id) => {
+    
+    this.setState({
+      type: input,
+      id: id
+    });
+  };
+
+
+  selectTraveler = (input, id) => {
+    
+    this.setState({
+      travName: input,
+      id: id
+    });
+  };
   
   render() {
-  
+
+    const packItems = this.props.packItems
+    const newPackItemsArray = []
+    
+    newPackItemsArray.push(
+      {"id": this.state.id},
+      {"tripId": this.state.tripId},
+      {"tripDay": this.state.tripDay},
+      {"travName": this.state.travName},
+      {"type": this.state.type},
+      {"serving_qty": this.state.serving_qty})
+
+      console.log(newPackItemsArray)
+
+      packItems.push(newPackItemsArray)
+
+      console.log(packItems)
+
+
+    const onSubmitForm = (e) => {
+      
+      e.preventDefault()
+      this.props.handleNewPackItems(packItems)}
+    
+      
     const trips = this.props.trips;      
     const itemTypes = this.props.itemTypes;
-    const onSubmitForm = (e) => {};
+  
     const item = this.props.selectedItem;
-    console.log(item)
+  
     const image = item.image
     const name = item.food_name;
     const brand = !item.brand_name ? "common" : item.brand_name;
     const quant = Math.round(item.serving_qty);
+  
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
-    console.log(weight)
+  
     const calsPs = Math.round(item.calsPerServing);
     const totalWeight = (quant * weight)
     const totalCalnf = (quant * calsPs)
-    const totalCal = totalCalnf.toFixed(0)
+    const totalCals = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     const id = item.id
+    console.log(id)
 
     const stateQty = parseInt(this.state.serving_qty)
 
-    
-
+    const stateCalsPs = parseInt(this.state.calsPs)
     const stateServWeight = parseInt(this.state.serving_weight_grams)
 
-   const stateWeight = (stateQty * stateServWeight).toFixed(0)
-   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    const stateWeight = (stateQty * stateServWeight).toFixed(0)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 
-    console.log(stateWeight)
+    const stateCals = (stateQty * stateCalsPs).toFixed(0)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 
+    const text = this.props.text
+    const tripName = this.props.tripName
+    const forT = this.props.forT
+    const onT = this.props.onT
+    const is = this.props.is
+    const currentT = this.props.currentT
+    const newT = this.props.newT
+    const s = this.props.s
+
+
+    /*const currentDetails = `${currentT}${name}${is}${forT}${tripName}${onT}${item.tripDay}${forT}${item.travName}${s}${item.type}`*/
+
+    
     
     return (
       <section className="filterForm">
@@ -146,9 +232,9 @@ class ItemAdjust extends Component {
             />
             </div>
         <form id="filter" onSubmit={onSubmitForm}>
-          <h2 className="montebello white">Customize your item!</h2>
-        
-
+          <h2 className="montebello white">{text}</h2>
+  <div className= "white primaryFont"></div>
+  
           <div className="filterButtonContainer">
             <NavLink to={`/search-results`}>
               <SaveButton />
@@ -161,11 +247,19 @@ class ItemAdjust extends Component {
             <div className="newItems">
               <NewItemName
               name = {name}
+              handleAdjustName= {(inputValue, id) =>
+                this.adjustItemName(inputValue, id)
+              }
+              id ={id}
+
               />
             </div>
             <div className="newItems">
               <NewItemBrand
               brand = {brand}
+              handleAdjustBrand= {(inputValue) =>
+                this.adjustItemBrand(inputValue)
+              }
               />
             </div>
 
@@ -198,7 +292,7 @@ class ItemAdjust extends Component {
                     Serving unit
                   </label>
                   <p className="textInput">
-                    <Text
+                    <ServUnit
                     id = {id}
                     input = {unit}
                     handleAdjustUnit = {(inputValue, id) =>
@@ -257,10 +351,11 @@ class ItemAdjust extends Component {
                   >
                     Total Weight
                   </label>
-                  <p className="dataResult blackBackground white">
+                  <p className="dataResult skinBackground">
                     <WeightResult
-                    const result =
-                    {stateWeight}/>
+                    result =
+                    {stateWeight}
+                    placeholder = {totalWeight}/>
                   </p>
                 </div>
 
@@ -271,7 +366,12 @@ class ItemAdjust extends Component {
                   >
                     Total Calories
                   </label>
-                  <p className="dataResult blackBackground white">{!totalWeight? 1 : totalCal}</p>
+                  <p className="dataResult skinBackground">
+                    <CalResult
+                    result = {stateCals} 
+                    placeholder = {totalCals}
+                    />
+                    </p>
                 </div>
               </div>
             </div>
@@ -280,21 +380,40 @@ class ItemAdjust extends Component {
           <div className="filterContainer">
     <h3 className="filterCategory">Trip</h3>
             <TripNames 
+            id = {id}
             trips={trips}
-            handleSelectTrip={(selectedTrip) =>
-              this.selectTrip(selectedTrip)
+            handleSelectTrip={(selectedTrip, id) =>
+              this.selectTrip(selectedTrip, id)
             }
             />
 
             <h3 className="filterCategory">Dates</h3>
             <TripDates 
-            tripDates={this.state.tripDates}/>
+            tripDates={this.state.trip_dates}
+            handleSelectDay={(selectedDay) =>
+              this.selectDay(selectedDay)
+            }
+            
+            />
 
             <h3 className="filterCategory">Type</h3>
-            <ItemTypes itemTypes={itemTypes}/>
+            <ItemTypes itemTypes={itemTypes}
+            id = {id}
+            handleSelectType={(selectedType) =>
+              this.selectType(selectedType)
+            }
+            
+            />
 
             <h3 className="filterCategory">Traveler</h3>
-            <TripTravelers tripTravelers={this.state.tripTravelers}/>
+            <TripTravelers tripTravelers={this.state.traveler_names}
+          
+            handleSelectTraveler={(selectedTraveler) =>
+              this.selectTraveler(selectedTraveler)
+            }
+            
+            
+            />
           </div>
         </form>
       </section>

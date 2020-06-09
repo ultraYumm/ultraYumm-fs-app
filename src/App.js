@@ -27,6 +27,7 @@ class App extends Component {
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
       selectTripItem: [],
+      packItems: []
       
     };
   }
@@ -61,6 +62,13 @@ class App extends Component {
       selectTripItem: selectTripItem,
     });
   };
+
+  addPackItems = (packItems) => {
+    this.setState({
+      packItems: packItems,
+    });
+  };
+
 
 
   render() {
@@ -132,6 +140,13 @@ class App extends Component {
           path="/add-custom"
           render={() => (
             <ItemAdjust
+              text = "Make your own item!"
+              is = ""
+              forT = ""
+              onT = ""
+              currentT = ""
+              newT= ""
+              s = ""
               selectedItem={this.state.selectedItem}
               item= {this.state.item}
               trips={trips}
@@ -140,7 +155,7 @@ class App extends Component {
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={itemTypes}
-              tripName={this.state.tripName}
+              tripName={""}
             />
           )}
         />
@@ -189,6 +204,13 @@ class App extends Component {
           render={() => {
             return (
               <ItemAdjust
+                text = "Customize your item!"
+                is = ""
+                forT = ""
+                onT = ""
+                currentT = ""
+                newT= ""
+                s = ""
                 selectedItem={this.state.selectedItem}
                 item= {this.state.item}
                 trips={trips}
@@ -207,6 +229,13 @@ class App extends Component {
           render={() => {
             return (
               <ItemAdjust
+                text = "Customize your item"
+                is = " is "
+                forT = " for "
+                onT = " on "
+                currentT = "Current "
+                newT= "New"
+                s = "'s "
                 selectedItem={this.state.selectTripItem}
                 item= {this.state.item}
                 trips={trips}
@@ -216,6 +245,10 @@ class App extends Component {
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
+                packItems = {this.props.packItems}
+                handleNewPackItems= {(packItems) =>
+                  this.addPackItems(packItems)
+                }
               />
               );
             }}

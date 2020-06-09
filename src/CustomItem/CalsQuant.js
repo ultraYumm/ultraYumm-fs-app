@@ -25,15 +25,12 @@ class CalsQuant extends Component {
    
     return (
       <form className= "quant" onSubmit={onSubmitForm}>
-         <p handleAdjustQuant = {(input, id) =>
-              this.adjustCals(input,id)
-            }>
-        
+       
       <input className="tableAdjust dataResult sinkBackground"
       placeholder = {!input? 1 : input}
       name= 'quantInput'
       />
-        </p>
+   
     </form>
    
    )}

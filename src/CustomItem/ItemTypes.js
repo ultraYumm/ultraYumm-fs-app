@@ -13,7 +13,14 @@ class ItemTypes extends Component {
     
     const itemTypes = this.props.itemTypes
     const itemTypesArray = itemTypes[0].type
- 
+   
+    function onlyOne(checkbox) {
+    const checkboxes =  document.getElementsByName('check')
+      checkboxes.forEach((item) => {
+          if (item !== checkbox) item.checked = false
+      })
+  }
+  
       return (
         <div className= "filterSelection"> 
           <ul className= "scroll">
@@ -21,7 +28,16 @@ class ItemTypes extends Component {
             <li key= {type}>
           
             <label className="labelContainer"> {type}
-                 <input type="checkbox"/>
+                 <input type="checkbox"
+                  name= "check"
+                  onClick={() => {
+                    const selectedType = type
+                    onlyOne(this)
+                    this.props.handleSelectType(selectedType)
+                  
+                  }}
+                 
+                 />
                  <span className="checkmark"></span>
              </label>
             </li>

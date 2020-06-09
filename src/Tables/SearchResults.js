@@ -40,7 +40,7 @@ class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      serving_qty: null,
+      serving_qty: 0,
       id: ""
     
       
@@ -108,6 +108,8 @@ class SearchResults extends Component {
     );
 
     console.log(newBrandCommonArr)
+
+    
 
     
     return (
@@ -183,11 +185,13 @@ class SearchResults extends Component {
                     <ServingUnit unit={item.serving_unit} />
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
-                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams )}
+                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />
                     <CalsPerServing
                     calories =  {Math.round(item.calsPerServing)}
-                    result = {Math.round(this.state.serving_qty * item.calsPerServing )}
+                    result = {Math.round(this.state.serving_qty * item.calsPerServing ).toFixed(0)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />   
                     <CalsPerHg
                       calsPHg = {item.calsPhg}

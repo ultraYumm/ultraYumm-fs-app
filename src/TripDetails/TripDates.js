@@ -16,21 +16,34 @@ class TripDates extends Component {
   render() {
       
   const tripDates = this.props.tripDates
-  
+  const id = this.props.id
+  function onlyOne(checkbox) {
+  const checkboxes =  document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
+
 
     return (
       <ul className= "scroll"> 
       {tripDates.map((date)=> (
-  <li key= {date}>
+          <li key= {date}>
+          <label className="labelContainer"><Moment format= "MMM/DD">{date}</Moment>
+              <input type="checkbox"
+              name= "check"
+              onClick={() => {
+                            const selectedDay = date
+                            onlyOne(this)
+                            this.props.handleSelectDay(selectedDay, id)
+                          
+                          }}
+              />
+              <span className="checkmark"></span>
+          </label>
+          </li>))}
 
-  <label className="labelContainer"><Moment format= "MMM/DD">{date}</Moment>
-       <input type="checkbox"
-       
-       />
-       <span className="checkmark"></span>
-   </label>
-  </li>))}
-     
         </ul>
      
      )

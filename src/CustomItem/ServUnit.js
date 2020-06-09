@@ -4,7 +4,7 @@ import '../FormElements/FormElements.css';
 
 
 
-class Text extends Component {
+class ServUnit extends Component {
 
   static defaultProps = {
     input:  "pinch",
@@ -28,17 +28,15 @@ class Text extends Component {
     return (
 
       <form className= "quant" onSubmit={onSubmitForm}>
-         <p handleAdjustUnit = {(input, id) =>
-              this.adjustUnit(input,id)
-            }>
+        
         <input 
         name= 'unit'
         placeholder = {input}/>
-        </p>
+    
     </form>
         
    )}
   
 }
 
-export default Text
+export default ServUnit
