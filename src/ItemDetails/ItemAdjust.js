@@ -23,13 +23,14 @@ import TripTravelers from "../TripDetails/TripTravelers";
 import NewItemName from "../CustomItem//NewItemName";
 import NewItemBrand from "../CustomItem/NewItemBrand";
 import ItemImage from "../ItemDetails/ItemImage"
+import Moment from 'react-moment';
 import ServingQuant from "../ItemDetails/ServingQuant"
 import ServingUnit from "../ItemDetails/ServingUnit"
 import ServingWeight from "../ItemDetails/ServingWeight"
 import CalsPerServing from "../ItemDetails/CalsPerServing"
 
 
-import { DEFAULTITEM } from "../Defaults";
+import { DEFAULTITEM, PACKITEMS, IMAGE } from "../Defaults";
 
 
 class ItemAdjust extends Component {
@@ -40,7 +41,22 @@ class ItemAdjust extends Component {
     calsPs: null,
     serving_qty: null,
     serving_weight_grams: null,
-    packItems: {}
+    packItems: {},
+    name: "",
+    selectedTripId: "",
+    selectedTrip: {},
+    id: "",
+    serving_qty: null,
+    item: {},
+    serving_unit: "",
+    calsPs: null,
+    serving_weight_grams: null,
+    tripDay: "",
+    type: "",
+    food_name: "",
+    brand_name: "",
+    //packItems: {PACKITEMS}
+    image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
   }
 
@@ -60,7 +76,10 @@ class ItemAdjust extends Component {
       type: "",
       food_name: "",
       brand_name: "",
-      packItems: {}
+      packItems: {},
+      travName: "",
+      image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
+      //packItems: {PACKITEMS}
 
     };
   }
@@ -196,7 +215,7 @@ class ItemAdjust extends Component {
     const totalCals = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     const id = item.id
-    console.log(id)
+  
 
     const stateQty = parseInt(this.state.serving_qty)
 
@@ -218,8 +237,11 @@ class ItemAdjust extends Component {
     const newT = this.props.newT
     const s = this.props.s
 
+    var tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
 
-    /*const currentDetails = `${currentT}${name}${is}${forT}${tripName}${onT}${item.tripDay}${forT}${item.travName}${s}${item.type}`*/
+    
+
+
 
     
     
@@ -378,7 +400,7 @@ class ItemAdjust extends Component {
           </div>
 
           <div className="filterContainer">
-    <h3 className="filterCategory">Trip</h3>
+    <h3 className="filterCategory">Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
             <TripNames 
             id = {id}
             trips={trips}
@@ -387,7 +409,7 @@ class ItemAdjust extends Component {
             }
             />
 
-            <h3 className="filterCategory">Dates</h3>
+            <h3 className="filterCategory">Date:{" "}<span className = "primaryFont black" >{tripDay/*isNaN(tripDay) ? "" : (tripDay)*/}</span></h3>
             <TripDates 
             tripDates={this.state.trip_dates}
             handleSelectDay={(selectedDay) =>
@@ -396,7 +418,7 @@ class ItemAdjust extends Component {
             
             />
 
-            <h3 className="filterCategory">Type</h3>
+            <h3 className="filterCategory">Type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
             <ItemTypes itemTypes={itemTypes}
             id = {id}
             handleSelectType={(selectedType) =>
@@ -405,7 +427,7 @@ class ItemAdjust extends Component {
             
             />
 
-            <h3 className="filterCategory">Traveler</h3>
+            <h3 className="filterCategory">Traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
             <TripTravelers tripTravelers={this.state.traveler_names}
           
             handleSelectTraveler={(selectedTraveler) =>

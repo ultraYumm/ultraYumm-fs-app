@@ -16,7 +16,7 @@ import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
 import Add from "../ItemDetails/Add";
-import { DEFAULTITEM } from "../Defaults";
+import { DEFAULTITEM, PACKITEMS } from "../Defaults";
 import ImageHeader from "./ImageHeader"
 import ItemHeader from "./ItemHeader"
 import BrandHeader from "./BrandHeader";
@@ -35,13 +35,16 @@ class SearchResults extends Component {
     branded: [],
     item:  {DEFAULTITEM},
     thumb: "",
+    //packItems: {PACKITEMS}
   };
 
   constructor(props) {
     super(props);
     this.state = {
       serving_qty: 0,
-      id: ""
+      id: "",
+      //packItems: {PACKITEMS}
+
     
       
     };
@@ -177,7 +180,7 @@ class SearchResults extends Component {
                     brand = {!item.brand_name ? "common" : item.brand_name}
                     />
                     <ServingQuant 
-                    quant = {Math.round(item.serving_qty)}
+                    input = {Math.round(item.serving_qty)}
                     id = {item.id}
                     handleAdjustQuant = {(inputValue, id) =>
                       this.adjustQuant(inputValue, id)

@@ -23,7 +23,7 @@ class CalResult extends Component {
  
 
     return (
-           <p className="tableAdjust dataResult sinkBackground blue">
+           <p className="tableAdjust dataResult sinkBackground black">
                     {result}
                   </p>
           )}

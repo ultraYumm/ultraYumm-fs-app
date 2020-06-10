@@ -16,24 +16,30 @@ class ServUnit extends Component {
     const input = this.props.input
     const id = this.props.id
     
-
-    const onSubmitForm = (e) => {
+    const buildHandleKeyUp = setter => (e) => {
+     
       e.preventDefault() 
-      const unit =  e.target.unit.value
-      this.props.handleAdjustUnit(unit, id)
-    }
+      const input = e.currentTarget.value 
+      setter(input);
+      this.props.handleAdjustUnit(input)
+
+      }
 
 
    
     return (
 
-      <form className= "quant" onSubmit={onSubmitForm}>
-        
-        <input 
-        name= 'unit'
-        placeholder = {input}/>
+      <input className="tableAdjust dataResult sinkBackground"
+      type = "text"
+      placeholder = {input}
     
-    </form>
+      onKeyUp = {buildHandleKeyUp((value) => {
+        this.setState(
+          {"serving_unit": value} 
+        )   
+      })}
+      />
+   
         
    )}
   

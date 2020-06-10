@@ -9,7 +9,7 @@ import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import UltraContext from "./UltraContext";
 import TripResults from "./Tables/TripResults";
-import { DEFAULTITEM } from "./Defaults";
+import { DEFAULTITEM, PACKITEMS } from "./Defaults";
 
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 
@@ -27,7 +27,6 @@ class App extends Component {
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
       selectTripItem: [],
-      packItems: []
       
     };
   }
@@ -156,6 +155,10 @@ class App extends Component {
               tripItems={tripItems}
               itemTypes={itemTypes}
               tripName={""}
+              packItems = {this.props.packItems}
+              handleNewPackItems= {(packItems) =>
+                this.addPackItems(packItems)
+              }
             />
           )}
         />
@@ -219,6 +222,10 @@ class App extends Component {
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
+                packItems = {this.props.packItems}
+                handleNewPackItems= {(packItems) =>
+                  this.addPackItems(packItems)
+                }
               />
             );
           }}

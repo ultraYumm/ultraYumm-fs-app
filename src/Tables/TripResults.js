@@ -33,11 +33,15 @@ import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
+import { DEFAULTITEM, PACKITEMS } from "../Defaults";
 
 
 class TripResults extends Component {
   static defaultProps = {
     selectedTrip: [],
+    //packItems: {PACKITEMS}
+
+
     
   };
 
@@ -45,7 +49,8 @@ class TripResults extends Component {
     super(props);
     this.state = {
       serving_qty: null,
-      id: ""
+      id: "",
+      //packItems: {PACKITEMS}
     
       
     };

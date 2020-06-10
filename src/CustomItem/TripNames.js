@@ -21,6 +21,7 @@ class TripNames extends Component {
       var checkboxes = document.getElementsByName('check')
       checkboxes.forEach((item) => {
           if (item !== checkbox) item.checked = false
+         
       })
   }
        
@@ -35,6 +36,7 @@ class TripNames extends Component {
                    type= "checkbox"
                    onClick={() => {
                     const selectedTrip = trip
+                    
                     onlyOne(this)
                     this.props.handleSelectTrip(selectedTrip)
                   

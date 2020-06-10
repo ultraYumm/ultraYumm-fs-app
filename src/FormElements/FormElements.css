@@ -74,7 +74,7 @@ input[type=date] {
 
  
 input::placeholder { 
-    color: rgba(173, 192, 217);
+    color: dark grey;
 } 
   
 input:hover, input:active, input[type="text"]:hover, input[type="search"]:hover, input[type="url"]:hover  {
@@ -274,9 +274,9 @@ button[type="button"]{
 }
   
 .filterCategory {
-    text-align: left;
+    text-align: center;
     display: inline-block;
-    width: 10%;
+    width: 80%;
 }
 
 

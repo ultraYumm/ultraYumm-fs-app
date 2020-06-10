@@ -6,34 +6,39 @@ import '../FormElements/FormElements.css';
 
 class WeightQuant extends Component {
 
+  
+  
   static defaultProps = {
     input:  1,
   }
-  
+
   render() {
 
     const input = this.props.input
-    const id = this.props.id
-    
-    const onSubmitForm = (e) => {
-      e.preventDefault() 
-      const quantInput =  e.target.quantInput.value
-      
-      this.props.handleAdjustWeight(quantInput,id)
-      
 
-    }
+      
+    const buildHandleKeyUp = setter => (e) => {
+     
+      e.preventDefault() 
+      const input = e.currentTarget.value 
+      setter(input);
+      this.props.handleAdjustWeight(input)
+
+      }
+
    
     return (
-      <form className= "quant" onSubmit={onSubmitForm}>
-        
-        
+     
       <input className="tableAdjust dataResult sinkBackground"
-      placeholder = {!input? 1 : input}
-      name= 'quantInput'
+      type = "number"
+      placeholder = {input}
+      onKeyUp = {buildHandleKeyUp((value) => {
+        this.setState(
+          {"serving_weight_grams": value} 
+        )   
+      })}
       />
-       
-    </form>
+   
    
    )}
 
@@ -41,3 +46,4 @@ class WeightQuant extends Component {
   
 
 export default WeightQuant
+

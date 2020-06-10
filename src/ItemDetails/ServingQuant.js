@@ -3,6 +3,9 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
+import "../Tables/Tables.css";
+import unitQuant from '../CustomItem/UnitQuant';
+import UnitQuant from '../CustomItem/UnitQuant';
 
 
 
@@ -11,32 +14,27 @@ class ServingQuant extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
-        quant: null
+        input: 1
       }
      
   render() {
       
- const quant = this.props.quant
- const id = this.props.id
- 
-  const onSubmitForm = (e) => {
-  e.preventDefault()
+    const input = this.props.input
 
-  const quantInput =  e.target.quantInput.value
-  this.props.handleAdjustQuant(quantInput, id)
-}
+   /*const buildHandleKeyUp = setter => (e) => {
+     
+      e.preventDefault() 
+      const input = e.currentTarget.value 
+      setter(input);
+      this.props.handleAdjustQuant(input)
 
+      }*/
     return (
         <td className="servingH black">
-          {!quant? "" : quant}
-          
-          <form className= "quant tableAdjust" onSubmit={onSubmitForm}>
-         
-            <input type="number"
-            className= "adjust" min="0" step="0.5"
-            name= 'quantInput'/>
-           
-          </form>
+          {!input? "" : input}
+          <UnitQuant
+          input = {input}
+          handleAdjustQuant = {this.props.handleAdjustQuant}/>
       
         </td>
      
