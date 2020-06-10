@@ -38,7 +38,7 @@ class ItemAdjust extends Component {
     item:  {DEFAULTITEM},
     selectedTrip: [],
     serving_unit: "",
-    calsPs: null,
+    calsPerServing: null,
     serving_qty: null,
     serving_weight_grams: null,
     packItems: {},
@@ -49,9 +49,8 @@ class ItemAdjust extends Component {
     serving_qty: null,
     item: {},
     serving_unit: "",
-    calsPs: null,
     serving_weight_grams: null,
-    tripDay: "",
+    tripDay: "2000-01-02T01:01:01.001Z",
     type: "",
     food_name: "",
     brand_name: "",
@@ -70,9 +69,9 @@ class ItemAdjust extends Component {
       serving_qty: null,
       item: {},
       serving_unit: "",
-      calsPs: null,
+      calsPerServing: null,
       serving_weight_grams: null,
-      tripDay: "",
+      tripDay: "2000-01-02T01:01:01.001Z",
       type: "",
       food_name: "",
       brand_name: "",
@@ -84,10 +83,10 @@ class ItemAdjust extends Component {
     };
   }
  
-  adjustItemName = (newName, id) => {
+  adjustItemName = (name, id) => {
     
     this.setState({
-      food_name: newName,
+      food_name: name,
       id: id
     }); 
   };
@@ -100,11 +99,12 @@ class ItemAdjust extends Component {
   };
 
 
-  selectTrip = (selectedTrip) => {
+  selectTrip = (selectedTrip, tripId) => {
     const tripName = selectedTrip.name
     const tripDates = selectedTrip.trip_dates
     const tripTravelers = selectedTrip.traveler_names
     this.setState({
+      tripId: tripId,
       selectedTrip: selectedTrip,    
       name: tripName,
       trip_dates: tripDates,
@@ -112,61 +112,54 @@ class ItemAdjust extends Component {
     });
   };
 
-  adjustQuant = (input, id) => {
+  adjustQuant = (input) => {
     
     this.setState({
-      serving_qty: input,
-      id: id
+      serving_qty: input
     });
   };
 
-  adjustUnit = (input, id) => {
+  adjustUnit = (input) => {
     
     this.setState({
-      serving_unit: input,
-      id: id
+      serving_unit: input
     });
   };
 
-  adjustWeight = (input, id) => {
+  adjustWeight = (input) => {
     
     this.setState({
-      serving_weight_grams: input,
-      id: id
+      serving_weight_grams: input
     });
   };
 
   adjustCals = (input, id) => {
     
     this.setState({
-      calsPs: input,
-      id: id
+      calsPerServing: input
     });
   };
 
-  selectDay = (input, id) => {
+  selectDay = (input) => {
     
     this.setState({
       tripDay: input,
-      id: id
     });
   };
 
 
-  selectType = (input, id) => {
+  selectType = (input) => {
     
     this.setState({
-      type: input,
-      id: id
+      type: input
     });
   };
 
 
-  selectTraveler = (input, id) => {
+  selectTraveler = (input) => {
     
     this.setState({
       travName: input,
-      id: id
     });
   };
   
@@ -177,23 +170,47 @@ class ItemAdjust extends Component {
     
     newPackItemsArray.push(
       {"id": this.state.id},
+      {"food_name": this.state.food_name},
+      {"brand_name": this.state.brand_name},
       {"tripId": this.state.tripId},
       {"tripDay": this.state.tripDay},
       {"travName": this.state.travName},
       {"type": this.state.type},
       {"serving_qty": this.state.serving_qty})
 
-      console.log(newPackItemsArray)
 
       packItems.push(newPackItemsArray)
 
       console.log(packItems)
 
+      
+      const items = this.props.items
+
+      const newItemsArray = []
+
+      newItemsArray.push (
+        {"id": this.state.id},
+        {"food_name": this.state.food_name},
+        {"brand_name": this.state.brand_name},
+        {"calsPerServing": this.state.calsPerServing},
+        {"image": this.state.image},
+        {"serving_qty:": this.state.serving_qty},
+        {"serving_unit": this.state.serving_unit},
+        {"serving_weight_grams": this.state.serving_weight_grams}
+
+      )
+
+      items.push(newItemsArray)
+
+      console.log(items)
+
+   
+
 
     const onSubmitForm = (e) => {
       
       e.preventDefault()
-      this.props.handleNewPackItems(packItems)}
+      this.props.handleNewItems(packItems, items)}
     
       
     const trips = this.props.trips;      
@@ -215,11 +232,13 @@ class ItemAdjust extends Component {
     const totalCals = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     const id = item.id
+
+  
   
 
     const stateQty = parseInt(this.state.serving_qty)
 
-    const stateCalsPs = parseInt(this.state.calsPs)
+    const stateCalsPs = parseInt(this.state.calsPerServing)
     const stateServWeight = parseInt(this.state.serving_weight_grams)
 
     const stateWeight = (stateQty * stateServWeight).toFixed(0)
@@ -229,22 +248,9 @@ class ItemAdjust extends Component {
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 
     const text = this.props.text
-    const tripName = this.props.tripName
-    const forT = this.props.forT
-    const onT = this.props.onT
-    const is = this.props.is
-    const currentT = this.props.currentT
-    const newT = this.props.newT
-    const s = this.props.s
-
-    var tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
-
     
-
-
-
-    
-    
+    const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
+      
     return (
       <section className="filterForm">
         <BackButton/>
@@ -269,10 +275,10 @@ class ItemAdjust extends Component {
             <div className="newItems">
               <NewItemName
               name = {name}
+              id = {id}
               handleAdjustName= {(inputValue, id) =>
                 this.adjustItemName(inputValue, id)
               }
-              id ={id}
 
               />
             </div>
@@ -400,17 +406,18 @@ class ItemAdjust extends Component {
           </div>
 
           <div className="filterContainer">
-    <h3 className="filterCategory">Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
+    <h3 className="filterCategory">Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
             <TripNames 
-            id = {id}
             trips={trips}
-            handleSelectTrip={(selectedTrip, id) =>
-              this.selectTrip(selectedTrip, id)
+            handleSelectTrip={(selectedTrip, tripId) =>
+              this.selectTrip(selectedTrip, tripId)
             }
             />
 
-            <h3 className="filterCategory">Date:{" "}<span className = "primaryFont black" >{tripDay/*isNaN(tripDay) ? "" : (tripDay)*/}</span></h3>
-            <TripDates 
+            <h3 className="filterCategory">Select date:{" "}<span className = "primaryFont black" >{this.state.tripDay == "2000-01-02T01:01:01.001Z"? "" : tripDay}</span></h3>
+            <TripDates
+            name = {this.state.name}
+            tripDay = {this.state.tripDay}
             tripDates={this.state.trip_dates}
             handleSelectDay={(selectedDay) =>
               this.selectDay(selectedDay)
@@ -418,7 +425,7 @@ class ItemAdjust extends Component {
             
             />
 
-            <h3 className="filterCategory">Type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
+            <h3 className="filterCategory">Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
             <ItemTypes itemTypes={itemTypes}
             id = {id}
             handleSelectType={(selectedType) =>
@@ -427,7 +434,7 @@ class ItemAdjust extends Component {
             
             />
 
-            <h3 className="filterCategory">Traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
+            <h3 className="filterCategory">Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
             <TripTravelers tripTravelers={this.state.traveler_names}
           
             handleSelectTraveler={(selectedTraveler) =>

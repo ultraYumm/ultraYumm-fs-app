@@ -14,7 +14,8 @@ class TripDates extends Component {
   
      
   render() {
-      
+  const name = this.props.name  
+  console.log(name)
   const tripDates = this.props.tripDates
   const id = this.props.id
   function onlyOne(checkbox) {
@@ -30,7 +31,8 @@ class TripDates extends Component {
       <ul className= "scroll"> 
       {tripDates.map((date)=> (
           <li key= {date}>
-          <label className="labelContainer"><Moment format= "MMM/DD">{date}</Moment>
+          <label className="labelContainer">
+            {name == ""? "" :<Moment format= "MMM/DD">{date}</Moment>}
               <input type="checkbox"
               name= "check"
               onClick={() => {

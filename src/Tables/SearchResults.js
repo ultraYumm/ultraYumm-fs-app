@@ -27,6 +27,7 @@ import TotalCalHeader from "./TotalCalHeader";
 import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
 import AddHeader from "./AddHeader";
 import BackButton from '../FormElements/BackButton';
+import { v4 as uuidv4 } from 'uuid';
 
 class SearchResults extends Component {
   static defaultProps = {
@@ -65,7 +66,7 @@ class SearchResults extends Component {
     const common = this.props.common;
     const branded = this.props.branded;
     const trips = this.props.trips;
-    console.log(trips)
+
     Array.prototype.push.apply(common, branded);
 
     const commonNutrients = () => {
@@ -92,7 +93,8 @@ class SearchResults extends Component {
         common[i].image = common[i].photo.thumb
         const replace = "%";
         common [i].calsPerServing = common[i].full_nutrients[0].value
-        common[i].id = common[i].food_name.replace(replace, "");
+        common[i].nameId = common[i].food_name.replace(replace, "");
+        common[i].id = uuidv4()
         common[i].calsPhg = !common[i].serving_weight_grams
           ? Math.round(common[i].full_nutrients[0].value)
           : Math.round(
@@ -125,10 +127,8 @@ class SearchResults extends Component {
           </h2>
         </div>
 
-        <div className="filterButtonContainer tableAdjust">
-          <SaveButton />
+        <div className="filterButtonContainer">
           <PrintButton />
-          <ResetButton />
         </div>
         
           <div className="filterButtonContainer moreContainer">
@@ -152,7 +152,6 @@ class SearchResults extends Component {
                 <WeightGHeader/>
                 <TotalCalHeader/> 
                 <TotalCalsPhgHeader/> 
-                <AddHeader/>
               </tr>
 
               {newBrandCommonArr.map((item, key) => (
@@ -163,7 +162,7 @@ class SearchResults extends Component {
                   <td className="itemH">
                     <NavLink
                      className = "noDeco"
-                      to={`/item/${item.id}`}
+                      to={`/item/${item.nameId}`}
                       onClick={() => {
                         const selectedItem = item;
                         this.props.handleSelectedItem(selectedItem);
@@ -199,8 +198,7 @@ class SearchResults extends Component {
                     <CalsPerHg
                       calsPHg = {item.calsPhg}
                     />
-                  <Add 
-                  trips={trips} />
+               
                                    </tr>
               ))}
             </tbody>
@@ -212,4 +210,9 @@ class SearchResults extends Component {
 }
 
 export default SearchResults;
+/*
+<AddHeader/>
+
+<Add 
+trips={trips} />*/
 

@@ -14,7 +14,7 @@ class ServUnit extends Component {
   render() {
      
     const input = this.props.input
-    const id = this.props.id
+   
     
     const buildHandleKeyUp = setter => (e) => {
      
@@ -29,7 +29,7 @@ class ServUnit extends Component {
    
     return (
 
-      <input className="tableAdjust dataResult sinkBackground"
+      <input className="dataResult skinBackground"
       type = "text"
       placeholder = {input}
     

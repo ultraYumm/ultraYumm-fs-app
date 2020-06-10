@@ -74,14 +74,14 @@ input[type=date] {
 
  
 input::placeholder { 
-    color: dark grey;
+    color: rgba(49, 31, 115)
 } 
   
 input:hover, input:active, input[type="text"]:hover, input[type="search"]:hover, input[type="url"]:hover  {
     border: 2px solid rgba(3, 52, 115);
 }
   
-input[type="text"] {
+input[type="text"], input[type="url"] {
     width: 80%;
 
 }
@@ -133,7 +133,7 @@ button:hover {
     padding-top: 5px;
     margin-bottom: 2px;
     transition: 0.1s;
-    z-index: 200px;
+    z-index: 10;
     display: inline-block;
 }
 
@@ -154,6 +154,7 @@ button:hover {
 .back, .forward {
     position: absolute;
     top: 22px;
+    z-index: 15;
     
     
 }
@@ -471,6 +472,76 @@ button[type="button"]{
 }
 
 }
+
+@media only screen and (min-width: 768px) {
+    .descriptionText {
+        font-size: 20px;
+        padding-top: 240px;
+    }
+
+
+.title {
+    font-size: 30px;
+}
+
+
+
+h2 {
+    font-size: 20px;
+}
+
+
+label {
+    font-size: 18px;
+}
+
+button {
+    font-size: 25px;
+    height: 50px;
+    
+}
+
+}
+
+
+@media only screen and (min-width: 1000px) {
+.descriptionText {
+    font-size: 30px;
+    padding-top: 240px;
+}
+
+
+.title {
+    font-size: 35px;
+}
+
+
+
+h2 {
+    font-size: 30px;
+}
+
+
+label {
+    font-size: 30px;
+}
+
+button {
+    font-size: 30px;
+    height: 50px;
+    
+}
+
+
+.labelContainer {
+    font-size: 15px;
+}
+
+}
+    
+    
+      
+  
 
 
   

@@ -25,9 +25,9 @@ class CalsQuant extends Component {
    
     return (
       
-      <input className="tableAdjust dataResult sinkBackground"
+      <input className="dataResult skinBackground"
       type= "number"
-      placeholder = {input}
+      placeholder =  {isNaN(input)? 1 : input}
     
       onKeyUp = {buildHandleKeyUp((value) => {
         this.setState(

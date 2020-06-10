@@ -25,8 +25,7 @@ class CalsPerServing extends Component {
         <td className="weightH tooltip gram">
          {calories}
          <span className="tooltiptext">cal per serving</span>
-         <CalResult
-         result = {result}/>
+         
        </td>
    )}
   
@@ -34,3 +33,8 @@ class CalsPerServing extends Component {
   
 
 export default CalsPerServing
+
+/*<div className= "tableAdjust">
+         <CalResult
+         result = {result}/>
+         </div>*/

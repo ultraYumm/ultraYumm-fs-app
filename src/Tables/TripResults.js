@@ -231,39 +231,17 @@ class TripResults extends Component {
 
                   <td className="date">
                     <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>
-                    <div className="tableScroll tableAdjust add">
-                      {" "}
-                      <TripDates tripDates={tripDates}
-                        handleSelectDay={(selectedDay) =>
-                        this.selectDay(selectedDay)
-                        }/>
-                    </div>
+                    
                   </td>
 
                   <td className="type">
                     {item.type}
-                    <div className="tableScroll tableAdjust add">
-                      <ItemTypes itemTypes={itemTypes}
-                      handleSelectType={(selectedType) =>
-                        this.selectType(selectedType)
-                      }
-                      
-                      
-                      />
-                    </div>
+                    
                   </td>
 
                   <td className="traveler">
                     {item.travName}
-                    <div className="tableScroll tableAdjust add">
-                      <TripTravelers
-                        tripTravelers={tripTravelers}
-                        handleSelectTraveler={(selectedTraveler) =>
-                          this.selectTraveler(selectedTraveler)
-                        }
-                        
-                      />
-                    </div>
+                   
                   </td>
 
                   <td className="itemH">
@@ -280,7 +258,7 @@ class TripResults extends Component {
                       </NavLink>
                     </td>
                   <ServingQuant 
-                    quant = {Math.round(item.serving_qty)}
+                    input = {Math.round(item.serving_qty)}
                     id = {item.id}
                     handleAdjustQuant = {(inputValue, id) =>
                       this.adjustQuant(inputValue, id)
@@ -293,6 +271,7 @@ class TripResults extends Component {
                    weight = {item.serving_qty * item.serving_weight_grams}
                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                    
                    />
 
                   <CalsPerServing
@@ -316,3 +295,27 @@ class TripResults extends Component {
 
 export default TripResults;
 
+/*<div className="tableScroll tableAdjust add">
+<ItemTypes itemTypes={itemTypes}
+handleSelectType={(selectedType) =>
+  this.selectType(selectedType)
+}
+/>
+</div>
+
+<div className="tableScroll tableAdjust add hidden">
+<TripTravelers
+tripTravelers={tripTravelers}
+handleSelectTraveler={(selectedTraveler) =>
+this.selectTraveler(selectedTraveler)
+}
+/>
+</div>
+
+<div className="tableScroll tableAdjust add">
+{" "}
+<TripDates tripDates={tripDates}
+  handleSelectDay={(selectedDay) =>
+  this.selectDay(selectedDay)
+  }/>
+</div>*/

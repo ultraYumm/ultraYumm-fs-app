@@ -18,13 +18,12 @@ class CalResult extends Component {
  const result = this.props.result
  console.log(result)
 
- const alt = 300
 
  
 
     return (
-           <p className="tableAdjust dataResult sinkBackground black">
-                    {result}
+           <p className="dataResult black">
+                   {isNaN(result)? 1 : (result)}
                   </p>
           )}
   

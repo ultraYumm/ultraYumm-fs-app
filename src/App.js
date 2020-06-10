@@ -27,6 +27,7 @@ class App extends Component {
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
       selectTripItem: [],
+      items: []
       
     };
   }
@@ -62,9 +63,10 @@ class App extends Component {
     });
   };
 
-  addPackItems = (packItems) => {
+  addItems = (packItems, items) => {
     this.setState({
       packItems: packItems,
+      items: items
     });
   };
 
@@ -223,8 +225,8 @@ class App extends Component {
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
                 packItems = {this.props.packItems}
-                handleNewPackItems= {(packItems) =>
-                  this.addPackItems(packItems)
+                handleNewItems= {(packItems, items) =>
+                  this.addPackItems(packItems, items)
                 }
               />
             );
@@ -243,6 +245,7 @@ class App extends Component {
                 currentT = "Current "
                 newT= "New"
                 s = "'s "
+                //main difference below in props, this route passes selectedTripItem}
                 selectedItem={this.state.selectTripItem}
                 item= {this.state.item}
                 trips={trips}

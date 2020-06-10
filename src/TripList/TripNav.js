@@ -23,6 +23,7 @@ static contextType = UltraContext;
       <section className = "tripSection">
        
        <h2 className= "montebello">My trips!</h2>
+          <div className = "tripContainer">
           <ul className= "trips blueBackground">
             
               {trips.map ((trip, key) => 
@@ -42,13 +43,12 @@ static contextType = UltraContext;
               >{trip.name}  
               </p>
               </NavLink>
-              
-
               </li>
               
               )}
-           
+      
            </ul>
+           </div>
       
       </section>
         

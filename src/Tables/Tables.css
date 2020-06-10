@@ -23,7 +23,7 @@ th, td {
 }
 
 td, th {
-     font-size: 10px;
+     font-size: 8px;
 
 }
    
@@ -217,6 +217,9 @@ input.add {
      display: none;
 }
 
+.dataResult {
+     height: 50px;
+}
 
 @media only screen and (min-width: 666px) {
 
@@ -258,4 +261,44 @@ td {
      width: 20px;   
 }
 
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    
+td, th {
+font-size: 16px;
+
+}
+
+
+.imageH {
+     width: 6%;
+}
+
+
+.servingH, .weightH, .unitH, .caloriesH {
+     width: 13%;
+} 
+
+
+.itemH, .addH, .brandH, .date, .type, .traveler, .delete {
+     width: 15%;
+}
+
+.imageH {
+     width: 1%;
+}
+
+
+.tableImage {
+     width: 20px;   
+}
+
+.imageH:hover {
+    zoom: 200%;
+    transition: transform .9s ease;
+}
+       
 }

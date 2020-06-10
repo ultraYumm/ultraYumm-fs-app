@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import { renderToString } from 'react-dom/server';
+import { v4 as uuidv4 } from 'uuid';
 
 class NewItemName extends Component {
 
   static defaultProps = {
     name:  "Pink salt",
+    id: ""
   }
 
   
@@ -18,18 +20,30 @@ class NewItemName extends Component {
     
 
     const name = this.props.name;
-    const id = this.props.id
+    const existingId = this.props.id
+
+    const id  = () => {
+      if (existingId === "")
+      {var newId = uuidv4()
+      return newId} 
+      return existingId
+      }
+
+
     
-    const onSubmitForm = (e) => {
+    const buildHandleKeyUp = setter => (e) => {
+     
       e.preventDefault() 
-      const unit =  e.target.itemName.value
-      this.props.handleAdjustName(unit, id)
-    }
-    
-    
+      const input = e.currentTarget.value
+   
+      setter(input, id());
+      this.props.handleAdjustName(input, id())
+
+      }
+
 
     return (
-      <form className= "noDeco" onSubmit={onSubmitForm}>
+     
         <label htmlFor="custom-item-name">
           <span className="labelWidth white">Item name</span>
           <input
@@ -38,9 +52,19 @@ class NewItemName extends Component {
             className="redBackground white search"
             id="custom-item-name"
             placeholder= {name} required
+
+            onKeyUp = {buildHandleKeyUp((value) => {
+              this.setState(
+                {food_name: value
+                }
+                
+              )   
+            })}
+
+
           />
         </label>
-      </form>
+   
     );
   }
 }

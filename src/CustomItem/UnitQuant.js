@@ -13,21 +13,22 @@ class UnitQuant extends Component {
   render() {
 
       const input = this.props.input
+      const id = this.props.id
 
       const buildHandleKeyUp = setter => (e) => {
      
       e.preventDefault() 
       const input = e.currentTarget.value 
-      setter(input);
-      this.props.handleAdjustQuant(input)
+      setter(input, id);
+      this.props.handleAdjustQuant(input, id)
 
       }
 
    
     return (
-      <input className="tableAdjust dataResult sinkBackground"
+      <input className="dataResult skinBackground"
       type = "number"
-      placeholder = {input}
+      placeholder = {isNaN(input)? 1 : input}
     
       onKeyUp = {buildHandleKeyUp((value) => {
         this.setState(

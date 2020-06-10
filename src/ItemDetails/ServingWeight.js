@@ -25,9 +25,7 @@ class ServingWeight extends Component {
         <td className="weightH tooltip gram">
          {weight}
           <span className="tooltiptext">grams</span>
-                   <WeightResult
-                   result = {result}
-                   />
+                  
                   </td>
    )}
   
@@ -35,3 +33,7 @@ class ServingWeight extends Component {
   
 
 export default ServingWeight
+
+/*<div className = "tableAdjust"><WeightResult
+result = {result}
+/></div>*/

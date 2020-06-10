@@ -19,8 +19,8 @@ class WeightResult extends Component {
  
 
     return (
-           <p className="tableAdjust dataResult skinBackground black">
-                    {result}
+           <p className="dataResult black">
+                    {isNaN(result)? 1 : (result)}
                   </p>
           )}
   

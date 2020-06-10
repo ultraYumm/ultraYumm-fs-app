@@ -119,7 +119,7 @@ const ITEMS= [
     "brand_name": 	null,
     "serving_unit": "tsp",
     "serving_qty": 1,
-    "image":"",
+    "image":"https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
     "serving_weight_grams": 5,
     "calsPerServing": 21
     }

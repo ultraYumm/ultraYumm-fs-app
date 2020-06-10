@@ -16,6 +16,7 @@ class TripNames extends Component {
   render() {
 
     const trips = this.props.trips
+    console.log(trips)
     
     function onlyOne(checkbox) {
       var checkboxes = document.getElementsByName('check')
@@ -36,9 +37,10 @@ class TripNames extends Component {
                    type= "checkbox"
                    onClick={() => {
                     const selectedTrip = trip
+                    const tripId = trip.id
                     
                     onlyOne(this)
-                    this.props.handleSelectTrip(selectedTrip)
+                    this.props.handleSelectTrip(selectedTrip, tripId)
                   
                   }}
                    

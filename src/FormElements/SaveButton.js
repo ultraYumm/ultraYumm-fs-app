@@ -16,7 +16,7 @@ class SaveButton extends Component {
       <div className= "filter">
           <button 
             className= "black montebello skinBackground filter"
-            type = "submit">Save edits
+            type = "submit">Save
           </button>
       </div>
     )
