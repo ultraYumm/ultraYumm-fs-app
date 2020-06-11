@@ -22,9 +22,18 @@ th, td {
      transition: 0.3s;
 }
 
-td, th {
-     font-size: 8px;
+th {
+     font-size: 10px;
 
+}
+
+td {
+     font-size: 11px;
+
+}
+
+.mobile {
+     zoom:3
 }
    
 td {
@@ -73,7 +82,7 @@ td {
 }
      
    
-.tableImage {
+.tableImage, .adjustImage {
      width: 10px;
      border-radius: 5%;   
 }
@@ -134,26 +143,27 @@ td {
 
 
 .deleteH {
-    background-color: rgba( 191, 4, 4);  
-    text-align: center;   
-}
-
-.delete:hover {
-    background-color: rgba( 191, 4, 4); 
-    zoom:0.9;
-    text-align: center;
-}
-
-td.delete {
-     text-align: center;    
-}
-
-input.delete {
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    background-color: rgba( 191, 4, 4); 
-}
+     background-color: rgba( 191, 4, 4);  
+     text-align: center;   
+ }
+ 
+ .delete:hover {
+     background-color: rgba( 191, 4, 4); 
+     zoom:0.9;
+     text-align: center;
+ }
+ 
+ td.delete {
+      text-align: center;    
+ }
+ 
+ input.delete {
+     text-align: center;
+     width: 20px;
+     height: 20px;
+     background-color: rgba( 191, 4, 4); 
+ }
+  
  
 
 .tableScroll {
@@ -221,12 +231,14 @@ input.add {
      height: 50px;
 }
 
+ 
 @media only screen and (min-width: 666px) {
 
 .tableAdjust {
      display: block;
      height: 40%
 }
+
 
 
 .add {
@@ -274,30 +286,41 @@ font-size: 16px;
 
 
 .imageH {
-     width: 6%;
+     width: 5%;
 }
 
 
 .servingH, .weightH, .unitH, .caloriesH {
-     width: 13%;
+     width: 1%;
 } 
 
 
-.itemH, .addH, .brandH, .date, .type, .traveler, .delete {
-     width: 15%;
-}
-
-.imageH {
+.addH, .date, .type, .traveler, .delete {
      width: 1%;
 }
 
+.itemH {
+     width: 40%;
+}
+
+
+.brandH {
+     width: 20%;
+}
+
+
 
 .tableImage {
-     width: 20px;   
+     width: 100px;   
+}
+
+
+.adjustImage {
+     width: 40px;   
 }
 
 .imageH:hover {
-    zoom: 200%;
+    zoom: 500%;
     transition: transform .9s ease;
 }
        

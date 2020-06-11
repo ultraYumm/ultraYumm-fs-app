@@ -14,7 +14,7 @@ class ItemHeader extends Component {
         
   
         <th className="itemH">
-        Item<span className="mobile">(Click)</span>
+        Item<span>(Click)</span>
         </th>
     )
 }

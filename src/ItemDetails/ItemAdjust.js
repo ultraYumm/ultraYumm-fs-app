@@ -254,7 +254,7 @@ class ItemAdjust extends Component {
     return (
       <section className="filterForm">
         <BackButton/>
-            <div className= "adjustImage">
+            <div className = "adjustImage" >
             <ItemImage 
             image = {image}
             />

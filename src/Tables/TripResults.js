@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import TripName from "../TripDetails/TripName";
-import TripDates from "../TripDetails/TripDates";
-import ItemTypes from "../CustomItem/ItemTypes";
-import TripTravelers from "../TripDetails/TripTravelers";
 import TripYear from "../TripDetails/TripYear";
 import Moment from "react-moment";
 import SaveButton from "../FormElements/SaveButton";

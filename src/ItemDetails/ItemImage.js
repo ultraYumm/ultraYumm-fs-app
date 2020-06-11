@@ -22,7 +22,7 @@ class ItemImage extends Component {
 
     return (
       <img
-      className="tableImage"
+      className="tableImage "
       src = {source}
       alt="Item"/>
           

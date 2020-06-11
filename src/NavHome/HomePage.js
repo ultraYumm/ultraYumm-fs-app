@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import "../FormElements/FormElements.css";
 import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import snowyOwl from "../Images/snowyOwl.GIF";

@@ -15,9 +15,19 @@ body, html {
 
 form, section, .chart {
     margin: 1%;
-    width: 100%;
     border-radius: 10px;
     padding: 0;
+}
+
+section, .chart {
+    width: 100%;
+}
+
+
+form {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form {
@@ -139,7 +149,7 @@ button:hover {
 
 
 .filterButtonContainer {
-   width: 100%;
+   width: 95%;
    margin-left: auto;
    margin-right: auto;
    border-top-left-radius: 5px;
@@ -193,7 +203,8 @@ button[type="button"]{
 
 
 .reset, .moreButton, .filter, .back, .forward {
-    font-size: 8px;
+    font-size: 14px;
+    width: 95px;
 }
 
 .reset {
@@ -222,7 +233,6 @@ button[type="button"]{
 
 .moreButton {
     display: inline-block;
-    width: 15%;
     margin:10px;
     padding: 10px;
     border-radius: 10px;
@@ -250,10 +260,14 @@ button[type="button"]{
     /*margin-right: 40px;*/
 }
 
-.filterForm {
-   text-align: center;
-   display: block;
-}
+
+.filterSection {
+    text-align: center;
+    display: block;
+    width: 100%
+ }
+
+
 
 /*.filterSelection {
   width: 45%;
@@ -355,6 +369,7 @@ button[type="button"]{
 }
 
 
+
 text {
     text-align: center;
     font-size: 8px;
@@ -445,10 +460,13 @@ svg {
 
 
 .adjustImage {
-  float: right;
-  top: 0;
-  padding: 2px;
-  zoom: 10;
+   float: right;
+    top: 0;
+    margin-right: 3px;
+    margin-top: 0px;
+    zoom: 7;
+    
+    
 }
 
 @media only screen and (min-width: 666px) {
@@ -535,6 +553,18 @@ button {
 
 .labelContainer {
     font-size: 15px;
+}
+
+
+
+.adjustImage {
+    float: right;
+    top: 0;
+    margin-right: 70px;
+    margin-top: 10px;
+    zoom: 2;
+    
+    
 }
 
 }

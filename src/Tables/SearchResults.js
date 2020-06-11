@@ -8,6 +8,7 @@ import SearchMoreButton from "../FormElements/SearchMoreButton";
 import "./Tables.css";
 import { NavLink } from "react-router-dom";
 import TableItemImage from "../ItemDetails/TableItemImage";
+import ItemImage from "../ItemDetails/ItemImage";
 import ItemName from "../ItemDetails/ItemName";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import ServingQuant from "../ItemDetails/ServingQuant";
@@ -156,9 +157,8 @@ class SearchResults extends Component {
 
               {newBrandCommonArr.map((item, key) => (
                 <tr className="one whiteBackground black" key={key}>
-               
-                    <TableItemImage image = {item.image}/>
-                 
+                   <TableItemImage image = {item.image}/>
+                
                   <td className="itemH">
                     <NavLink
                      className = "noDeco"
@@ -203,6 +203,87 @@ class SearchResults extends Component {
               ))}
             </tbody>
           </table>
+
+          <table id="search-results" className="primaryFont whiteBackground mobileOnly">
+          {newBrandCommonArr.map((item, key) => 
+          
+
+         ( 
+         <tbody className >
+           <tr className = "mobile">
+            <ItemImage image = {item.image}/>
+           </tr>
+           <tr>   
+          
+           <td className="itemH">
+                    <NavLink
+                     className = "noDeco"
+                      to={`/item/${item.nameId}`}
+                      onClick={() => {
+                        const selectedItem = item;
+                        this.props.handleSelectedItem(selectedItem);
+                      }}
+                    >
+                      <ItemName 
+                      name = {item.food_name} 
+                      item = {item}
+                      handleSelectedItem = {this.props.handleSelectedItem}/>
+                    </NavLink>
+                  </td>
+          </tr>
+          <BrandHeader/>
+                    <ItemBrand
+                    brand = {!item.brand_name ? "common" : item.brand_name}
+                    />
+
+          <tr>
+            <ServQuantHeader/>
+                  <ServingQuant 
+                            input = {Math.round(item.serving_qty)}
+                            id = {item.id}
+                            handleAdjustQuant = {(inputValue, id) =>
+                              this.adjustQuant(inputValue, id)
+                            }/>
+          </tr>
+
+          <tr>
+          <UnitHeader/>
+                <ServingUnit unit={item.serving_unit} />
+
+          </tr>
+
+          <tr>     
+             <WeightGHeader/>
+                    <ServingWeight
+                    weight =  {Math.round(item.serving_weight_grams)}
+                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                    />
+          </tr>
+
+          <tr>        
+                <TotalCalHeader/> 
+                <CalsPerServing
+                    calories =  {Math.round(item.calsPerServing)}
+                    result = {Math.round(this.state.serving_qty * item.calsPerServing ).toFixed(0)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                    />   
+          </tr> 
+          <tr>
+                <TotalCalsPhgHeader/> 
+                <CalsPerHg
+                      calsPHg = {item.calsPhg}
+                    />
+
+          </tr>
+        
+           </tbody>
+          
+           
+           
+))}
+</table>
+                      
         
       </section>
     );
