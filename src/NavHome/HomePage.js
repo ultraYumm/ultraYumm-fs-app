@@ -33,9 +33,12 @@ class HomePage extends Component {
           routerProps={this.props.routerProps}
           handleUpdate={this.props.handleUpdate}
           handleResults={this.props.handleResults}
-        ></SearchForm>
+        />
 
-        <AddTripForm></AddTripForm>
+        <AddTripForm
+        handleAddTrip = {this.props.handleAddTrip}
+        
+        />
       </div>
     );
   }

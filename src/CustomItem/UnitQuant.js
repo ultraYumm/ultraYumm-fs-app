@@ -28,7 +28,7 @@ class UnitQuant extends Component {
     return (
       <input className="dataResult skinBackground"
       type = "number"
-      placeholder = {isNaN(input)? 1 : input}
+      defaultValue = {isNaN(input)? 1 : input}
     
       onKeyUp = {buildHandleKeyUp((value) => {
         this.setState(

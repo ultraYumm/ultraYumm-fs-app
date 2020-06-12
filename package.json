@@ -13,6 +13,7 @@
     "jquery-tablesort": "0.0.11",
     "moment": "^2.26.0",
     "node-pre-gyp": "0.6.x",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-data-table-component": "^6.9.2",
     "react-dom": "^16.13.1",

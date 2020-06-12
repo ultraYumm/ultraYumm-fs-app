@@ -35,7 +35,7 @@ class NewItemBrand extends Component {
         type="text" 
         name="brandName" 
         className="redBackground white search" id= "custom-brand-name"
-        placeholder= {brand}
+        defaultValue= {brand}
         onKeyUp = {buildHandleKeyUp((value) => {
           this.setState(
             {brand_name: value

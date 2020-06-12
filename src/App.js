@@ -9,7 +9,7 @@ import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import UltraContext from "./UltraContext";
 import TripResults from "./Tables/TripResults";
-import { DEFAULTITEM, PACKITEMS } from "./Defaults";
+import { DEFAULTITEM, PACKITEMS, TRIPS } from "./Defaults";
 
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 
@@ -27,7 +27,8 @@ class App extends Component {
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
       selectTripItem: [],
-      items: []
+      items: [],
+      trips: TRIPS
       
     };
   }
@@ -70,12 +71,31 @@ class App extends Component {
     });
   };
 
+  addTrip = (tripId, iframe, tripName, tripTravelers, tripDates) => {
+    const newTrips = [
+      ...this.state.trips,
+      {id: tripId,
+       iframe: iframe,
+       name: tripName,
+       traveler_names: [tripTravelers],
+       trip_dates: [tripDates]
+      }
+    ]
+    
+    this.setState({
+      trips: newTrips,
+    });
+  }
+
 
 
   render() {
 
     
-    const trips = this.props.trips;
+
+    
+    const trips = this.state.trips;
+    console.log(trips)
     const selectedTripId = this.state.selectedTripId;
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
     const packItems = this.props.packItems;
@@ -93,6 +113,22 @@ class App extends Component {
 
     const itemTypes = this.props.itemTypes;
 
+    const testA = {
+      "shoppingItems": [
+        /* put stub items in here for testing */
+        { name: 'apples', checked: false },
+        { name: 'oranges', checked: true },
+        { name: 'bread', checked: false },
+      ]
+    };
+    const newItems = [
+      ...testA.shoppingItems,
+      { name: "myfruit", checked: false }
+    ]
+
+    
+    console.log(newItems)
+  
     return (
       <div className="App">
         <NavBar />
@@ -110,6 +146,9 @@ class App extends Component {
               common={this.state.searchResults.common}
               branded={this.state.searchResults.branded}
               trips={trips}
+              handleAddTrip={(tripId, iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(tripId, iframe, tripName, tripTravelers, tripDates)
+              }
             />
           )}
         />

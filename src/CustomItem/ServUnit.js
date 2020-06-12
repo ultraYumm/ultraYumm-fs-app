@@ -31,7 +31,7 @@ class ServUnit extends Component {
 
       <input className="dataResult skinBackground"
       type = "text"
-      placeholder = {input}
+      defaultValue = {input}
     
       onKeyUp = {buildHandleKeyUp((value) => {
         this.setState(

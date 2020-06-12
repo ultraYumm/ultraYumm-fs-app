@@ -357,7 +357,7 @@ class ItemAdjust extends Component {
                   >
                     Calories per serving
                   </label>
-                  <p className="dataInput">
+                  <div className="dataInput">
                   <CalsQuant
                   input = {calsPs}
                   id = {id}
@@ -366,7 +366,7 @@ class ItemAdjust extends Component {
                  }
                   />
 
-                  </p>
+                  </div>
                 
                 </div>
               </div>
@@ -379,12 +379,12 @@ class ItemAdjust extends Component {
                   >
                     Total Weight
                   </label>
-                  <p className="dataResult skinBackground">
+                  <div className="dataResult skinBackground">
                     <WeightResult
                     result =
                     {stateWeight}
                     placeholder = {totalWeight}/>
-                  </p>
+                  </div>
                 </div>
 
                 <div className="resultBox">
@@ -394,12 +394,12 @@ class ItemAdjust extends Component {
                   >
                     Total Calories
                   </label>
-                  <p className="dataResult skinBackground">
+                  <div className="dataResult skinBackground">
                     <CalResult
                     result = {stateCals} 
                     placeholder = {totalCals}
                     />
-                    </p>
+                    </div>
                 </div>
               </div>
             </div>

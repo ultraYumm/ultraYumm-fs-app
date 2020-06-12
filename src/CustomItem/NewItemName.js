@@ -51,7 +51,7 @@ class NewItemName extends Component {
             name="itemName"
             className="redBackground white search"
             id="custom-item-name"
-            placeholder= {name} required
+            defaultValue= {name} required
 
             onKeyUp = {buildHandleKeyUp((value) => {
               this.setState(
