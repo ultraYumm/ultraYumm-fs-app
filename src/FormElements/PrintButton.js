@@ -16,7 +16,7 @@ class PrintButton extends Component {
       <div className= "filter">
           <button 
             onClick = {print}
-            className= "black montebello skinBackground filter"
+            className= "black montebello skinBackground filter sticky"
             type = "submit">Print
           </button>
       </div>

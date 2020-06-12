@@ -14,7 +14,7 @@ class SearchMoreButton extends Component {
     
     return (
       <div 
-            className= "primaryFont red skinBackground moreButton">
+            className= "primaryFont red skinBackground moreButton sticky">
             Search more items
       </div>
     )

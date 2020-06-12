@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "./Tables.css";
+import '../FormElements/FormElements.css';
+
 
 class AddHeader extends Component {
   
@@ -11,7 +13,7 @@ class AddHeader extends Component {
 
     return (
         
-        <th className="itemH addH tableAdjust ">Add to pack</th>
+        <th className="itemH addH tableAdjust">Add to pack</th>
     )
 }
 }

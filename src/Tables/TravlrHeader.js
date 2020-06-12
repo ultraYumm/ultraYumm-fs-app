@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "./Tables.css";
+import '../FormElements/FormElements.css';
+
 
 class TravlrHeader extends Component {
   
@@ -12,7 +14,7 @@ class TravlrHeader extends Component {
     return (
         
         
-        <th className="traveler">Traveler <span className="tableAdjust">(ajdust)</span></th>
+        <th className="traveler">Traveler</th>
 
     )
 }

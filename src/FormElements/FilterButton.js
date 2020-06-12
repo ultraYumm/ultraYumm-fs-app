@@ -15,7 +15,7 @@ class FilterButton extends Component {
     return (
       <div className= "filter">
           <button 
-            className= "black montebello skinBackground filter"
+            className= "black montebello skinBackground filter sticky"
             type = "submit">
             Filter
           </button>

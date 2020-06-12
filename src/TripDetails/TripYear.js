@@ -14,7 +14,7 @@ class TripYear extends Component {
     const tripDay1 = selectedTrip[0].trip_dates[0]
    
     return (
-        <div className = "montebello white"><Moment format= "YYYY">{tripDay1}</Moment></div>
+        <div className = "montebello"><Moment format= "YYYY">{tripDay1}</Moment></div>
    )}
   
 }

@@ -22,10 +22,8 @@ class ServingWeight extends Component {
  
 
     return (
-        <td className="weightH tooltip gram">
-         {weight}
-          <span className="tooltiptext">grams</span>
-                  
+        <td className="weightH  gram">
+         {weight}       
                   </td>
    )}
   

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "./Tables.css";
+import '../FormElements/FormElements.css';
+
 
 class TotalCalHeader extends Component {
   

@@ -37,7 +37,7 @@
 .trips:hover {
     opacity: 3;
     padding: 10px;
-    transform: scale(1.5);
+    transform: scale(1.01);
     transition: 0.3s;
     /*border: 1px solid rgba(191, 4, 4);*/  
 }

@@ -22,10 +22,8 @@ class CalsPerServing extends Component {
  
 
     return (
-        <td className="weightH tooltip gram">
-         {calories}
-         <span className="tooltiptext">cal per serving</span>
-         
+        <td className="weightH  gram">
+         {calories} 
        </td>
    )}
   

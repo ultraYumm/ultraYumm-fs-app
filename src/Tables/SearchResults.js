@@ -120,19 +120,22 @@ class SearchResults extends Component {
     
     return (
       <section>
-        <BackButton/>        
-        <div>
-          <h2 className="montebello searchResultsTitle white">
+            
+        <div className = "sticky lightBlueBackground">
+       
+        <div className = "sticky">
+        <BackButton/>  
+          <h2 className="montebello searchResultsTitle black sticky">
             {" "}
             See your highest energy results!
           </h2>
         </div>
 
-        <div className="filterButtonContainer">
+        <div className="filterButtonContainer sticky">
           <PrintButton />
         </div>
         
-          <div className="filterButtonContainer moreContainer">
+          <div className="filterButtonContainer moreContainer sticky">
             <NavLink to={`/add-custom`}
            >
               <AddCustomButton />
@@ -142,9 +145,10 @@ class SearchResults extends Component {
               <SearchMoreButton />
             </NavLink>
           </div>
-          <table id="search-results" className="primaryFont">
+          </div>
+          <table id="search-results" className="primaryFont desk">
             <tbody>
-              <tr className="blueBackground white">
+              <tr className="blueBackground white sticky">
                 <ImageHeader/>
                 <ItemHeader/>
                 <BrandHeader/>
@@ -209,12 +213,12 @@ class SearchResults extends Component {
           
 
          ( 
-         <tbody className >
-           <tr className = "mobile">
+         <tbody>
+           <tr className = "mobile" key={item.id}>
             <ItemImage image = {item.image}/>
            </tr>
+           
            <tr>   
-          
            <td className="itemH">
                     <NavLink
                      className = "noDeco"
@@ -231,6 +235,7 @@ class SearchResults extends Component {
                     </NavLink>
                   </td>
           </tr>
+          
           <BrandHeader/>
                     <ItemBrand
                     brand = {!item.brand_name ? "common" : item.brand_name}

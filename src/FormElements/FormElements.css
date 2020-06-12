@@ -50,6 +50,13 @@ section {
     padding-top: 60px;
 }   
 
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
 label {
     font-family: 'Poppins', sans-serif;
     padding-left: 5px;
@@ -166,32 +173,33 @@ button:hover {
     top: 22px;
     z-index: 15;
     
-    
 }
 
 
 .back {
-    left:55px;
+    left:5px;
+    
 }
 
 
 .forward {
-    right:160px;
+    right:50px;
 }
 
 button[type="button"]{
    width: 10%;
-   border: solid 1px black;
+   border:  transparent;
+   background-color: transparent;
 }
 
  .back:hover{
-    left:50px;
+    left:0;
     transition: 0.5;
 }
 
 
  .forward:hover{
-    right:165px;
+    right:55px;
     transition: 0.5;
 }
 
@@ -469,6 +477,24 @@ svg {
     
 }
 
+@media only screen and (min-width: 1px) and (max-width:666px) {
+
+.back, .forward {
+    top: -30px;
+
+}
+
+button[type="button"]{
+    font: 10px;
+}
+
+    
+    
+
+
+
+}
+
 @media only screen and (min-width: 666px) {
 
 button {
@@ -486,7 +512,25 @@ text {
 }
 
 button[type="button"]{
-    height: 4px
+    height: 4px;
+    font: 12px;
+}
+
+
+.forward {
+    right:260px;
+}
+
+
+.back:hover{
+    left:0;
+    transition: 0.5;
+}
+
+
+ .forward:hover{
+    right:255px;
+    transition: 0.5;
 }
 
 }

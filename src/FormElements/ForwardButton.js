@@ -14,7 +14,7 @@ class ForwardButton extends Component {
       
           <button
           onClick={() => goForward()}
-            className= "white primaryFont forward  blackBackground"
+            className= "white primaryFont forward sticky"
             type = "button">
             forward...
           </button>

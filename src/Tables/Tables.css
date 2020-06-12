@@ -23,17 +23,18 @@ th, td {
 }
 
 th {
-     font-size: 10px;
-
+     font-size: 12px;
+     
 }
 
 td {
-     font-size: 11px;
+     font-size: 13px;
 
 }
 
 .mobile {
-     zoom:3
+     zoom:4
+
 }
    
 td {
@@ -58,9 +59,9 @@ td {
      width: 1%;
 }
 
-.traveler, .type, .date {
+/*.traveler, .type, .date {
      font-weight: bold;
-}
+}*/
 
 .imageH {
      width: 1%;
@@ -69,7 +70,7 @@ td {
 
 
 .imageH:hover {
-    zoom: 500%;
+     width: 2%;
     transition: transform .9s ease;
 }
 
@@ -83,15 +84,12 @@ td {
      
    
 .tableImage, .adjustImage {
-     width: 10px;
+     
+     width: 20px;
      border-radius: 5%;   
 }
 
-   
-/*.tableImage:hover {
-     width: 200px;
-     transition: 0.3s;
-}*/    
+
    
 .quant, .gram, .cal, .brandId {
      /*font-weight: bold;*/
@@ -115,36 +113,13 @@ td {
     padding: 4%;
 }
    
-.tooltip {
-     position: relative;
-}
-   
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 10px;
-    color: rgba(49, 31, 115);
-    opacity: 80%;
-    text-align: bottom;
-    border-radius: 6px;
-    font-size: 7px;
-    padding-left: 2px;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 40;
-}
-   
-.tooltip:hover .tooltiptext,  .tooltip:active .tooltiptext{
-    visibility: visible;
-}    
-
 .content {
     padding-top: 200px;
 }
 
 
-.deleteH {
-     background-color: rgba( 191, 4, 4);  
-     text-align: center;   
+.deleteH {  
+     text-align: left;   
  }
  
  .delete:hover {
@@ -229,7 +204,19 @@ input.add {
 
 .dataResult {
      height: 50px;
+
 }
+
+
+
+@media only screen and (min-width: 1px) and (max-width:666px){
+
+.desk{
+     display: none
+}
+
+}
+     
 
  
 @media only screen and (min-width: 666px) {
@@ -237,6 +224,11 @@ input.add {
 .tableAdjust {
      display: block;
      height: 40%
+}
+
+
+.mobileOnly{
+     display: none
 }
 
 

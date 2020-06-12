@@ -31,15 +31,18 @@ import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
 import { DEFAULTITEM, PACKITEMS } from "../Defaults";
+import ItemImage from "../ItemDetails/ItemImage";
+import ItemBrand from "../ItemDetails/ItemBrand";
+import BrandHeader from "./BrandHeader";
+import '../FormElements/FormElements.css';
+
+
 
 
 class TripResults extends Component {
   static defaultProps = {
     selectedTrip: [],
-    //packItems: {PACKITEMS}
-
-
-    
+    //packItems: {PACKITEMS}    
   };
 
   constructor(props) {
@@ -48,8 +51,6 @@ class TripResults extends Component {
       serving_qty: null,
       id: "",
       //packItems: {PACKITEMS}
-    
-      
     };
   }
 
@@ -78,7 +79,7 @@ class TripResults extends Component {
 
 
   selectType = (input, id) => {
-    
+  
     this.setState({
       type: input,
       id: id
@@ -93,9 +94,6 @@ class TripResults extends Component {
       id: id
     });
   };
-
-
-
  
 
   render() {
@@ -151,7 +149,6 @@ class TripResults extends Component {
       }
       return fixedServingWeightArray.reduce(reducer);
     };
-    console.log(sumWeightsPerServing());
     const sumServings = () => {
       if (selectServingQuantArray.length === 0) {
         const defaultResult = 1;
@@ -165,32 +162,36 @@ class TripResults extends Component {
     const totalWeightKg = (sumWeightsPerServing() * sumServings()) / 1000;
 
     return (
-      <section className="lightBlueBackground">
-        <div className="charts redBackground">
-         
+      <section className="lightBlueBackground">      
+       
+        <div className = "lightBlueBackground sticky">
+           <div className="charts redBackground sticky">
+             
           <TripCalorieGraph cals={totalCals}/>
           <TripPackGraph weight={totalWeightKg}/>
-        </div>
+          </div>
         <div>
-          <h2 className="montebello">
-            <span className="resultsTitle montebello white">
+        <BackButton/>
+        <ForwardButton/>
+          <h2 className="montebello black sticky">
+         
+            <span className="resultsTitle montebello black sticky">
               <TripName selectedTrip={selectedTrip}/>Results!
             </span>
-            <span className="resultsTitle">
+            <span className="resultsTitle sticky">
               <TripYear selectedTrip={selectedTrip}/>
             </span>
           </h2>
         </div>
-
-          <div className="filterButtonContainer">
-          <BackButton/>
-          <ForwardButton/>
+       
+          <div className="filterButtonContainer sticky">
+            
             <SaveButton/>
             <PrintButton/>
             <ResetButton/>
           </div>
 
-          <div className="filterButtonContainer moreContainer">
+          <div className="filterButtonContainer moreContainer sticky">
             <NavLink 
             className= "hidden" 
             to={`/trip-filter/${selectedTrip[0].food_name}`}>
@@ -205,11 +206,11 @@ class TripResults extends Component {
               <SearchMoreButton />
             </NavLink>
           </div>
+          </div>
 
-          <table id="results-filtered" className="primaryFont">
+          <table id="results-filtered" className="primaryFont desk">
             <tbody>
-              <tr className="blueBackground white">
-              
+              <tr className="blueBackground white">  
                 <DateHeader/>
                 <TypeHeader/>
                 <TravlrHeader/>
@@ -219,26 +220,21 @@ class TripResults extends Component {
                 <WeightGHeader/>
                 <TotalCalHeader/>
                 <DeleteHeader/>
-               
               </tr>
 
               {results.map((item, key) => (
                 <tr className="one whiteBackground black" key={item.id}>
                 
-
                   <td className="date">
-                    <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>
-                    
+                    <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>    
                   </td>
 
                   <td className="type">
                     {item.type}
-                    
                   </td>
 
                   <td className="traveler">
                     {item.travName}
-                   
                   </td>
 
                   <td className="itemH">
@@ -248,7 +244,7 @@ class TripResults extends Component {
 
                     onClick={() => {
                     const selectTripItem =  item
-                    this.props.handleSelectTripItem(selectTripItem)}}                     
+                    this.props.handleSelectTripItem(selectTripItem)}} 
                        >
                       <ItemName 
                       name = {item.food_name} />
@@ -268,7 +264,6 @@ class TripResults extends Component {
                    weight = {item.serving_qty * item.serving_weight_grams}
                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
                     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
-                    
                    />
 
                   <CalsPerServing
@@ -285,12 +280,114 @@ class TripResults extends Component {
               ))}
             </tbody>
           </table>
+
+          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly">
+          {results.map((item, key) => (
+          <tbody>
+            <tr className = "mobile" key={item.id}>
+            <ItemImage image = {item.image}/>
+            </tr>
+
+            <tr>   
+            <td className="itemH">
+                      <NavLink
+                      className = "noDeco"
+                        to={`/trip-item/${item.id}`}
+                        onClick={() => {
+                          const selectTripItem =  item
+                          this.props.handleSelectTripItem(selectTripItem)}} 
+                             >
+                      
+                        <ItemName 
+                        name = {item.food_name} 
+                        item = {item}
+                        handleSelectedItem = {this.props.handleSelectedItem}/>
+                      </NavLink>
+            </td>
+            </tr>
+
+            <BrandHeader/>
+                      <ItemBrand
+                      brand = {!item.brand_name ? "common" : item.brand_name}
+                      />
+            <tr>
+
+            <DateHeader/>
+            <td className="date">
+                      <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>          
+            </td>
+            </tr>
+            
+            <tr>
+            <TypeHeader/>
+              <td className="type">
+                        {item.type}          
+              </td>
+            </tr>
+
+            <tr>
+            <TravlrHeader/>
+              <td className="type">
+              {item.travName}        
+              </td>
+            </tr>
+
+
+            <tr>
+              <UnitHeader/>
+              <ServingUnit unit={item.serving_unit}/>
+            </tr>
+
+            <tr>
+            <ServQuantHeader/>
+            <ServingQuant 
+                      input = {Math.round(item.serving_qty)}
+                      id = {item.id}
+                      handleAdjustQuant = {(inputValue, id) =>
+                        this.adjustQuant(inputValue, id)
+                      }
+                      />
+            </tr>
+
+            <tr>
+            <WeightGHeader/>
+            <ServingWeight
+                    weight = {item.serving_qty * item.serving_weight_grams}
+                    result = {Math.round(this.state.serving_qty * item.serving_weight_grams).toFixed(0)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                    />
+            </tr>
+
+            <tr>
+            <TotalCalHeader/>
+            <CalsPerServing
+                      calories =
+                      {(item.serving_qty * item.calsPerServing)
+                        .toFixed(0)
+                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                        result = {Math.round(this.state.serving_qty * item.calsPerServing).toFixed(0)
+                          .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                        />
+            </tr>
+
+            <tr>
+            <DeleteHeader/>
+            <Delete/>
+            </tr>
+          </tbody>
+          ))}
+
+          </table>
+
       </section>
     );
   }
 }
 
 export default TripResults;
+
+
+
 
 /*<div className="tableScroll tableAdjust add">
 <ItemTypes itemTypes={itemTypes}

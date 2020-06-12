@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "./Tables.css";
+import '../FormElements/FormElements.css';
+
 
 class ServQuantHeader extends Component {
   
@@ -12,7 +14,7 @@ class ServQuantHeader extends Component {
     return (
         
         <th className="servingH">
-        Serving Quantity <span className="tableAdjust">(adjust)</span>
+        Serving Quantity
       </th>
     )
 }

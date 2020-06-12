@@ -15,7 +15,7 @@ class ResetButton extends Component {
     return (
       <div className= "reset">
           <button 
-            className= "black montebello skinBackground reset"
+            className= "black montebello skinBackground reset sticky"
             type = "reset">
             Reset
           </button>

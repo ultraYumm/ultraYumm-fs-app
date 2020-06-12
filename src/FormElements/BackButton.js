@@ -14,7 +14,7 @@ class BackButton extends Component {
       
           <button
           onClick={() => goBack()}
-            className= "white primaryFont back blackBackground"
+            className= "white primaryFont back sticky"
             type = "button">
             ...back
           </button>
