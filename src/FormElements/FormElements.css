@@ -85,7 +85,7 @@ input {
 }
   
 input[type=date] {
-    width: 40%;
+    width: 50%;
     margin-top: 4px;
 }
 

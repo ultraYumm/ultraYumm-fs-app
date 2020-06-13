@@ -36,7 +36,8 @@ class HomePage extends Component {
         />
 
         <AddTripForm
-        handleAddTrip = {this.props.handleAddTrip}
+         routerProps={this.props.routerProps}
+         handleAddTrip = {this.props.handleAddTrip}
         
         />
       </div>

@@ -61,7 +61,7 @@ class SearchForm extends Component {
           .then((responseJson) => displayResults(responseJson))
           .catch((err) => {});
       }
-      console.log(getResults(searchTerm));
+      getResults(searchTerm)
     };
 
     return (

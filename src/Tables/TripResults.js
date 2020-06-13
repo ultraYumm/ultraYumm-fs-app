@@ -98,6 +98,7 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.props.selectedTrip;
+    console.log(selectedTrip)
     const tripDates = selectedTrip[0].trip_dates
     const tripTravelers = selectedTrip[0].traveler_names
     const selectedTripItems = this.props.selectedTripItems;

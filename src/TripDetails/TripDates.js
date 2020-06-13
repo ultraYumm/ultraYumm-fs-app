@@ -14,8 +14,9 @@ class TripDates extends Component {
   
      
   render() {
+  
   const name = this.props.name  
-  console.log(name)
+  
   const tripDates = this.props.tripDates
   const id = this.props.id
   function onlyOne(checkbox) {

@@ -77,8 +77,8 @@ class App extends Component {
       {id: tripId,
        iframe: iframe,
        name: tripName,
-       traveler_names: [tripTravelers],
-       trip_dates: [tripDates]
+       traveler_names: tripTravelers,
+       trip_dates: tripDates[0]
       }
     ]
     
@@ -96,6 +96,7 @@ class App extends Component {
     
     const trips = this.state.trips;
     console.log(trips)
+    
     const selectedTripId = this.state.selectedTripId;
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
     const packItems = this.props.packItems;
@@ -113,21 +114,7 @@ class App extends Component {
 
     const itemTypes = this.props.itemTypes;
 
-    const testA = {
-      "shoppingItems": [
-        /* put stub items in here for testing */
-        { name: 'apples', checked: false },
-        { name: 'oranges', checked: true },
-        { name: 'bread', checked: false },
-      ]
-    };
-    const newItems = [
-      ...testA.shoppingItems,
-      { name: "myfruit", checked: false }
-    ]
-
-    
-    console.log(newItems)
+  
   
     return (
       <div className="App">

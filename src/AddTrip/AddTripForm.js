@@ -5,33 +5,47 @@ import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
 import { NavLink} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-
+import Moment from 'react-moment';
+import { withRouter } from "react-router-dom";
 
 class AddTripForm extends Component {
 
   
   render() {
+
+    const moment= require('moment') 
     
     const onSubmitForm = (e) => {
 
-        e.preventDefault();
-
-
+      e.preventDefault();
       let tripId = uuidv4()
-      let iframe = "Tiframe"
-      let tripName = "Ttrip"
-      let tripTravelers = ["John", "Justin", "Llang"]
-      let tripDates = [
-        "2022-03-23T09:25:43.511Z", "2022-03-24T09:25:43.511Z"]
+      let iframe =e.target.tripURL.value
+      let tripName = e.target.tripName.value
+      var re = /:\s|,\s/;
+      let tripTravelers = e.target.tripTravelers.value.split(re)
+
+      const  getDates = () => {
+        var dateArray = [];
+        var currentDate = moment(e.target.startDate.value)
+        var endDate = moment(e.target.endDate.value)
+        while (currentDate <= endDate) {
+            dateArray.push(moment(currentDate).format())
+            currentDate = moment(currentDate).add(1, 'd');
+        }
+        return dateArray;
+   }
+
+      let tripDates = [getDates()]
+      console.log(tripDates)
+
 
       this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates)
+
+      this.props.routerProps.history.push("/my-trips");
+      
       
     }
 
-
-
-       
-   
     return (
         <form onSubmit={onSubmitForm}>
          <h2 className = "white">Plan a trip!</h2>
@@ -50,23 +64,18 @@ class AddTripForm extends Component {
 
             <p>
                  <label htmlFor= "traveler-name"><span className= "labelWidth white">Traveler names</span>
-                 <input type="text" name="traveler-name" className= "redBackground white names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
+                 <input type="text" name="tripTravelers" className= "redBackground white names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
                 </label>
             </p>
 
             <p>
                  <label htmlFor= "map-link"><span className= "labelWidth white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white">Location URL</a></span>
-                 <input type="url" name="map-link" className= "redBackground white names" placeholder = "https://www.google.com/maps/embed?pb=!4v1589308620339!6m8!1m7!1sH9R4rDjmbhhsQVA2f0Dq8Q!2m2!1d36.03291467946964!2d-111.8531019810478!3f9.17!4f0!5f0.7820865974627469" id= "map-link"/>  
+                 <input type="url" name="tripURL" className= "redBackground white names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
                 </label>
             </p>
 
-            <button>Test button</button>
-
-
-          
-            <NavLink to={`/my-trips`}>
             <GoButton/>
-            </NavLink>  
+   
         </form>
         
    )}
@@ -74,4 +83,4 @@ class AddTripForm extends Component {
 }
   
 
-export default AddTripForm
+export default withRouter(AddTripForm)
