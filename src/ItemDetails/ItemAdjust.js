@@ -28,6 +28,7 @@ import ServingQuant from "../ItemDetails/ServingQuant"
 import ServingUnit from "../ItemDetails/ServingUnit"
 import ServingWeight from "../ItemDetails/ServingWeight"
 import CalsPerServing from "../ItemDetails/CalsPerServing"
+import { v4 as uuidv4 } from 'uuid';
 
 
 import { DEFAULTITEM, PACKITEMS, IMAGE } from "../Defaults";
@@ -168,49 +169,25 @@ class ItemAdjust extends Component {
     const packItems = this.props.packItems
     const newPackItemsArray = []
     
-    newPackItemsArray.push(
-      {"id": this.state.id},
-      {"food_name": this.state.food_name},
-      {"brand_name": this.state.brand_name},
-      {"tripId": this.state.tripId},
-      {"tripDay": this.state.tripDay},
-      {"travName": this.state.travName},
-      {"type": this.state.type},
-      {"serving_qty": this.state.serving_qty})
+    
 
+        
 
-      packItems.push(newPackItemsArray)
-
-      console.log(packItems)
-
-      
-      const items = this.props.items
-
-      const newItemsArray = []
-
-      newItemsArray.push (
-        {"id": this.state.id},
-        {"food_name": this.state.food_name},
-        {"brand_name": this.state.brand_name},
-        {"calsPerServing": this.state.calsPerServing},
-        {"image": this.state.image},
-        {"serving_qty:": this.state.serving_qty},
-        {"serving_unit": this.state.serving_unit},
-        {"serving_weight_grams": this.state.serving_weight_grams}
-
-      )
-
-      items.push(newItemsArray)
-
-      console.log(items)
-
-   
 
 
     const onSubmitForm = (e) => {
+      const newId =  uuidv4()
+      const newName = this.state.food_name
+      const newBrand = this.state.brand_name
+      const newCalsPs = this.state.calsPerServing
+      const newImage = this.state.image
+      const newQty = this.state.serving_qty
+      const newUnit = this.state.serving_unit
+      const newWeight = this.state.serving_weight_grams
       
       e.preventDefault()
-      this.props.handleNewItems(packItems, items)}
+      this.props.handleNewItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+    }
     
       
     const trips = this.props.trips;      
@@ -232,9 +209,6 @@ class ItemAdjust extends Component {
     const totalCals = totalCalnf.toFixed(0)
     .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     const id = item.id
-
-  
-  
 
     const stateQty = parseInt(this.state.serving_qty)
 
@@ -264,9 +238,7 @@ class ItemAdjust extends Component {
   <div className= "white primaryFont"></div>
   
           <div className="filterButtonContainer">
-            <NavLink to={`/search-results`}>
-              <SaveButton />
-            </NavLink>
+            <SaveButton />
             <ResetButton/>
             
           </div>

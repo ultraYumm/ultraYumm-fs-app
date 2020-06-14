@@ -9,7 +9,7 @@ import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import UltraContext from "./UltraContext";
 import TripResults from "./Tables/TripResults";
-import { DEFAULTITEM, PACKITEMS, TRIPS } from "./Defaults";
+import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
 
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 
@@ -27,8 +27,9 @@ class App extends Component {
       selectedItem: {DEFAULTITEM},
       item: {DEFAULTITEM},
       selectTripItem: [],
-      items: [],
-      trips: TRIPS
+      items: {ITEMS},
+      trips: TRIPS,
+      packItems: {PACKITEMS}
       
     };
   }
@@ -64,12 +65,28 @@ class App extends Component {
     });
   };
 
-  addItems = (packItems, items) => {
+
+
+  addItem = (newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) => {
+    const items = this.state.items.ITEMS
+    const newItems = [
+      ...items,
+      {
+        id: newId,
+        food_name: newName,
+        image: newImage,
+        calsPerServing: newCalsPs,
+        serving_qty: newQty,
+        serving_unit: newUnit,
+        serving_weight_grams: newWeight,
+        brand_name: newBrand
+      }
+    ]
+    console.log(newItems)
     this.setState({
-      packItems: packItems,
-      items: items
+      items: newItems,
     });
-  };
+  }
 
   addTrip = (tripId, iframe, tripName, tripTravelers, tripDates) => {
     const newTrips = [
@@ -95,7 +112,14 @@ class App extends Component {
 
     
     const trips = this.state.trips;
-    console.log(trips)
+
+    const items = this.state.items.ITEMS;
+    
+    console.log(items.length)
+
+    console.log(items)
+  
+   
     
     const selectedTripId = this.state.selectedTripId;
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
@@ -104,7 +128,7 @@ class App extends Component {
       (items) => items.tripId === selectedTripId
     );
     const selectedTripItemsId = selectedTripItems.map((item) => item.id);
-    const items = this.props.items;
+  
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
       if (selectedTripItemsId.includes(items[i].id)) {
@@ -184,8 +208,9 @@ class App extends Component {
               itemTypes={itemTypes}
               tripName={""}
               packItems = {this.props.packItems}
-              handleNewPackItems= {(packItems) =>
-                this.addPackItems(packItems)
+
+              handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
               }
             />
           )}
@@ -251,9 +276,9 @@ class App extends Component {
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
                 packItems = {this.props.packItems}
-                handleNewItems= {(packItems, items) =>
-                  this.addPackItems(packItems, items)
-                }
+                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+              }
               />
             );
           }}
@@ -282,9 +307,9 @@ class App extends Component {
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
                 packItems = {this.props.packItems}
-                handleNewPackItems= {(packItems) =>
-                  this.addPackItems(packItems)
-                }
+                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                  this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+                } d
               />
               );
             }}

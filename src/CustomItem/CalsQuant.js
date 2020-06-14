@@ -12,6 +12,7 @@ class CalsQuant extends Component {
   
   render() {
     const input = this.props.input
+    const value = ""
 
     const buildHandleKeyUp = setter => (e) => {
      
@@ -27,8 +28,8 @@ class CalsQuant extends Component {
       
       <input className="dataResult skinBackground"
       type= "number"
-      placeholder =  {isNaN(input)? 1 : input}
-    
+      defaultValue =  {isNaN(input)? 1 : input}
+
       onKeyUp = {buildHandleKeyUp((value) => {
         this.setState(
           {"calsPerServing": value} 

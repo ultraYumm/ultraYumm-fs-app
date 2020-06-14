@@ -116,14 +116,17 @@ input[name="unit"], input[name="quantInput"]  {
 
 
 input[type="number"]{
-    width: 60%;
+    width: 100%;
     font-size: 12px;
     height: 50px;
     text-align: center;
     background-color: rgba(173, 192, 217);
     color: black;
 }
-  
+
+.error {
+    font-size: 10px;
+}
 button[type="submit"], button[type="reset"]{
    width: 80%;
 }
