@@ -36,6 +36,7 @@ class TripDates extends Component {
             {name == ""? "" :<Moment format= "MMM/DD">{date}</Moment>}
               <input type="checkbox"
               name= "check"
+              defaultValue = {date}
               onClick={() => {
                             const selectedDay = date
                             onlyOne(this)

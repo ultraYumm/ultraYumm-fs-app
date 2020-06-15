@@ -33,6 +33,8 @@ class TripTravelers extends Component {
             <label className="labelContainer"> {name}
                 <input type="checkbox"
                   name= "check"
+                  defaultValue = {name}
+                   
                   onClick={() => {
                   const selectedTraveler = name
                   onlyOne(this)

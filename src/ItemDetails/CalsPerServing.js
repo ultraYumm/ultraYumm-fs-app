@@ -3,9 +3,6 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
-import CalResult from "../CustomItem/WeightResult";
-
-
 
 class CalsPerServing extends Component {
 
@@ -18,7 +15,6 @@ class CalsPerServing extends Component {
   render() {
       
  const calories = this.props.calories
- const result = this.props.result
  
 
     return (
@@ -31,8 +27,3 @@ class CalsPerServing extends Component {
   
 
 export default CalsPerServing
-
-/*<div className= "tableAdjust">
-         <CalResult
-         result = {result}/>
-         </div>*/

@@ -35,9 +35,12 @@ class TripNames extends Component {
                    <input 
                    name= "check"
                    type= "checkbox"
+                   defaultValue = {trip.id}
+                   
                    onClick={() => {
                     const selectedTrip = trip
                     const tripId = trip.id
+
                     
                     onlyOne(this)
                     this.props.handleSelectTrip(selectedTrip, tripId)

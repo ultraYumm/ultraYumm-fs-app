@@ -24,12 +24,12 @@ class App extends Component {
       searchResults: {},
       selectedTripId: "e",
       tripName: "Escalante",
-      selectedItem: {DEFAULTITEM},
-      item: {DEFAULTITEM},
+      selectedItem: DEFAULTITEM,
+      item: DEFAULTITEM,
       selectTripItem: [],
-      items: {ITEMS},
+      items: ITEMS,
       trips: TRIPS,
-      packItems: {PACKITEMS}
+      packItems: PACKITEMS
       
     };
   }
@@ -68,7 +68,7 @@ class App extends Component {
 
 
   addItem = (newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) => {
-    const items = this.state.items.ITEMS
+    const items = this.state.items
     const newItems = [
       ...items,
       {
@@ -82,7 +82,6 @@ class App extends Component {
         brand_name: newBrand
       }
     ]
-    console.log(newItems)
     this.setState({
       items: newItems,
     });
@@ -98,10 +97,25 @@ class App extends Component {
        trip_dates: tripDates[0]
       }
     ]
-    
     this.setState({
       trips: newTrips,
     });
+  }
+
+  addPackItem = (id, tripId, tripDay, travName, type, serving_qty) => {
+    const newPackItems = [
+      ...this.state.packItems,
+      {id: id,
+       tripId: tripId,
+       tripDay: tripDay,
+       travName: travName,
+       type: type,
+       serving_qty: serving_qty
+      }
+    ]
+    this.setState({
+      packItems: newPackItems,
+    })
   }
 
 
@@ -111,23 +125,20 @@ class App extends Component {
     
 
     
-    const trips = this.state.trips;
-
-    const items = this.state.items.ITEMS;
+    const trips = this.state.trips
+    const items = this.state.items
     
-    console.log(items.length)
+    const selectedTripId = this.state.selectedTripId
+    const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
 
+    const packItems = this.state.packItems
+    
     console.log(items)
-  
-   
-    
-    const selectedTripId = this.state.selectedTripId;
-    const selectedTrip = trips.filter((trip) => trip.id === selectedTripId);
-    const packItems = this.props.packItems;
+
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
     );
-    const selectedTripItemsId = selectedTripItems.map((item) => item.id);
+    const selectedTripItemsId = selectedTripItems.map((item) => item.id)
   
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
@@ -136,7 +147,7 @@ class App extends Component {
       }
     }
 
-    const itemTypes = this.props.itemTypes;
+    const itemTypes = this.props.itemTypes
 
   
   
@@ -157,9 +168,11 @@ class App extends Component {
               common={this.state.searchResults.common}
               branded={this.state.searchResults.branded}
               trips={trips}
+
               handleAddTrip={(tripId, iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(tripId, iframe, tripName, tripTravelers, tripDates)
               }
+
             />
           )}
         />
@@ -212,6 +225,10 @@ class App extends Component {
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
               }
+
+              handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
+                this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+              }
             />
           )}
         />
@@ -248,7 +265,7 @@ class App extends Component {
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
               />
-            );
+            )
           }}
         />
 
@@ -276,11 +293,17 @@ class App extends Component {
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
                 packItems = {this.props.packItems}
+                
                 handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
               }
+
+                handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
+                  this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+              }
+
               />
-            );
+            )
           }}
         />
 
@@ -307,20 +330,24 @@ class App extends Component {
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
                 packItems = {this.props.packItems}
+                
                 handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                   this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
-                } d
+                } 
+
+
+                handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
+                this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+                }
+
               />
-              );
+              )
             }}
           />
             
-        
-
-
-
+      
       </div>
-    );
+    )
   }
 }
 export default App;

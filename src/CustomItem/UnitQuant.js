@@ -9,18 +9,26 @@ class UnitQuant extends Component {
   static defaultProps = {
     input:  1,
   }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      serving_qty: null}}
+
+
   
   render() {
 
       const input = this.props.input
-      const id = this.props.id
+
+    
 
       const buildHandleKeyUp = setter => (e) => {
      
       e.preventDefault() 
       const input = e.currentTarget.value 
-      setter(input, id);
-      this.props.handleAdjustQuant(input, id)
+      setter(input);
+      this.props.handleAdjustQuant(input)
 
       }
 
@@ -28,12 +36,16 @@ class UnitQuant extends Component {
     return (
       <input className="dataResult skinBackground"
       type = "number"
-      defaultValue = {isNaN(input)? 1 : input}
+      min= "0"
+      name="itemQuantity"
+      default Value = {isNaN(input)? 1 : input}
     
-      onKeyUp = {buildHandleKeyUp((value) => {
+      onChange = {buildHandleKeyUp((value) => {
         this.setState(
-          {"serving_qty": value} 
-        )   
+          {serving_qty: value} 
+        )
+        
+      
       })}
       />
    

@@ -13,6 +13,8 @@ class NewItemName extends Component {
 
   
   
+  
+
 
 
   render() {
@@ -20,26 +22,41 @@ class NewItemName extends Component {
     
 
     const name = this.props.name;
-    const existingId = this.props.id
-
-    const id  = () => {
-      if (existingId === "")
-      {var newId = uuidv4()
-      return newId} 
-      return existingId
-      }
+   
+    
 
 
     
     const buildHandleKeyUp = setter => (e) => {
+
+    const name = this.props.name;
+    const existingId = this.props.id
+
+
+
      
       e.preventDefault() 
       const input = e.currentTarget.value
-   
-      setter(input, id());
-      this.props.handleAdjustName(input, id())
+      console.log(input)
+      console.log(name)
+      const newId = uuidv4()
 
+    const id  = () => {
+      if (name === input)
+      {return existingId}
+      return newId
       }
+
+      console.log(id())
+
+
+     
+       setter(input, id())
+      
+      this.props.handleAdjustName(input, id())
+     }
+
+    
 
 
     return (
@@ -52,13 +69,15 @@ class NewItemName extends Component {
             className="redBackground white search"
             id="custom-item-name"
             defaultValue= {name} required
+            
 
-            onKeyUp = {buildHandleKeyUp((value) => {
+            onClick = {buildHandleKeyUp((value) => {
+      
               this.setState(
                 {food_name: value
                 }
-                
-              )   
+              )
+
             })}
 
 

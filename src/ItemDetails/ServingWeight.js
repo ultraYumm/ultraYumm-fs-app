@@ -3,8 +3,6 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
-import WeightResult from "../CustomItem/WeightResult";
-
 
 
 class ServingWeight extends Component {

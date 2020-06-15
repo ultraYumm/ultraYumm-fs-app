@@ -50,8 +50,16 @@ class AddTripForm extends Component {
    } 
    
    let tripDates = [getDates()]
-      this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates)
-      this.props.routerProps.history.push("/my-trips");
+
+
+   const startDate = this.state.startDate
+   const endDate = this.state.endDate
+
+   if (moment(endDate).isBefore(moment(startDate)) == true)
+   {this.props.routerProps.history.push("/")
+}
+   else this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates) ||
+    this.props.routerProps.history.push("/my-trips");
       
       
     }

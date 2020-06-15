@@ -29,6 +29,9 @@ class ItemTypes extends Component {
           
             <label className="labelContainer"> {type}
                  <input type="checkbox"
+
+                 defaultValue = {type}
+          
                   name= "check"
                   onClick={() => {
                     const selectedType = type

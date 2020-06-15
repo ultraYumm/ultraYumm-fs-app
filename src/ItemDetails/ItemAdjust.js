@@ -10,8 +10,8 @@ import UnitQuant from "../CustomItem/UnitQuant";
 import WeightQuant from "../CustomItem/WeightQuant";
 import CalsQuant from "../CustomItem/CalsQuant";
 
-import WeightResult from "../CustomItem/WeightResult";
-import CalResult from "../CustomItem/CalResult";
+import Result from "../CustomItem/Result";
+
 
 
 import TripNames from "../CustomItem/TripNames";
@@ -24,19 +24,15 @@ import NewItemName from "../CustomItem//NewItemName";
 import NewItemBrand from "../CustomItem/NewItemBrand";
 import ItemImage from "../ItemDetails/ItemImage"
 import Moment from 'react-moment';
-import ServingQuant from "../ItemDetails/ServingQuant"
-import ServingUnit from "../ItemDetails/ServingUnit"
-import ServingWeight from "../ItemDetails/ServingWeight"
-import CalsPerServing from "../ItemDetails/CalsPerServing"
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { DEFAULTITEM, PACKITEMS, IMAGE } from "../Defaults";
+import { DEFAULTITEM } from "../Defaults";
 
 
 class ItemAdjust extends Component {
   static defaultProps = {
-    item:  {DEFAULTITEM},
+    item:  DEFAULTITEM,
     selectedTrip: [],
     serving_unit: "",
     calsPerServing: null,
@@ -55,7 +51,6 @@ class ItemAdjust extends Component {
     type: "",
     food_name: "",
     brand_name: "",
-    //packItems: {PACKITEMS}
     image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
   }
@@ -67,8 +62,7 @@ class ItemAdjust extends Component {
       selectedTripId: "",
       selectedTrip: {},
       id: "",
-      serving_qty: null,
-      item: {},
+      serving_qty: 1,
       serving_unit: "",
       calsPerServing: null,
       serving_weight_grams: null,
@@ -79,7 +73,6 @@ class ItemAdjust extends Component {
       packItems: {},
       travName: "",
       image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
-      //packItems: {PACKITEMS}
 
     };
   }
@@ -166,14 +159,6 @@ class ItemAdjust extends Component {
   
   render() {
 
-    const packItems = this.props.packItems
-    const newPackItemsArray = []
-    
-    
-
-        
-
-
 
     const onSubmitForm = (e) => {
       const newId =  uuidv4()
@@ -184,9 +169,15 @@ class ItemAdjust extends Component {
       const newQty = this.state.serving_qty
       const newUnit = this.state.serving_unit
       const newWeight = this.state.serving_weight_grams
+      const tripId = this.state.tripId
+      const tripDay = this.state.tripDay
+      const travName = this.state.travName
+      const type = this.state.type
       
       e.preventDefault()
       this.props.handleNewItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+
+      this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
     }
     
       
@@ -204,10 +195,10 @@ class ItemAdjust extends Component {
     const weight = Math.round(item.serving_weight_grams);
   
     const calsPs = Math.round(item.calsPerServing);
-    const totalWeight = (quant * weight)
+    const totalWeightnf = (quant * weight)
     const totalCalnf = (quant * calsPs)
-    const totalCals = totalCalnf.toFixed(0)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    
+   
     const id = item.id
 
     const stateQty = parseInt(this.state.serving_qty)
@@ -215,12 +206,10 @@ class ItemAdjust extends Component {
     const stateCalsPs = parseInt(this.state.calsPerServing)
     const stateServWeight = parseInt(this.state.serving_weight_grams)
 
-    const stateWeight = (stateQty * stateServWeight).toFixed(0)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    const stateWeightnf = (stateQty * stateServWeight)
 
-    const stateCals = (stateQty * stateCalsPs).toFixed(0)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-
+    const stateCalsnf = (stateQty * stateCalsPs)
+    
     const text = this.props.text
     
     const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
@@ -275,9 +264,8 @@ class ItemAdjust extends Component {
                   <p className="dataInput">
                     <UnitQuant
                     input = {quant}
-                    id = {id}
-                    handleAdjustQuant = {(inputValue, id) =>
-                      this.adjustQuant(inputValue, id)
+                    handleAdjustQuant = {(inputValue) =>
+                      this.adjustQuant(inputValue)
                     }
 
                     />
@@ -326,8 +314,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor="custom-item-calories"
                     className="labelWidth white"
-                  >
-                    Calories per serving
+                  >Calories per serving
                   </label>
                   <div className="dataInput">
                   <CalsQuant
@@ -352,10 +339,10 @@ class ItemAdjust extends Component {
                     Total Weight
                   </label>
                   <div className="dataResult skinBackground">
-                    <WeightResult
+                    <Result
                     result =
-                    {stateWeight}
-                    placeholder = {totalWeight}/>
+                    {stateWeightnf}
+                    placeholder = {totalWeightnf}/>
                   </div>
                 </div>
 
@@ -367,9 +354,9 @@ class ItemAdjust extends Component {
                     Total Calories
                   </label>
                   <div className="dataResult skinBackground">
-                    <CalResult
-                    result = {stateCals} 
-                    placeholder = {totalCals}
+                    <Result
+                    result = {stateCalsnf} 
+                    placeholder = {totalCalnf}
                     />
                     </div>
                 </div>
