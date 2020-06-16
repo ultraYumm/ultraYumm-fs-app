@@ -18,16 +18,23 @@ class TripCalorieGraph extends Component {
     
 
     return (
-      <svg width="100" height= "25"> 
-     
-     <g className= "bar skinBackground">
-       <rect className= "blackBackground" width= {cals} height="30"></rect>
-       <text className= "primaryFont" x="0" y="12" dy=".35em">{calText} cal.</text>
-     </g>
-   </svg>
+      <div className = "primaryFont black">
+        {calText} cals
+        <i class="fas fa-fire-alt">
+          </i>
+        </div>
+      
    )}
   
 }
   
 
 export default TripCalorieGraph
+
+/*<svg width="100" height= "25"> 
+     
+     <g className= "bar skinBackground">
+       <rect className= "blackBackground" width= {cals} height="30"></rect>
+       <text className= "primaryFont" x="0" y="12" dy=".35em">{calText} cal.</text>
+     </g>
+   </svg>*/

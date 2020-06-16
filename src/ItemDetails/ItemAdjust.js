@@ -2,6 +2,7 @@ import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
 import BackButton from "../FormElements/BackButton";
+import { withRouter } from "react-router-dom";
 
 import SaveButton from "../FormElements/SaveButton";
 import ResetButton from "../FormElements/ResetButton";
@@ -57,23 +58,28 @@ class ItemAdjust extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      selectedTripId: "",
-      selectedTrip: {},
-      id: "",
-      serving_qty: 1,
-      serving_unit: "",
-      calsPerServing: null,
-      serving_weight_grams: null,
-      tripDay: "2000-01-02T01:01:01.001Z",
-      type: "",
-      food_name: "",
-      brand_name: "",
-      packItems: {},
-      travName: "",
-      image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
+    const item = this.props.selectedItem;
+    const selectedTrip = this.props.selectedTrip
+    const packItems = this.props.packItems
 
+    this.state = {
+      name: selectedTrip[0].name,
+      selectedTripId: selectedTrip[0].id,
+      selectedTrip: selectedTrip[0],
+      id: item.id,
+      serving_qty: item.serving_qty,
+      serving_unit: item.serving_unit,
+      calsPerServing: item.calsPerServing,
+      serving_weight_grams: item. serving_weight_grams,
+      tripId: selectedTrip[0].id,
+      trip_dates:  selectedTrip[0].trip_dates,
+      tripDay: item.tripDay === undefined ? selectedTrip[0].trip_dates[0] : item.tripDay,
+      type: item.type,
+      food_name: item.food_name,
+      brand_name: item.brand_name,
+      packItems: {packItems},
+      travName: item.travName,
+      image: item.image
     };
   }
  
@@ -160,15 +166,17 @@ class ItemAdjust extends Component {
   render() {
 
 
+    const moment= require('moment') 
+
     const onSubmitForm = (e) => {
       const newId =  uuidv4()
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
-      const newCalsPs = this.state.calsPerServing
+      const newCalsPs = isNaN(this.state.calsPerServing)? 0 : this.state.calsPerServing
       const newImage = this.state.image
-      const newQty = this.state.serving_qty
+      const newQty = !this.state.serving_qty? 1 : this.state.serving_qty
       const newUnit = this.state.serving_unit
-      const newWeight = this.state.serving_weight_grams
+      const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
       const tripId = this.state.tripId
       const tripDay = this.state.tripDay
       const travName = this.state.travName
@@ -178,14 +186,17 @@ class ItemAdjust extends Component {
       this.props.handleNewItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
 
       this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
+
+      this.props.routerProps.history.push("/trip/:tripName");
     }
     
       
-    const trips = this.props.trips;      
+    const trips = this.props.trips;  
+    
     const itemTypes = this.props.itemTypes;
   
     const item = this.props.selectedItem;
-  
+
     const image = item.image
     const name = item.food_name;
     const brand = !item.brand_name ? "common" : item.brand_name;
@@ -197,7 +208,6 @@ class ItemAdjust extends Component {
     const calsPs = Math.round(item.calsPerServing);
     const totalWeightnf = (quant * weight)
     const totalCalnf = (quant * calsPs)
-    
    
     const id = item.id
 
@@ -211,9 +221,10 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     
     const text = this.props.text
+
     
     const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
-      
+
     return (
       <section className="filterForm">
         <BackButton/>
@@ -228,7 +239,6 @@ class ItemAdjust extends Component {
   
           <div className="filterButtonContainer">
             <SaveButton />
-            <ResetButton/>
             
           </div>
 
@@ -373,7 +383,7 @@ class ItemAdjust extends Component {
             }
             />
 
-            <h3 className="filterCategory">Select date:{" "}<span className = "primaryFont black" >{this.state.tripDay == "2000-01-02T01:01:01.001Z"? "" : tripDay}</span></h3>
+            <h3 className="filterCategory">Select date:{" "}<span className = "primaryFont black" >{tripDay}</span></h3>
             <TripDates
             name = {this.state.name}
             tripDay = {this.state.tripDay}

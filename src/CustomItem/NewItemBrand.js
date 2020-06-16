@@ -10,6 +10,7 @@ class NewItemBrand extends Component {
     brand: "Trader Go"
   }
 
+
   
   render() {
 
@@ -36,7 +37,7 @@ class NewItemBrand extends Component {
         name="brandName" 
         className="redBackground white search" id= "custom-brand-name"
         defaultValue= {brand}
-        onKeyUp = {buildHandleKeyUp((value) => {
+        onChange = {buildHandleKeyUp((value) => {
           this.setState(
             {brand_name: value
             }

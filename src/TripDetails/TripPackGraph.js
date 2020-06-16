@@ -16,15 +16,25 @@ class TripPackGraph extends Component {
         
        
     return (
-      <svg width="50" height="70">
-       <g className= "bar skinBackground">
-       <rect className= "blackBackground" width={weight} height="120"  rx="15" ry="15"></rect>
-       <text className= "primaryFont" x="0" y="12" dy=".35em">{weightText}kg</text>
-     </g>
-    </svg>
+     
+        <div className = "primaryFont black">
+        {weightText} kg
+        <i className ="fas fa-hiking">
+        </i>
+        </div>
+
+       
    )}
   
 }
   
 
 export default TripPackGraph
+
+
+/*<svg width="50" height="70">
+<g className= "bar skinBackground">
+<rect className= "blackBackground" width={weight} height="120"  rx="15" ry="15"></rect>
+<text className= "primaryFont" x="0" y="12" dy=".35em">{weightText}kg</text>
+</g>
+</svg>*/

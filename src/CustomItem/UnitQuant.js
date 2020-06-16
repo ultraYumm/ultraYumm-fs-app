@@ -7,14 +7,8 @@ import '../FormElements/FormElements.css';
 class UnitQuant extends Component {
 
   static defaultProps = {
-    input:  1,
+    input:  0,
   }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      serving_qty: null}}
-
 
   
   render() {
@@ -38,7 +32,7 @@ class UnitQuant extends Component {
       type = "number"
       min= "0"
       name="itemQuantity"
-      default Value = {isNaN(input)? 1 : input}
+      default Value = {isNaN(input)? 0 : input}
     
       onChange = {buildHandleKeyUp((value) => {
         this.setState(

@@ -164,7 +164,6 @@ button:hover {
    margin-right: auto;
    border-top-left-radius: 5px;
    border-top-right-radius: 5px;
-
 }  
 
 .go, .filter, .reset, .moreButton {
@@ -474,7 +473,7 @@ svg {
    float: right;
     top: 0;
     margin-right: 3px;
-    margin-top: 0px;
+    margin-top: 5px;
     zoom: 7;
     
     

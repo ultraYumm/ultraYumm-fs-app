@@ -234,3 +234,8 @@ ul {
   ul, li, label {
     font-size: 25px;
   }
+
+  i {
+    padding-right: 30px;
+    padding-left: 10px;
+  }

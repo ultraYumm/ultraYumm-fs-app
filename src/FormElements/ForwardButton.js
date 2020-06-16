@@ -12,12 +12,12 @@ class ForwardButton extends Component {
       }
     return (
       
-          <button
+      <i className ="fas fa-forward white"
           onClick={() => goForward()}
-            className= "white primaryFont forward sticky"
+            
             type = "button">
-            forward...
-          </button>
+       
+          </i>
      
     )
  }  

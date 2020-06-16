@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 class CalsQuant extends Component {
 
   static defaultProps = {
-    input:  1,
+    input:  0,
   }
   
   render() {
@@ -28,7 +28,7 @@ class CalsQuant extends Component {
       
       <input className="dataResult skinBackground"
       type= "number"
-      defaultValue =  {isNaN(input)? 1 : input}
+      defaultValue =  {isNaN(input)? 0 : input}
       min= "0"
 
       onChange = {buildHandleKeyUp((value) => {

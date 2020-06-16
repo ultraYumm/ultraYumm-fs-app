@@ -127,17 +127,22 @@ class App extends Component {
     
     const trips = this.state.trips
     const items = this.state.items
+
     
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
 
     const packItems = this.state.packItems
+    console.log(packItems)
+
+  
     
-    console.log(items)
 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
     );
+
+
     const selectedTripItemsId = selectedTripItems.map((item) => item.id)
   
     var tripItems = [];
@@ -202,8 +207,9 @@ class App extends Component {
 
         <Route
           path="/add-custom"
-          render={() => (
+          render={(routerProps) => (
             <ItemAdjust
+              routerProps={routerProps}
               text = "Make your own item!"
               is = ""
               forT = ""
@@ -274,9 +280,10 @@ class App extends Component {
 
         <Route
           path="/item/:id"
-          render={() => {
+          render={(routerProps) => {
             return (
               <ItemAdjust
+                routerProps={routerProps}
                 text = "Customize your item!"
                 is = ""
                 forT = ""
@@ -309,9 +316,10 @@ class App extends Component {
 
           <Route
           path="/trip-item/:id"
-          render={() => {
+          render={(routerProps) => {
             return (
               <ItemAdjust
+                routerProps={routerProps}
                 text = "Customize your item"
                 is = " is "
                 forT = " for "

@@ -16,7 +16,7 @@ class TripNames extends Component {
   render() {
 
     const trips = this.props.trips
-    console.log(trips)
+
     
     function onlyOne(checkbox) {
       var checkboxes = document.getElementsByName('check')

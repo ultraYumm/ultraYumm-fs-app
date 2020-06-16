@@ -9,7 +9,7 @@ class WeightQuant extends Component {
   
   
   static defaultProps = {
-    input:  1,
+    input:  0,
   }
 
   render() {
@@ -32,7 +32,7 @@ class WeightQuant extends Component {
       <input className="dataResult skinBackground"
       type = "number"
       min= "0"
-      defaultValue = {isNaN(input)? 1 : input}
+      defaultValue = {isNaN(input)? 0: input}
       onChange = {buildHandleKeyUp((value) => {
         this.setState(
           {serving_weight_grams: value} 

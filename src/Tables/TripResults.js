@@ -138,7 +138,7 @@ class TripResults extends Component {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     const sumCalsPerServing = () => {
       if (fixedCalPerUnitArray.length === 0) {
-        const defaultResult = 1;
+        const defaultResult = 0;
         return defaultResult;
       }
       return fixedCalPerUnitArray.reduce(reducer);
@@ -166,7 +166,7 @@ class TripResults extends Component {
       <section className="lightBlueBackground">      
        
         <div className = "lightBlueBackground sticky">
-           <div className="charts redBackground sticky">
+           <div className="charts sticky cloudBlueBackground">
              
           <TripCalorieGraph cals={totalCals}/>
           <TripPackGraph weight={totalWeightKg}/>
@@ -186,7 +186,6 @@ class TripResults extends Component {
         </div>
        
           <div className="filterButtonContainer sticky">
-            
             <SaveButton/>
             <PrintButton/>
             <ResetButton/>

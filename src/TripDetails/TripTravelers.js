@@ -13,7 +13,7 @@ class TripTravelers extends Component {
   render() {
       
     const tripTravelers = this.props.tripTravelers
-    console.log(tripTravelers)
+  
    
     function onlyOne(checkbox) {
    
