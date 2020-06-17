@@ -16,7 +16,7 @@ class ItemName extends Component {
  const name = this.props.name
  
     return (
-      <div>
+      <div className= "purple">
        {name} 
       </div>
           

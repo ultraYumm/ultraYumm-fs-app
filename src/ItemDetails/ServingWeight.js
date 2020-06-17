@@ -21,7 +21,7 @@ class ServingWeight extends Component {
 
     return (
         <td className="weightH  gram">
-         {weight}       
+         {weight} gms       
                   </td>
    )}
   

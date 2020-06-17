@@ -12,10 +12,10 @@ class BackButton extends Component {
       }
     return (
       
-      <i className ="fas fa-backward white"
-          onClick={() => goBack()}
+      <i className ="fas fa-arrow-circle-left skin back arrowButtons"
+          onClick={() => goBack()}>
            
-            type = "button">
+
            
             </i>
      

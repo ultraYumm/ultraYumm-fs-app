@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
+import BrandHeader from "../Tables/BrandHeader";
 
 
 
@@ -31,11 +32,12 @@ class NewItemBrand extends Component {
     return (
 
      
-        <label htmlFor= "custom-brand-name"><span className= "labelWidth white">Brand</span>
+        <label htmlFor= "custom-brand-name"><i class="fas fa-tag white"></i>
+          <span className= "labelWidth white">Brand</span>
         <input 
         type="text" 
         name="brandName" 
-        className="redBackground white search" id= "custom-brand-name"
+        className="skinBackground blakc search" id= "custom-brand-name"
         defaultValue= {brand}
         onChange = {buildHandleKeyUp((value) => {
           this.setState(

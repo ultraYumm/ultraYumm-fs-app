@@ -13,7 +13,7 @@ class GoButton extends Component {
 
     
     return (
-      <div className= "goContainer">
+      <div className= "goContainer go">
           <button 
             className= "white montebello blackBackground go"
             type = "submit">

@@ -16,7 +16,7 @@ class ItemHeader extends Component {
         
   
         <th className="itemH">
-        Item
+      <i class="fas fa-carrot"></i>
         </th>
     )
 }

@@ -25,7 +25,6 @@ class ServingQuant extends Component {
         <td className="servingH black">
           {!input? "" : input}
          
-      
         </td>
      
           

@@ -13,7 +13,7 @@ class DeleteHeader extends Component {
 
     return (
         
-        <th className="deleteH">Delete</th>    )
+        <th className="deleteH"><i class="fas fa-trash-alt"></i></th>    )
 }
 }
 

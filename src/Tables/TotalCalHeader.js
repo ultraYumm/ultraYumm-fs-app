@@ -13,7 +13,7 @@ class TotalCalHeader extends Component {
 
     return (
         
-        <th className="caloriesH cal calS">Calories</th>
+        <th className="caloriesH cal calS"><i class="fas fa-fire-alt"></i></th>
     )
 }
 }

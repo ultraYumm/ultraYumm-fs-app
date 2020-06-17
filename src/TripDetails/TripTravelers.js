@@ -34,7 +34,6 @@ class TripTravelers extends Component {
                 <input type="checkbox"
                   name= "check"
                   defaultValue = {name}
-                   
                   onClick={() => {
                   const selectedTraveler = name
                   onlyOne(this)

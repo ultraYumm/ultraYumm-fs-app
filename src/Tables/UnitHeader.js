@@ -13,7 +13,7 @@ class WeightGHeader extends Component {
 
     return (
         
-      <th className="unitH">Unit</th>
+      <th className="unitH"><i class="fas fa-ruler-vertical"></i></th>
     )
 }
 }

@@ -171,9 +171,11 @@ class TripResults extends Component {
           <TripCalorieGraph cals={totalCals}/>
           <TripPackGraph weight={totalWeightKg}/>
           </div>
-        <div>
+        <div className= "sticky">
+          <div className = "iconButtonContainer">
         <BackButton/>
         <ForwardButton/>
+        </div>
           <h2 className="montebello black sticky">
          
             <span className="resultsTitle montebello black sticky">
@@ -185,7 +187,7 @@ class TripResults extends Component {
           </h2>
         </div>
        
-          <div className="filterButtonContainer sticky">
+        <div className="iconButtonContainer">
             <SaveButton/>
             <PrintButton/>
             <ResetButton/>

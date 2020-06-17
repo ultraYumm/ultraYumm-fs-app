@@ -11,7 +11,7 @@ class NavBar extends Component {
   render() {
     return (
      <div className= "navContainer">
-         <nav className= "navbar skin" role= "navigation">
+         <nav className= "navbar skin noDeco" role= "navigation">
          <NavLink
          to={`/`}>
           <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/>
@@ -20,7 +20,7 @@ class NavBar extends Component {
       </nav>
       
       
-      <MyTrips></MyTrips>   
+      <MyTrips/>   
       </div>
     );
   }

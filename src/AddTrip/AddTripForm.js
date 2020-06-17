@@ -99,22 +99,22 @@ class AddTripForm extends Component {
 
     return (
         <form onSubmit={onSubmitForm}>
-         <h2 className = "white">Plan a trip!</h2>
+         <h2 className = "white"><i class="fas fa-shoe-prints"></i> Plan a trip!</h2>
             <div>
-                <label htmlFor= "new-trip-name"><span className= "labelWidth white">New trip name</span>
-                    <input type="text" name="tripName" className="redBackground white search" id= "new-trip-name" placeholder="Escalante" required/>
+                <label htmlFor= "new-trip-name"><i class="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
+                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name" placeholder="Escalante" required/>
                 </label>
             </div>
 
             <div>
-                <label htmlFor= "start-date"><span className= "labelWidth white">Start date</span>
+                <label htmlFor= "start-date"><span className= "labelWidthPlan white montebello">Start date</span>
                 <input type="date" name="startDate" id= "start-date"
                 onChange={e => createStartDate(e.target.value)}
                 
                 /> </label> <br></br>
                 
                 
-                <label htmlFor= "end-date"><span className= "labelWidth white">End date</span>
+                <label htmlFor= "end-date"><span className= "labelWidthPlan white montebello">End date</span>
                 <input type="date" name="endDate" id= "end-date"
                 onChange={e => createEndDate(e.target.value)}
                 /><span className = "error cloudBlue">{validateDate()}</span></label>
@@ -123,14 +123,14 @@ class AddTripForm extends Component {
             </div>
 
             <div>
-                 <label htmlFor= "traveler-name"><span className= "labelWidth white">Traveler names</span>
-                 <input type="text" name="tripTravelers" className= "redBackground white names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
+                 <label htmlFor= "traveler-name"><i class="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
+                 <input type="text" name="tripTravelers" className= "skinBackground purple names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
                 </label>
             </div>
 
             <div>
-                 <label htmlFor= "map-link"><span className= "labelWidth white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white">Location URL</a></span>
-                 <input type="url" name="tripURL" className= "redBackground white names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
+                 <label htmlFor= "map-link"><i class="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
+                 <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
                 </label>
             </div>
 

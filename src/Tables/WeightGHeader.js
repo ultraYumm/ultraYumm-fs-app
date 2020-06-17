@@ -13,7 +13,7 @@ class WeightGHeader extends Component {
 
     return (
         
-        <th className="weightH gram">Weight (grams)</th>
+        <th className="weightH gram"><i class="fas fa-balance-scale"></i></th>
     )
 }
 }

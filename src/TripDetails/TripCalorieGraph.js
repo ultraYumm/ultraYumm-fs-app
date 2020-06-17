@@ -18,8 +18,8 @@ class TripCalorieGraph extends Component {
     
 
     return (
-      <div className = "primaryFont black">
-        {calText} cals
+      <div className = "primaryFont black"> <span className = "graphText">
+        {calText} cals </span>
         <i class="fas fa-fire-alt">
           </i>
         </div>

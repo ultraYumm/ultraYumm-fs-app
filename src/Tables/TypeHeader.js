@@ -13,7 +13,7 @@ class TypeHeader extends Component {
 
     return (
         
-        <th className="type">Type</th>
+        <th className="type"><i class="fas fa-utensils"></i></th>
     )
 }
 }

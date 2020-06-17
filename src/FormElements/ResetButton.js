@@ -7,19 +7,18 @@ import './FormElements.css';
 
 
 class ResetButton extends Component {
-
+ß
   
   render() {
 
     
     return (
-      <div className= "reset">
-          <button 
-            className= "black montebello skinBackground reset sticky"
-            type = "reset">
-            Reset
-          </button>
-      </div>
+      <button className= "tooltip iconButtons cloudBlueBackground">
+          <i className ="fas fa-undo"
+            type = "reset"
+            
+            ><span className = "tooltiptext primaryFont black">reset</span></i>
+      </button>
     )
  }  
 }

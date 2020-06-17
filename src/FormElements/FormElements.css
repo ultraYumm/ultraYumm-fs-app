@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -65,12 +64,21 @@ label {
      
 }
 
-.labelWidth {
-   width: 100%;
+.labelWidth, .labelWidthPlan {
+   width: 80%;
    display: inline-block;
-   font-size: 15px;
+   font-size: 12px;
    text-align: left;
+   padding-bottom: 4px;
+   padding-left: 5px;
 }
+
+
+.customize {
+    margin-left: -35px;
+    position: absolute;
+ 
+ }
 
 input {
     display: inline-block;
@@ -128,28 +136,32 @@ input[type="number"]{
     font-size: 10px;
 }
 button[type="submit"], button[type="reset"]{
-   width: 80%;
+   width: 40%;
 }
   
 button {
-    font-size: 12px;
+    font-size: 14px;
     height: 30px;
     border-radius: 20px;
     transition: 0.1s;
-    border: 1px solid rgba(242, 133, 173, 1);
+    border: 1px solid rgba(173, 192, 217);
     font-weight: lighter;
-    margin: 10px;
     text-align: center;
+    margin: 5px;
+    
 }
 
+
+
 button:hover {
-    border: 2px solid rgba(191, 4, 4);
+    border:1px solid rgba(242, 133, 173, 1);
 }
   
 .button {
     max-width: 200px;
     border-radius: 5px;
     padding: 1px;
+    
     padding-top: 5px;
     margin-bottom: 2px;
     transition: 0.1s;
@@ -159,7 +171,7 @@ button:hover {
 
 
 .filterButtonContainer {
-   width: 95%;
+   width: 50%;
    margin-left: auto;
    margin-right: auto;
    border-top-left-radius: 5px;
@@ -167,26 +179,48 @@ button:hover {
 }  
 
 .go, .filter, .reset, .moreButton {
-   display: inline-block
+   display: inline-block;
+   /*margin: 10px;*/
 }
 
-.back, .forward {
-    position: absolute;
-    top: 22px;
-    z-index: 15;
-    
-}
 
 
 .back {
     left:5px;
     
 }
+.iconButtonsContainer {
+ text-align: center;
+ 
+   
 
+}
+
+.iconButtons {
+    width: 25%;
+    padding-left: 1px;
+    padding-right: 1px;
+    zoom: 1.5;
+    text-align: center;
+   }
+
+.arrowButtons {
+    padding-top: 5px;
+    display: inline-block;
+    width: 30%;
+    zoom: 1.2;
+    padding-right: 20px;
+}
 
 .forward {
-    right:50px;
+    right:60px;
 }
+
+.super {
+ zoom: 1.8;
+ margin-left: -5px
+}
+
 
 button[type="button"]{
    width: 10%;
@@ -194,34 +228,34 @@ button[type="button"]{
    background-color: transparent;
 }
 
- .back:hover{
-    left:0;
-    transition: 0.5;
+.transparent {
+  background-color: transparent;
+}
+
+.back:hover{
+    zoom: 2;
+    padding-right: 20px; 
+    transition: 1.5;
 }
 
 
- .forward:hover{
-    right:55px;
-    transition: 0.5;
+.forward:hover{
+    zoom: 2;
+    padding-left: 20px; 
+    transition: 1.5;
 }
 
 .filter, .reset {
     width: 10%;
     text-align: center;
     padding: 0;
+    zoom: 6;
 }
 
 
-.reset, .moreButton, .filter, .back, .forward {
-    font-size: 14px;
+.reset, .moreButton, .filter {
     width: 95px;
 }
-
-.reset {
-    color:  rgba(191, 4, 4);
-   
-}
-
 
 
 .goContainer {
@@ -261,6 +295,27 @@ button[type="button"]{
    display: inline-block
 }
 
+.tooltip {
+    position: relative;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 10px;
+    opacity: 80%;
+    text-align: top;
+    border-radius: 6px;
+    font-size: 8px;
+    padding-left: 2px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 40;
+}
+
+.tooltip:hover .tooltiptext,  .tooltip:active .tooltiptext{
+    visibility: visible;
+}    
+  
 
 
 .scroll {
@@ -414,6 +469,10 @@ svg {
     padding-right: 10px;
 }
 
+.graphText {
+    padding-right: 10px;
+    font-size: 10px;
+}
 
 .inputBox, .resultBox{
     margin-left: auto;
@@ -473,8 +532,8 @@ svg {
    float: right;
     top: 0;
     margin-right: 3px;
-    margin-top: 5px;
-    zoom: 7;
+    margin-top: 12px;
+    zoom: 4;
     
     
 }
@@ -490,12 +549,21 @@ button[type="button"]{
     font: 10px;
 }
 
+
     
-    
-
-
-
+.customize {
+    margin-left: -px;
+ 
 }
+    
+    
+}
+
+
+ 
+
+
+
 
 @media only screen and (min-width: 666px) {
 
@@ -504,7 +572,7 @@ button {
 
 }
 
-.reset, .moreButton, .filter, .back, .forward {
+.reset, .moreButton, .filter {
     font-size: 12px;
     width: 20%
 
@@ -535,6 +603,11 @@ button[type="button"]{
     transition: 0.5;
 }
 
+.labelWidth, .labeWidthPlan {
+    font-size: 15px;
+}
+ 
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -564,6 +637,14 @@ button {
     height: 50px;
     
 }
+
+
+.iconButtons {
+
+    width: 10%;
+ 
+   }
+
 
 }
 
@@ -606,18 +687,40 @@ button {
 .adjustImage {
     float: right;
     top: 0;
-    margin-right: 70px;
-    margin-top: 10px;
-    zoom: 2;
+    margin-right: 40px;
+    margin-top: 55px;
+    zoom: 1.5;
     
     
+}
+.labelWidthPlan, .labelWidth{
+    font-size: 20px;
+}
+
+.customize {
+    margin-left: -50px;
+}
+
+input[type="number"], input[type="text"], input[type="date"], .dataResult{
+    font-size: 20px;
+    
+}
+
+.iconButtons {
+    width: 20%;
+    
+   }
+
+.moreButton {
+    font-size: 20px;
+}
+
+.arrowButtons {
+    padding-right: 100px;
 }
 
 }
     
     
       
-  
-
-
   

@@ -3,6 +3,7 @@ import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import { renderToString } from 'react-dom/server';
 import { v4 as uuidv4 } from 'uuid';
+import ItemHeader from "../Tables/ItemHeader";
 
 class NewItemName extends Component {
 
@@ -38,12 +39,12 @@ class NewItemName extends Component {
 
     return (
      
-        <label htmlFor="custom-item-name">
+        <label htmlFor="custom-item-name"> <i class="fas fa-carrot white"></i>
           <span className="labelWidth white">Item name</span>
           <input
             type="text"
             name="itemName"
-            className="redBackground white search"
+            className="skinBackground black search"
             id="custom-item-name"
             defaultValue= {name} required
             

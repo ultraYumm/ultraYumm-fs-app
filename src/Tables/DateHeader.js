@@ -13,7 +13,7 @@ class DateHeader extends Component {
 
     return (
         
-        <th className="date">Date</th>
+        <th className="date"><i className ="fas fa-calendar-day"></i></th>
     )
 }
 }

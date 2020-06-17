@@ -12,11 +12,9 @@ class ForwardButton extends Component {
       }
     return (
       
-      <i className ="fas fa-forward white"
-          onClick={() => goForward()}
-            
-            type = "button">
-       
+      <i className ="fas fa-arrow-circle-right skin forward arrowButtons"
+          onClick={() => goForward()}>
+        
           </i>
      
     )

@@ -13,13 +13,13 @@ class PrintButton extends Component {
     const print = () => window.print()
     
     return (
-      <div className= "filter">
-          <button 
+      <button className= "tooltip iconButtons cloudBlueBackground">
+          <i class="fas fa-paw black"
             onClick = {print}
-            className= "black montebello skinBackground filter sticky"
-            type = "submit">Print
-          </button>
-      </div>
+           
+            type = "submit"><span className = "tooltiptext primaryFont black">print</span>
+          </i>
+      </button>
     )
  }  
 }

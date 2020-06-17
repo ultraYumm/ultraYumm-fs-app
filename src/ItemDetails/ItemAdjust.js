@@ -15,6 +15,8 @@ import Result from "../CustomItem/Result";
 
 
 
+
+
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
 import { NavLink } from "react-router-dom";
@@ -233,11 +235,11 @@ class ItemAdjust extends Component {
             image = {image}
             />
             </div>
-        <form id="filter" onSubmit={onSubmitForm}>
+        <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
           <h2 className="montebello white">{text}</h2>
   <div className= "white primaryFont"></div>
   
-          <div className="filterButtonContainer">
+          <div className=""iconButtonContainer>
             <SaveButton />
             
           </div>
@@ -265,6 +267,7 @@ class ItemAdjust extends Component {
             <div className="calcBox">
               <div className="inputsContainer">
                 <div className="inputBox">
+                <i class="fas fa-coins white"></i>
                   <label
                     htmlFor="custom-item-quantity"
                     className="labelWidth white"
@@ -283,7 +286,8 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
-                  <label
+                <i class="fas fa-ruler-vertical white"></i>
+                <label
                     htmlFor="custom-item-unit"
                     className="labelWidth white"
                   >
@@ -302,6 +306,7 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
+                <i class="fas fa-balance-scale white"></i>
                   <label
                     htmlFor="custom-item-weight"
                     className="labelWidth white"
@@ -321,6 +326,7 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
+                <i class="fas fa-fire-alt white"></i>
                   <label
                     htmlFor="custom-item-calories"
                     className="labelWidth white"
@@ -342,6 +348,8 @@ class ItemAdjust extends Component {
 
               <div className="resultsContainer">
                 <div className="resultBox">
+                <i className ="fas fa-hiking white">
+        </i>
                   <label
                     htmlFor="custom-item-total-weight"
                     className="labelWidth white"
@@ -357,6 +365,7 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="resultBox">
+                <i class="fas fa-fire-alt white"></i>
                   <label
                     htmlFor="custom-item-total-cal"
                     className="labelWidth white"
@@ -375,6 +384,7 @@ class ItemAdjust extends Component {
           </div>
 
           <div className="filterContainer">
+          <i class="fas fa-feather black"></i>
     <h3 className="filterCategory">Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
             <TripNames 
             trips={trips}
@@ -382,7 +392,7 @@ class ItemAdjust extends Component {
               this.selectTrip(selectedTrip, tripId)
             }
             />
-
+            <i className ="fas fa-calendar-day"></i>
             <h3 className="filterCategory">Select date:{" "}<span className = "primaryFont black" >{tripDay}</span></h3>
             <TripDates
             name = {this.state.name}
@@ -393,7 +403,7 @@ class ItemAdjust extends Component {
             }
             
             />
-
+            <i class="fas fa-utensils"></i>
             <h3 className="filterCategory">Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
             <ItemTypes itemTypes={itemTypes}
             id = {id}
@@ -402,6 +412,7 @@ class ItemAdjust extends Component {
             }
             
             />
+            <i class="fas fa-user-circle"></i>
 
             <h3 className="filterCategory">Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
             <TripTravelers tripTravelers={this.state.traveler_names}

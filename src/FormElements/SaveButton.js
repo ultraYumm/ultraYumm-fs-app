@@ -13,12 +13,13 @@ class SaveButton extends Component {
 
     
     return (
-      <div className= "filter">
-          <button 
-            className= "black montebello skinBackground filter sticky"
-            type = "submit">Save
-          </button>
-      </div>
+      <button className= "tooltip iconButtons cloudBlueBackground">
+      
+       <i class="fas fa-archive black"
+       type = "submit"
+       
+            ><span className = "tooltiptext primaryFont black">save</span></i>
+      </button>
     )
  }  
 }

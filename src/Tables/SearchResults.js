@@ -28,6 +28,7 @@ import TotalCalHeader from "./TotalCalHeader";
 import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
 import AddHeader from "./AddHeader";
 import BackButton from '../FormElements/BackButton';
+import ForwardButton from '../FormElements/ForwardButton';
 import { v4 as uuidv4 } from 'uuid';
 
 class SearchResults extends Component {
@@ -124,15 +125,20 @@ class SearchResults extends Component {
         <div className = "sticky lightBlueBackground">
        
         <div className = "sticky">
+        <div className = "iconButtonsContainer">
         <BackButton/>  
+        <ForwardButton/>  
+       
+        </div>
           <h2 className="montebello searchResultsTitle black sticky">
             {" "}
             See your highest energy results!
           </h2>
         </div>
 
-        <div className="filterButtonContainer sticky">
+        <div className="iconButtonContainer">
           <PrintButton />
+          <SaveButton />
         </div>
         
           <div className="filterButtonContainer moreContainer sticky">

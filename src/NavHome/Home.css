@@ -137,6 +137,18 @@ label {
     padding-top: 20px;
     font-size: 20px;
 }
-      
+
+
   
 }
+
+@media only screen and (min-width: 1000px) {
+
+.homeLogo {
+    width: 60px;
+    height: 60px;
+  
+}
+
+}
+  
