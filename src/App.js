@@ -7,7 +7,7 @@ import NavBar from "./NavHome/NavBar";
 import HomePage from "./NavHome/HomePage";
 import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
-import UltraContext from "./UltraContext";
+import SearchForm from "./Search/SearchForm";
 import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
 
@@ -117,10 +117,16 @@ class App extends Component {
       packItems: newPackItems,
     })
   }
+  
 
 
 
   render() {
+
+   
+
+
+
 
     
 
@@ -134,9 +140,6 @@ class App extends Component {
 
     const packItems = this.state.packItems
     console.log(packItems)
-
-  
-    
 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
@@ -181,6 +184,10 @@ class App extends Component {
             />
           )}
         />
+
+        <Route
+          path= "/search-bar"
+          component= {SearchForm}/>
 
         <Route
           path="/my-trips"

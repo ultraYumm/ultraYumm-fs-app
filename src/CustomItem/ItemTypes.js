@@ -22,7 +22,7 @@ class ItemTypes extends Component {
   }
   
       return (
-        <div className= "filterSelection"> 
+
           <ul className= "scroll">
           {itemTypesArray.map((type)=> (
             <li key= {type}>
@@ -46,7 +46,7 @@ class ItemTypes extends Component {
             </li>
           ))}        
           </ul>
-     </div>
+    
      )}
   
 }

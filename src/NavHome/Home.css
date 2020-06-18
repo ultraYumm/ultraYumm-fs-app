@@ -106,10 +106,10 @@
   }
 
 @media only screen and (min-width: 768px) {
-    .descriptionText {
-        font-size: 20px;
-        padding-top: 240px;
-    }
+.descriptionText {
+    font-size: 20px;
+    padding-top: 240px;
+}
 
 
 .title {
@@ -144,11 +144,142 @@ label {
 
 @media only screen and (min-width: 1000px) {
 
+
+.snowyOwl {
+
+    width: 100%   
+ }
+    
+
 .homeLogo {
     width: 60px;
     height: 60px;
   
 }
 
+
+h1.title {
+    font-size: 55px;
 }
+
+
+div.descriptionText {
+    font-size: 22px;
+    padding-top: 180px;
+
+
+}
+}
+
+
+@media only screen and (min-width: 1366px) {
+
+.homeLogo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    
+}
+
+
+h1.title {
+    font-size: 80px;
+}
+
+
+
+.snowyOwl {
+   
+    width: 50%   
+}
+
+
+.navContainer {
+ 
+    height: 120px;
+   
+}
+
+div.descriptionText {
+    font-size: 40px;
+    padding-top: 350px;
+}
+
+
+.description {
+    padding-top: 30px;
+   
+} 
+
+.uYtitle {
+    width: 20%;
+    margin-bottom: -10px;
+    padding-top: 0;
+}
+
+
+.myTrips {
+    
+    padding-top: 50px;
+    font-size: 30px;
+    margin-right: 10px
+}
+
+
+    
+}
+
+
+@media only screen and (min-width: 2500px) {
+
+
+
+.snowyOwl {
+   
+    width: 20%   
+    }
+
+
+h1.title {
+    font-size: 90px;
+}
+
+
+
+div.descriptionText {
+    font-size: 50px;
+    padding-top: 350px;
+}
+
+
+.description {
+    padding-top: 50px;
+    
+} 
+
+.uYtitle {
+    width: 10%;
+    margin-bottom: -10px;
+    padding-top: 0;
+}
+
+
+.myTrips {
+    
+    padding-top: 60px;
+    font-size: 40px;
+}
+
+
+.homeLogo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    padding-top: 10px;
+    
+}
+
+    
+}
+    
   

@@ -27,7 +27,7 @@ class TripNames extends Component {
   }
        
     return (
-        <div className= "filterSelection"> 
+      
             <ul className= "scroll"> 
             {trips.map((trip, key)=> (
               <li key= {key}>
@@ -53,7 +53,7 @@ class TripNames extends Component {
               </li>
             ))}   
             </ul>
-       </div>
+ 
      )}
   
 }

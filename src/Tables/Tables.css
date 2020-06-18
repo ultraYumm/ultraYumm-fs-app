@@ -141,9 +141,13 @@ td {
   
  
 
-.resultsTitle {
-     display: inline-block;
-     width: 20%;
+h2.resultsTitle, div.resultsTitle {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     margin-left: auto;
+     margin-right: auto;
+    
 }
 
 .searchResultsTitle {
@@ -211,6 +215,10 @@ input.add {
      display: none
 }
 
+
+.mobileHide{
+     display: none
+}
 
 
 
@@ -324,7 +332,178 @@ font-size: 16px;
 
 .imageH:hover {
     zoom: 500%;
-    transition: transform .9s ease;
 }
        
+}
+
+
+@media only screen and (min-width: 1000px) {
+
+    
+td, th {
+font-size: 16px;
+
+}
+
+
+.itemH {
+     font-size: 17px;
+
+}
+
+.imageH {
+     width: 5%;
+}
+
+
+.servingH, .weightH, .unitH {
+     width: 6%;
+} 
+
+
+.caloriesH, .calG {
+     width: 20%;
+} 
+
+
+th.date, tr.date  {
+     width: 10%;
+}
+
+.itemH {
+     width: 25%;
+}
+
+
+.brandH {
+     width: 20%;
+}
+
+
+
+.tableImage {
+     width: 80px;   
+}
+
+
+.imageH:hover {
+     zoom: 500%;
+}
+
+
+
+
+.resultsTitle {
+     width: 50%;
+    
+}
+          
+}
+
+
+
+
+@media only screen and (min-width: 1367px) {
+
+
+td, th {
+     font-size: 22px;
+
+}
+
+
+.itemH {
+     font-size: 23px;
+
+}
+
+.imageH {
+     width: 5%;
+}
+
+
+.servingH, .weightH, .unitH {
+     width: 6%;
+} 
+
+
+.caloriesH, .calG {
+     width: 20%;
+} 
+
+
+.addH, .date, .type, .traveler, .delete {
+     width: 1%;
+}
+
+.itemH {
+     width: 25%;
+}
+
+
+.brandH {
+     width: 20%;
+}
+
+
+
+.tableImage {
+     width: 90px;   
+}
+
+
+          
+}
+
+
+
+
+@media only screen and (min-width: 1367px) {
+
+
+td, th {
+     font-size: 25px;
+
+}
+
+
+.itemH {
+     font-size: 28px;
+
+}
+
+.imageH {
+     width: 5%;
+}
+
+
+.servingH, .weightH, .unitH {
+     width: 6%;
+} 
+
+
+.caloriesH, .calG {
+     width: 20%;
+} 
+
+
+.addH, .date, .type, .traveler, .delete {
+     width: 1%;
+}
+
+.itemH {
+     width: 25%;
+}
+
+
+.brandH {
+     width: 20%;
+}
+
+
+
+.tableImage {
+     width: 100px;   
+}
+
 }

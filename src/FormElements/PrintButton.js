@@ -17,7 +17,7 @@ class PrintButton extends Component {
           <i class="fas fa-paw black"
             onClick = {print}
            
-            type = "submit"><span className = "tooltiptext primaryFont black">print</span>
+            type = "submit"><span className = "tooltiptext primaryFont white">print</span>
           </i>
       </button>
     )

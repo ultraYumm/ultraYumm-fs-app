@@ -1,6 +1,7 @@
 .tripSection {
-    height: 600px;
-    background-repeat: no-repeat;
+    width: 100%;
+  
+    background-repeat: space;
     background-size: cover;
     background-position: center;
     background-image: url("https://i.ibb.co/3dHk6Dh/ostrander.jpg");
@@ -10,7 +11,7 @@
 
     
 .tripContainer {
-    width: 100%;
+    width: auto;
     text-align: center;
     left: 0;
     right: 0;
@@ -64,14 +65,14 @@
 .tripImage:hover {
     width: 200px;
     height: 100px;
-    transition: 0.3s;
+    transition: 0.9s;
     opacity: 1;
     
 }   
   
   
   
-  .trip {
+.trip {
     display: inline-block; 
     width: 10%; 
     padding-left: 30px;
@@ -87,15 +88,89 @@
 
 @media only screen and (min-width: 768px) {
 
-    .trip {
-        font-size: 20px;
-    }
-          
-      
-    }
+.trip {
+    font-size: 20px;
+}
 
 
+.tripImage {
+    width: 250px;
+    height: 150px;
     
     
+}
 
-  
+
+.tripImage:hover {
+    width: 270px;
+    height: 170px;
+   
+}   
+   
+
+.tripLi {
+    padding: 50px;
+    height: 220px;
+   
+}
+
+}
+
+
+@media only screen and (min-width: 1366px) {
+
+        
+
+.tripLi, .trip {
+       width: 30%;
+       display: inline-block;
+       text-align: center;
+   
+
+}
+
+
+.tripImage {
+    width: 300px;
+    height: 200px;
+    
+    
+}
+
+
+.tripImage:hover {
+    width: 300px;
+    height: 200px;
+   
+}
+
+.trip {
+    font-size: 30px;
+}
+
+}
+
+
+@media only screen and (min-width: 2500px) {
+
+.trip {
+    font-size: 40px;
+}
+
+
+.tripImage {
+    width: 600px;
+    height: 400px;
+    
+    
+}
+
+
+.tripImage:hover {
+    width: 700px;
+    height: 500px;
+   
+}
+        
+}
+

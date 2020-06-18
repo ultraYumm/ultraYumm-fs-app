@@ -12,13 +12,13 @@ body, html {
 }
 
 
-form, section, .chart {
+form, section {
     margin: 1%;
     border-radius: 10px;
     padding: 0;
 }
 
-section, .chart {
+section {
     width: 100%;
 }
 
@@ -111,6 +111,11 @@ input[type="text"], input[type="url"] {
 
 }
 
+input[type="date"] {
+    width: 100%;
+
+}
+
 input[type="text"], input[type="search"], input[type="url"]{
     border: 1px solid rgba(191, 4, 4);
     height: 50px;
@@ -191,8 +196,8 @@ button:hover {
 }
 .iconButtonsContainer {
  text-align: center;
- 
-   
+ width: 20px;
+ position: relative;
 
 }
 
@@ -200,9 +205,18 @@ button:hover {
     width: 25%;
     padding-left: 1px;
     padding-right: 1px;
-    zoom: 1.5;
+    zoom: 2;
     text-align: center;
-   }
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+.iconButtons:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 
 .arrowButtons {
     padding-top: 5px;
@@ -302,10 +316,10 @@ button[type="button"]{
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 10px;
-    opacity: 80%;
     text-align: top;
     border-radius: 6px;
-    font-size: 8px;
+    font-size: 10px;
+    font-weight: bold;
     padding-left: 2px;
     /* Position the tooltip */
     position: absolute;
@@ -489,6 +503,7 @@ svg {
 
 .dataResult {
     height: 70px;
+    border-radius: 5px;
 }
 
 .dataInput, .dataResult, .textInput {
@@ -551,16 +566,8 @@ button[type="button"]{
 
 
     
-.customize {
-    margin-left: -px;
- 
-}
-    
     
 }
-
-
- 
 
 
 
@@ -611,26 +618,25 @@ button[type="button"]{
 }
 
 @media only screen and (min-width: 768px) {
-    .descriptionText {
-        font-size: 20px;
-        padding-top: 240px;
-    }
 
-
-.title {
-    font-size: 30px;
-}
 
 
 
 h2 {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 
 label {
     font-size: 18px;
 }
+
+
+
+.labelContainer {
+    font-size: 15px;
+}
+
 
 button {
     font-size: 25px;
@@ -641,24 +647,30 @@ button {
 
 .iconButtons {
 
-    width: 10%;
+    zoom: 3;
  
-   }
+}
 
+
+
+.adjustImage {
+
+    margin-right: 40px;
+    margin-top: 55px;
+    zoom: 1.2;
+
+    
+}
+
+.tooltip .tooltiptext {
+
+    font-size: 12px;
 
 }
 
+}
 
 @media only screen and (min-width: 1000px) {
-.descriptionText {
-    font-size: 30px;
-    padding-top: 240px;
-}
-
-
-.title {
-    font-size: 35px;
-}
 
 
 
@@ -679,17 +691,16 @@ button {
 
 
 .labelContainer {
-    font-size: 15px;
+    font-size: 18px;
 }
 
 
 
 .adjustImage {
-    float: right;
-    top: 0;
     margin-right: 40px;
     margin-top: 55px;
     zoom: 1.5;
+    padding-top: 50px;
     
     
 }
@@ -701,13 +712,13 @@ button {
     margin-left: -50px;
 }
 
-input[type="number"], input[type="text"], input[type="date"], .dataResult{
+input[type="number"], input[type="text"], input[type="date"], input[type="url"],  input[type="submit"].dataResult{
     font-size: 20px;
     
 }
 
 .iconButtons {
-    width: 20%;
+    zoom: 3.7;
     
    }
 
@@ -716,11 +727,262 @@ input[type="number"], input[type="text"], input[type="date"], .dataResult{
 }
 
 .arrowButtons {
+    padding-top: 60px;
+    padding-left: 20px;
     padding-right: 100px;
 }
+
+
+.arrowButtons {
+    padding-top: 65px;
+    padding-left: 20px;
+}
+}
+
+
+
+@media only screen and (min-width: 1366px) {
+   
+.searchTerm {
+    margin-right: 30px;
+}    
+
+
+div.labelWidthPlan {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+
+
+}
+
+.newItems {
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+
+div.labelWidthDates {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+
 
 }
     
     
+
+h2 {
+    font-size: 50px;
+    padding-top: 50px
+}
+
+
+label {
+    font-size: 35px;
+}
+
+button {
+    font-size: 35px;
+    height: 55px;
+    
+}
+
+
+.labelContainer {
+    font-size: 23px;
+}
+
+
+.labelWidthPlan, .labelWidth{
+    font-size: 30px;
+}
+
+
+.adjustImage {
+    margin-top: 120px;
+    zoom: 1.2;
+    
+    
+}
+
+.labelWidthPlan, .labelWidth{
+    font-size: 30px;
+}
+
+    
+input[type="number"], input[type="text"], input[type="date"], input[type="url"], input[type="submit"].dataResult{
+    font-size: 25px;
+    
+}
+
+
+    
+input[type="number"], input[type="text"], input[type="date"], input[type="url"],  input[type="search"] {
+    height: 80px
+    
+}
+
+
+.dataResult {
+    margin: 10px;;
+   
+}
+
+     
+input[type="text"], input[type="date"], input[type="url"] {
+width: 500px
+    
+}
+
+form {
+    padding-bottom: 20px;
+}
+
+
+
+.labelWidth {
+    padding-top: 30px;
+}
+
+
+
+.arrowButtons {
+    padding-top: 60px;
+    padding-left: 20px;
+    zoom: 1.5;
+}
+
+
+
+.charts {
+    padding-top: 60px;
+    border-radius: 5px;
+    
+}
+
+
+
+.graphText {
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+
+.labelContainer {
+  
+    width: 20%;
+    display: inline-block
+}
+
+.filterContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+
+
+}
+
+    
+}
+        
+        
+@media only screen and (min-width: 2500px) {
+   
+.labelWidthPlan, .labelWidth, .labelWidthDates{
+        font-size: 45px;
+    }
+    
+
+
+
+    
+
+ul, li, label {
+    font-size: 40px;
+}
+          
+
+.customize {
+    margin-left: -50px;
+}
+
+input[type="number"], input[type="text"], input[type="date"], input[type="url"], .dataResult{
+    font-size: 35px;
+    
+}
+
+.iconButtons {
+    width: 6%;
+    zoom: 4;
+    
+    
+}
+
+.moreButton {
+    font-size: 35px;
+}
+
+
+
+.arrowButtons {
+    padding-top: 65px;
+    padding-left: 20px;
+    zoom: 1.7;
+}
+
+
+
+.graphText {
+    padding-right: 10px;
+    font-size: 35px;
+}
+
+
+.adjustImage {
+    margin-top: 5px;
+    margin-right: 30px;
+    zoom: 5;
+    
+    
+}
+
+
+.tooltip .tooltiptext {
+
+    font-size: 14px;
+
+}
+
+label.labelContainer {
+  
+    font-size: 30px;
+}
+
+
+.scroll {
+    height: 300px;
+   
+}
+
+h2 {
+
+    font-size: 100px;
+}
+
+
+
+}
+
+ 
+
+            
+            
+        
+        
       
   

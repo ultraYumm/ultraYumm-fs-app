@@ -29,6 +29,7 @@ class TripDates extends Component {
 
 
     return (
+    
       <ul className= "scroll"> 
       {tripDates.map((date)=> (
           <li key= {date}>
@@ -49,7 +50,7 @@ class TripDates extends Component {
           </li>))}
 
         </ul>
-     
+  
      )
       
          

@@ -30,7 +30,7 @@ class ServUnit extends Component {
     return (
 
       <input className="dataResult skinBackground"
-      type = "text"
+      type = "search"
       defaultValue = {input}
     
       onKeyUp = {buildHandleKeyUp((value) => {

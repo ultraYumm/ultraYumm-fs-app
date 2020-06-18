@@ -236,14 +236,10 @@ class ItemAdjust extends Component {
             />
             </div>
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text}</h2>
-  <div className= "white primaryFont"></div>
+          <h2 className="montebello white">{text} <span className="iconButtonContainer white">
+            <SaveButton /></span></h2>
+      <div className= "white primaryFont"></div>
   
-          <div className=""iconButtonContainer>
-            <SaveButton />
-            
-          </div>
-
           <div>
             <div className="newItems">
               <NewItemName
@@ -267,12 +263,10 @@ class ItemAdjust extends Component {
             <div className="calcBox">
               <div className="inputsContainer">
                 <div className="inputBox">
-                <i class="fas fa-coins white"></i>
                   <label
                     htmlFor="custom-item-quantity"
                     className="labelWidth white"
-                  >
-                    Serving Quantity
+                  ><i class="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
                   </label>
                   <p className="dataInput">
                     <UnitQuant
@@ -286,12 +280,10 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
-                <i class="fas fa-ruler-vertical white"></i>
                 <label
                     htmlFor="custom-item-unit"
                     className="labelWidth white"
-                  >
-                    Serving unit
+                  ><i className ="fas fa-ruler-vertical white mobileHide"></i>&nbsp;Serving unit
                   </label>
                   <p className="textInput">
                     <ServUnit
@@ -306,12 +298,10 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
-                <i class="fas fa-balance-scale white"></i>
                   <label
                     htmlFor="custom-item-weight"
                     className="labelWidth white"
-                  >
-                    Weight per serving
+                  > <i class="fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
                   </label>
                   <p className="dataInput">
                   <WeightQuant
@@ -326,11 +316,10 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="inputBox">
-                <i class="fas fa-fire-alt white"></i>
                   <label
                     htmlFor="custom-item-calories"
                     className="labelWidth white"
-                  >Calories per serving
+                  ><i class="fas fa-fire-alt white mobileHide"></i>&nbsp;Calories per serving
                   </label>
                   <div className="dataInput">
                   <CalsQuant
@@ -348,7 +337,7 @@ class ItemAdjust extends Component {
 
               <div className="resultsContainer">
                 <div className="resultBox">
-                <i className ="fas fa-hiking white">
+                <i className ="fas fa-hiking white mobileHide">
         </i>
                   <label
                     htmlFor="custom-item-total-weight"
@@ -356,7 +345,7 @@ class ItemAdjust extends Component {
                   >
                     Total Weight
                   </label>
-                  <div className="dataResult skinBackground">
+                  <div>
                     <Result
                     result =
                     {stateWeightnf}
@@ -365,14 +354,14 @@ class ItemAdjust extends Component {
                 </div>
 
                 <div className="resultBox">
-                <i class="fas fa-fire-alt white"></i>
+                <i class="fas fa-fire-alt white mobileHide"></i>
                   <label
                     htmlFor="custom-item-total-cal"
                     className="labelWidth white"
                   >
                     Total Calories
                   </label>
-                  <div className="dataResult skinBackground">
+                  <div>
                     <Result
                     result = {stateCalsnf} 
                     placeholder = {totalCalnf}
@@ -384,45 +373,48 @@ class ItemAdjust extends Component {
           </div>
 
           <div className="filterContainer">
-          <i class="fas fa-feather black"></i>
-    <h3 className="filterCategory">Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
-            <TripNames 
-            trips={trips}
-            handleSelectTrip={(selectedTrip, tripId) =>
-              this.selectTrip(selectedTrip, tripId)
-            }
-            />
-            <i className ="fas fa-calendar-day"></i>
-            <h3 className="filterCategory">Select date:{" "}<span className = "primaryFont black" >{tripDay}</span></h3>
-            <TripDates
-            name = {this.state.name}
-            tripDay = {this.state.tripDay}
-            tripDates={this.state.trip_dates}
-            handleSelectDay={(selectedDay) =>
-              this.selectDay(selectedDay)
-            }
-            
-            />
-            <i class="fas fa-utensils"></i>
-            <h3 className="filterCategory">Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
-            <ItemTypes itemTypes={itemTypes}
-            id = {id}
-            handleSelectType={(selectedType) =>
-              this.selectType(selectedType)
-            }
-            
-            />
-            <i class="fas fa-user-circle"></i>
+        
+          <div className= "filterSelection"> 
+    
+              <h3 className="filterCategory"><i class="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>       
+                <TripNames 
+                trips={trips}
+                handleSelectTrip={(selectedTrip, tripId) =>
+                  this.selectTrip(selectedTrip, tripId)
+                }
+                />
+            </div>
 
-            <h3 className="filterCategory">Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
-            <TripTravelers tripTravelers={this.state.traveler_names}
-          
-            handleSelectTraveler={(selectedTraveler) =>
-              this.selectTraveler(selectedTraveler)
-            }
-            
-            
-            />
+            <div className= "filterSelection">
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont black" >{tripDay}</span></h3>
+                <TripDates
+                name = {this.state.name}
+                tripDay = {this.state.tripDay}
+                tripDates={this.state.trip_dates}
+                handleSelectDay={(selectedDay) =>
+                  this.selectDay(selectedDay)
+                }
+                />
+            </div>
+
+            <div className= "filterSelection">
+              <h3 className="filterCategory"><i class="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
+                <ItemTypes itemTypes={itemTypes}
+                id = {id}
+                handleSelectType={(selectedType) =>
+                  this.selectType(selectedType)
+                }
+                />
+             </div>
+
+             <div className="filterSelection">
+              <h3 className="filterCategory">  <i class="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
+                <TripTravelers tripTravelers={this.state.traveler_names}
+                handleSelectTraveler={(selectedTraveler) =>
+                  this.selectTraveler(selectedTraveler)
+                }
+                />
+             </div>
           </div>
         </form>
       </section>

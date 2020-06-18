@@ -13,12 +13,11 @@ class SaveButton extends Component {
 
     
     return (
-      <button className= "tooltip iconButtons cloudBlueBackground">
+      <button className= "tooltip iconButtons">
       
        <i class="fas fa-archive black"
        type = "submit"
-       
-            ><span className = "tooltiptext primaryFont black">save</span></i>
+            ><span className = "tooltiptext primaryFont white">save</span></i>
       </button>
     )
  }  

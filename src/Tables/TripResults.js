@@ -167,25 +167,22 @@ class TripResults extends Component {
        
         <div className = "lightBlueBackground sticky">
            <div className="charts sticky cloudBlueBackground">
-             
           <TripCalorieGraph cals={totalCals}/>
           <TripPackGraph weight={totalWeightKg}/>
           </div>
-        <div className= "sticky">
-          <div className = "iconButtonContainer">
+        
+          <div className = "iconButtonContainer sticky">
         <BackButton/>
         <ForwardButton/>
         </div>
-          <h2 className="montebello black sticky">
+          <h2 className="montebello black sticky resultsTitle">
          
-            <span className="resultsTitle montebello black sticky">
-              <TripName selectedTrip={selectedTrip}/>Results!
-            </span>
-            <span className="resultsTitle sticky">
+            <div className=" montebello black sticky resultsTitle">
+              <TripName selectedTrip={selectedTrip}/>&nbsp;Results!&nbsp; 
               <TripYear selectedTrip={selectedTrip}/>
-            </span>
+            </div>
           </h2>
-        </div>
+        
        
         <div className="iconButtonContainer">
             <SaveButton/>
