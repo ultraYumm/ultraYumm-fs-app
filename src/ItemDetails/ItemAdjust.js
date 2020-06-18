@@ -1,7 +1,11 @@
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
+
 import BackButton from "../FormElements/BackButton";
+import ForwardButton from "../FormElements/ForwardButton";
+
+
 import { withRouter } from "react-router-dom";
 
 import SaveButton from "../FormElements/SaveButton";
@@ -229,7 +233,14 @@ class ItemAdjust extends Component {
 
     return (
       <section className="filterForm">
-        <BackButton/>
+           <div className = "iconButtonsContainer">
+                <div className = "back">
+              <BackButton/>  
+              </div>
+              <div className = "forward">
+              <ForwardButton/> 
+          </div> 
+           </div>    
             <div className = "adjustImage" >
             <ItemImage 
             image = {image}
@@ -240,7 +251,8 @@ class ItemAdjust extends Component {
             <SaveButton /></span></h2>
       <div className= "white primaryFont"></div>
   
-          <div>
+  <div>
+            <div className = "newI">
             <div className="newItems">
               <NewItemName
               name = {name}
@@ -250,7 +262,9 @@ class ItemAdjust extends Component {
               }
 
               />
-            </div>
+              </div>
+           
+            
             <div className="newItems">
               <NewItemBrand
               brand = {brand}
@@ -258,6 +272,7 @@ class ItemAdjust extends Component {
                 this.adjustItemBrand(inputValue)
               }
               />
+            </div>
             </div>
 
             <div className="calcBox">

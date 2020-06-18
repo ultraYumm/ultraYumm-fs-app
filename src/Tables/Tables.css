@@ -1,6 +1,6 @@
 
 table {
-    width: 100%;
+    width: 98%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -504,6 +504,30 @@ td, th {
 
 .tableImage {
      width: 100px;   
+}
+
+}
+
+
+
+
+
+@media only screen and (min-width: 2500px) {
+
+
+td, th {
+     font-size: 40px;
+
+}
+
+
+.itemH {
+     font-size: 43px;
+
+}
+
+.tableImage {
+     width: 160px;   
 }
 
 }

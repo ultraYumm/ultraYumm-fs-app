@@ -126,8 +126,12 @@ class SearchResults extends Component {
        
         <div className = "sticky">
         <div className = "iconButtonsContainer">
-        <BackButton/>  
-        <ForwardButton/>  
+                <div className = "back">
+              <BackButton/>  
+              </div>
+              <div className = "forward">
+              <ForwardButton/> 
+        </div> 
        
         </div>
           <h2 className="montebello searchResultsTitle black sticky">

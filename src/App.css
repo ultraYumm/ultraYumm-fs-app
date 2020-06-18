@@ -1,6 +1,6 @@
 * Meyer reset */
 
-body, html, div {
+html {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -48,9 +48,8 @@ table {
 html {
     scroll-behavior: smooth;
     background-color:rgba(242, 242, 242);
-    /*rgba(242, 230, 223);*/
-
-}
+ }
+    
 
 
 

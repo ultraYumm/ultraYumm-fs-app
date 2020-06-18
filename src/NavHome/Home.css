@@ -108,7 +108,7 @@
 @media only screen and (min-width: 768px) {
 .descriptionText {
     font-size: 20px;
-    padding-top: 240px;
+    padding-top: 250px;
 }
 
 
@@ -127,10 +127,6 @@ label {
     font-size: 18px;
 }
 
-}
- 
-
-@media only screen and (min-width: 768px) {
 
 .myTrips {
     
@@ -202,7 +198,7 @@ h1.title {
 
 div.descriptionText {
     font-size: 40px;
-    padding-top: 350px;
+    padding-top: 200px;
 }
 
 
@@ -247,13 +243,14 @@ h1.title {
 
 
 div.descriptionText {
-    font-size: 50px;
-    padding-top: 350px;
+    font-size: 55px;
+    padding-top: 200px;
 }
 
 
 .description {
-    padding-top: 50px;
+    padding-top: 80px;
+    padding-bottom: 60px;
     
 } 
 

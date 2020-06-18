@@ -36,7 +36,7 @@ class NewItemBrand extends Component {
         <input 
         type="text" 
         name="brandName" 
-        className="skinBackground blakc search" id= "custom-brand-name"
+        className="skinBackground black search" id= "custom-brand-name"
         defaultValue= {brand}
         onChange = {buildHandleKeyUp((value) => {
           this.setState(
