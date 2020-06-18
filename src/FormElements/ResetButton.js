@@ -13,8 +13,8 @@ class ResetButton extends Component {
 
     
     return (
-      <button className= "tooltip iconButtons cloudBlueBackground">
-          <i className ="fas fa-undo"
+      <button className= "tooltip iconButtons">
+          <i className ="fas fa-undo black"
             type = "reset"
             
             ><span className = "tooltiptext primaryFont white">reset</span></i>
