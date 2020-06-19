@@ -4,7 +4,8 @@ table {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid  rgba(173, 192, 217)
+    border-top: 1px solid  rgba(173, 192, 217);
+   
 }
    
 th {
@@ -20,17 +21,21 @@ th, td {
      border: 1px;
      text-align: left;
      transition: 0.3s;
+     
 }
 
 th {
-     font-size: 12px;
+     font-size: 13px;
      padding-left: 17px;
+    
      
      
 }
 
 td {
-     font-size: 13px;
+     font-size: 18px;
+     width: 50%;
+     
 
 }
 
@@ -42,12 +47,13 @@ td {
 td {
      border-bottom: 1px solid rgba(242, 230, 223);
      border-left: 1px solid white;
-     border-right: 1px solid white;
+    
   
 }
 
 .itemH {
-     font-size: 14px;
+     font-size: 15px;
+    
 
 
 }
@@ -108,36 +114,27 @@ td {
      font-size: 22px; 
      transition: 0.3s;
 }
-   
-.resultsButtons {
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    padding: 4%;
-}
-   
+
 .content {
     padding-top: 200px;
 }
 
-
- 
- .delete:hover {
+.delete:hover {
      background-color: rgba( 191, 4, 4); 
      zoom:0.9;
      text-align: center;
- }
+}
  
- td.delete {
+td.delete {
       text-align: center;    
- }
+}
  
- input.delete {
+input.delete {
      text-align: center;
      width: 20px;
      height: 20px;
      background-color: rgba( 191, 4, 4); 
- }
+}
   
  
 
@@ -217,9 +214,13 @@ input.add {
 
 
 .mobileHide{
-     display: none
+     display: none;
+     padding: 0;
+    
 }
 
+
+ 
 
 
 }
@@ -236,6 +237,14 @@ input.add {
 
 .mobileOnly{
      display: none
+}
+
+
+
+.mobileFixed{
+     display: fixed;
+     top: 0;
+     z-index: 600;
 }
 
 
@@ -283,9 +292,23 @@ td {
 
 @media only screen and (min-width: 768px) {
 
-    
+
+
+.mobileFixed{
+     display: fixed;
+     top: 0;
+}
+          
 td, th {
 font-size: 16px;
+
+}
+
+
+
+td {
+   width: 20%;
+     
 
 }
 
@@ -341,13 +364,13 @@ font-size: 16px;
 
     
 td, th {
-font-size: 16px;
+font-size: 17px;
 
 }
 
 
 .itemH {
-     font-size: 17px;
+     font-size: 18px;
 
 }
 
@@ -387,7 +410,7 @@ th.date, tr.date  {
 
 
 .imageH:hover {
-     zoom: 500%;
+     zoom: 200%;
 }
 
 
@@ -407,13 +430,13 @@ th.date, tr.date  {
 
 
 td, th {
-     font-size: 22px;
+     font-size: 20px;
 
 }
 
 
 .itemH {
-     font-size: 23px;
+     font-size: 21px;
 
 }
 
@@ -448,63 +471,10 @@ td, th {
 
 
 .tableImage {
-     width: 90px;   
+     width: 85px;   
 }
 
 
-          
-}
-
-
-
-
-@media only screen and (min-width: 1367px) {
-
-
-td, th {
-     font-size: 25px;
-
-}
-
-
-.itemH {
-     font-size: 28px;
-
-}
-
-.imageH {
-     width: 5%;
-}
-
-
-.servingH, .weightH, .unitH {
-     width: 6%;
-} 
-
-
-.caloriesH, .calG {
-     width: 20%;
-} 
-
-
-.addH, .date, .type, .traveler, .delete {
-     width: 1%;
-}
-
-.itemH {
-     width: 25%;
-}
-
-
-.brandH {
-     width: 20%;
-}
-
-
-
-.tableImage {
-     width: 100px;   
-}
 
 }
 
@@ -516,18 +486,18 @@ td, th {
 
 
 td, th {
-     font-size: 40px;
+     font-size: 35px;
 
 }
 
 
 .itemH {
-     font-size: 43px;
+     font-size: 38px;
 
 }
 
 .tableImage {
-     width: 160px;   
+     width: 120px;   
 }
 
 }

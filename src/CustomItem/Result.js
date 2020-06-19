@@ -32,7 +32,7 @@ class Result extends Component {
 
 
     return (
-           <div className="redBackground white dataResult">
+           <div className="white dataResult total bold">
                    {isNaN(result)? placeholder() : (formatedResult)}
                   </div>
           )}

@@ -1,26 +1,16 @@
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
-
 import BackButton from "../FormElements/BackButton";
 import ForwardButton from "../FormElements/ForwardButton";
-
-
 import { withRouter } from "react-router-dom";
-
-import SaveButton from "../FormElements/SaveButton";
+import GoButton from "../FormElements/GoButton";
 import ResetButton from "../FormElements/ResetButton";
 import ServUnit from "../CustomItem/ServUnit";
 import UnitQuant from "../CustomItem/UnitQuant";
 import WeightQuant from "../CustomItem/WeightQuant";
 import CalsQuant from "../CustomItem/CalsQuant";
-
 import Result from "../CustomItem/Result";
-
-
-
-
-
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
 import { NavLink } from "react-router-dom";
@@ -40,19 +30,14 @@ import { DEFAULTITEM } from "../Defaults";
 class ItemAdjust extends Component {
   static defaultProps = {
     item:  DEFAULTITEM,
-    selectedTrip: [],
     serving_unit: "",
     calsPerServing: null,
-    serving_qty: null,
-    serving_weight_grams: null,
     packItems: {},
     name: "",
     selectedTripId: "",
     selectedTrip: {},
     id: "",
     serving_qty: null,
-    item: {},
-    serving_unit: "",
     serving_weight_grams: null,
     tripDay: "2000-01-02T01:01:01.001Z",
     type: "",
@@ -76,7 +61,7 @@ class ItemAdjust extends Component {
       serving_qty: item.serving_qty,
       serving_unit: item.serving_unit,
       calsPerServing: item.calsPerServing,
-      serving_weight_grams: item. serving_weight_grams,
+      serving_weight_grams: item.serving_weight_grams,
       tripId: selectedTrip[0].id,
       trip_dates:  selectedTrip[0].trip_dates,
       tripDay: item.tripDay === undefined ? selectedTrip[0].trip_dates[0] : item.tripDay,
@@ -172,9 +157,7 @@ class ItemAdjust extends Component {
   render() {
 
 
-    const moment= require('moment') 
-
-    const onSubmitForm = (e) => {
+     const onSubmitForm = (e) => {
       const newId =  uuidv4()
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
@@ -247,11 +230,11 @@ class ItemAdjust extends Component {
             />
             </div>
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text} <span className="iconButtonContainer white">
-            <SaveButton /></span></h2>
+          <h2 className="montebello white">{text}  <GoButton /></h2>
+           
       <div className= "white primaryFont"></div>
   
-  <div>
+      <div>
             <div className = "newI">
             <div className="newItems">
               <NewItemName
@@ -283,7 +266,7 @@ class ItemAdjust extends Component {
                     className="labelWidth white"
                   ><i class="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
                   </label>
-                  <p className="dataInput">
+                  <div className="dataInput">
                     <UnitQuant
                     input = {quant}
                     handleAdjustQuant = {(inputValue) =>
@@ -291,7 +274,7 @@ class ItemAdjust extends Component {
                     }
 
                     />
-                  </p>
+                  </div>
                 </div>
 
                 <div className="inputBox">
@@ -300,7 +283,7 @@ class ItemAdjust extends Component {
                     className="labelWidth white"
                   ><i className ="fas fa-ruler-vertical white mobileHide"></i>&nbsp;Serving unit
                   </label>
-                  <p className="textInput">
+                  <div className="textInput">
                     <ServUnit
                     id = {id}
                     input = {unit}
@@ -309,7 +292,7 @@ class ItemAdjust extends Component {
                     }
 
                     />
-                  </p>
+                  </div>
                 </div>
 
                 <div className="inputBox">
@@ -318,7 +301,7 @@ class ItemAdjust extends Component {
                     className="labelWidth white"
                   > <i class="fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
                   </label>
-                  <p className="dataInput">
+                  <div className="dataInput">
                   <WeightQuant
                     input = {weight}
                     id = {id}
@@ -326,7 +309,7 @@ class ItemAdjust extends Component {
                     this.adjustWeight(inputValue, id)
                   }
                   />
-                  </p>
+                  </div>
 
                 </div>
 
@@ -352,36 +335,38 @@ class ItemAdjust extends Component {
 
               <div className="resultsContainer">
                 <div className="resultBox">
-                <i className ="fas fa-hiking white mobileHide">
-        </i>
+               
                   <label
                     htmlFor="custom-item-total-weight"
                     className="labelWidth white"
-                  >
-                    Total Weight
+                  > <i className ="fas fa-hiking white mobileHide">
+                  </i>&nbsp;
+                  <strong>Total Weight</strong>
                   </label>
-                  <div>
+                  <div className="cellBox redBackground">
                     <Result
                     result =
                     {stateWeightnf}
                     placeholder = {totalWeightnf}/>
-                  </div>
+                    </div>
+               
                 </div>
 
                 <div className="resultBox">
-                <i class="fas fa-fire-alt white mobileHide"></i>
+               
                   <label
                     htmlFor="custom-item-total-cal"
                     className="labelWidth white"
-                  >
-                    Total Calories
+                  > <i class="fas fa-fire-alt white mobileHide"></i>&nbsp;
+                    <strong>Total Calories</strong>
                   </label>
-                  <div>
+                  <div className="cellBox redBackground">
+               
                     <Result
                     result = {stateCalsnf} 
                     placeholder = {totalCalnf}
                     />
-                    </div>
+                      </div>
                 </div>
               </div>
             </div>
@@ -431,6 +416,9 @@ class ItemAdjust extends Component {
                 />
              </div>
           </div>
+          <div className = "mobileOnly">
+          <GoButton/>
+        </div>
         </form>
       </section>
     );

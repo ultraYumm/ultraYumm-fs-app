@@ -80,7 +80,7 @@ class SearchResults extends Component {
 
     const commonCalsPerS = () => {
       var results = nutrients.map((nutrient) => {
-        var data = nutrient.filter((item) => item.attr_id == 208);
+        var data = nutrient.filter((item) => item.attr_id === 208);
         return data;
       });
       return results;
@@ -134,18 +134,20 @@ class SearchResults extends Component {
         </div> 
        
         </div>
-          <h2 className="montebello searchResultsTitle black sticky">
+          <h2 className="montebello searchResultsTitle black">
             {" "}
             See your highest energy results!
           </h2>
-        </div>
+        </div> 
 
         <div className="iconButtonContainer">
           <PrintButton />
+          <span className= "mobileHide">
           <SaveButton />
+          </span>
         </div>
         
-          <div className="filterButtonContainer moreContainer sticky">
+          <div className="filterButtonContainer moreContainer">
             <NavLink to={`/add-custom`}
            >
               <AddCustomButton />
@@ -158,7 +160,7 @@ class SearchResults extends Component {
           </div>
           <table id="search-results" className="primaryFont desk">
             <tbody>
-              <tr className="blueBackground white sticky">
+              <tr className="blueBackground white">
                 <ImageHeader/>
                 <ItemHeader/>
                 <BrandHeader/>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import './FormElements.css';
+import '../Tables/Tables.css';
 
 
 

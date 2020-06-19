@@ -257,7 +257,7 @@ ul {
 @media only screen and (min-width: 768px) {
 
   h2 {
-    font-size: 35px;
+    font-size: 30px;
     
   }
 
@@ -279,6 +279,9 @@ ul {
   }
 
 
+
+
+
     
   }
 
@@ -293,7 +296,7 @@ ul {
 
 
   h2 {
-    font-size: 40px;
+    font-size: 30px;
     
   }
 
@@ -308,7 +311,12 @@ ul {
   ul, li, label {
     font-size: 30px;
   }
-    
+   
+
+  label {
+    font-size: 30px;
+  }
+
   }
 
 
@@ -319,7 +327,8 @@ ul {
   
 
   h2 {
-    font-size: 50px;
+    font-size: 40px;
+    padding-top: 50px
     
   }
 

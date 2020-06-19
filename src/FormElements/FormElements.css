@@ -29,7 +29,8 @@ form, section {
     text-align: center;
     margin: 1%;
     border-radius: 10px;
-    padding: 0;
+    padding: 1px;
+
 }
 
 section {
@@ -73,6 +74,7 @@ section {
     top: 0;
 }
 
+
 label {
     font-family: 'Poppins', sans-serif;
     padding-left: 5px;
@@ -84,8 +86,8 @@ label {
 .labelWidth, .labelWidthPlan {
    width: 80%;
    display: inline-block;
-   font-size: 12px;
-   text-align: left;
+   font-size: 13px;
+   text-align: center;
    padding-bottom: 4px;
    padding-left: 5px;
 }
@@ -99,7 +101,7 @@ label {
 
 input {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 10px;
     padding: 1%;
     border: 1px solid white;
@@ -123,11 +125,6 @@ input:hover, input:active, input[type="text"]:hover, input[type="search"]:hover,
     border: 2px solid rgba(3, 52, 115);
 }
   
-input[type="text"], input[type="url"] {
-    width: 80%;
-
-}
-
 
 input[type="text"], input[type="search"], input[type="url"]{
     border: 1px solid rgba(191, 4, 4);
@@ -136,14 +133,14 @@ input[type="text"], input[type="search"], input[type="url"]{
 
 
 
-input[name="unit"], input[name="quantInput"]  {
-    width: 85%;
+input[name="unit"], input[name="quantInput"], input[type="text"], input[type="url"]   {
+    width: 80%;
 }
 
 
 input[type="number"]{
     width: 100%;
-    font-size: 12px;
+    font-size: 16px;
     height: 50px;
     text-align: center;
     background-color: rgba(173, 192, 217);
@@ -153,12 +150,14 @@ input[type="number"]{
 .error {
     font-size: 10px;
 }
+
+
 button[type="submit"], button[type="reset"]{
-   width: 40%;
+   width: 60%;
 }
   
 button {
-    font-size: 14px;
+    font-size: 20px;
     height: 30px;
     border-radius: 20px;
     transition: 0.1s;
@@ -179,7 +178,6 @@ button:hover {
     max-width: 200px;
     border-radius: 5px;
     padding: 1px;
-    
     padding-top: 5px;
     margin-bottom: 2px;
     transition: 0.1s;
@@ -204,9 +202,9 @@ button:hover {
 
 
 .iconButtonsContainer {
- text-align: center;
- width: 95%;
- position: relative;
+    text-align: center;
+    width: 95%;
+    position: relative;
 
 }
 
@@ -235,6 +233,15 @@ button:hover {
     zoom: 1.2;
 }
 
+   
+.resultsButtons {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 4%;
+}
+   
+
 .forward {
     text-align: right;
     display: inline-block;
@@ -253,8 +260,8 @@ button:hover {
 }
 
 .super {
- zoom: 1.8;
- margin-left: -5px
+    zoom: 1.8;
+    margin-left: -5px
 }
 
 
@@ -283,7 +290,7 @@ button[type="button"]{
 
 
 .reset, .moreButton, .filter {
-    width: 95px;
+    width: 120px;
 }
 
 
@@ -317,7 +324,6 @@ button[type="button"]{
 }
 
 
-
 .go {
    margin-right: 0;
    margin-left: 0;
@@ -345,7 +351,6 @@ button[type="button"]{
     visibility: visible;
 }    
   
-
 
 .scroll {
     height: 85px;
@@ -395,7 +400,7 @@ button[type="button"]{
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 13px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -503,25 +508,52 @@ svg {
     font-size: 10px;
 }
 
-.inputBox, .resultBox{
-    margin-left: auto;
+.inputBox {
+    left: 0;
+    right: 0;
     width: 25%;
     display: inline-block;
     padding-bottom: 5px;
     padding-top: 5px;
+    text-align: center;
+
     
+}
+
+.resultBox {
+    width: 30%;
+   
+}
+
+.cellBox {
+
+    text-align: center;
+    padding-left: 50%;
+    
+}
+
+.resultsContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.total {
+    display: table-cell;
+    vertical-align: middle;
+    height: 30px;
+    text-align: center
+  
+
 }
 
 .dataInput, .textInput {
     height: 50px;
 }
 
-.dataResult {
-    height: 70px;
-    border-radius: 5px;
-}
 
-.dataInput, .dataResult, .textInput {
+.dataInput, .textInput {
     width: 60%;
     display: inline-block;
     /*padding-left: 20px;*/
@@ -529,7 +561,10 @@ svg {
     border-radius: 10%;
     vertical-align: middle;
     z-index: 1;
+    
 }
+
+
 
 
 .textInput {
@@ -572,35 +607,54 @@ svg {
 }
 
 button[type="button"]{
-    font: 10px;
+    font: 14px;
 }
 
 
 .forward {
-    
     size: 20%;
     margin-left: 100px  
    
 }
 
 
-
-.back {
-   
+.back {   
     size: 10%
     
 }
 
 
-.newItems {
+div.newI, div.inputBox {
     width: 100%;
    
 }
 
+.labelWidth, .labelWidthPlan {
+    text-align: center;
+    width: 90%
+}
+
+input.dataResult {
+    width: 75%
+}
+
+input.servingUnit {
+    width: 50%
+}
+
+
+
+div.newI, div.calcBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%
 
     
-    
 }
+
+
 
 
 
@@ -608,13 +662,13 @@ button[type="button"]{
 @media only screen and (min-width: 666px) {
 
 button {
-    height: 80px;
+    height: 60px;
 
 }
 
 .reset, .moreButton, .filter {
-    font-size: 12px;
-    width: 20%
+    font-size: 14px;
+    width: 30%
 
 }
 text {
@@ -623,7 +677,7 @@ text {
 
 button[type="button"]{
     height: 4px;
-    font: 12px;
+    font: 14px;
 }
 
 
@@ -644,6 +698,12 @@ button[type="button"]{
 }
 
 
+.labelWidth, .labelWidthPlan {
+   width: 80%
+}
+
+
+}
 
 
 
@@ -651,6 +711,11 @@ button[type="button"]{
 }
 @media only screen and (min-width: 768px) {
 
+
+
+button[type="submit"], button[type="reset"]{
+        width: 40%;
+ }
 
 .newI {
 
@@ -665,11 +730,6 @@ button[type="button"]{
 }
 
 
-h2 {
-    font-size: 30px;
-}
-
-
 
 .forward {
     
@@ -677,15 +737,11 @@ h2 {
    
 }
 
-label {
-    font-size: 18px;
-}
-
-
 
 .labelContainer {
     font-size: 15px;
 }
+
 
 
 button {
@@ -697,7 +753,7 @@ button {
 
 .iconButtons {
 
-    zoom: 3;
+    zoom: 1.5;
  
 }
 
@@ -718,25 +774,29 @@ button {
 
 }
 
+
+.reset, .moreButton, .filter {
+    font-size: 20px;
+    width: 30%
+
+}
+
 }
 
 @media only screen and (min-width: 1000px) {
 
 
 
-h2 {
-    font-size: 30px;
-}
-
-
-label {
-    font-size: 30px;
-}
-
 button {
     font-size: 30px;
     height: 50px;
     
+}
+
+
+
+button[type="submit"], button[type="reset"]{
+    width: 30%;
 }
 
 
@@ -762,13 +822,35 @@ button {
     margin-left: -50px;
 }
 
-input[type="number"], input[type="text"], input[type="date"], input[type="url"],  input[type="submit"].dataResult{
+input[type="number"], input[type="text"], input[type="date"], input[type="url"],  input[type="submit"], .dataResult{
     font-size: 20px;
     
 }
 
+
+nput[type="text"], input[type="date"], input[type="url"] {
+    width: 250px
+        
+
+}
+
+
+input[type="date"] {
+    width: 150px
+}
+
+
+
+.resultsContainer {
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
 .iconButtons {
-    zoom: 3.7;
+    zoom: 1.5;
     
    }
 
@@ -782,19 +864,34 @@ input[type="number"], input[type="text"], input[type="date"], input[type="url"],
     margin-left: 400px  
    
 }
+
+
+.resultBox {
+    width: 25%;
+   
+}
+
+
 }
 
 
 
 @media only screen and (min-width: 1366px) {
-   
-.searchTerm {
-    margin-right: 30px;
-}    
+
+
+
+input.dataResult {
+    width: 35%
+}
+
+
+input[type= "text"].servingUnit {
+    width: 50%
+}
 
 
 div.labelWidthPlan {
-    width: 30%;
+    width: 20%;
     display: inline-block;
     text-align: center;
 
@@ -804,6 +901,7 @@ div.labelWidthPlan {
 .newI {
 
     display: flex;
+    flex-wrap: wrap;
 }
 
 .newItems {
@@ -816,24 +914,13 @@ div.labelWidthPlan {
 
 
 div.labelWidthDates {
-    width: 30%;
+    width: 20%;
     display: inline-block;
     text-align: center;
 
 
 }
     
-    
-
-h2 {
-    font-size: 50px;
-    padding-top: 50px
-}
-
-
-label {
-    font-size: 35px;
-}
 
 button {
     font-size: 35px;
@@ -842,13 +929,14 @@ button {
 }
 
 
-.labelContainer {
-    font-size: 23px;
+.labelWidthPlan, .labelWidth, .dataResult{
+    font-size: 30px;
 }
 
 
-.labelWidthPlan, .labelWidth{
-    font-size: 30px;
+
+.labelWidth {
+    padding-top: 30px;
 }
 
 
@@ -859,11 +947,6 @@ button {
     
 }
 
-.labelWidthPlan, .labelWidth{
-    font-size: 30px;
-}
-
-    
 input[type="number"], input[type="text"], input[type="date"], input[type="url"], input[type="submit"].dataResult{
     font-size: 25px;
     
@@ -882,21 +965,24 @@ input[type="number"], input[type="text"], input[type="date"], input[type="url"],
    
 }
 
-     
 input[type="text"], input[type="date"], input[type="url"] {
-width: 500px
-    
+    width: 300px
+        
+
+}
+
+
+ 
+input[type="date"] {
+    width: 200px
+        
+
 }
 
 form {
     padding-bottom: 20px;
 }
 
-
-
-.labelWidth {
-    padding-top: 30px;
-}
 
 
 
@@ -945,6 +1031,8 @@ form {
 
 }
 
+
+
     
 }
         
@@ -955,9 +1043,6 @@ form {
         font-size: 45px;
     }
     
-
-
-
     
 
 ul, li, label {
@@ -970,9 +1055,26 @@ ul, li, label {
 }
 
 input[type="number"], input[type="text"], input[type="date"], input[type="url"], .dataResult{
-    font-size: 40px;
+    font-size: 30px;
     
 }
+
+
+ 
+input[type="text"], input[type="date"], input[type="url"] {
+    width: 550px
+        
+
+}
+
+
+ 
+input[type="date"] {
+    width: 300px
+        
+
+}
+
 
 .dataResult {
     width: 30%
@@ -992,7 +1094,7 @@ input[type="submit"] {
 
 .iconButtons {
     width: 6%;
-    zoom: 4;
+    zoom: 2;
     
     
 }
@@ -1049,24 +1151,23 @@ label.labelContainer {
    
 }
 
-h2 {
-
-    font-size: 100px;
-}
-
-
 
 button {
-    font-size: 50px;
-    height: 100px;
+    font-size: 45px;
+    height: 85px;
     
 }
 
-
+.resultBox {
+    width: 20%;
+   
+}
 
 
 
 }
+
+
 
  
 

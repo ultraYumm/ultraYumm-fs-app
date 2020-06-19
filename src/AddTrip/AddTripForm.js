@@ -55,7 +55,7 @@ class AddTripForm extends Component {
    const startDate = this.state.startDate
    const endDate = this.state.endDate
 
-   if (moment(endDate).isBefore(moment(startDate)) == true)
+   if (moment(endDate).isBefore(moment(startDate)) === true)
    {this.props.routerProps.history.push("/")
 }
    else this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates) ||
@@ -88,7 +88,7 @@ class AddTripForm extends Component {
         const endDate = this.state.endDate
       
         try {
-        if (moment(endDate).isBefore(moment(startDate)) == true)
+        if (moment(endDate).isBefore(moment(startDate)) === true)
           throw "hmmm...end date should be later than current date"
         }
         catch(err) {
