@@ -32,7 +32,7 @@ class NewItemBrand extends Component {
     return (
 
      <div>
-        <label htmlFor= "custom-brand-name" className= "labelWidth white"><i class="fas fa-tag white"></i>Brand </label>
+        <label htmlFor= "custom-brand-name" className= "labelWidth white"><i className ="fas fa-tag white"></i>Brand </label>
         <input 
         type="text" 
         name="brandName" 

@@ -13,7 +13,7 @@ class TripName extends Component {
     const tripName = selectedTrip[0].name
   
     return (
-        <div className>{tripName}</div>
+        <div>{tripName}</div>
    )}
   
 }

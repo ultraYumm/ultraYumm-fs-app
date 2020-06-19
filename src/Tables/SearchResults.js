@@ -225,13 +225,16 @@ class SearchResults extends Component {
           
 
          ( 
-         <tbody>
-           <tr className = "mobile" key={item.id}>
+         <tbody  key={item.id}>
+           <tr className = "mobile">
             <ItemImage image = {item.image}/>
            </tr>
            
-           <tr>   
-           <td className="itemH">
+
+          
+           <tr className="itemH">
+           <ItemHeader/>
+
                     <NavLink
                      className = "noDeco"
                       to={`/item/${item.nameId}`}
@@ -245,8 +248,8 @@ class SearchResults extends Component {
                       item = {item}
                       handleSelectedItem = {this.props.handleSelectedItem}/>
                     </NavLink>
-                  </td>
-          </tr>
+                  </tr>
+     
           
           <BrandHeader/>
                     <ItemBrand

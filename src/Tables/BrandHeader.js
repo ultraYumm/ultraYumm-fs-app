@@ -14,7 +14,7 @@ class BrandHeader extends Component {
 
     return (
         
-        <th className="brandH"><i class="fas fa-tag"></i></th>
+        <th className="brandH"><i className ="fas fa-tag"></i></th>
     )
 }
 }

@@ -282,13 +282,14 @@ class TripResults extends Component {
 
           <table id="results-filtered" className="primaryFont whiteBackground mobileOnly">
           {results.map((item, key) => (
-          <tbody>
-            <tr className = "mobile" key={item.id}>
+          <tbody key={item.id}>
+            <tr className = "mobile" >
             <ItemImage image = {item.image}/>
             </tr>
 
-            <tr>   
-            <td className="itemH">
+              
+            <tr className="itemH">
+              <ItemHeader/>
                       <NavLink
                       className = "noDeco"
                         to={`/trip-item/${item.id}`}
@@ -302,7 +303,6 @@ class TripResults extends Component {
                         item = {item}
                         handleSelectedItem = {this.props.handleSelectedItem}/>
                       </NavLink>
-            </td>
             </tr>
 
             <BrandHeader/>

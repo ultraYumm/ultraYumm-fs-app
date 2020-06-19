@@ -10,8 +10,7 @@ import { NavLink } from "react-router-dom";
 
 class HomePage extends Component {
   render() {
-    const handleResults = this.props.handleResults;
-
+    
    
     return (
       <div className="home">

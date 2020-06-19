@@ -52,7 +52,8 @@ td {
 }
 
 .itemH {
-     font-size: 15px;
+     font-size: 18px;
+     font-weight: bold;
     
 
 
@@ -259,12 +260,12 @@ td, th {
 }
 
 td {
-     height: 15px;
+     height: 18px;
 } 
 
 
 .itemH {
-     font-size: 16px;
+     font-size: 18px;
 
 }
 
@@ -300,7 +301,7 @@ td {
 }
           
 td, th {
-font-size: 16px;
+font-size: 18px;
 
 }
 
@@ -314,7 +315,7 @@ td {
 
 
 .itemH {
-     font-size: 17px;
+     font-size: 18px;
 
 }
 
@@ -364,13 +365,13 @@ td {
 
     
 td, th {
-font-size: 17px;
+font-size: 19px;
 
 }
 
 
 .itemH {
-     font-size: 18px;
+     font-size: 19px;
 
 }
 
@@ -436,7 +437,7 @@ td, th {
 
 
 .itemH {
-     font-size: 21px;
+     font-size: 20px;
 
 }
 
@@ -486,13 +487,13 @@ td, th {
 
 
 td, th {
-     font-size: 35px;
+     font-size: 25px;
 
 }
 
 
 .itemH {
-     font-size: 38px;
+     font-size: 25px;
 
 }
 

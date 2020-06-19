@@ -264,7 +264,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor="custom-item-quantity"
                     className="labelWidth white"
-                  ><i class="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
+                  ><i className ="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
                   </label>
                   <div className="dataInput">
                     <UnitQuant
@@ -299,7 +299,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor="custom-item-weight"
                     className="labelWidth white"
-                  > <i class="fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
+                  > <i className ="fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
                   </label>
                   <div className="dataInput">
                   <WeightQuant
@@ -317,7 +317,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor="custom-item-calories"
                     className="labelWidth white"
-                  ><i class="fas fa-fire-alt white mobileHide"></i>&nbsp;Calories per serving
+                  ><i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;Calories per serving
                   </label>
                   <div className="dataInput">
                   <CalsQuant
@@ -357,7 +357,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor="custom-item-total-cal"
                     className="labelWidth white"
-                  > <i class="fas fa-fire-alt white mobileHide"></i>&nbsp;
+                  > <i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;
                     <strong>Total Calories</strong>
                   </label>
                   <div className="cellBox redBackground">
@@ -376,7 +376,7 @@ class ItemAdjust extends Component {
         
           <div className= "filterSelection"> 
     
-              <h3 className="filterCategory"><i class="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>       
+              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>       
                 <TripNames 
                 trips={trips}
                 handleSelectTrip={(selectedTrip, tripId) =>
@@ -398,7 +398,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i class="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
                 handleSelectType={(selectedType) =>
@@ -408,7 +408,7 @@ class ItemAdjust extends Component {
              </div>
 
              <div className="filterSelection">
-              <h3 className="filterCategory">  <i class="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
+              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
                 <TripTravelers tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)

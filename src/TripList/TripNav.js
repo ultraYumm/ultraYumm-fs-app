@@ -22,7 +22,7 @@ static contextType = UltraContext;
     return (
       <section className = "tripSection">
        
-       <h2 className= "montebello"><i class="fas fa-shoe-prints"></i> My trips!</h2>
+       <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
           <div className = "tripContainer">
           <ul className= "trips blueBackground">
             

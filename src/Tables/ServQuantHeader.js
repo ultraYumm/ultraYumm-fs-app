@@ -14,7 +14,7 @@ class ServQuantHeader extends Component {
     return (
         
         <th className="servingH">
-        <i class="fas fa-coins"></i>
+        <i className ="fas fa-coins"></i>
       </th>
     )
 }

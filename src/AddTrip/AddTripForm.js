@@ -14,8 +14,8 @@ class AddTripForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          startDate: "",
-          endDate: ""
+          startDate: null,
+          endDate: null
         }
       }
       
@@ -99,9 +99,9 @@ class AddTripForm extends Component {
 
     return (
         <form onSubmit={onSubmitForm}>
-         <h2 className = "white"><i class="fas fa-shoe-prints"></i> Plan a trip!</h2>
+         <h2 className = "white"><i className ="fas fa-shoe-prints"></i> Plan a trip!</h2>
             <div className= "labelWidthPlan">
-                <label htmlFor= "new-trip-name"><i class="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
+                <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
                     <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name" placeholder="Escalante" required/>
                 </label>
             </div>
@@ -109,13 +109,13 @@ class AddTripForm extends Component {
             
 
             <div className= "labelWidthPlan">
-                 <label htmlFor= "traveler-name"><i class="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
+                 <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
                 </label>
             </div>
 
             <div className= "labelWidthPlan">
-                 <label htmlFor= "map-link"><i class="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
+                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
                 </label>
             </div>
@@ -150,10 +150,6 @@ class AddTripForm extends Component {
   
 }
 
-AddTripForm.propTypes = {
-    startDate: "",
-    endDate: ""
-}
 
 
 export default withRouter(AddTripForm)

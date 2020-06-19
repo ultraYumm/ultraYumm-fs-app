@@ -13,7 +13,7 @@ class TotalCalsPhgHeader extends Component {
 
     return (
         
-        <th className="caloriesH"><i class="fab fa-superpowers super"></i></th>
+        <th className="caloriesH"><i className ="fab fa-superpowers super"></i></th>
     )
 }
 }
