@@ -98,23 +98,26 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.props.selectedTrip;
-    console.log(selectedTrip)
-    const tripDates = selectedTrip[0].trip_dates
-    const tripTravelers = selectedTrip[0].traveler_names
+  
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
+
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
+
+
     const fixedCalPerUnitArray = tripItems.map((items) => items.calsPerServing);
+
     const selectServingQuantArray = selectedTripItems
       .map((items) => items.serving_qty)
       .sort();
+
     const fixedServingWeightArray = tripItems.map(
       (items) => items.serving_weight_grams
     );
-    const itemTypes = this.props.itemTypes;
+   
     const results = selectedTripItems.map((item, i) => {
     const food_name = food_nameArray[i];
     const image = imageArray[i];
@@ -135,40 +138,18 @@ class TripResults extends Component {
       return resultsObject;
     });
 
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    const sumCalsPerServing = () => {
-      if (fixedCalPerUnitArray.length === 0) {
-        const defaultResult = 0;
-        return defaultResult;
-      }
-      return fixedCalPerUnitArray.reduce(reducer);
-    };
-    const sumWeightsPerServing = () => {
-      if (fixedServingWeightArray.length === 0) {
-        const defaultResult = 1;
-        return defaultResult;
-      }
-      return fixedServingWeightArray.reduce(reducer);
-    };
-    const sumServings = () => {
-      if (selectServingQuantArray.length === 0) {
-        const defaultResult = 1;
-        return defaultResult;
-      }
+    const sum_CalServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * selectServingQuantArray[i]), 0)
 
-      return selectServingQuantArray.reduce(reducer);
-    };
+    const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
 
-    const totalCals = sumCalsPerServing() * sumServings();
-    const totalWeightKg = (sumWeightsPerServing() * sumServings()) / 1000;
 
     return (
       <section className="lightBlueBackground">      
        
         <div className = "lightBlueBackground sticky">
            <div className="charts sticky cloudBlueBackground">
-          <TripCalorieGraph cals={totalCals}/>
-          <TripPackGraph weight={totalWeightKg}/>
+          <TripCalorieGraph cals={sum_CalServProducts}/>
+          <TripPackGraph weight={sum_WeightServProducts}/>
           </div>
         
           <div className = "iconButtonContainer sticky">

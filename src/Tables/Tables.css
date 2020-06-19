@@ -325,13 +325,13 @@ td {
 }
 
 
-.servingH, .weightH, .unitH {
+.servingH, .unitH {
      width: 6%;
 } 
 
 
-.caloriesH, .calG {
-     width: 20%;
+.caloriesH, .calG, .weightH {
+     width: 13%;
 } 
 
 
@@ -387,13 +387,13 @@ font-size: 19px;
 }
 
 
-.servingH, .weightH, .unitH {
+.servingH, .unitH {
      width: 6%;
 } 
 
 
-.caloriesH, .calG {
-     width: 20%;
+.caloriesH, .calG, .weightH {
+     width: 1%;
 } 
 
 
@@ -459,13 +459,13 @@ td, th {
 }
 
 
-.servingH, .weightH, .unitH {
+.servingH, .unitH {
      width: 6%;
 } 
 
 
-.caloriesH, .calG {
-     width: 20%;
+.caloriesH, .calG .weightH {
+     width: 13%;
 } 
 
 
