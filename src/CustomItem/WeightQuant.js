@@ -47,4 +47,3 @@ class WeightQuant extends Component {
   
 
 export default WeightQuant
-
