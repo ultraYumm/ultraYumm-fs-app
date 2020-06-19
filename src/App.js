@@ -11,6 +11,7 @@ import SearchForm from "./Search/SearchForm";
 import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
 
+
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 
 
@@ -28,10 +29,37 @@ class App extends Component {
       item: DEFAULTITEM,
       selectTripItem: [],
       items: ITEMS,
-      trips: TRIPS,
+      trips: [],
       packItems: PACKITEMS
       
     };
+  }
+
+  handleGetTrips(e) {
+    e.preventDefault();
+    const baseUrl = 'http://localhost:8000/my-trips';
+    const url = baseUrl
+
+    fetch(url)
+      .then(res => {
+        if(!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data)
+        this.setState({
+          trips: data,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get trips at this time.'
+        });
+      })
+
   }
 
   updateSearchTerm = (searchTerm) => {
@@ -125,12 +153,6 @@ class App extends Component {
 
    
 
-
-
-
-    
-
-    
     const trips = this.state.trips
     const items = this.state.items
 
@@ -139,7 +161,7 @@ class App extends Component {
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
 
     const packItems = this.state.packItems
-    console.log(packItems)
+    console.log(trips)
 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
@@ -161,7 +183,10 @@ class App extends Component {
   
     return (
       <div className="App">
-        <NavBar />
+        <NavBar 
+        getTrips = {e => this.handleGetTrips(e)}
+        
+        />
 
         <Route
           exact

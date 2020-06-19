@@ -16,13 +16,12 @@ class ServingWeight extends Component {
   render() {
       
  const weight = this.props.weight
- const result = this.props.result
- 
+
 
     return (
         <td className="weightH  gram">
          {weight} total gms       
-                  </td>
+     </td>
    )}
   
 }
@@ -30,6 +29,3 @@ class ServingWeight extends Component {
 
 export default ServingWeight
 
-/*<div className = "tableAdjust"><WeightResult
-result = {result}
-/></div>*/

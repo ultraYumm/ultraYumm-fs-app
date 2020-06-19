@@ -8,19 +8,29 @@ import uYhomeLogo from '../Images/uYhomeLogo.png';
 
 
 class NavBar extends Component {
+
+ 
   render() {
+
+    const getTrips = this.props.getTrips
+    
     return (
      <div className= "navContainer">
-         <nav className= "navbar skin noDeco" role= "navigation">
+         <nav className= "navbar skin noDeco" role= "navigation"
+         onClick = {getTrips}
+         
+         >
          <NavLink
          to={`/`}>
           <img className="homeLogo" src={uYhomeLogo} alt= "ultraYumm home button"/>
           </NavLink> 
       
       </nav>
+      <MyTrips
+  
+
       
-      
-      <MyTrips/>   
+      />   
       </div>
     );
   }

@@ -30,7 +30,6 @@ import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
-import { DEFAULTITEM, PACKITEMS } from "../Defaults";
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
