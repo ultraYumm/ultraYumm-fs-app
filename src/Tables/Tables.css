@@ -145,11 +145,12 @@ h2.resultsTitle, div.resultsTitle {
      justify-content: center;
      margin-left: auto;
      margin-right: auto;
-    
+         
 }
 
 .searchResultsTitle {
      text-align: center;
+     margin-top: -20px;
 }
  
 
@@ -357,6 +358,12 @@ td {
 .imageH:hover {
     zoom: 500%;
 }
+
+.resultsTitle {
+     width: 50%;
+     margin-top: -10px;
+    
+}
        
 }
 
@@ -417,8 +424,14 @@ th.date, tr.date  {
 
 
 
+.searchResultsTitle {
+     margin-top: -23px;
+}
+
+
+
 .resultsTitle {
-     width: 50%;
+    margin-top: -12px;
     
 }
           
@@ -477,6 +490,12 @@ td, th {
 
 
 
+.resultsTitle {
+     margin-top: -53px;
+    
+}
+
+
 }
 
 
@@ -499,6 +518,11 @@ td, th {
 
 .tableImage {
      width: 120px;   
+}
+
+
+.searchResultsTitle {
+     margin-top: -93px;
 }
 
 }

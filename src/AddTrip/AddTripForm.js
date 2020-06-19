@@ -118,7 +118,7 @@ class AddTripForm extends Component {
                  <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
                 </label>
-            </div>
+            </div><br></br>
 
             <div className= "labelWidthDates">
                 <label htmlFor= "start-date"><span className= "labelWidthPlan white montebello">Start date</span>

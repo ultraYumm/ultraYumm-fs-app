@@ -110,7 +110,7 @@
 
 @media only screen and (min-width: 768px) {
 .descriptionText {
-    font-size: 20px;
+    font-size: 14px;
     padding-top: 250px;
 }
 
@@ -154,7 +154,7 @@ h1.title {
 
 
 div.descriptionText {
-    font-size: 22px;
+    font-size: 20px;
     padding-top: 180px;
 
 
@@ -191,7 +191,7 @@ h1.title {
 }
 
 div.descriptionText {
-    font-size: 35px;
+    font-size: 28px;
     padding-top: 200px;
 }
 
@@ -237,8 +237,8 @@ h1.title {
 
 
 div.descriptionText {
-    font-size: 50px;
-    padding-top: 200px;
+    font-size: 48px;
+    padding-top: 250px;
 }
 
 
