@@ -39,8 +39,15 @@ class App extends Component {
     e.preventDefault();
     const baseUrl = 'http://localhost:8000/my-trips';
     const url = baseUrl
+    const API_TOKEN = '0cb0cebe-b280-11ea-b3de-0242ac130004'
 
-    fetch(url)
+    
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+      // add other options e.g. method, body, etc...
+    })
       .then(res => {
         if(!res.ok) {
           throw new Error(res.statusText);
