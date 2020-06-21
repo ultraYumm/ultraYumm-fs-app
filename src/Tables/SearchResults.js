@@ -61,6 +61,7 @@ class SearchResults extends Component {
     });
   };
 
+  
 
 
   render() {
@@ -116,11 +117,14 @@ class SearchResults extends Component {
 
     console.log(newBrandCommonArr)
 
+    const getPackItems = this.props.getPackItems
+
     
 
     
     return (
-      <section>
+      <section
+      onMouseOver = {getPackItems}>
             
         <div className = "sticky lightBlueBackground">
        

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { Route, Link } from "react-router-dom";
 import "./App.css";
 import "./Font/Font.css";
@@ -10,6 +9,8 @@ import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
 import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
+import config from "./config";
+import "./FormElements/FormElements.css";
 
 
 import ItemAdjust from "./ItemDetails/ItemAdjust";
@@ -18,6 +19,13 @@ import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
 
 class App extends Component {
+  
+  static defaultProps = {
+    items: ITEMS,
+    trips: TRIPS,
+    packItems: PACKITEMS
+  };
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -28,20 +36,22 @@ class App extends Component {
       selectedItem: DEFAULTITEM,
       item: DEFAULTITEM,
       selectTripItem: [],
-      items: ITEMS,
+      items: [],
       trips: [],
-      packItems: PACKITEMS
-      
+      packItems: [],
     };
   }
 
   handleGetTrips(e) {
     e.preventDefault();
-    const baseUrl = 'http://localhost:8000/my-trips';
-    const url = baseUrl
-    const API_TOKEN = '0cb0cebe-b280-11ea-b3de-0242ac130004'
+    const API = config. API_UY_ENDPOINT   
+    const  endpoint = '/my-trips'
+   
+    const url = API + endpoint;
+    console.log(url)
+    const API_TOKEN = config.API_UY_KEY
 
-    
+   
     fetch(url, {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
@@ -58,6 +68,126 @@ class App extends Component {
         console.log(data)
         this.setState({
           trips: data,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get trips at this time.'
+        });
+      })
+
+  }
+
+
+  handleGetItems(e) {
+    e.preventDefault();
+    const API = config. API_UY_ENDPOINT   
+    const  endpoint = '/items'
+   
+    const url = API + endpoint;
+    console.log(url)
+    const API_TOKEN = config.API_UY_KEY
+
+   
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+      // add other options e.g. method, body, etc...
+    })
+      .then(res => {
+        if(!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data)
+        this.setState({
+          items: data,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get trips at this time.'
+        });
+      })
+
+  }
+
+  componentDidMount() {
+   const API = config. API_UY_ENDPOINT   
+    const  endpointI = '/items'
+    //const  endpointP = '/pack-items'
+    //const  endpointT = 'my-trips'
+   
+    const url = API + endpointI;
+    console.log(url)
+    const API_TOKEN = config.API_UY_KEY
+
+    const urls = [
+      API + endpointI,
+      //API + endpointP,
+      //API + endpointT,
+    ]
+    console.log(urls)
+
+   //Promise.all (urls.map (url =>
+       fetch(url, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+      // add other options e.g. method, body, etc...
+    })
+    //))
+      .then(res => {
+        if(!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data)
+        this.setState({
+          items: data,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: 'Sorry, could not get trips at this time.'
+        });
+      })
+    }
+
+
+  handleGetPackItems(e) {
+    e.preventDefault();
+    const API = config. API_UY_ENDPOINT   
+    const  endpoint = '/pack-items'
+   
+    const url = API + endpoint;
+    const API_TOKEN = config.API_UY_KEY
+
+   
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+      // add other options e.g. method, body, etc...
+    })
+      .then(res => {
+        if(!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log(data)
+        this.setState({
+          packItems: data,
           error: null
         });
       })
@@ -168,7 +298,9 @@ class App extends Component {
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
 
     const packItems = this.state.packItems
+    console.log(items)
     console.log(trips)
+    console.log(packItems)
 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
@@ -192,7 +324,7 @@ class App extends Component {
       <div className="App">
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
-        
+       
         />
 
         <Route
@@ -212,6 +344,7 @@ class App extends Component {
               handleAddTrip={(tripId, iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(tripId, iframe, tripName, tripTravelers, tripDates)
               }
+              getTrips = {e => this.handleGetTrips(e)}
 
             />
           )}
@@ -229,6 +362,7 @@ class App extends Component {
               handleSelectTrip={(selectedTripId, tripName) =>
                 this.selectTrip(selectedTripId, tripName)
               }
+              getPackItems = {e => this.handleGetPackItems(e)}
             />
           )}
         />
@@ -274,6 +408,7 @@ class App extends Component {
               handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
+              getPackItems = {e => this.handleGetPackItems(e)}
             />
           )}
         />
@@ -309,6 +444,9 @@ class App extends Component {
                 }
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
+                
+                getPackItems = {e => this.handleGetPackItems(e)}    
+
               />
             )
           }}
@@ -347,6 +485,8 @@ class App extends Component {
                 handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                   this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
+          
+              getPackItems = {e => this.handleGetPackItems(e)}
 
               />
             )
@@ -387,14 +527,23 @@ class App extends Component {
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
                 }
 
+              
+                getPackItems = {e => this.handleGetPackItems(e)}
+
               />
               )
             }}
           />
-            
+     
       
       </div>
     )
   }
 }
+
 export default App;
+
+/*
+<div className={"loader " + (this.state.fetchSuccess? "hide":"")}>
+<img src="https://i.redd.it/o6m7b0l6h6pz.gif"/>
+</div>*/

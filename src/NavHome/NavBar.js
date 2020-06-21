@@ -14,10 +14,13 @@ class NavBar extends Component {
 
     const getTrips = this.props.getTrips
     
+
+    
     return (
-     <div className= "navContainer">
+     <div className= "navContainer"
+     onClick = {getTrips}>
          <nav className= "navbar skin noDeco" role= "navigation"
-         onClick = {getTrips}
+         
          
          >
          <NavLink
@@ -27,7 +30,9 @@ class NavBar extends Component {
       
       </nav>
       <MyTrips
-  
+
+      getTrips = {getTrips}
+    
 
       
       />   

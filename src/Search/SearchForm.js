@@ -15,11 +15,11 @@ class SearchForm extends Component {
       let searchTerm = e.target.searchTerm.value;
       this.props.handleUpdate(searchTerm);
       this.props.routerProps.history.push("/search-results");
-      const apId = config.APID;
-      const apiKey = config.API_KEY;
-      const remoteUser = config.REMOTEUSER;
-      const detailed = config.DETAILED;
-      const getURL = config.API_ENDPOINT;
+      const apId = config. NUTRI_APID;
+      const apiKey = config.API_NUTRI_KEY;
+      const remoteUser = config.NUTRI_REMOTEUSER;
+      const detailed = config.NUTRI_DETAILED;
+      const getURL = config.API_NUTRI_ENDPOINT;
 
       function formatQueryParams(params) {
         const queryItems = Object.keys(params).map(

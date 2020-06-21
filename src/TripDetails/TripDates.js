@@ -11,6 +11,13 @@ class TripDates extends Component {
   static defaultProps = {
     tripDates:  [""],
   }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    	checked: false
+	}
+  }
   
      
   render() {
@@ -23,6 +30,7 @@ class TripDates extends Component {
   const checkboxes =  document.getElementsByName('check')
     checkboxes.forEach((item) => {
         if (item !== checkbox) item.checked = false
+      
     })
 }
 
@@ -42,10 +50,13 @@ class TripDates extends Component {
                             const selectedDay = date
                             onlyOne(this)
                             this.props.handleSelectDay(selectedDay, id)
+                            this.setState ({
+                              checked: true
+                            })
                           
                           }}
               />
-              <span className="checkmark"></span>
+              <span className={"checkmark " + (!this.state.checked? "notChecked": "checked")}></span>
           </label>
           </li>))}
 

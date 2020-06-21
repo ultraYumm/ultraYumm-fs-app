@@ -141,9 +141,11 @@ class TripResults extends Component {
 
     const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
 
+    const getPackItems = this.props.getPackItems
 
     return (
-      <section className="lightBlueBackground">      
+      <section className="lightBlueBackground"
+      onMouseOver = {getPackItems}>      
        
         <div className = "lightBlueBackground sticky">
            <div className="charts sticky cloudBlueBackground">

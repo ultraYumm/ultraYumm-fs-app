@@ -16,6 +16,7 @@ static contextType = UltraContext;
   render() {
 
     const trips = this.props.trips
+    const getPackItems = this.props.getPackItems
     
     
        
@@ -24,11 +25,13 @@ static contextType = UltraContext;
        
        <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
           <div className = "tripContainer">
-          <ul className= "trips blueBackground">
+          <ul className= "trips blueBackground"
+           onClick = {getPackItems}>
             
               {trips.map ((trip, key) => 
               <li className= "tripLi"
              key = {trip.id}
+            
             
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
              <NavLink to={`/trip/${trip.name}`}>
@@ -40,7 +43,9 @@ static contextType = UltraContext;
                  this.props.handleSelectTrip(selectTripId, tripName)
                
                }}
-              >{trip.name}  
+              
+              >{trip.name}
+                
               </p>
               </NavLink>
               </li>

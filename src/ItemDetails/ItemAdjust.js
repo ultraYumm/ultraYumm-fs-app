@@ -156,6 +156,8 @@ class ItemAdjust extends Component {
   
   render() {
 
+      const getPackItems = this.props.getPackItems
+
 
      const onSubmitForm = (e) => {
       const newId =  uuidv4()
@@ -215,7 +217,8 @@ class ItemAdjust extends Component {
     const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
 
     return (
-      <section className="filterForm">
+      <section className="filterForm"
+      >
            <div className = "iconButtonsContainer">
                 <div className = "back">
               <BackButton/>  
@@ -229,7 +232,8 @@ class ItemAdjust extends Component {
             image = {image}
             />
             </div>
-        <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
+        <form id="filter" onSubmit={onSubmitForm} className = "blueBackground"
+        >
           <h2 className="montebello white">{text}  <GoButton /></h2>
            
       <div className= "white primaryFont"></div>

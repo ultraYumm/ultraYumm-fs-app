@@ -8,15 +8,18 @@ class MyTrips extends Component {
   render() {
 
     const getTrips = this.props.getTrips
-
+   
     return (
       <div  className= "myTrips montebello"
+   
+      onClick = {getTrips}
+      
+
       >
         <NavLink className = "noDeco"
         to={`/my-trips`}
-       
-        
-        ><span className = "my Trips white"
+        >
+        <span className = "myTrips white"
         >My trips</span></NavLink>
       </div>
     );

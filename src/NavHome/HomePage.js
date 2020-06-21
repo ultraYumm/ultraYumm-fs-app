@@ -11,10 +11,13 @@ import { NavLink } from "react-router-dom";
 class HomePage extends Component {
   render() {
     
+  const getTrips = this.props.getTrips
    
     return (
-      <div className="home">
-        <div className="home">
+      <div className="home"
+      onMouseOver = {getTrips}>
+        <div className="home"
+        >
           <img className="uYtitle" src={uYtitle} alt="ultraYumm logo" />
           <h1 className="black montebello title">
             Get more energy!<span>&nbsp;&nbsp;</span>
