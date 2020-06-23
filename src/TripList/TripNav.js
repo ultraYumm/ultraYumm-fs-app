@@ -16,7 +16,7 @@ static contextType = UltraContext;
   render() {
 
     const trips = this.props.trips
-    const getPackItems = this.props.getPackItems
+  
     
     
        
@@ -25,8 +25,7 @@ static contextType = UltraContext;
        
        <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
           <div className = "tripContainer">
-          <ul className= "trips blueBackground"
-           onClick = {getPackItems}>
+          <ul className= "trips blueBackground">
             
               {trips.map ((trip, key) => 
               <li className= "tripLi"

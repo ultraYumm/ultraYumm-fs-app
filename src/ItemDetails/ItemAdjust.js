@@ -3,7 +3,7 @@ import "../FormElements/FormElements.css";
 import React, { Component } from "react";
 import BackButton from "../FormElements/BackButton";
 import ForwardButton from "../FormElements/ForwardButton";
-import { withRouter } from "react-router-dom";
+import config from "../config";
 import GoButton from "../FormElements/GoButton";
 import ResetButton from "../FormElements/ResetButton";
 import ServUnit from "../CustomItem/ServUnit";
@@ -13,7 +13,6 @@ import CalsQuant from "../CustomItem/CalsQuant";
 import Result from "../CustomItem/Result";
 import TripNames from "../CustomItem/TripNames";
 import "../Tables/Tables.css";
-import { NavLink } from "react-router-dom";
 import TripDates from "../TripDetails/TripDates";
 import ItemTypes from "../CustomItem/ItemTypes";
 import TripTravelers from "../TripDetails/TripTravelers";
@@ -156,10 +155,7 @@ class ItemAdjust extends Component {
   
   render() {
 
-      const getPackItems = this.props.getPackItems
-
-
-     const onSubmitForm = (e) => {
+      const onSubmitForm = (e) => {
       const newId =  uuidv4()
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
@@ -172,13 +168,88 @@ class ItemAdjust extends Component {
       const tripDay = this.state.tripDay
       const travName = this.state.travName
       const type = this.state.type
+    
       
       e.preventDefault()
-      this.props.handleNewItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+      
 
-      this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
+      const API = config. API_UY_ENDPOINT   
+      const  endpointI = config.endpointI
+      const  endpointP = config.endpointP
+     
+      const urlI = API + endpointI;
+      const urlP = API + endpointP;
+  
 
-      this.props.routerProps.history.push("/trip/:tripName");
+      const item = {
+        id: newId,
+        food_name: newName,
+        serving_unit: newUnit,
+        brand_name: newBrand,
+        serving_qty:  newQty,
+        image: newImage,
+        serving_weight_grams: newWeight,
+        calsPerServing: newCalsPs
+      }
+
+      fetch(urlI, {
+        method: 'POST',
+        body: JSON.stringify(item),
+        headers: {
+          'content-type': 'application/json',
+          'authorization': `bearer ${config.API_TOKEN}`
+        }
+      })
+        .then(res => {
+          if (!res.ok) {
+            // get the error message from the response,
+            return res.json().then(error => {
+              // then throw it
+              throw error
+            })
+          }
+          return res.json()
+        })
+        .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
+          //this.props.routerProps.history.push("/trip/:tripName");
+          this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
+                
+        })
+        .catch(error => {
+          this.setState({ error })
+        })
+
+        fetch(urlP, {
+          method: 'POST',
+          body: JSON.stringify(item),
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${config.API_TOKEN}`
+          }
+        })
+          .then(res => {
+            if (!res.ok) {
+              // get the error message from the response,
+              return res.json().then(error => {
+                // then throw it
+                throw error
+              })
+            }
+            return res.json()
+          })
+          .then((newId, tripId, tripDay, travName, type, newQty) => {
+            this.props.routerProps.history.push("/trip/:tripName");
+            this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
+                  
+          })
+          .catch(error => {
+            this.setState({ error })
+          })
+  
+
+  
+
+  
     }
     
       

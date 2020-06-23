@@ -117,14 +117,9 @@ class SearchResults extends Component {
 
     console.log(newBrandCommonArr)
 
-    const getPackItems = this.props.getPackItems
-
-    
-
     
     return (
-      <section
-      onMouseOver = {getPackItems}>
+      <section>
             
         <div className = "sticky lightBlueBackground">
        

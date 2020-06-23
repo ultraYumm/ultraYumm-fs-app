@@ -5,7 +5,6 @@ import GoButton from "../FormElements/GoButton";
 import "../FormElements/FormElements.css";
 import { withRouter } from "react-router-dom";
 
-import { NavLink, Link } from "react-router-dom";
 
 class SearchForm extends Component {
   render() {

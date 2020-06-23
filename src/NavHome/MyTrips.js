@@ -7,12 +7,10 @@ import { NavLink} from 'react-router-dom'
 class MyTrips extends Component {
   render() {
 
-    const getTrips = this.props.getTrips
+   
    
     return (
       <div  className= "myTrips montebello"
-   
-      onClick = {getTrips}
       
 
       >

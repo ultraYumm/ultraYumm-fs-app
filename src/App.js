@@ -48,7 +48,6 @@ class App extends Component {
     const  endpoint = '/my-trips'
    
     const url = API + endpoint;
-    console.log(url)
     const API_TOKEN = config.API_UY_KEY
 
    
@@ -86,7 +85,6 @@ class App extends Component {
     const  endpoint = '/items'
    
     const url = API + endpoint;
-    console.log(url)
     const API_TOKEN = config.API_UY_KEY
 
    
@@ -119,42 +117,47 @@ class App extends Component {
 
   componentDidMount() {
    const API = config. API_UY_ENDPOINT   
-    const  endpointI = '/items'
-    //const  endpointP = '/pack-items'
-    //const  endpointT = 'my-trips'
+    const  endpointI = config.endpointI
+    const  endpointT = config.endpointT
+    const  endpointP = config.endpointP
    
-    const url = API + endpointI;
-    console.log(url)
     const API_TOKEN = config.API_UY_KEY
 
     const urls = [
       API + endpointI,
-      //API + endpointP,
-      //API + endpointT,
+      API + endpointT,
+      API + endpointP,
     ]
-    console.log(urls)
 
-   //Promise.all (urls.map (url =>
+    console.log(urls)
+   
+    const fetches = urls
+    .map (url =>
        fetch(url, {
       headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      },
-      // add other options e.g. method, body, etc...
-    })
-    //))
-      .then(res => {
+        Authorization: `Bearer ${API_TOKEN}`
+      }
+       })
+       .then(res => {
         if(!res.ok) {
           throw new Error(res.statusText);
         }
-        return res.json();
+        return res.json(); 
+        
       })
+      
+      )
+
+      Promise.all(fetches)
       .then(data => {
         console.log(data)
         this.setState({
-          items: data,
-          error: null
+          items: data[0],
+          trips: data[1],
+          packItems: data[2]
         });
       })
+      
       .catch(err => {
         this.setState({
           error: 'Sorry, could not get trips at this time.'
@@ -185,7 +188,6 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
         this.setState({
           packItems: data,
           error: null
@@ -232,12 +234,11 @@ class App extends Component {
 
 
 
-  addItem = (newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) => {
+  addItem = (newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
     const items = this.state.items
     const newItems = [
       ...items,
-      {
-        id: newId,
+      { id: newId, 
         food_name: newName,
         image: newImage,
         calsPerServing: newCalsPs,
@@ -344,8 +345,7 @@ class App extends Component {
               handleAddTrip={(tripId, iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(tripId, iframe, tripName, tripTravelers, tripDates)
               }
-              getTrips = {e => this.handleGetTrips(e)}
-
+         
             />
           )}
         />
@@ -362,7 +362,7 @@ class App extends Component {
               handleSelectTrip={(selectedTripId, tripName) =>
                 this.selectTrip(selectedTripId, tripName)
               }
-              getPackItems = {e => this.handleGetPackItems(e)}
+             
             />
           )}
         />
@@ -408,7 +408,7 @@ class App extends Component {
               handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
-              getPackItems = {e => this.handleGetPackItems(e)}
+             
             />
           )}
         />
@@ -424,6 +424,8 @@ class App extends Component {
               handleSelectTripItem={(selectTripItem) =>
                 this.selectTripItem(selectTripItem)
               }
+
+         
               
             />
           )}
@@ -445,8 +447,7 @@ class App extends Component {
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
                 
-                getPackItems = {e => this.handleGetPackItems(e)}    
-
+               
               />
             )
           }}
@@ -486,7 +487,7 @@ class App extends Component {
                   this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
           
-              getPackItems = {e => this.handleGetPackItems(e)}
+            
 
               />
             )
@@ -526,9 +527,6 @@ class App extends Component {
                 handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
                 }
-
-              
-                getPackItems = {e => this.handleGetPackItems(e)}
 
               />
               )

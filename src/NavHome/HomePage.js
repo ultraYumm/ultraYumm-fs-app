@@ -15,7 +15,8 @@ class HomePage extends Component {
    
     return (
       <div className="home"
-      onMouseOver = {getTrips}>
+      //onMouseOver = {getTrips}
+      >
         <div className="home"
         >
           <img className="uYtitle" src={uYtitle} alt="ultraYumm logo" />
