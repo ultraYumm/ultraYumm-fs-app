@@ -30,6 +30,7 @@ import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
+import GoButton from '../FormElements/GoButton';
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
@@ -49,7 +50,7 @@ class TripResults extends Component {
     this.state = {
       serving_qty: null,
       id: "",
-      //packItems: {PACKITEMS}
+      idToDelete: ""
     };
   }
 
@@ -91,6 +92,14 @@ class TripResults extends Component {
     this.setState({
       travName: input,
       id: id
+    });
+  };
+
+
+  selectItemToDelete = (id) => {
+    
+    this.setState({
+      idToDelete: id
     });
   };
  
@@ -169,7 +178,7 @@ class TripResults extends Component {
         <div className="iconButtonContainer">
             <SaveButton/>
             <PrintButton/>
-            <ResetButton/>
+           
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
@@ -186,6 +195,7 @@ class TripResults extends Component {
             <NavLink to={`/`}>
               <SearchMoreButton />
             </NavLink>
+            <div><GoButton/><span className= "primaryFont red">Delete{this.state.idToDelete}?</span></div>
           </div>
           </div>
 
@@ -201,7 +211,9 @@ class TripResults extends Component {
                 <WeightGHeader/>
                 <TotalCalHeader/>
                 <DeleteHeader/>
+             
               </tr>
+           
 
               {results.map((item, key) => (
                 <tr className="one whiteBackground black" key={item.id}>
@@ -255,7 +267,10 @@ class TripResults extends Component {
                       result = {Math.round(this.state.serving_qty * item.calsPerServing).toFixed(0)
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                       />
-                  <Delete/>
+                  <Delete
+                  idToDelete = {(id) => this.selectItemToDelete(id)}
+                  id = {item.id}
+                  />
                  
                 </tr>
               ))}
@@ -353,7 +368,9 @@ class TripResults extends Component {
 
             <tr>
             <DeleteHeader/>
-            <Delete/>
+            <Delete           
+            idToDelete = {(id) => this.selectItemToDelete(id)} 
+            />
             </tr>
           </tbody>
           ))}

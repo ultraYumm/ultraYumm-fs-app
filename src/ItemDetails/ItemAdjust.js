@@ -181,6 +181,7 @@ class ItemAdjust extends Component {
       const urlI = API + endpointI;
       console.log(urlI)
       const urlP = API + endpointP;
+      
   
 
       const item = {
@@ -200,7 +201,7 @@ class ItemAdjust extends Component {
         tripDay: tripDay,
         travName: travName,
         type: type,
-        serving: newQty
+        serving_qty: newQty
       }
 
       fetch(urlI, {
@@ -466,7 +467,7 @@ class ItemAdjust extends Component {
         
           <div className= "filterSelection"> 
     
-              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>       
+              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
                 <TripNames 
                 trips={trips}
                 handleSelectTrip={(selectedTrip, tripId) =>
@@ -476,7 +477,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont black" >{tripDay}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont blue skinBackground" >{tripDay}</span></h3>
                 <TripDates
                 name = {this.state.name}
                 tripDay = {this.state.tripDay}
@@ -488,7 +489,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
                 handleSelectType={(selectedType) =>
@@ -498,7 +499,7 @@ class ItemAdjust extends Component {
              </div>
 
              <div className="filterSelection">
-              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont black">{this.state.travName}</span></h3>
+              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.travName}</span></h3>
                 <TripTravelers tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)

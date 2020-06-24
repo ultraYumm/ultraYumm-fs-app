@@ -137,10 +137,24 @@ input[type="text"], input[type="search"], input[type="url"]{
 }
 
 
-
 input[name="unit"], input[name="quantInput"], input[type="text"], input[type="url"]   {
     width: 80%;
 }
+
+
+.tooltiptext {
+    font-size: 7px;
+    color:white;
+   
+  }
+  
+.tooltiptext:hover{
+    visibility: visible;
+    font-size: 7px;
+    color: black;
+}    
+  
+  
 
 
 input[type="number"]{

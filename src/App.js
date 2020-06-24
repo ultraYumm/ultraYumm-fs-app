@@ -253,6 +253,8 @@ class App extends Component {
     });
   }
 
+ 
+
   addTrip = (tripId, iframe, tripName, tripTravelers, tripDates) => {
     const newTrips = [
       ...this.state.trips,
@@ -284,6 +286,14 @@ class App extends Component {
     })
   }
   
+  deletePackItem = idToDelete => {
+    const newPackItems = this.state.packItems.filter(pack =>
+        pack.id !== idToDelete
+        )
+        this.setState({
+         packItems: newPackItems
+        })
+    }
 
 
 
@@ -429,7 +439,9 @@ class App extends Component {
               itemTypes={itemTypes}
               handleSelectTripItem={(selectTripItem) =>
                 this.selectTripItem(selectTripItem)
-              }
+                            }
+
+              handleDeletePackItem = {(idToDelete) => this.deletePackItem(idToDelete)}
 
          
               

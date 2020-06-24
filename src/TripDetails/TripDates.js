@@ -39,7 +39,7 @@ class TripDates extends Component {
     return (
     
       <ul className= "scroll"> 
-      {tripDates.map((date)=> (
+      {tripDates.map((date, key)=> (
           <li key= {date}>
           <label className="labelContainer">
             {name === ""? "" :<Moment format= "MMM/DD">{date}</Moment>}
@@ -51,12 +51,15 @@ class TripDates extends Component {
                             onlyOne(this)
                             this.props.handleSelectDay(selectedDay, id)
                             this.setState ({
-                              checked: true
+                              checked: true,
+                              date: selectedDay
                             })
                           
                           }}
               />
-              <span className={"checkmark " + (!this.state.checked? "notChecked": "checked")}></span>
+              <span 
+              date = {date} 
+              className= {"checkmark " + (this.state.selectedDay === date? "checked" : "notChecked")}></span>
           </label>
           </li>))}
 
@@ -69,5 +72,4 @@ class TripDates extends Component {
 
 
 export default TripDates
-
 
