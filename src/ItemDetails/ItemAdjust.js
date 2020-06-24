@@ -156,6 +156,7 @@ class ItemAdjust extends Component {
   render() {
 
       const onSubmitForm = (e) => {
+      e.preventDefault()
       const newId =  uuidv4()
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
@@ -170,7 +171,7 @@ class ItemAdjust extends Component {
       const type = this.state.type
     
       
-      e.preventDefault()
+      
       
 
       const API = config. API_UY_ENDPOINT   
@@ -178,6 +179,7 @@ class ItemAdjust extends Component {
       const  endpointP = config.endpointP
      
       const urlI = API + endpointI;
+      console.log(urlI)
       const urlP = API + endpointP;
   
 
@@ -192,12 +194,21 @@ class ItemAdjust extends Component {
         calsPerServing: newCalsPs
       }
 
+      const packItem = {
+        id: newId,
+        tripId: tripId,
+        tripDay: tripDay,
+        travName: travName,
+        type: type,
+        serving: newQty
+      }
+
       fetch(urlI, {
         method: 'POST',
         body: JSON.stringify(item),
         headers: {
           'content-type': 'application/json',
-          'authorization': `bearer ${config.API_TOKEN}`
+          'authorization': `bearer ${config.API_UY_KEY}`
         }
       })
         .then(res => {
@@ -211,8 +222,10 @@ class ItemAdjust extends Component {
           return res.json()
         })
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
-          //this.props.routerProps.history.push("/trip/:tripName");
           this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
+          this.props.getItems(e)
+          //this.props.routerProps.history.push("/trip/:tripName");
+          
                 
         })
         .catch(error => {
@@ -221,10 +234,10 @@ class ItemAdjust extends Component {
 
         fetch(urlP, {
           method: 'POST',
-          body: JSON.stringify(item),
+          body: JSON.stringify(packItem),
           headers: {
             'content-type': 'application/json',
-            'authorization': `bearer ${config.API_TOKEN}`
+            'authorization': `bearer ${config.API_UY_KEY}`
           }
         })
           .then(res => {
@@ -238,10 +251,12 @@ class ItemAdjust extends Component {
             return res.json()
           })
           .then((newId, tripId, tripDay, travName, type, newQty) => {
-            this.props.routerProps.history.push("/trip/:tripName");
             this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
+            this.props.getPackItems(e)
+            this.props.routerProps.history.push("/trip/:tripName");
                   
           })
+
           .catch(error => {
             this.setState({ error })
           })

@@ -408,7 +408,13 @@ class App extends Component {
               handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
-             
+
+             getItems = {(e) =>
+                this.handleGetItems(e)}
+
+             getPackItems = {(e) =>
+              this.handleGetPackItems(e)
+            }
             />
           )}
         />
@@ -486,6 +492,13 @@ class App extends Component {
                 handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                   this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
               }
+                getItems = {(e) =>
+                this.handleGetItems(e)}
+  
+                getPackItems = {(e) =>
+                this.handleGetPackItems(e)}
+
+              
           
             
 
@@ -527,6 +540,12 @@ class App extends Component {
                 handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
                 }
+
+                getItems = {(e) =>
+                  this.handleGetItems(e)}
+
+                getPackItems = {(e) =>
+                  this.handleGetPackItems(e)}
 
               />
               )
