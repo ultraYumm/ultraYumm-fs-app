@@ -21,8 +21,6 @@ class AddTripForm extends Component {
       
       
 
-
-  
   render() {
 
     const moment= require('moment') 

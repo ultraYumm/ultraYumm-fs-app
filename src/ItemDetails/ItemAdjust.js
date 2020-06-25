@@ -23,7 +23,7 @@ import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { DEFAULTITEM } from "../Defaults";
+import { DEFAULTITEM, TRIPS } from "../Defaults";
 
 
 class ItemAdjust extends Component {
@@ -34,7 +34,7 @@ class ItemAdjust extends Component {
     packItems: {},
     name: "",
     selectedTripId: "",
-    selectedTrip: {},
+    selectedTrip: TRIPS,
     id: "",
     serving_qty: null,
     serving_weight_grams: null,

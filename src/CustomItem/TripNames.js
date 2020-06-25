@@ -33,23 +33,20 @@ class TripNames extends Component {
               <li key= {key}>
               <label className= "labelContainer"> {trip.name}
                    <input 
+                   type="checkbox"
                    name= "check"
-                   type= "checkbox"
                    defaultValue = {trip.id}
                    
                    onClick={() => {
                     const selectedTrip = trip
                     const tripId = trip.id
 
-                    
-                    onlyOne(this)
                     this.props.handleSelectTrip(selectedTrip, tripId)
                   
                   }}
                    
                    />
-                   <span className= "checkmark"></span>
-               </label>
+                   </label>
               </li>
             ))}   
             </ul>

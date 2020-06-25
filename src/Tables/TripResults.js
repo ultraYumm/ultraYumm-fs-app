@@ -3,8 +3,7 @@ import "../Font/Font.css";
 import TripName from "../TripDetails/TripName";
 import TripYear from "../TripDetails/TripYear";
 import Moment from "react-moment";
-import SaveButton from "../FormElements/SaveButton";
-import ResetButton from "../FormElements/ResetButton";
+//import SaveButton from "../FormElements/SaveButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import GoToFiltersButton from "../FormElements/GoToFiltersButton";
@@ -30,19 +29,20 @@ import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
-import GoButton from '../FormElements/GoButton';
+import DeleteButton from '../FormElements/DeleteButton';
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
+import { ITEMS, TRIPS } from "../Defaults";
 
 
 
 
 class TripResults extends Component {
   static defaultProps = {
-    selectedTrip: [],
-    //packItems: {PACKITEMS}    
+    selectedTrip: TRIPS,
+    items: ITEMS
   };
 
   constructor(props) {
@@ -50,7 +50,8 @@ class TripResults extends Component {
     this.state = {
       serving_qty: null,
       id: "",
-      idToDelete: ""
+      idToDelete: "",
+      nameOfDelete: ""
     };
   }
 
@@ -96,10 +97,11 @@ class TripResults extends Component {
   };
 
 
-  selectItemToDelete = (id) => {
+  selectItemToDelete = (id, name) => {
     
     this.setState({
-      idToDelete: id
+      idToDelete: id,
+      nameOfDelete: name
     });
   };
  
@@ -152,6 +154,8 @@ class TripResults extends Component {
 
     const getPackItems = this.props.getPackItems
 
+    console.log(this.state.idToDelete)
+
     return (
       <section className="lightBlueBackground"
       onMouseOver = {getPackItems}>      
@@ -176,9 +180,16 @@ class TripResults extends Component {
         
        
         <div className="iconButtonContainer">
-            <SaveButton/>
-            <PrintButton/>
-           
+             <PrintButton/>
+             <DeleteButton
+            name = {this.state.nameOfDelete}
+            idToDelete = {this.state.idToDelete}
+          
+            handleDeletePackItem = {(idToDelete) =>
+              this.props.handleDeletePackItem(idToDelete)
+            
+            }
+             />
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
@@ -195,7 +206,7 @@ class TripResults extends Component {
             <NavLink to={`/`}>
               <SearchMoreButton />
             </NavLink>
-            <div><GoButton/><span className= "primaryFont red">Delete{this.state.idToDelete}?</span></div>
+           
           </div>
           </div>
 
@@ -268,8 +279,10 @@ class TripResults extends Component {
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                       />
                   <Delete
-                  idToDelete = {(id) => this.selectItemToDelete(id)}
+                  idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {item.id}
+                  name = {item.food_name}
+                 
                   />
                  
                 </tr>
@@ -369,7 +382,9 @@ class TripResults extends Component {
             <tr>
             <DeleteHeader/>
             <Delete           
-            idToDelete = {(id) => this.selectItemToDelete(id)} 
+             idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
+             id = {item.id}
+             name = {item.food_name}
             />
             </tr>
           </tbody>

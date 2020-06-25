@@ -1,3 +1,4 @@
+  
 html {
     width: 100%;
 }
@@ -143,14 +144,14 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
 
 
 .tooltiptext {
-    font-size: 7px;
+    font-size: 9px;
     color:white;
    
   }
   
 .tooltiptext:hover{
     visibility: visible;
-    font-size: 7px;
+    font-size: 9px;
     color: black;
 }    
   
@@ -340,11 +341,13 @@ button[type="button"]{
     margin:10px;
     padding: 10px;
     border-radius: 10px;
+    opacity: 0.8
 }
 
 
 .moreButton:hover {
     font-weight: bolder;
+    opacity: 1
 }
 
 
@@ -491,6 +494,7 @@ button[type="button"]{
     margin: 10px;
     float: right;
     font-weight: bolder;
+    border-radius: 2px;
 }
 
 
@@ -531,7 +535,7 @@ svg {
 
 .graphText {
     padding-right: 10px;
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .inputBox {
@@ -1195,12 +1199,3 @@ button {
 }
 
 
-
- 
-
-            
-            
-        
-        
-      
-  

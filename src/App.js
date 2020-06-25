@@ -129,8 +129,7 @@ class App extends Component {
       API + endpointP,
     ]
 
-    console.log(urls)
-   
+  
     const fetches = urls
     .map (url =>
        fetch(url, {
@@ -150,8 +149,7 @@ class App extends Component {
 
       Promise.all(fetches)
       .then(data => {
-        console.log(data)
-        this.setState({
+          this.setState({
           items: data[0],
           trips: data[1],
           packItems: data[2]
@@ -290,9 +288,11 @@ class App extends Component {
     const newPackItems = this.state.packItems.filter(pack =>
         pack.id !== idToDelete
         )
+        console.log(idToDelete)
         this.setState({
          packItems: newPackItems
         })
+        console.log(this.state.packItems)
     }
 
 
@@ -309,9 +309,8 @@ class App extends Component {
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
 
     const packItems = this.state.packItems
-    console.log(items)
-    console.log(trips)
     console.log(packItems)
+    
 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId

@@ -12,33 +12,30 @@ class Delete extends Component {
         item:  {DEFAULTITEM},
       }
 
+      
+      
+
 
      
   render() {
       
     const id = this.props.id
-
-    function onlyOne(checkbox) {
-      const checkboxes =  document.getElementsByName('check')
-        checkboxes.forEach((item) => {
-            if (item !== checkbox) item.checked = false
-          
-        })
-    }
+    const name = this.props.name
 
 
     return (
         <td className="delete">
         {" "}
-        <input type = "checkbox"
+        <input
+         type= "radio"
+         className = "delete"
          name= "check"
          onClick={() => {
-          onlyOne(this)
-          const selectedId = id
-          this.props.idToDelete(selectedId)
+          //onlyOne(this)
+          this.props.idToDelete(id, name)
         }}
         />
-        <span class="tooltiptext">click Go! to confirm {id} delete</span></td>
+        <span class="tooltiptext">click Delete to confirm </span></td>
       
           
    )}
