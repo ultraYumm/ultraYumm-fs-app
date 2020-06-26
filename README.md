@@ -41,8 +41,8 @@ This a work in progress! Planned user functionality includes the following:
 - Delete, save as or rename trip functionality
 
 ## Built With
-Front-End: JavaScript, React, Enzyme, jQuery, HTML5, CSS3
-Back-end: SQL, Node.js, Mocha & Chai, REST APIs 3
+- Front-End: JavaScript, React, Enzyme, jQuery, HTML5, CSS3
+- Back-end: SQL, Node.js, Mocha & Chai, REST APIs 3
 
 ## Author
 Stephanie LeBlond email: smaleblond@gmail.com cell: 310-989-7801
