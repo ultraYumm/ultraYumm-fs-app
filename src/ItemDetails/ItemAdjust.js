@@ -266,43 +266,30 @@ class ItemAdjust extends Component {
     }
     
       
-    const trips = this.props.trips;  
-    
+    const trips = this.props.trips;   
     const itemTypes = this.props.itemTypes;
-  
     const item = this.props.selectedItem;
-
     const image = item.image
     const name = item.food_name;
     const brand = !item.brand_name ? "common" : item.brand_name;
     const quant = Math.round(item.serving_qty);
-  
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
-  
     const calsPs = Math.round(item.calsPerServing);
     const totalWeightnf = (quant * weight)
     const totalCalnf = (quant * calsPs)
-   
     const id = item.id
-
     const stateQty = parseInt(this.state.serving_qty)
-
     const stateCalsPs = parseInt(this.state.calsPerServing)
     const stateServWeight = parseInt(this.state.serving_weight_grams)
-
     const stateWeightnf = (stateQty * stateServWeight)
-
     const stateCalsnf = (stateQty * stateCalsPs)
-    
     const text = this.props.text
-
-    
     const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
 
     return (
-      <section className="filterForm"
-      >
+      <section className="filterForm">
+           
            <div className = "iconButtonsContainer">
                 <div className = "back">
               <BackButton/>  
@@ -310,51 +297,49 @@ class ItemAdjust extends Component {
               <div className = "forward">
               <ForwardButton/> 
           </div> 
-           </div>    
-            <div className = "adjustImage" >
-            <ItemImage 
-            image = {image}
-            />
-            </div>
-        <form id="filter" onSubmit={onSubmitForm} className = "blueBackground"
-        >
+          </div>    
+          <div className = "adjustImage" >
+          <ItemImage 
+          image = {image}
+          />
+          </div>
+
+        <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
           <h2 className="montebello white">{text}  <GoButton /></h2>
-           
-      <div className= "white primaryFont"></div>
-  
-      <div>
-            <div className = "newI">
-            <div className="newItems">
-              <NewItemName
-              name = {name}
-              id = {id}
-              handleAdjustName= {(inputValue, id) =>
-                this.adjustItemName(inputValue, id)
-              }
+                
+            <div className= "white primaryFont"></div>  
+                <div>
+                  <div className = "newI">
+                  <div className="newItems">
+                    <NewItemName
+                    name = {name}
+                    id = {id}
+                    handleAdjustName= {(inputValue, id) =>
+                      this.adjustItemName(inputValue, id)
+                    }
+                    />
+                 </div>
+                
+                  
+                  <div className="newItems">
+                    <NewItemBrand
+                    brand = {brand}
+                    handleAdjustBrand= {(inputValue) =>
+                      this.adjustItemBrand(inputValue)
+                    }
+                    />
+                  </div>
+                  </div>
 
-              />
-              </div>
-           
-            
-            <div className="newItems">
-              <NewItemBrand
-              brand = {brand}
-              handleAdjustBrand= {(inputValue) =>
-                this.adjustItemBrand(inputValue)
-              }
-              />
-            </div>
-            </div>
-
-            <div className="calcBox">
-              <div className="inputsContainer">
-                <div className="inputBox">
+            <div className= "calcBox">
+              <div className= "inputsContainer">
+                <div className= "inputBox">
                   <label
-                    htmlFor="custom-item-quantity"
-                    className="labelWidth white"
+                    htmlFor= "serving quantity"
+                    className= "labelWidth white"
                   ><i className ="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
                   </label>
-                  <div className="dataInput">
+                  <div className= "dataInput">
                     <UnitQuant
                     input = {quant}
                     handleAdjustQuant = {(inputValue) =>
@@ -367,11 +352,11 @@ class ItemAdjust extends Component {
 
                 <div className="inputBox">
                 <label
-                    htmlFor="custom-item-unit"
-                    className="labelWidth white"
-                  ><i className ="fas fa-ruler-vertical white mobileHide"></i>&nbsp;Serving unit
+                    htmlFor= "serving unit"
+                    className= "labelWidth white"
+                  ><i className= "fas fa-ruler-vertical white mobileHide"></i>&nbsp;Serving unit
                   </label>
-                  <div className="textInput">
+                  <div className= "textInput">
                     <ServUnit
                     id = {id}
                     input = {unit}
@@ -385,9 +370,9 @@ class ItemAdjust extends Component {
 
                 <div className="inputBox">
                   <label
-                    htmlFor="custom-item-weight"
-                    className="labelWidth white"
-                  > <i className ="fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
+                    htmlFor= "weight per serving"
+                    className= "labelWidth white"
+                  > <i className= "fas fa-balance-scale white mobileHide"></i>&nbsp;&nbsp;&nbsp;Weight per serving
                   </label>
                   <div className="dataInput">
                   <WeightQuant
@@ -403,7 +388,7 @@ class ItemAdjust extends Component {
 
                 <div className="inputBox">
                   <label
-                    htmlFor="custom-item-calories"
+                    htmlFor="calories per serving"
                     className="labelWidth white"
                   ><i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;Calories per serving
                   </label>
@@ -425,7 +410,6 @@ class ItemAdjust extends Component {
                 <div className="resultBox">
                
                   <label
-                    htmlFor="custom-item-total-weight"
                     className="labelWidth white"
                   > <i className ="fas fa-hiking white mobileHide">
                   </i>&nbsp;
@@ -443,7 +427,6 @@ class ItemAdjust extends Component {
                 <div className="resultBox">
                
                   <label
-                    htmlFor="custom-item-total-cal"
                     className="labelWidth white"
                   > <i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;
                     <strong>Total Calories</strong>

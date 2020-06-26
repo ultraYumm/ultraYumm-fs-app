@@ -178,7 +178,7 @@ class SearchResults extends Component {
                    
                    <TableItemImage image = {item.image}/>
                 
-                  <td className="itemH">
+                  <td className="itemH" headers = "item name">
                     <NavLink
                      className = "noDeco"
                       to={`/item/${item.nameId}`}
@@ -238,7 +238,7 @@ class SearchResults extends Component {
            <tbody>
             <tr className="itemH">
             <ItemHeader/>
-              <td>
+              <td id= "item name">  
                     <NavLink
                      className = "noDeco"
                       to={`/item/${item.nameId}`}

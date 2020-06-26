@@ -13,7 +13,9 @@ class DateHeader extends Component {
 
     return (
         
-        <th className="date"><i className ="fas fa-calendar-day"></i></th>
+        <th className="date" id= "date header">
+           <span className="hidden">Date</span>
+          <i className ="fas fa-calendar-day" alt= "date header"></i></th>
     )
 }
 }

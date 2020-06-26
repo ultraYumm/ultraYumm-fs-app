@@ -14,7 +14,9 @@ class BrandHeader extends Component {
 
     return (
         
-        <th className="brandH"><i className ="fas fa-tag"></i></th>
+        <th className="brandH" id= "brand header">
+            <span className="hidden">Brand</span>
+          <i className ="fas fa-tag" alt= "brand header"></i></th>
     )
 }
 }

@@ -27,6 +27,7 @@ class CalsQuant extends Component {
     return (
       
       <input className="dataResult skinBackground"
+      id= "calories per serving"
       type= "number"
       defaultValue =  {isNaN(input)? 0 : input}
       min= "0"

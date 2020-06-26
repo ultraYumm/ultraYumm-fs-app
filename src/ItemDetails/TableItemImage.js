@@ -22,7 +22,7 @@ class TableItemImage extends Component {
  
 
     return (
-        <td className="imageH tableAdjust">
+        <td className="imageH tableAdjust" headers= "image header">
       <ItemImage
       className="tableImage tableAdjust"
       image = {image}

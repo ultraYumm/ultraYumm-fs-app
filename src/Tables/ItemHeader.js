@@ -15,8 +15,9 @@ class ItemHeader extends Component {
     return (
         
   
-        <th className="itemH">
-      <i className ="fas fa-carrot"></i>
+        <th className="itemH" id= "item name header">
+               <span className="hidden">Name</span>
+        <i className ="fas fa-carrot" alt= "item name header"></i>
         </th>
     )
 }

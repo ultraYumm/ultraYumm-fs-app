@@ -7,7 +7,7 @@ import '../FormElements/FormElements.css';
 
 class TripTravelers extends Component {
   static defaultProps = {
-    tripTravelers:  [""],
+    tripTravelers:  ["select trip first"],
   }
 
   render() {
@@ -30,7 +30,7 @@ class TripTravelers extends Component {
           {tripTravelers.map((name)=> (
             <li key= {name}>
 
-            <label className="labelContainer"> {name}
+            <label className="labelContainer">{name}
                 <input type="checkbox"
                   name= "check"
                   defaultValue = {name}

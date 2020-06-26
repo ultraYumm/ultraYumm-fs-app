@@ -30,6 +30,7 @@ class WeightQuant extends Component {
     return (
      
       <input className="dataResult skinBackground"
+      id= "weight per serving"
       type = "number"
       min= "0"
       defaultValue = {isNaN(input)? 0: input}

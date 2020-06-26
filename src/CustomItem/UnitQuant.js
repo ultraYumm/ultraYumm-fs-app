@@ -29,6 +29,7 @@ class UnitQuant extends Component {
    
     return (
       <input className= "dataResult skinBackground"
+      id = "serving quantity"
       type = "number"
       min= "0"
       name="itemQuantity"

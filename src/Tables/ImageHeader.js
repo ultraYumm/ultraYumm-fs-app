@@ -14,7 +14,7 @@ class ImageHeader extends Component {
 
     return (
         
-     <th className="imageH tableAdjust">
+     <th className="imageH tableAdjust" id= "image header">
         <span className="hidden">Image</span>
       </th>
     )

@@ -14,7 +14,9 @@ class TravlrHeader extends Component {
     return (
         
         
-        <th className="traveler"><i className ="fas fa-user-circle"></i></th>
+        <th className="traveler" id= "traveler name header">
+            <span className="hidden">Traveler name</span>
+          <i className ="fas fa-user-circle"  alt= "traveler name header"></i></th>
 
     )
 }

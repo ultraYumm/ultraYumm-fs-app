@@ -13,7 +13,9 @@ class DeleteHeader extends Component {
 
     return (
         
-        <th className="deleteH"><i className ="fas fa-trash-alt"></i></th>    )
+        <th className="deleteH" id= "delete header">
+          <span className="hidden">Delete</span>
+          <i className ="fas fa-trash-alt" alt= "delete header"></i></th>    )
 }
 }
 

@@ -156,16 +156,36 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
 
 .tooltiptext {
     font-size: 9px;
-    color:white;
+    color: black;
+    opacity: 0.5;
    
   }
   
 .tooltiptext:hover{
     visibility: visible;
     font-size: 9px;
-    color: black;
+    color:white;
+    opacity: 1;
 }    
+
+
+.tooltip {
+    position: relative;
+}
   
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 9px;
+    text-align: top;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 2px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 40;
+    color: black;
+}
   
 
 
@@ -368,27 +388,7 @@ button[type="button"]{
    display: inline-block
 }
 
-.tooltip {
-    position: relative;
-}
-  
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 10px;
-    text-align: top;
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: bold;
-    padding-left: 2px;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 40;
-}
 
-.tooltip:hover .tooltiptext,  .tooltip:active .tooltiptext{
-    visibility: visible;
-}    
-  
 
 .scroll {
     height: 85px;
@@ -1180,7 +1180,7 @@ input[type="submit"] {
 
 .tooltip .tooltiptext {
 
-    font-size: 14px;
+    font-size: 12px;
 
 }
 

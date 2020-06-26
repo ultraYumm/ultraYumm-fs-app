@@ -13,7 +13,9 @@ class TypeHeader extends Component {
 
     return (
         
-        <th className="type"><i className ="fas fa-utensils"></i></th>
+        <th className="type"  id= "item type (ie breakfast) header">
+           <span className="hidden">Type</span>
+          <i className ="fas fa-utensils" alt= "item type (ie breakfast) header"></i></th>
     )
 }
 }

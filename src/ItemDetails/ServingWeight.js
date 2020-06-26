@@ -19,7 +19,7 @@ class ServingWeight extends Component {
 
 
     return (
-        <td className="weightH  gram">
+        <td className="weightH  gram" headers = "weight in grams header">
          {weight} total gms       
      </td>
    )}

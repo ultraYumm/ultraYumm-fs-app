@@ -13,7 +13,9 @@ class WeightGHeader extends Component {
 
     return (
         
-      <th className="unitH"><i className ="fas fa-ruler-vertical"></i></th>
+      <th className="unitH" id= "unit ie tablespoon or cup header">
+        <span className="hidden">Serving unit</span>
+        <i className ="fas fa-ruler-vertical"  alt= "unit ie tablespoon or cup header"></i></th>
     )
 }
 }

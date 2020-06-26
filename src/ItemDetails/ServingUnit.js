@@ -19,7 +19,7 @@ class ServingUnit extends Component {
  
 
     return (
-        <td className="unitH">
+        <td className="unitH" headers = "unit ie tablespoon or cup header">
           {!unit? "custom" : unit}
           </td>
    )}

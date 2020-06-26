@@ -22,7 +22,7 @@ class ServingQuant extends Component {
 
    
     return (
-        <td className= "servingH black">
+        <td className= "servingH black" headers= "serving quantity header">
           {!input? "" : input}
          
         </td>

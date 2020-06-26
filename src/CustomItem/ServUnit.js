@@ -30,6 +30,7 @@ class ServUnit extends Component {
     return (
 
       <input className="dataResult servingUnit skinBackground"
+      id = "serving unit"
       type = "text"
       defaultValue = {input}
     
