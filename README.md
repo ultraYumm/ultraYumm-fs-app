@@ -1,16 +1,15 @@
-# ultraYumm
-ultraYumm© helps users select high energy and low weight foods for long distance hiking and packing.
+# ultraYumm©
+ultraYumm helps users select high energy and low weight foods for long distance hiking and packing.
 
 ## Motivation
 Current food and menu planning apps are focused on weight loss and/or calorie minimization. None are specifically designed to assist with long term planning for users seeking maximum energy and ultra-light packing. When I last planned a hiking menu for my family of 4, I struggled with clunky spreadsheets and having to scrape the web for key information. I hope this app is useful to hikers and traveler like me who need to keep everyone energized and happy with as little weight carried as possible!
 
 ## Current Features
-Search for any food or brand name
-Results are ranked by highest calorie per 100gram ratio
-Results include: food name, brand name or "common" food designation, serving quantity, serving unit, calories per serving unit, weight per serving unit and calories per 100grams
-
+- Search for any food or brand name
+- Results are ranked by highest calorie per 100gram ratio
+- Results include: food name, brand name or "common" food designation, serving quantity, serving unit, calories per serving unit, weight per serving unit and calories per 100grams
 - Print results
-- Create one or mutiple trips with name, start and end date, url and travelers
+- Create one or multiple trips with name, start and end date, url and travelers
 - Push search items to selected trip, with option to assign to a specific date, traveler or meal type
 - All pushed item fields can be edited and customized, most importantly serving quantities
 - Trips results table shows all items assigned to a specific trip with the total sum of calories and weight for all items displayed 
@@ -18,15 +17,15 @@ Results include: food name, brand name or "common" food designation, serving qua
 - Custom items can be created and assigned to a trip
 
 ## Screenshots
-[Home screen mobile](src/images/HomeScreen.PNG)
-[Home plan trip screen mobile](src/images/HomePlanTripScreen.PNG)
-[Search results desktop](src/images/SearchResultsOatmeal.PNG)
-[Trip list mobile](src/images/TripList.PNG)
-[Trip results mobile](src/images/TripResultsMobile.PNG)
-[Trip results desk](src/images/TripResultsDesk.PNG)
-[Customize results](src/images/CustomizeResultsDesk.PNG)
-[Create item mobile](src/images/CreateItemMobile.PNG)
-[Create item mobile scroll](src/images/CreateItemMobileScroll.PNG)
+![Home screen mobile](src/images/HomeScreen.PNG)
+![Home plan trip screen mobile](src/images/HomePlanTripScreen.PNG)
+![Search results desktop](src/images/SearchResultsOatmeal.PNG)
+![Trip list mobile](src/images/TripList.PNG)
+![Trip results mobile](src/images/TripResultsMobile.PNG)
+![Trip results desk](src/images/TripResultsDesk.PNG)
+![Customize results](src/images/CustomizeResultsDesk.PNG)
+![Create item mobile](src/images/CreateItemMobile.PNG)
+![Create item mobile scroll](src/images/CreateItemMobileScroll.PNG)
 
 
 ## Future Development
