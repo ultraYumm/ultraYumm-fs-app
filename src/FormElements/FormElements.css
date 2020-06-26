@@ -31,7 +31,6 @@ form, section {
     margin: 1%;
     border-radius: 10px;
     padding: 1px;
-
 }
 
 section {
@@ -93,10 +92,22 @@ label {
    padding-left: 5px;
 }
 
-.labelWidthDates {
-    width: 100%;
+.dates {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
+.labelWidthDates {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+
 
 
 .customize {
@@ -485,7 +496,7 @@ button[type="button"]{
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    /*background: white;*/
+    background: blue;
 }
 
 
@@ -628,10 +639,6 @@ svg {
     zoom: 4;
     
     
-}
-
-.labelWidth, .labelWidthPlan, .labelWidthDates {
-    text-align: center;
 }
 
 
@@ -818,7 +825,6 @@ button {
 @media only screen and (min-width: 1000px) {
 
 
-
 button {
     font-size: 30px;
     height: 50px;
@@ -904,13 +910,19 @@ input[type="date"] {
    
 }
 
+div.labelWidthDates {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+
 
 }
 
 
+}
+
 
 @media only screen and (min-width: 1366px) {
-
 
 
 input.dataResult {
@@ -1151,7 +1163,7 @@ input[type="submit"] {
 
 
 
-.graphText {
+.dd  {
     padding-right: 10px;
     font-size: 35px;
 }

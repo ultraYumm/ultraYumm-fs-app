@@ -6,7 +6,6 @@ import uYtitle from "../Images/uYtitle.png";
 import snowyOwl from "../Images/snowyOwl.GIF";
 import SearchForm from "../Search/SearchForm";
 import AddTripForm from "../AddTrip/AddTripForm";
-import { NavLink } from "react-router-dom";
 
 class HomePage extends Component {
   render() {

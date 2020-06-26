@@ -97,7 +97,8 @@ class AddTripForm extends Component {
 
     return (
         <form onSubmit={onSubmitForm}>
-         <h2 className = "white"><i className ="fas fa-shoe-prints"></i> Plan a trip!</h2>
+         <h2 className = "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton/></h2> 
+   
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
                     <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name" placeholder="Escalante" required/>
@@ -118,30 +119,29 @@ class AddTripForm extends Component {
                 </label>
             </div><br></br>
 
-            <div className= "labelWidthDates">
-                <label htmlFor= "start-date"><span className= "labelWidthPlan white montebello">Start date</span>
+            <div className= "dates">
+                <div className= "labelWidthDates">
+                <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan">Start date</span>
                 <input type="date" name="startDate" id= "start-date"
                 onChange={e => createStartDate(e.target.value)}
                 
                 /> </label> <br></br>
-
-          
-
             </div>
 
             <div className= "labelWidthDates">
                 
                 
-                <label htmlFor= "end-date"><span className= "labelWidthPlan white montebello">End date</span>
+                <label htmlFor= "end-date"><span className= "white montebello labelWidthPlan">End date</span>
                 <input type="date" name="endDate" id= "end-date"
                 onChange={e => createEndDate(e.target.value)}
                 /><span className = "error cloudBlue">{validateDate()}</span></label>
     
+    
                             
             </div>
+            </div>
 
-            <GoButton/>
-   
+          
         </form>
         
    )}

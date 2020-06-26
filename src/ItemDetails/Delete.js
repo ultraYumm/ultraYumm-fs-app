@@ -31,11 +31,10 @@ class Delete extends Component {
          className = "delete"
          name= "check"
          onClick={() => {
-          //onlyOne(this)
           this.props.idToDelete(id, name)
         }}
         />
-        <span class="tooltiptext">click Delete to confirm </span></td>
+        <span class="tooltiptext">click <strong>delete</strong> to confirm </span></td>
       
           
    )}

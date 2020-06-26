@@ -33,7 +33,7 @@ class TripNames extends Component {
               <li key= {key}>
               <label className= "labelContainer"> {trip.name}
                    <input 
-                   type="checkbox"
+                   type="radio"
                    name= "check"
                    defaultValue = {trip.id}
                    
@@ -46,7 +46,7 @@ class TripNames extends Component {
                   }}
                    
                    />
-                   </label>
+                    <span className= "checkmark"></span></label>
               </li>
             ))}   
             </ul>

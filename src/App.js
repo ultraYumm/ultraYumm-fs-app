@@ -4,6 +4,7 @@ import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
 import HomePage from "./NavHome/HomePage";
+import Footer from "./NavHome/Footer";
 import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
@@ -45,7 +46,7 @@ class App extends Component {
   handleGetTrips(e) {
     e.preventDefault();
     const API = config. API_UY_ENDPOINT   
-    const  endpoint = '/my-trips'
+    const  endpoint = config.endpointT
    
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
@@ -64,8 +65,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
-        this.setState({
+          this.setState({
           trips: data,
           error: null
         });
@@ -82,8 +82,7 @@ class App extends Component {
   handleGetItems(e) {
     e.preventDefault();
     const API = config. API_UY_ENDPOINT   
-    const  endpoint = '/items'
-   
+    const  endpoint = config.endpointI
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
 
@@ -167,7 +166,7 @@ class App extends Component {
   handleGetPackItems(e) {
     e.preventDefault();
     const API = config. API_UY_ENDPOINT   
-    const  endpoint = '/pack-items'
+    const  endpoint = config.endpointP
    
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
@@ -288,11 +287,10 @@ class App extends Component {
     const newPackItems = this.state.packItems.filter(pack =>
         pack.id !== idToDelete
         )
-        console.log(idToDelete)
         this.setState({
          packItems: newPackItems
         })
-        console.log(this.state.packItems)
+
     }
 
 
@@ -430,8 +428,9 @@ class App extends Component {
 
         <Route
           path="/trip/:tripName"
-          render={() => (
+          render={(routerProps) => (
             <TripResults
+              routerProps={routerProps}
               selectedTrip={selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
@@ -441,6 +440,9 @@ class App extends Component {
                             }
 
               handleDeletePackItem = {(idToDelete) => this.deletePackItem(idToDelete)}
+              getPackItems = {(e) =>
+                this.handleGetPackItems(e)
+              }
 
          
               
@@ -450,10 +452,11 @@ class App extends Component {
 
         <Route
           path="/search-results"
-          render={() => {
+          render={(routerProps) => {
             console.log(this.state);
             return (
               <SearchResults
+                routerProps={routerProps}
                 results= {this.state.searchResults}
                 common={this.state.searchResults.common}
                 branded={this.state.searchResults.branded}
@@ -563,7 +566,7 @@ class App extends Component {
             }}
           />
      
-      
+     <Footer/>
       </div>
     )
   }

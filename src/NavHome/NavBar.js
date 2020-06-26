@@ -18,7 +18,7 @@ class NavBar extends Component {
     
     return (
      <div className= "navContainer"
-     onClick = {getTrips}>
+     >
          <nav className= "navbar skin noDeco" role= "navigation"
          
          

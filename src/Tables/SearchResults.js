@@ -30,6 +30,8 @@ import AddHeader from "./AddHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
 import { v4 as uuidv4 } from 'uuid';
+import { withRouter } from "react-router-dom";
+
 
 class SearchResults extends Component {
   static defaultProps = {
@@ -115,7 +117,6 @@ class SearchResults extends Component {
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
 
-    console.log(newBrandCommonArr)
 
     
     return (
@@ -158,8 +159,8 @@ class SearchResults extends Component {
           </div>
           </div>
           <table id="search-results" className="primaryFont desk">
-            <tbody>
-              <tr className="blueBackground white">
+            
+              <thead className="blueBackground white">
                 <ImageHeader/>
                 <ItemHeader/>
                 <BrandHeader/>
@@ -168,7 +169,9 @@ class SearchResults extends Component {
                 <WeightGHeader/>
                 <TotalCalHeader/> 
                 <TotalCalsPhgHeader/> 
-              </tr>
+              </thead>
+              
+              <tbody>
 
               {newBrandCommonArr.map((item, key) => (
                 <tr className="one whiteBackground black" key={key}>
@@ -245,7 +248,9 @@ class SearchResults extends Component {
                       <ItemName 
                       name = {item.food_name} 
                       item = {item}
-                      handleSelectedItem = {this.props.handleSelectedItem}/>
+                      handleSelectedItem = {this.props.handleSelectedItem}
+                   
+                      />
                     </NavLink>
                   </tr>
      
@@ -309,7 +314,7 @@ class SearchResults extends Component {
   }
 }
 
-export default SearchResults;
+export default withRouter (SearchResults);
 /*
 <AddHeader/>
 

@@ -108,6 +108,41 @@
     
   }
 
+footer {
+    display: block;
+    z-index: 100;
+    bottom: 0px;
+  
+}
+
+
+.logo {
+width: 20px;
+height: 20px;
+}
+  
+.social {
+display: flex;
+justify-content: space-evenly;
+padding: 0;
+}
+
+.social_icon {
+float: left;
+
+}
+
+.contact_icon {
+padding-left: 10px;
+
+}
+  
+.attribution {
+width: 20%;
+float: right;
+padding-right: 5px;
+}
+
 @media only screen and (min-width: 768px) {
 .descriptionText {
     font-size: 14px;
@@ -128,6 +163,21 @@
     font-size: 20px;
 }
 
+
+.contact_icon {
+    display: flex;
+    max-width: 100%;
+    flex-grow: -1;
+}
+
+.socialcontact_icon {
+    max-width: 20%; 
+}
+
+
+.attribution {
+    width: 10%;
+  }
 
   
 }
@@ -213,6 +263,11 @@ div.descriptionText {
     padding-top: 50px;
     font-size: 30px;
     margin-right: 10px
+}
+
+
+.attribution {
+    width: 5%;
 }
 
 

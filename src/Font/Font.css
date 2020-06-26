@@ -220,6 +220,9 @@ ul {
   font-weight: bold;
 }
 
+span {
+  border-radius: 3px;
+}
 
 @media only screen and (min-width: 1px) and (max-width:320px) {
 

@@ -35,6 +35,7 @@ import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
 import { ITEMS, TRIPS } from "../Defaults";
+import { withRouter } from "react-router-dom";
 
 
 
@@ -103,6 +104,7 @@ class TripResults extends Component {
       idToDelete: id,
       nameOfDelete: name
     });
+    
   };
  
 
@@ -154,7 +156,6 @@ class TripResults extends Component {
 
     const getPackItems = this.props.getPackItems
 
-    console.log(this.state.idToDelete)
 
     return (
       <section className="lightBlueBackground"
@@ -189,6 +190,8 @@ class TripResults extends Component {
               this.props.handleDeletePackItem(idToDelete)
             
             }
+
+            getPackItems = {getPackItems}
              />
           </div>
 
@@ -282,6 +285,10 @@ class TripResults extends Component {
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {item.id}
                   name = {item.food_name}
+                  handleDeletePackItem = {(idToDelete) =>
+                    this.props.handleDeletePackItem(idToDelete)
+                  
+                  }
                  
                   />
                  
@@ -385,6 +392,10 @@ class TripResults extends Component {
              idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
              id = {item.id}
              name = {item.food_name}
+             handleDeletePackItem = {(idToDelete) =>
+              this.props.handleDeletePackItem(idToDelete)
+            
+            }
             />
             </tr>
           </tbody>
@@ -397,7 +408,7 @@ class TripResults extends Component {
   }
 }
 
-export default TripResults;
+export default withRouter (TripResults);
 
 
 

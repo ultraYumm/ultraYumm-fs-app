@@ -1,8 +1,8 @@
 # ultraYumm©
-ultraYumm helps users select high energy and low weight foods for long distance hiking and packing.
+ultraYumm helps users find, create and select high energy and low weight foods to plan packing for groups of long distance hikers.
 
 ## Motivation
-Current food and menu planning apps are focused on weight loss and/or calorie minimization. None are specifically designed to assist with long term planning for users seeking maximum energy and ultra-light packing. When I last planned a hiking menu for my family of 4, I struggled with clunky spreadsheets and having to scrape the web for key information. I hope this app is useful to hikers and traveler like me who need to keep everyone energized and happy with as little weight carried as possible!
+Current food and menu planning apps are focused on weight loss and/or calorie minimization. None are specifically designed to assist with long term planning for users seeking maximum energy and ultra-light packing. When I last planned a hiking menu for my family of 4, I struggled with clunky spreadsheets and having to scrape the web for key information. I hope this app is useful to travelers like me who want to keep everyone energized and happy enjoying the great outdoors with as little weight carried as possible!
 
 ## Current Features
 - Search for any food or brand name
@@ -48,7 +48,7 @@ This a work in progress! Planned user functionality includes the following:
 Stephanie LeBlond email: smaleblond@gmail.com cell: 310-989-7801
 
 ## Contributors Wanted!
-I'm building and enhancing this app as a volunteer project in my spare time for anyone to enjoy.
+I'm building and enhancing this app as a volunteer project in my spare time for anyone to use and enjoy.
 Pull requests are welcome. I have tons more to learn about web and app development so please aso share your feedback and suggestions.
 
 ## Demo
