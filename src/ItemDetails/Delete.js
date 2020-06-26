@@ -12,9 +12,6 @@ class Delete extends Component {
         item:  {DEFAULTITEM},
       }
 
-      
-      
-
 
      
   render() {
@@ -34,7 +31,7 @@ class Delete extends Component {
           this.props.idToDelete(id, name)
         }}
         />
-        <span class="tooltiptext">click <strong>delete</strong> to confirm </span></td>
+        <span className= "tooltiptext">click <strong>delete</strong> to confirm </span></td>
       
           
    )}

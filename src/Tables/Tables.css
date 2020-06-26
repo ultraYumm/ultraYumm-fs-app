@@ -39,7 +39,9 @@ td {
 
 }
 
-.mobile {
+
+
+ .mobile {
      zoom:4
 
 }
@@ -95,8 +97,16 @@ td {
    
 .tableImage {
      
-     width: 20px;
+     width: 30px;
      border-radius: 5%;   
+}
+
+
+.noBorder {
+     border: none;
+     text-align: right;
+     padding: 0;
+     padding-top: 1px;
 }
 
 
@@ -284,10 +294,6 @@ td {
      width: 8%;
 }
    
-.tableImage {
-     width: 20px;   
-}
-
 }
 
 

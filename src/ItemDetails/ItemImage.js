@@ -21,6 +21,7 @@ class ItemImage extends Component {
  const source = image
 
     return (
+    
       <img
       className="tableImage "
       src = {source}

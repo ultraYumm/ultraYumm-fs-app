@@ -4,7 +4,7 @@ import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
 import "../Tables/Tables.css";
-import UnitQuant from '../CustomItem/UnitQuant';
+//import UnitQuant from '../CustomItem/UnitQuant';
 
 
 
@@ -22,14 +22,14 @@ class ServingQuant extends Component {
 
    
     return (
-        <td className="servingH black">
+        <td className= "servingH black">
           {!input? "" : input}
          
         </td>
      
           
    )}
-  
+
 }
   
 

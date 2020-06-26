@@ -297,16 +297,22 @@ class TripResults extends Component {
             </tbody>
           </table>
 
-          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly">
+         
           {results.map((item, key) => (
-          <tbody key={item.id}>
-            <tr className = "mobile" >
-            <ItemImage image = {item.image}/>
-            </tr>
+          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={item.id}>
+            
+            <tbody>
+             <tr className = "mobile" >
+              <td className = "noBorder"> 
+                <ItemImage image = {item.image}/>
+              </td>
+             </tr>
+            </tbody>
 
-              
+            <tbody>  
             <tr className="itemH">
               <ItemHeader/>
+              <td>
                       <NavLink
                       className = "noDeco"
                         to={`/trip-item/${item.id}`}
@@ -320,40 +326,55 @@ class TripResults extends Component {
                         item = {item}
                         handleSelectedItem = {this.props.handleSelectedItem}/>
                       </NavLink>
+                </td>
             </tr>
+            </tbody>
 
-            <BrandHeader/>
+            <tbody>
+              <tr>  
+                <BrandHeader/>
                       <ItemBrand
                       brand = {!item.brand_name ? "common" : item.brand_name}
                       />
-            <tr>
-
+             </tr>
+            </tbody>
+              
+            <tbody>
+            <tr> 
             <DateHeader/>
             <td className="date">
                       <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>          
             </td>
+
             </tr>
+            </tbody>
             
+            <tbody>
             <tr>
             <TypeHeader/>
               <td className="type">
                         {item.type}          
               </td>
             </tr>
+            </tbody>
 
+            <tbody>
             <tr>
             <TravlrHeader/>
               <td className="type">
               {item.travName}        
               </td>
             </tr>
+            </tbody>
 
-
+            <tbody>
             <tr>
               <UnitHeader/>
               <ServingUnit unit={item.serving_unit}/>
             </tr>
+            </tbody>
 
+            <tbody>
             <tr>
             <ServQuantHeader/>
             <ServingQuant 
@@ -364,7 +385,9 @@ class TripResults extends Component {
                       }
                       />
             </tr>
+            </tbody>
 
+            <tbody>
             <tr>
             <WeightGHeader/>
             <ServingWeight
@@ -373,7 +396,9 @@ class TripResults extends Component {
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />
             </tr>
+            </tbody>
 
+            <tbody>
             <tr>
             <TotalCalHeader/>
             <CalsPerServing
@@ -385,7 +410,9 @@ class TripResults extends Component {
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                         />
             </tr>
+            </tbody>
 
+            <tbody>
             <tr>
             <DeleteHeader/>
             <Delete           
@@ -398,10 +425,11 @@ class TripResults extends Component {
             }
             />
             </tr>
-          </tbody>
+            </tbody>
+            </table>
           ))}
 
-          </table>
+          
 
       </section>
     );

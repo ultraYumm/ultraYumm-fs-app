@@ -5,7 +5,6 @@ import BackButton from "../FormElements/BackButton";
 import ForwardButton from "../FormElements/ForwardButton";
 import config from "../config";
 import GoButton from "../FormElements/GoButton";
-import ResetButton from "../FormElements/ResetButton";
 import ServUnit from "../CustomItem/ServUnit";
 import UnitQuant from "../CustomItem/UnitQuant";
 import WeightQuant from "../CustomItem/WeightQuant";
@@ -174,12 +173,11 @@ class ItemAdjust extends Component {
       
       
 
-      const API = config. API_UY_ENDPOINT   
+      const API = config.API_UY_ENDPOINT   
       const  endpointI = config.endpointI
       const  endpointP = config.endpointP
      
       const urlI = API + endpointI;
-      console.log(urlI)
       const urlP = API + endpointP;
       
   
@@ -225,8 +223,7 @@ class ItemAdjust extends Component {
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
           this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
           this.props.getItems(e)
-          //this.props.routerProps.history.push("/trip/:tripName");
-          
+                    
                 
         })
         .catch(error => {

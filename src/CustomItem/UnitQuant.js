@@ -28,21 +28,18 @@ class UnitQuant extends Component {
 
    
     return (
-      <input className="dataResult skinBackground"
+      <input className= "dataResult skinBackground"
       type = "number"
       min= "0"
       name="itemQuantity"
-      default Value = {isNaN(input)? 0 : input}
+      default value = {isNaN(input)? 0 : input}
     
       onChange = {buildHandleKeyUp((value) => {
         this.setState(
           {serving_qty: value} 
         )
-        
-      
       })}
       />
-   
    
    )}
 

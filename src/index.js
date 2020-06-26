@@ -201,11 +201,6 @@ const DEFAULTITEM = [
   {serving_weight_grams: 28.35}]
 
 
-
-
- 
-
-
 ReactDOM.render(
 <BrowserRouter>
 <App 

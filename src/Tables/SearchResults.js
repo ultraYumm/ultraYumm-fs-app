@@ -69,8 +69,7 @@ class SearchResults extends Component {
 
     const common = this.props.common;
     const branded = this.props.branded;
-    const trips = this.props.trips;
-
+   
     Array.prototype.push.apply(common, branded);
 
     const commonNutrients = () => {
@@ -96,7 +95,7 @@ class SearchResults extends Component {
         
         common[i].image = common[i].photo.thumb
         const replace = "%";
-        common [i].calsPerServing = common[i].full_nutrients[0].value
+        common[i].calsPerServing = common[i].full_nutrients[0].value
         common[i].nameId = common[i].food_name.replace(replace, "");
         common[i].id = uuidv4()
         common[i].calsPhg = !common[i].serving_weight_grams
@@ -160,6 +159,7 @@ class SearchResults extends Component {
           <table id="search-results" className="primaryFont desk">
             
               <thead className="blueBackground white">
+                <tr>
                 <ImageHeader/>
                 <ItemHeader/>
                 <BrandHeader/>
@@ -168,12 +168,14 @@ class SearchResults extends Component {
                 <WeightGHeader/>
                 <TotalCalHeader/> 
                 <TotalCalsPhgHeader/> 
+                </tr>
               </thead>
               
               <tbody>
 
               {newBrandCommonArr.map((item, key) => (
-                <tr className="one whiteBackground black" key={key}>
+                <tr className="one whiteBackground black" key={item.id}>
+                   
                    <TableItemImage image = {item.image}/>
                 
                   <td className="itemH">
@@ -216,26 +218,27 @@ class SearchResults extends Component {
                       calsPHg = {item.calsPhg}
                     />
                
-                                   </tr>
+              </tr>
               ))}
             </tbody>
-          </table>
+         </table>
 
-          <table id="search-results" className="primaryFont whiteBackground mobileOnly">
-          {newBrandCommonArr.map((item, key) => 
-          
-
-         ( 
-         <tbody  key={item.id}>
-           <tr className = "mobile">
-            <ItemImage image = {item.image}/>
-           </tr>
+         
+          {newBrandCommonArr.map((item) => ( 
+          <table id="search-results" className="primaryFont whiteBackground mobileOnly noBorder"  key={item.id}>
            
+           <tbody>
+            <tr className = "mobile">
+              <td className = "noBorder">
+              <ItemImage image = {item.image}/>
+              </td>
+            </tr>
+           </tbody>
 
-          
-           <tr className="itemH">
-           <ItemHeader/>
-
+           <tbody>
+            <tr className="itemH">
+            <ItemHeader/>
+              <td>
                     <NavLink
                      className = "noDeco"
                       to={`/item/${item.nameId}`}
@@ -251,31 +254,40 @@ class SearchResults extends Component {
                    
                       />
                     </NavLink>
-                  </tr>
-     
-          
-          <BrandHeader/>
+                 </td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <BrandHeader/>
                     <ItemBrand
                     brand = {!item.brand_name ? "common" : item.brand_name}
                     />
-
-          <tr>
-            <ServQuantHeader/>
+             </tr>
+           </tbody>
+           
+            <tbody>
+              <tr>
+                <ServQuantHeader/>
                   <ServingQuant 
                             input = {Math.round(item.serving_qty)}
                             id = {item.id}
                             handleAdjustQuant = {(inputValue, id) =>
                               this.adjustQuant(inputValue, id)
                             }/>
-          </tr>
-
-          <tr>
-          <UnitHeader/>
+            </tr>
+          </tbody>
+       
+          <tbody>
+           <tr>
+              <UnitHeader/>
                 <ServingUnit unit={item.serving_unit} />
-
           </tr>
-
-          <tr>     
+          </tbody>
+         
+          <tbody>
+           <tr>     
              <WeightGHeader/>
                     <ServingWeight
                     weight =  {Math.round(item.serving_weight_grams)}
@@ -283,7 +295,9 @@ class SearchResults extends Component {
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />
           </tr>
+         </tbody>
 
+         <tbody>
           <tr>        
                 <TotalCalHeader/> 
                 <CalsPerServing
@@ -292,22 +306,18 @@ class SearchResults extends Component {
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />   
           </tr> 
+         </tbody>
+       
+         <tbody>
           <tr>
                 <TotalCalsPhgHeader/> 
                 <CalsPerHg
                       calsPHg = {item.calsPhg}
                     />
-
           </tr>
-        
-           </tbody>
-          
-           
-           
-))}
-</table>
-                      
-        
+         </tbody>
+
+          </table>))}    
       </section>
     );
   }

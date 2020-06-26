@@ -12,11 +12,7 @@ import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
 import config from "./config";
 import "./FormElements/FormElements.css";
-
-
 import ItemAdjust from "./ItemDetails/ItemAdjust";
-
-
 import SearchResults from "./Tables/SearchResults";
 
 class App extends Component {
@@ -100,8 +96,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data)
-        this.setState({
+          this.setState({
           items: data,
           error: null
         });
@@ -300,21 +295,13 @@ class App extends Component {
    
 
     const trips = this.state.trips
-    const items = this.state.items
-
-    
+    const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-
-    const packItems = this.state.packItems
-    console.log(packItems)
-    
-
+    const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripId === selectedTripId
     );
-
-
     const selectedTripItemsId = selectedTripItems.map((item) => item.id)
   
     var tripItems = [];
@@ -326,7 +313,7 @@ class App extends Component {
 
     const itemTypes = this.props.itemTypes
 
-  
+
   
     return (
       <div className="App">
@@ -443,8 +430,6 @@ class App extends Component {
               getPackItems = {(e) =>
                 this.handleGetPackItems(e)
               }
-
-         
               
             />
           )}
@@ -453,7 +438,6 @@ class App extends Component {
         <Route
           path="/search-results"
           render={(routerProps) => {
-            console.log(this.state);
             return (
               <SearchResults
                 routerProps={routerProps}
@@ -466,8 +450,6 @@ class App extends Component {
                 }
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
-                
-               
               />
             )
           }}
@@ -511,11 +493,6 @@ class App extends Component {
   
                 getPackItems = {(e) =>
                 this.handleGetPackItems(e)}
-
-              
-          
-            
-
               />
             )
           }}
@@ -549,7 +526,6 @@ class App extends Component {
                 handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                   this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
                 } 
-
 
                 handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
                 this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)

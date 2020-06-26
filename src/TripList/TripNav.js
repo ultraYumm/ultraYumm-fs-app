@@ -66,8 +66,6 @@ export default TripNav
 
 /*onClick={() => console.log()}*/
               
-
-
   /*return (
    <section className = "tripSection">
     <h2 className= "montebello">My trips!</h2>

@@ -78,14 +78,10 @@ class AddTripForm extends Component {
         
         const endDate = this.state.endDate
       
-        try {
+       
         if (moment(endDate).isBefore(moment(startDate)) === true)
-          throw "hmmm...end date should be later than current date"
-        }
-        catch(err) {
-            return err;
-          }
-
+        return ("hmmm...end date should be later than current date")
+           
       }
 
     return (
@@ -104,7 +100,7 @@ class AddTripForm extends Component {
                 </label>
             </div>
             <div className= "labelWidthPlan">
-                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
+                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank" rel="noopener noreferrer" className= "white montebello">Location URL</a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
                 </label>
             </div><br></br>
