@@ -1,80 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ultraYumm
+ultraYumm© helps users select high energy and low weight foods for long distance hiking and packing.
 
-## Available Scripts
+## Motivation
+Current food and menu planning apps are focused on weight loss and/or calorie minimization. None are specifically designed to assist with long term planning for users seeking maximum energy and ultra-light packing. When I last planned a hiking menu for my family of 4, I struggled with clunky spreadsheets and having to scrape the web for key information. I hope this app is useful to hikers and traveler like me who need to keep everyone energized and happy with as little weight carried as possible!
 
-In the project directory, you can run:
+## Current Features
+Search for any food or brand name
+Results are ranked by highest calorie per 100gram ratio
+Results include: food name, brand name or "common" food designation, serving quantity, serving unit, calories per serving unit, weight per serving unit and calories per 100grams
 
-### `yarn start`
+- Print results
+- Create one or mutiple trips with name, start and end date, url and travelers
+- Push search items to selected trip, with option to assign to a specific date, traveler or meal type
+- All pushed item fields can be edited and customized, most importantly serving quantities
+- Trips results table shows all items assigned to a specific trip with the total sum of calories and weight for all items displayed 
+- Items can be deleted from trip results table
+- Custom items can be created and assigned to a trip
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
+[Home screen mobile](src/images/HomeScreen.PNG)
+[Home plan trip screen mobile](src/images/HomePlanTripScreen.PNG)
+[Search results desktop](src/images/SearchResultsOatmeal.PNG)
+[Trip list mobile](src/images/TripList.PNG)
+[Trip results mobile](src/images/TripResultsMobile.PNG)
+[Trip results desk](src/images/TripResultsDesk.PNG)
+[Customize results](src/images/CustomizeResultsDesk.PNG)
+[Create item mobile](src/images/CreateItemMobile.PNG)
+[Create item mobile scroll](src/images/CreateItemMobileScroll.PNG)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Future Development
+This a work in progress! Planned user functionality includes the following:
+- Secure user login and account 
+- Share app content on social media platforms
+- Trip and search results table sort and filter functionality
+- Scan UPC codes to create new items
+- Link to purchase selected items online
+- See other nutritional information such as nutrients, minerals, protein and fat values
+- Determine user daily caloric needs based on biometric, effort and distance travelled information
+- Enhanced display of summary trip information, including daily calorie and weight
+- Delete, save as or rename trip functionality
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
+Front-End: JavaScript, React, Enzyme, jQuery, HTML5, CSS3
+Back-end: SQL, Node.js, Mocha & Chai, REST APIs 3
 
-### `yarn build`
+## Author
+Stephanie LeBlond email: smaleblond@gmail.com cell: 310-989-7801
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributors Wanted!
+I'm building and enhancing this app as a volunteer project in my spare time for anyone to enjoy.
+Pull requests are welcome. I have tons more to learn about web and app development so please aso share your feedback and suggestions.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Production links
-Inspect: https://vercel.com/ultrayumm/ultrayumm-fs-app/krqitokfq [5s]
-✅  Production: https://ultrayumm-fs-app.now.sh
-
-### Dependencies
-npm install react-test-renderer -D
-npm install enzyme enzyme-adapter-react-16 --save-dev
-npm install enzyme-to-json --save-dev
-npm install @fortawesome/fontawesome-svg-core
-npm install @fortawesome/free-solid-svg-icons
-npm install @fortawesome/react-fontawesome
+## Demo
+https://build.ultrayumm.vercel.app
