@@ -17,15 +17,15 @@ Current food and menu planning apps are focused on weight loss and/or calorie mi
 - Custom items can be created and assigned to a trip
 
 ## Screenshots
-![Home screen mobile](src/images/HomeScreen.PNG)
-![Home plan trip screen mobile](src/images/HomePlanTripScreen.PNG)
-![Search results desktop](src/images/SearchResultsOatmeal.PNG)
-![Trip list mobile](src/images/TripList.PNG)
-![Trip results mobile](src/images/TripResultsMobile.PNG)
-![Trip results desk](src/images/TripResultsDesk.PNG)
-![Customize results](src/images/CustomizeResultsDesk.PNG)
-![Create item mobile](src/images/CreateItemMobile.PNG)
-![Create item mobile scroll](src/images/CreateItemMobileScroll.PNG)
+![Home screen mobile](src/Images/HomeScreen.PNG)
+![Home plan trip screen mobile](src/Images/HomePlanTripScreen.PNG)
+![Search results desktop](src/Images/SearchResultsOatmeal.PNG)
+![Trip list mobile](src/Images/TripList.PNG)
+![Trip results mobile](src/Images/TripResultsMobile.PNG)
+![Trip results desk](src/Images/TripResultsDesk.PNG)
+![Customize results](src/Images/CustomizeResultsDesk.PNG)
+![Create item mobile](src/Images/CreateItemMobile.PNG)
+![Create item mobile scroll](src/Images/CreateItemMobileScroll.PNG)
 
 
 ## Future Development
