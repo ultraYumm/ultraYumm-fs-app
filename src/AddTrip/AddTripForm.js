@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-
 import '../Font/Font.css';
 import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
-import { NavLink} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import Moment from 'react-moment';
 import { withRouter } from "react-router-dom";
-import PropTypes from 'prop-types';
+
 
 class AddTripForm extends Component {
 
@@ -47,18 +44,17 @@ class AddTripForm extends Component {
         return dateArray;
    } 
    
-   let tripDates = [getDates()]
+        let tripDates = [getDates()]
 
 
-   const startDate = this.state.startDate
-   const endDate = this.state.endDate
+        const startDate = this.state.startDate
+        const endDate = this.state.endDate
 
-   if (moment(endDate).isBefore(moment(startDate)) === true)
-   {this.props.routerProps.history.push("/")
-}
-   else this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates) ||
-    this.props.routerProps.history.push("/my-trips");
-      
+        if (moment(endDate).isBefore(moment(startDate)) === true)
+        {this.props.routerProps.history.push("/")}
+        else this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates) ||
+            this.props.routerProps.history.push("/my-trips");
+            
       
     }
     
@@ -74,9 +70,6 @@ class AddTripForm extends Component {
         endDate: endDate,
     });
     }
-
-
-    
 
 
     const validateDate = () => {
@@ -97,7 +90,7 @@ class AddTripForm extends Component {
 
     return (
         <form onSubmit={onSubmitForm}>
-         <h2 className = "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton/></h2> 
+         <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton/></h2> 
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
@@ -105,14 +98,11 @@ class AddTripForm extends Component {
                 </label>
             </div>
 
-            
-
             <div className= "labelWidthPlan">
                  <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
                 </label>
             </div>
-
             <div className= "labelWidthPlan">
                  <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank"  className= "white montebello">Location URL</a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
@@ -126,22 +116,16 @@ class AddTripForm extends Component {
                 onChange={e => createStartDate(e.target.value)}
                 
                 /> </label> <br></br>
-            </div>
 
+            </div>
             <div className= "labelWidthDates">
-                
-                
                 <label htmlFor= "end-date"><span className= "white montebello labelWidthPlan">End date</span>
                 <input type="date" name="endDate" id= "end-date"
                 onChange={e => createEndDate(e.target.value)}
-                /><span className = "error cloudBlue">{validateDate()}</span></label>
-    
-    
-                            
+                /><span className= "error cloudBlue">{validateDate()}</span></label>
             </div>
-            </div>
-
-          
+           </div>
+       
         </form>
         
    )}

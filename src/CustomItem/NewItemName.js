@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
-import { renderToString } from 'react-dom/server';
 import { v4 as uuidv4 } from 'uuid';
-import ItemHeader from "../Tables/ItemHeader";
+
 
 class NewItemName extends Component {
 

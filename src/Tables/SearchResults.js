@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import SaveButton from "../FormElements/SaveButton";
-import ResetButton from "../FormElements/ResetButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
@@ -16,8 +15,8 @@ import ServingUnit from "../ItemDetails/ServingUnit";
 import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
-import Add from "../ItemDetails/Add";
-import { DEFAULTITEM, PACKITEMS } from "../Defaults";
+//import Add from "../ItemDetails/Add";
+import { DEFAULTITEM, PACKITEMS} from "../Defaults";
 import ImageHeader from "./ImageHeader"
 import ItemHeader from "./ItemHeader"
 import BrandHeader from "./BrandHeader";
@@ -26,7 +25,7 @@ import UnitHeader from "./UnitHeader";
 import WeightGHeader from "./WeightGHeader";
 import TotalCalHeader from "./TotalCalHeader";
 import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
-import AddHeader from "./AddHeader";
+//import AddHeader from "./AddHeader";
 import BackButton from '../FormElements/BackButton';
 import ForwardButton from '../FormElements/ForwardButton';
 import { v4 as uuidv4 } from 'uuid';
@@ -38,9 +37,9 @@ class SearchResults extends Component {
     results: {},
     common: [],
     branded: [],
-    item:  {DEFAULTITEM},
+    item:  DEFAULTITEM,
     thumb: "",
-    //packItems: {PACKITEMS}
+    packItems: PACKITEMS
   };
 
   constructor(props) {
@@ -48,7 +47,7 @@ class SearchResults extends Component {
     this.state = {
       serving_qty: 0,
       id: "",
-      //packItems: {PACKITEMS}
+      packItems: PACKITEMS
 
     
       

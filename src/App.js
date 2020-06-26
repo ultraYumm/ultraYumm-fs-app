@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
@@ -45,7 +45,7 @@ class App extends Component {
 
   handleGetTrips(e) {
     e.preventDefault();
-    const API = config. API_UY_ENDPOINT   
+    const API = config.API_UY_ENDPOINT   
     const  endpoint = config.endpointT
    
     const url = API + endpoint;
@@ -56,7 +56,7 @@ class App extends Component {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
       },
-      // add other options e.g. method, body, etc...
+     
     })
       .then(res => {
         if(!res.ok) {
@@ -81,7 +81,7 @@ class App extends Component {
 
   handleGetItems(e) {
     e.preventDefault();
-    const API = config. API_UY_ENDPOINT   
+    const API = config.API_UY_ENDPOINT   
     const  endpoint = config.endpointI
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
@@ -91,7 +91,7 @@ class App extends Component {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
       },
-      // add other options e.g. method, body, etc...
+    
     })
       .then(res => {
         if(!res.ok) {
@@ -115,7 +115,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-   const API = config. API_UY_ENDPOINT   
+    const API = config.API_UY_ENDPOINT   
     const  endpointI = config.endpointI
     const  endpointT = config.endpointT
     const  endpointP = config.endpointP
@@ -165,7 +165,7 @@ class App extends Component {
 
   handleGetPackItems(e) {
     e.preventDefault();
-    const API = config. API_UY_ENDPOINT   
+    const API = config.API_UY_ENDPOINT   
     const  endpoint = config.endpointP
    
     const url = API + endpoint;
@@ -176,7 +176,7 @@ class App extends Component {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`,
       },
-      // add other options e.g. method, body, etc...
+    
     })
       .then(res => {
         if(!res.ok) {

@@ -14,7 +14,7 @@ class SearchForm extends Component {
       let searchTerm = e.target.searchTerm.value;
       this.props.handleUpdate(searchTerm);
       this.props.routerProps.history.push("/search-results");
-      const apId = config. NUTRI_APID;
+      const apId = config.NUTRI_APID;
       const apiKey = config.API_NUTRI_KEY;
       const remoteUser = config.NUTRI_REMOTEUSER;
       const detailed = config.NUTRI_DETAILED;

@@ -17,14 +17,6 @@ class TripNames extends Component {
 
     const trips = this.props.trips
 
-    
-    function onlyOne(checkbox) {
-      var checkboxes = document.getElementsByName('check')
-      checkboxes.forEach((item) => {
-          if (item !== checkbox) item.checked = false
-         
-      })
-  }
        
     return (
       
@@ -40,7 +32,6 @@ class TripNames extends Component {
                    onClick={() => {
                     const selectedTrip = trip
                     const tripId = trip.id
-
                     this.props.handleSelectTrip(selectedTrip, tripId)
                   
                   }}

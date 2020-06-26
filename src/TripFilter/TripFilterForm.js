@@ -9,9 +9,9 @@ import UniqueTripItems from '../TripDetails/TripItems';
 import TripTravelers from '../TripDetails/TripTravelers';
 import TripName from '../TripDetails/TripName';
 import TripYear from '../TripDetails/TripYear';
-import { NavLink, Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../FormElements/FormElements.css';
-import { selectTrip } from '../Defaults';
+//import { selectTrip } from '../Defaults';
 
 
 

@@ -15,7 +15,7 @@ class DeleteButton extends Component {
 
         const idToDelete = this.props.idToDelete
 
-        const API = config. API_UY_ENDPOINT   
+        const API = config.API_UY_ENDPOINT   
         const  endpoint = config.endpointP
 
         const url = API + endpoint;
