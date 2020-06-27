@@ -22,18 +22,23 @@ import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { DEFAULTITEM, TRIPS } from "../Defaults";
+import { ITEMS, DEFAULTITEM, TRIPS } from "../Defaults";
 
 
 class ItemAdjust extends Component {
   static defaultProps = {
+    selectedTrip: TRIPS,
+    trips: TRIPS,
+    items: ITEMS,
+    tripItems:ITEMS,
+    selectedTripItems: ITEMS,
+    selectedItem: DEFAULTITEM,
     item:  DEFAULTITEM,
     serving_unit: "",
     calsPerServing: null,
     packItems: {},
     name: "",
     selectedTripId: "",
-    selectedTrip: TRIPS,
     id: "",
     serving_qty: null,
     serving_weight_grams: null,
@@ -44,6 +49,7 @@ class ItemAdjust extends Component {
     image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
   }
+
 
   constructor(props) {
     super(props);

@@ -3,13 +3,18 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
 import { NavLink} from 'react-router-dom'
-import UltraContext from '../UltraContext'
+import { TRIPS } from "../Defaults";
+
 
 
 class TripNav extends Component {
 
 
-static contextType = UltraContext;
+   static defaultProps = {
+      trips: TRIPS,
+    };
+
+
 
 
   
@@ -27,7 +32,7 @@ static contextType = UltraContext;
           <div className = "tripContainer">
           <ul className= "trips blueBackground">
             
-              {trips.map ((trip, key) => 
+              {trips.map (trip => 
               <li className= "tripLi"
              key = {trip.id}
             

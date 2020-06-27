@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2
+      className="white"
+    >
+      <i
+        className="fas fa-skiing"
+      />
+       Quick search!
+    </h2>
+    <label
+      className="white montebello searchTerm"
+      htmlFor="searchTerm"
+    >
+      <i
+        className="fas fa-cookie-bite"
+      />
+       By name or brand
+    </label>
+    <input
+      className="skinBackground purple"
+      id="searchTerm"
+      name="searchTerm"
+      placeholder="Granola"
+      required={true}
+      type="text"
+    />
+    <div
+      className="goContainer go"
+    >
+      <button
+        className="white montebello blackBackground go"
+        type="submit"
+      >
+        Go!
+      </button>
+    </div>
+  </form>
+</div>
+`;

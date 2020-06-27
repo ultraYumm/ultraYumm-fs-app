@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
+import { ITEMTYPES } from "../Defaults";
+
+
 
 
 
 
 class ItemTypes extends Component {
+
+  static defaultProps = {
+    itemTypes: ITEMTYPES
+  }
 
   
   render() {

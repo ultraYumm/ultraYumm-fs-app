@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="home"
+  >
+    <img
+      alt="ultraYumm logo"
+      className="uYtitle"
+      src="uYtitle.png"
+    />
+    <h1
+      className="black montebello title"
+    >
+      Get more energy!
+      <span>
+          
+      </span>
+      <span
+        className="lighter"
+      >
+        pack lighter
+      </span>
+    </h1>
+    <div
+      className="primaryFont description"
+    >
+      <div
+        className="descriptionText"
+      >
+        <strong>
+          ultraYumm
+        </strong>
+         helps you plan and pack just the right amount of food for your trip. Search you favorite eats and allocate them in precise amounts to your travelers by day and by meal. Keep everyone energized and happy with ultra-light packs!
+      </div>
+      <div
+        className="snowyOwlcontainer"
+      >
+        <img
+          alt="snowy owl gif"
+          className="snowyOwl"
+          src="snowyOwl.GIF"
+        />
+      </div>
+    </div>
+  </div>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <h2
+        className="white"
+      >
+        <i
+          className="fas fa-skiing"
+        />
+         Quick search!
+      </h2>
+      <label
+        className="white montebello searchTerm"
+        htmlFor="searchTerm"
+      >
+        <i
+          className="fas fa-cookie-bite"
+        />
+         By name or brand
+      </label>
+      <input
+        className="skinBackground purple"
+        id="searchTerm"
+        name="searchTerm"
+        placeholder="Granola"
+        required={true}
+        type="text"
+      />
+      <div
+        className="goContainer go"
+      >
+        <button
+          className="white montebello blackBackground go"
+          type="submit"
+        >
+          Go!
+        </button>
+      </div>
+    </form>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <h2
+      className="white"
+    >
+      <i
+        className="fas fa-shoe-prints"
+      />
+       Plan a trip! 
+      <div
+        className="goContainer go"
+      >
+        <button
+          className="white montebello blackBackground go"
+          type="submit"
+        >
+          Go!
+        </button>
+      </div>
+    </h2>
+    <div
+      className="labelWidthPlan"
+    >
+      <label
+        htmlFor="new-trip-name"
+      >
+        <i
+          className="fas fa-feather white"
+        />
+        <span
+          className="labelWidthPlan white montebello"
+        >
+          New trip name
+        </span>
+        <input
+          className="skinBackground black search"
+          id="new-trip-name"
+          name="tripName"
+          placeholder="Escalante"
+          required={true}
+          type="text"
+        />
+      </label>
+    </div>
+    <div
+      className="labelWidthPlan"
+    >
+      <label
+        htmlFor="traveler-name"
+      >
+        <i
+          className="fas fa-user-friends white"
+        />
+        <span
+          className="labelWidthPlan white montebello"
+        >
+          Traveler names
+        </span>
+        <input
+          className="skinBackground purple names"
+          id="traveler-name"
+          name="tripTravelers"
+          placeholder="Stef, Jack, Emi, Marielle..."
+          type="text"
+        />
+      </label>
+    </div>
+    <div
+      className="labelWidthPlan"
+    >
+      <label
+        htmlFor="map-link"
+      >
+        <i
+          className="fas fa-drafting-compass white"
+        />
+        <span
+          className="labelWidthPlan white"
+        >
+          <a
+            className="white montebello"
+            href="https://www.google.com/maps"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Location URL
+          </a>
+        </span>
+        <input
+          className="skinBackground purple names"
+          defaultValue="https://earth.google.com/"
+          id="map-link"
+          name="tripURL"
+          type="url"
+        />
+      </label>
+    </div>
+    <br />
+    <div
+      className="dates"
+    >
+      <div
+        className="labelWidthDates"
+      >
+        <label
+          htmlFor="start-date"
+        >
+          <span
+            className="white montebello labelWidthPlan"
+          >
+            Start date
+          </span>
+          <input
+            id="start-date"
+            name="startDate"
+            onChange={[Function]}
+            type="date"
+          />
+           
+        </label>
+         
+        <br />
+      </div>
+      <div
+        className="labelWidthDates"
+      >
+        <label
+          htmlFor="end-date"
+        >
+          <span
+            className="white montebello labelWidthPlan"
+          >
+            End date
+          </span>
+          <input
+            id="end-date"
+            name="endDate"
+            onChange={[Function]}
+            type="date"
+          />
+          <span
+            className="error cloudBlue"
+          />
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+`;

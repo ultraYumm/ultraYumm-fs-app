@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import '../Font/Font.css';
 import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
-import { v4 as uuidv4 } from 'uuid';
 import { withRouter } from "react-router-dom";
+import config from "../config";
 
 
 class AddTripForm extends Component {
@@ -25,7 +25,7 @@ class AddTripForm extends Component {
     const onSubmitForm = (e) => {
 
       e.preventDefault();
-      let tripId = uuidv4()
+
       let iframe =e.target.tripURL.value
       let tripName = e.target.tripName.value
       var re = /:\s|,\s/;
@@ -46,14 +46,51 @@ class AddTripForm extends Component {
    
         let tripDates = [getDates()]
 
+        const inputValues = {
+            iframe: iframe,
+            name: tripName,
+            traveler_names: tripTravelers,
+            trip_dates: tripDates
+
+
+          }
+
+        const API = config.API_UY_ENDPOINT   
+        const  endpoint = config.endpointT
+
+        const url = API + endpoint;
+        const API_TOKEN = config.API_UY_KEY
+
 
         const startDate = this.state.startDate
         const endDate = this.state.endDate
 
         if (moment(endDate).isBefore(moment(startDate)) === true)
         {this.props.routerProps.history.push("/")}
-        else this.props.handleAddTrip(tripId, iframe, tripName, tripTravelers, tripDates) ||
-            this.props.routerProps.history.push("/my-trips");
+        else 
+        fetch(url, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${API_TOKEN}`,
+            },
+            body: JSON.stringify(inputValues),
+
+          })
+
+        .then(res => {
+        if (!res.ok) {
+            // get the error message from the response
+            return res.json().then(error => {
+            // then throw it
+            throw error
+            })
+        }
+        return res.json()
+        })
+        
+        this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates)
+    
+        this.props.routerProps.history.push("/my-trips")
             
       
     }

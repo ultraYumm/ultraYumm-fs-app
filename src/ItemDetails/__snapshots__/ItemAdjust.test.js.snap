@@ -1,0 +1,625 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<section
+  className="filterForm"
+>
+  <div
+    className="iconButtonsContainer"
+  >
+    <div
+      className="back"
+    >
+      <i
+        className="fas fa-arrow-circle-left skin arrowButtons"
+        onClick={[Function]}
+      />
+    </div>
+    <div
+      className="forward"
+    >
+      <i
+        className="fas fa-arrow-circle-right skin forward arrowButtons"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="adjustImage"
+  >
+    <img
+      alt=""
+      className="tableImage "
+      src="https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
+    />
+  </div>
+  <form
+    className="blueBackground"
+    id="filter"
+    onSubmit={[Function]}
+  >
+    <h2
+      className="montebello white"
+    >
+        
+      <div
+        className="goContainer go"
+      >
+        <button
+          className="white montebello blackBackground go"
+          type="submit"
+        >
+          Go!
+        </button>
+      </div>
+    </h2>
+    <div
+      className="white primaryFont"
+    />
+    <div>
+      <div
+        className="newI"
+      >
+        <div
+          className="newItems"
+        >
+          <div>
+            <label
+              className="labelWidth white"
+              htmlFor="custom-item-name"
+            >
+              <i
+                className="fas fa-carrot white"
+              />
+              Item name
+            </label>
+            <input
+              className="skinBackground black search"
+              defaultValue="...my pink salt"
+              id="custom-item-name"
+              name="itemName"
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          className="newItems"
+        >
+          <div>
+            <label
+              className="labelWidth white"
+              htmlFor="custom-brand-name"
+            >
+              <i
+                className="fas fa-tag white"
+              />
+              Brand 
+            </label>
+            <input
+              className="skinBackground black search"
+              defaultValue="common"
+              id="custom-brand-name"
+              name="brandName"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="calcBox"
+      >
+        <div
+          className="inputsContainer"
+        >
+          <div
+            className="inputBox"
+          >
+            <label
+              className="labelWidth white"
+              htmlFor="serving quantity"
+            >
+              <i
+                className="fas fa-coins white mobileHide"
+              />
+               Serving Quantity
+            </label>
+            <div
+              className="dataInput"
+            >
+              <input
+                className="dataResult skinBackground"
+                default={true}
+                id="serving quantity"
+                min="0"
+                name="itemQuantity"
+                onChange={[Function]}
+                type="number"
+                value={0}
+              />
+            </div>
+          </div>
+          <div
+            className="inputBox"
+          >
+            <label
+              className="labelWidth white"
+              htmlFor="serving unit"
+            >
+              <i
+                className="fas fa-ruler-vertical white mobileHide"
+              />
+               Serving unit
+            </label>
+            <div
+              className="textInput"
+            >
+              <input
+                className="dataResult servingUnit skinBackground"
+                defaultValue="pinch"
+                id="serving unit"
+                onKeyUp={[Function]}
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            className="inputBox"
+          >
+            <label
+              className="labelWidth white"
+              htmlFor="weight per serving"
+            >
+               
+              <i
+                className="fas fa-balance-scale white mobileHide"
+              />
+                 Weight per serving
+            </label>
+            <div
+              className="dataInput"
+            >
+              <input
+                className="dataResult skinBackground"
+                defaultValue={0}
+                id="weight per serving"
+                min="0"
+                onChange={[Function]}
+                type="number"
+              />
+            </div>
+          </div>
+          <div
+            className="inputBox"
+          >
+            <label
+              className="labelWidth white"
+              htmlFor="calories per serving"
+            >
+              <i
+                className="fas fa-fire-alt white mobileHide"
+              />
+               Calories per serving
+            </label>
+            <div
+              className="dataInput"
+            >
+              <input
+                className="dataResult skinBackground"
+                defaultValue={0}
+                id="calories per serving"
+                min="0"
+                onChange={[Function]}
+                type="number"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="resultsContainer"
+        >
+          <div
+            className="resultBox"
+          >
+            <label
+              className="labelWidth white"
+            >
+               
+              <i
+                className="fas fa-hiking white mobileHide"
+              />
+               
+              <strong>
+                Total Weight
+              </strong>
+            </label>
+            <div
+              className="cellBox redBackground"
+            >
+              <div
+                className="white dataResult total bold"
+              >
+                1
+              </div>
+            </div>
+          </div>
+          <div
+            className="resultBox"
+          >
+            <label
+              className="labelWidth white"
+            >
+               
+              <i
+                className="fas fa-fire-alt white mobileHide"
+              />
+               
+              <strong>
+                Total Calories
+              </strong>
+            </label>
+            <div
+              className="cellBox redBackground"
+            >
+              <div
+                className="white dataResult total bold"
+              >
+                1
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="filterContainer"
+    >
+      <div
+        className="filterSelection"
+      >
+        <h3
+          className="filterCategory"
+        >
+          <i
+            className="fas fa-feather black"
+          />
+           Select trip:
+           
+          <span
+            className="primaryFont blue skinBackground"
+          >
+            Escalante
+          </span>
+        </h3>
+        <ul
+          className="scroll"
+        >
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Escalante
+              <input
+                defaultValue="e"
+                name="check"
+                onClick={[Function]}
+                type="radio"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Tende
+              <input
+                defaultValue="t"
+                name="check"
+                onClick={[Function]}
+                type="radio"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="filterSelection"
+      >
+        <h3
+          className="filterCategory"
+        >
+          <i
+            className="fas fa-calendar-day black"
+          />
+           Select date:
+           
+          <span
+            className="primaryFont blue skinBackground"
+          >
+            <time
+              dateTime={"2019-03-23T09:25:43.511Z"}
+            >
+              Mar/23
+            </time>
+          </span>
+        </h3>
+        <ul
+          className="scroll"
+        >
+          <li>
+            <label
+              className="labelContainer"
+            >
+              <time
+                dateTime={"2019-03-23T09:25:43.511Z"}
+              >
+                Mar/23
+              </time>
+              <input
+                defaultValue="2019-03-23T09:25:43.511Z"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark notChecked"
+                date="2019-03-23T09:25:43.511Z"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              <time
+                dateTime={"2019-03-24T09:25:43.511Z"}
+              >
+                Mar/24
+              </time>
+              <input
+                defaultValue="2019-03-24T09:25:43.511Z"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark notChecked"
+                date="2019-03-24T09:25:43.511Z"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              <time
+                dateTime={"2019-03-25T09:25:43.511Z"}
+              >
+                Mar/25
+              </time>
+              <input
+                defaultValue="2019-03-25T09:25:43.511Z"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark notChecked"
+                date="2019-03-25T09:25:43.511Z"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              <time
+                dateTime={"2019-03-26T09:25:43.511Z"}
+              >
+                Mar/26
+              </time>
+              <input
+                defaultValue="2019-03-26T09:25:43.511Z"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark notChecked"
+                date="2019-03-26T09:25:43.511Z"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              <time
+                dateTime={"2019-03-27T09:25:43.511Z"}
+              >
+                Mar/27
+              </time>
+              <input
+                defaultValue="2019-03-27T09:25:43.511Z"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark notChecked"
+                date="2019-03-27T09:25:43.511Z"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="filterSelection"
+      >
+        <h3
+          className="filterCategory"
+        >
+          <i
+            className="fas fa-utensils black"
+          />
+           Select type:
+           
+          <span
+            className="primaryFont blue skinBackground"
+          />
+        </h3>
+        <ul
+          className="scroll"
+        >
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Breakfast
+              <input
+                defaultValue="Breakfast"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Lunch
+              <input
+                defaultValue="Lunch"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Dinner
+              <input
+                defaultValue="Dinner"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Snack
+              <input
+                defaultValue="Snack"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              Other
+              <input
+                defaultValue="Other"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="filterSelection"
+      >
+        <h3
+          className="filterCategory"
+        >
+            
+          <i
+            className="fas fa-user-circle black"
+          />
+           Select traveler:
+           
+          <span
+            className="primaryFont blue skinBackground"
+          />
+        </h3>
+        <ul
+          className="scroll"
+        >
+          <li>
+            <label
+              className="labelContainer"
+            >
+              select trip first
+              <input
+                defaultValue="select trip first"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="mobileOnly"
+    >
+      <div
+        className="goContainer go"
+      >
+        <button
+          className="white montebello blackBackground go"
+          type="submit"
+        >
+          Go!
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
+`;

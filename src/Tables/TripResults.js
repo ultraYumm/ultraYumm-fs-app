@@ -43,7 +43,10 @@ import { withRouter } from "react-router-dom";
 class TripResults extends Component {
   static defaultProps = {
     selectedTrip: TRIPS,
-    items: ITEMS
+    items: ITEMS,
+    tripItems:ITEMS,
+    selectedTripItems: ITEMS,
+    
   };
 
   constructor(props) {
@@ -52,7 +55,11 @@ class TripResults extends Component {
       serving_qty: null,
       id: "",
       idToDelete: "",
-      nameOfDelete: ""
+      nameOfDelete: "",
+      selectedTrip: [],
+      items: [],
+      tripItems: [],
+      selectedTripItems: []
     };
   }
 
@@ -113,6 +120,7 @@ class TripResults extends Component {
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
+
 
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);

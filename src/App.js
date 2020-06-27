@@ -9,7 +9,7 @@ import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
 import TripResults from "./Tables/TripResults";
-import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS } from "./Defaults";
+import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
 import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
@@ -247,11 +247,10 @@ class App extends Component {
 
  
 
-  addTrip = (tripId, iframe, tripName, tripTravelers, tripDates) => {
+  addTrip = (iframe, tripName, tripTravelers, tripDates) => {
     const newTrips = [
       ...this.state.trips,
-      {id: tripId,
-       iframe: iframe,
+      {iframe: iframe,
        name: tripName,
        traveler_names: tripTravelers,
        trip_dates: tripDates[0]
@@ -311,7 +310,7 @@ class App extends Component {
       }
     }
 
-    const itemTypes = this.props.itemTypes
+    const itemTypes = ITEMTYPES
 
 
   
@@ -336,8 +335,8 @@ class App extends Component {
               branded={this.state.searchResults.branded}
               trips={trips}
 
-              handleAddTrip={(tripId, iframe, tripName, tripTravelers, tripDates) =>
-                this.addTrip(tripId, iframe, tripName, tripTravelers, tripDates)
+              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
          
             />
@@ -393,7 +392,7 @@ class App extends Component {
               tripItems={tripItems}
               itemTypes={itemTypes}
               tripName={""}
-              packItems = {this.props.packItems}
+              packItems = {this.state.packItems}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -479,7 +478,7 @@ class App extends Component {
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
-                packItems = {this.props.packItems}
+                packItems = {this.state.packItems}
                 
                 handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -521,7 +520,7 @@ class App extends Component {
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}
-                packItems = {this.props.packItems}
+                packItems = {this.state.packItems}
                 
                 handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                   this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)

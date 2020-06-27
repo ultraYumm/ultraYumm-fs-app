@@ -19,7 +19,7 @@ class ItemBrand extends Component {
  
 
     return (
-      <td className="brandId" headers = "brand header">
+      <td className="brandId" headers= "brand header">
           {brand}
           </td>
           

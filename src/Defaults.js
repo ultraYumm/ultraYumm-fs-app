@@ -187,4 +187,10 @@ export const DEFAULTITEM = [
     "trip_dates": ["2020-10-01T09:25:43.511Z", "2020-10-02T09:25:43.511Z"],
   }
   ]
+
+  export const ITEMTYPES = [
+    {"type": ["Breakfast", "Lunch", "Dinner", "Snack", "Other"]}
+    
+  ]
+  
   
