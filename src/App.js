@@ -291,7 +291,7 @@ class App extends Component {
 
   render() {
 
-   
+   const test = "test"
 
     const trips = this.state.trips
     const items = this.state.items    
