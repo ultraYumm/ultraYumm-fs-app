@@ -35,14 +35,14 @@ class ItemAdjust extends Component {
     selectedItem: DEFAULTITEM,
     item:  DEFAULTITEM,
     serving_unit: "",
-    calsPerServing: null,
+    cals_per_serving: null,
     packItems: {},
     name: "",
     selectedTripId: "",
     id: "",
     serving_qty: null,
     serving_weight_grams: null,
-    tripDay: "2000-01-02T01:01:01.001Z",
+    trip_day: "2000-01-02T01:01:01.001Z",
     type: "",
     food_name: "",
     brand_name: "",
@@ -64,16 +64,16 @@ class ItemAdjust extends Component {
       id: item.id,
       serving_qty: item.serving_qty,
       serving_unit: item.serving_unit,
-      calsPerServing: item.calsPerServing,
+      cals_per_serving: item.cals_per_serving,
       serving_weight_grams: item.serving_weight_grams,
-      tripId: selectedTrip[0].id,
+      tripid: selectedTrip[0].id,
       trip_dates:  selectedTrip[0].trip_dates,
-      tripDay: item.tripDay === undefined ? selectedTrip[0].trip_dates[0] : item.tripDay,
+      trip_day: item.trip_day === undefined ? selectedTrip[0].trip_dates[0] : item.trip_day,
       type: item.type,
       food_name: item.food_name,
       brand_name: item.brand_name,
       packItems: {packItems},
-      travName: item.travName,
+      trav_name: item.trav_name,
       image: item.image
     };
   }
@@ -94,12 +94,12 @@ class ItemAdjust extends Component {
   };
 
 
-  selectTrip = (selectedTrip, tripId) => {
+  selectTrip = (selectedTrip, tripid) => {
     const tripName = selectedTrip.name
     const tripDates = selectedTrip.trip_dates
     const tripTravelers = selectedTrip.traveler_names
     this.setState({
-      tripId: tripId,
+      tripid: tripid,
       selectedTrip: selectedTrip,    
       name: tripName,
       trip_dates: tripDates,
@@ -131,14 +131,14 @@ class ItemAdjust extends Component {
   adjustCals = (input, id) => {
     
     this.setState({
-      calsPerServing: input
+      cals_per_serving: input
     });
   };
 
   selectDay = (input) => {
     
     this.setState({
-      tripDay: input,
+      trip_day: input,
     });
   };
 
@@ -154,7 +154,7 @@ class ItemAdjust extends Component {
   selectTraveler = (input) => {
     
     this.setState({
-      travName: input,
+      trav_name: input,
     });
   };
   
@@ -165,14 +165,14 @@ class ItemAdjust extends Component {
       const newId =  uuidv4()
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
-      const newCalsPs = isNaN(this.state.calsPerServing)? 0 : this.state.calsPerServing
+      const newCalsPs = isNaN(this.state.cals_per_serving)? 0 : this.state.cals_per_serving
       const newImage = this.state.image
       const newQty = !this.state.serving_qty? 1 : this.state.serving_qty
       const newUnit = this.state.serving_unit
       const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
-      const tripId = this.state.tripId
-      const tripDay = this.state.tripDay
-      const travName = this.state.travName
+      const tripid = this.state.tripid
+      const trip_day = this.state.trip_day
+      const trav_name = this.state.trav_name
       const type = this.state.type
     
       
@@ -196,14 +196,14 @@ class ItemAdjust extends Component {
         serving_qty:  newQty,
         image: newImage,
         serving_weight_grams: newWeight,
-        calsPerServing: newCalsPs
+        cals_per_serving: newCalsPs
       }
 
       const packItem = {
         id: newId,
-        tripId: tripId,
-        tripDay: tripDay,
-        travName: travName,
+        tripid: tripid,
+        trip_day: trip_day,
+        trav_name: trav_name,
         type: type,
         serving_qty: newQty
       }
@@ -254,8 +254,8 @@ class ItemAdjust extends Component {
             }
             return res.json()
           })
-          .then((newId, tripId, tripDay, travName, type, newQty) => {
-            this.props.handleNewPackItem(newId, tripId, tripDay, travName, type, newQty)
+          .then((newId, tripid, trip_day, trav_name, type, newQty) => {
+            this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
             this.props.getPackItems(e)
             this.props.routerProps.history.push("/trip/:tripName");
                   
@@ -281,17 +281,17 @@ class ItemAdjust extends Component {
     const quant = Math.round(item.serving_qty);
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
-    const calsPs = Math.round(item.calsPerServing);
+    const calsPs = Math.round(item.cals_per_serving);
     const totalWeightnf = (quant * weight)
     const totalCalnf = (quant * calsPs)
     const id = item.id
     const stateQty = parseInt(this.state.serving_qty)
-    const stateCalsPs = parseInt(this.state.calsPerServing)
+    const stateCalsPs = parseInt(this.state.cals_per_serving)
     const stateServWeight = parseInt(this.state.serving_weight_grams)
     const stateWeightnf = (stateQty * stateServWeight)
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
-    const tripDay = <Moment format= "MMM/DD" >{this.state.tripDay}</Moment>
+    const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
 
     return (
       <section className="filterForm">
@@ -456,17 +456,17 @@ class ItemAdjust extends Component {
               <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
                 <TripNames 
                 trips={trips}
-                handleSelectTrip={(selectedTrip, tripId) =>
-                  this.selectTrip(selectedTrip, tripId)
+                handleSelectTrip={(selectedTrip, tripid) =>
+                  this.selectTrip(selectedTrip, tripid)
                 }
                 />
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont blue skinBackground" >{tripDay}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont blue skinBackground" >{trip_day}</span></h3>
                 <TripDates
                 name = {this.state.name}
-                tripDay = {this.state.tripDay}
+                trip_day = {this.state.trip_day}
                 tripDates={this.state.trip_dates}
                 handleSelectDay={(selectedDay) =>
                   this.selectDay(selectedDay)
@@ -485,7 +485,7 @@ class ItemAdjust extends Component {
              </div>
 
              <div className="filterSelection">
-              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.travName}</span></h3>
+              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.trav_name}</span></h3>
                 <TripTravelers tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)

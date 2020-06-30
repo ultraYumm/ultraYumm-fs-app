@@ -233,7 +233,7 @@ class App extends Component {
       { id: newId, 
         food_name: newName,
         image: newImage,
-        calsPerServing: newCalsPs,
+        cals_per_serving: newCalsPs,
         serving_qty: newQty,
         serving_unit: newUnit,
         serving_weight_grams: newWeight,
@@ -261,13 +261,13 @@ class App extends Component {
     });
   }
 
-  addPackItem = (id, tripId, tripDay, travName, type, serving_qty) => {
+  addPackItem = (id, tripid, trip_day, trav_name, type, serving_qty) => {
     const newPackItems = [
       ...this.state.packItems,
       {id: id,
-       tripId: tripId,
-       tripDay: tripDay,
-       travName: travName,
+       tripid: tripid,
+       trip_day: trip_day,
+       trav_name: trav_name,
        type: type,
        serving_qty: serving_qty
       }
@@ -299,7 +299,7 @@ class App extends Component {
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
-      (items) => items.tripId === selectedTripId
+      (items) => items.tripid === selectedTripId
     );
     const selectedTripItemsId = selectedTripItems.map((item) => item.id)
   
@@ -361,7 +361,7 @@ class App extends Component {
         />
 
         <Route
-          path="/trip-filter/:tripId"
+          path="/trip-filter/:tripid"
           render={() => (
             <TripFilterForm
               selectedTrip={selectedTrip}
@@ -398,8 +398,8 @@ class App extends Component {
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
               }
 
-              handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
-                this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+              handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
+                this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)
               }
 
              getItems = {(e) =>
@@ -484,8 +484,8 @@ class App extends Component {
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
               }
 
-                handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
-                  this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+                handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
+                  this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)
               }
                 getItems = {(e) =>
                 this.handleGetItems(e)}
@@ -526,8 +526,8 @@ class App extends Component {
                   this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
                 } 
 
-                handleNewPackItem={(id, tripId, tripDay, travName, type, serving_qty) =>
-                this.addPackItem(id, tripId, tripDay, travName, type, serving_qty)
+                handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
+                this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)
                 }
 
                 getItems = {(e) =>

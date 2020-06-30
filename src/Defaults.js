@@ -7,7 +7,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg",
  "serving_weight_grams": 182,
- "calsPerServing": 94.64
+ "cals_per_serving": 94.64
  },
  
  {
@@ -18,7 +18,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nutritionix-api.s3.amazonaws.com/5572031b36869fb5124af830.jpeg",
  "serving_weight_grams": 28,
- "calsPerServing": 500
+ "cals_per_serving": 500
  },
  
  {
@@ -29,7 +29,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg",
  "serving_weight_grams": 11,
- "calsPerServing": 545
+ "cals_per_serving": 545
  },
  
  {
@@ -40,7 +40,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nutritionix-api.s3.amazonaws.com/55312801c07cd0fd571ee6ee.jpeg",
  "serving_weight_grams": 28,
- "calsPerServing": 383
+ "cals_per_serving": 383
  },
  
  {
@@ -51,7 +51,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nix-tag-images.s3.amazonaws.com/230_thumb.jpg",
  "serving_weight_grams": 192,
- "calsPerServing": 358
+ "cals_per_serving": 358
  },
  
  {
@@ -62,7 +62,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image": "https://nix-tag-images.s3.amazonaws.com/5149_thumb.jpg",
  "serving_weight_grams": 5,
- "calsPerServing": 21
+ "cals_per_serving": 21
  },
 
  {
@@ -73,7 +73,7 @@ export const ITEMS= [
  "serving_qty": 1,
  "image":"https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png",
  "serving_weight_grams": 5,
- "calsPerServing": 21
+ "cals_per_serving": 21
  }
 ]
 
@@ -81,7 +81,7 @@ export const ITEMS= [
 
 export const DEFAULTITEM = [
     {calsPhg: 424},
-    {calsPerServing: 100},
+    {cals_per_serving: 100},
     {common_type: null},
     {food_name: "light popcorn"},
     {full_nutrients:[
@@ -112,57 +112,57 @@ export const DEFAULTITEM = [
 
   export const PACKITEMS= [
     { "id":  "1",
-      "tripId": "e",
-      "tripDay": "2019-03-23T09:25:43.511Z",
-      "travName": "Jack",
+      "tripid": "e",
+      "trip_day": "2019-03-23T09:25:43.511Z",
+      "trav_name": "Jack",
       "type": "Breakfast",
       "serving_qty": 1
   },
   
   { "id":  "2",
-      "tripId": "e",
-      "tripDay": "2019-03-23T09:25:43.511Z",
-      "travName": "Stef",
+      "tripid": "e",
+      "trip_day": "2019-03-23T09:25:43.511Z",
+      "trav_name": "Stef",
       "type": "Lunch",
       "serving_qty": 2
   },
   
   { "id":  "3",
-      "tripId": "e",
-      "tripDay": "2019-03-24T09:25:43.511Z", 
-      "travName": "Marielle",
+      "tripid": "e",
+      "trip_day": "2019-03-24T09:25:43.511Z", 
+      "trav_name": "Marielle",
       "type": "Dinner",
       "serving_qty": 3
   }, 
   
   { "id":  "4",
-      "tripId": "e",
-      "tripDay": "2019-03-24T09:25:43.511Z",  
-      "travName": "Emilie",
+      "tripid": "e",
+      "trip_day": "2019-03-24T09:25:43.511Z",  
+      "trav_name": "Emilie",
       "type": "Snack",
       "serving_qty": 4
   },
   
   { "id":  "5",
-      "tripId": "t",
-      "tripDay": "2020-10-01T09:25:43.511Z",  
-      "travName": "Stef",
+      "tripid": "t",
+      "trip_day": "2020-10-01T09:25:43.511Z",  
+      "trav_name": "Stef",
       "type": "Snack",
       "serving_qty": 4
   },
   
   { "id":  "6",
-      "tripId": "t",
-      "tripDay": "2020-10-01T09:25:43.511Z",  
-      "travName": "Suzy",
+      "tripid": "t",
+      "trip_day": "2020-10-01T09:25:43.511Z",  
+      "trav_name": "Suzy",
       "type": "Snack",
       "serving_qty": 4
   },
   
   { "id":  "7",
-      "tripId": "t",
-      "tripDay": "2020-10-01T09:25:43.511Z",  
-      "travName": "Ringo",
+      "tripid": "t",
+      "trip_day": "2020-10-01T09:25:43.511Z",  
+      "trav_name": "Ringo",
       "type": "Snack",
       "serving_qty": 4
   },

@@ -31,8 +31,8 @@ class TripNames extends Component {
                    
                    onClick={() => {
                     const selectedTrip = trip
-                    const tripId = trip.id
-                    this.props.handleSelectTrip(selectedTrip, tripId)
+                    const tripid = trip.id
+                    this.props.handleSelectTrip(selectedTrip, tripid)
                   
                   }}
                    

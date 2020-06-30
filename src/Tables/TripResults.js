@@ -73,7 +73,7 @@ class TripResults extends Component {
       serving_unit: "",
       calsPs: null,
       serving_weight_grams: null,
-      tripDay: "",
+      trip_day: "",
       type: ""
     });
   };
@@ -81,7 +81,7 @@ class TripResults extends Component {
   selectDay = (input, id) => {
     
     this.setState({
-      tripDay: input,
+      trip_day: input,
       id: id
     });
   };
@@ -99,7 +99,7 @@ class TripResults extends Component {
   selectTraveler = (input, id) => {
     
     this.setState({
-      travName: input,
+      trav_name: input,
       id: id
     });
   };
@@ -128,7 +128,7 @@ class TripResults extends Component {
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
 
 
-    const fixedCalPerUnitArray = tripItems.map((items) => items.calsPerServing);
+    const fixedCalPerUnitArray = tripItems.map((items) => items.cals_per_serving);
 
     const selectServingQuantArray = selectedTripItems
       .map((items) => items.serving_qty)
@@ -143,7 +143,7 @@ class TripResults extends Component {
     const image = imageArray[i];
     const brand_name = brandArray[i];
     const serving_unit = fixedUnitArray[i];
-    const calsPerServing = fixedCalPerUnitArray[i];
+    const cals_per_serving = fixedCalPerUnitArray[i];
     const serving_weight_grams = fixedServingWeightArray[i];
     const resultsObject = {
         image,
@@ -151,7 +151,7 @@ class TripResults extends Component {
         brand_name,
         serving_unit,
         serving_weight_grams,
-        calsPerServing,
+        cals_per_serving,
         ...item,
       };
 
@@ -241,7 +241,7 @@ class TripResults extends Component {
                 <tr className="one whiteBackground black" key={item.id}>
                 
                   <td className="date">
-                    <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>    
+                    <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>    
                   </td>
 
                   <td className="type">
@@ -249,7 +249,7 @@ class TripResults extends Component {
                   </td>
 
                   <td className="traveler">
-                    {item.travName}
+                    {item.trav_name}
                   </td>
 
                   <td className="itemH">
@@ -283,10 +283,10 @@ class TripResults extends Component {
 
                   <CalsPerServing
                     calories =
-                    {(item.serving_qty * item.calsPerServing)
+                    {(item.serving_qty * item.cals_per_serving)
                       .toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
-                      result = {Math.round(this.state.serving_qty * item.calsPerServing).toFixed(0)
+                      result = {Math.round(this.state.serving_qty * item.cals_per_serving).toFixed(0)
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                       />
                   <Delete
@@ -351,7 +351,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                      <Moment format="ddd-MMM-DD">{item.tripDay}</Moment>          
+                      <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>          
             </td>
 
             </tr>
@@ -370,7 +370,7 @@ class TripResults extends Component {
             <tr>
             <TravlrHeader/>
               <td className="type">
-              {item.travName}        
+              {item.trav_name}        
               </td>
             </tr>
             </tbody>
@@ -411,10 +411,10 @@ class TripResults extends Component {
             <TotalCalHeader/>
             <CalsPerServing
                       calories =
-                      {(item.serving_qty * item.calsPerServing)
+                      {(item.serving_qty * item.cals_per_serving)
                         .toFixed(0)
                         .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
-                        result = {Math.round(this.state.serving_qty * item.calsPerServing).toFixed(0)
+                        result = {Math.round(this.state.serving_qty * item.cals_per_serving).toFixed(0)
                           .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                         />
             </tr>

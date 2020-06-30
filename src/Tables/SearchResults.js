@@ -95,7 +95,7 @@ class SearchResults extends Component {
         
         common[i].image = common[i].photo.thumb
         const replace = "%";
-        common[i].calsPerServing = common[i].full_nutrients[0].value
+        common[i].cals_per_serving = common[i].full_nutrients[0].value
         common[i].nameId = common[i].food_name.replace(replace, "");
         common[i].id = uuidv4()
         common[i].calsPhg = !common[i].serving_weight_grams
@@ -210,8 +210,8 @@ class SearchResults extends Component {
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />
                     <CalsPerServing
-                    calories =  {Math.round(item.calsPerServing)}
-                    result = {Math.round(this.state.serving_qty * item.calsPerServing ).toFixed(0)
+                    calories =  {Math.round(item.cals_per_serving)}
+                    result = {Math.round(this.state.serving_qty * item.cals_per_serving ).toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />   
                     <CalsPerHg
@@ -301,8 +301,8 @@ class SearchResults extends Component {
           <tr>        
                 <TotalCalHeader/> 
                 <CalsPerServing
-                    calories =  {Math.round(item.calsPerServing)}
-                    result = {Math.round(this.state.serving_qty * item.calsPerServing ).toFixed(0)
+                    calories =  {Math.round(item.cals_per_serving)}
+                    result = {Math.round(this.state.serving_qty * item.cals_per_serving ).toFixed(0)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
                     />   
           </tr> 

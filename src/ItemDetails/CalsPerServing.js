@@ -4,7 +4,7 @@ import '../FormElements/FormElements.css';
 import "../Tables/Tables.css";
 import { DEFAULTITEM } from "../Defaults";
 
-class CalsPerServing extends Component {
+class Cals_per_serving extends Component {
 
     static defaultProps = {
         item:  {DEFAULTITEM},
@@ -26,4 +26,4 @@ class CalsPerServing extends Component {
 }
   
 
-export default CalsPerServing
+export default Cals_per_serving

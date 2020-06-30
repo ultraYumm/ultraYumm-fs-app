@@ -34,7 +34,7 @@ class CalsQuant extends Component {
 
       onChange = {buildHandleKeyUp((value) => {
         this.setState(
-          {calsPerServing: value} 
+          {cals_per_serving: value} 
         )   
       })}
       />
