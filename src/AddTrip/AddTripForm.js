@@ -30,6 +30,7 @@ class AddTripForm extends Component {
       let tripName = e.target.tripName.value
       var re = /:\s|,\s/;
       let tripTravelers = e.target.tripTravelers.value.split(re)
+      let userid = 1
 
       const  getDates = () => {
         var dateArray = [];
@@ -47,18 +48,20 @@ class AddTripForm extends Component {
         let tripDates = [getDates()]
 
         const inputValues = {
-            iframe: iframe,
             name: tripName,
+            iframe: iframe,
             traveler_names: tripTravelers,
-            trip_dates: tripDates
-
-
+            trip_dates: tripDates,
+            userid: userid
           }
 
+      
+
         const API = config.API_UY_ENDPOINT   
-        const  endpoint = config.endpointT
+        const endpoint = config.endpointT
 
         const url = API + endpoint;
+        console.log(url)
         const API_TOKEN = config.API_UY_KEY
 
 
@@ -69,13 +72,19 @@ class AddTripForm extends Component {
         {this.props.routerProps.history.push("/")}
         else 
         fetch(url, {
+          
             method: 'POST',
             headers: {
-              Authorization: `Bearer ${API_TOKEN}`,
+              Authorization: `Bearer ${API_TOKEN}`
             },
             body: JSON.stringify(inputValues),
+            
+          }
+          )
 
-          })
+          //console.log(inputValues)
+
+         
 
         .then(res => {
         if (!res.ok) {
@@ -88,10 +97,10 @@ class AddTripForm extends Component {
         return res.json()
         })
         
-        this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates)
+        this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
     
         this.props.routerProps.history.push("/my-trips")
-            
+            console.log(inputValues)
       
     }
     

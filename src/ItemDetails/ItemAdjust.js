@@ -55,26 +55,30 @@ class ItemAdjust extends Component {
     super(props);
     const item = this.props.selectedItem;
     const selectedTrip = this.props.selectedTrip
+    console.log(selectedTrip)
     const packItems = this.props.packItems
+    const trips = this.props.trips
+    console.log(trips)
+   
 
     this.state = {
-      name: selectedTrip[0].name,
-      selectedTripId: selectedTrip[0].id,
-      selectedTrip: selectedTrip[0],
-      id: item.id,
-      serving_qty: item.serving_qty,
-      serving_unit: item.serving_unit,
-      cals_per_serving: item.cals_per_serving,
-      serving_weight_grams: item.serving_weight_grams,
-      tripid: selectedTrip[0].id,
-      trip_dates:  selectedTrip[0].trip_dates,
-      trip_day: item.trip_day === undefined ? selectedTrip[0].trip_dates[0] : item.trip_day,
-      type: item.type,
-      food_name: item.food_name,
-      brand_name: item.brand_name,
+      name: !selectedTrip[0]? "" : selectedTrip[0].name,
+      selectedTripId: !selectedTrip[0]? "": selectedTrip[0].id,
+      selectedTrip: !selectedTrip[0]? "" : selectedTrip[0],
+      id: !item? "" : item.id,
+      serving_qty: !item? "" : item.serving_qty,
+      serving_unit: !item? "" : item.serving_unit,
+      cals_per_serving: !item? "" : item.cals_per_serving,
+      serving_weight_grams: !item? "" : item.serving_weight_grams,
+      tripid: !selectedTrip[0]? trips[0].id : selectedTrip[0].id,
+      trip_dates: !selectedTrip[0]? trips[0].trip_dates : selectedTrip[0].trip_dates,
+      trip_day: item.trip_day === undefined ? trips[0].trip_dates[0] : item.trip_day,
+      type: !item.type? "" : item.type,
+      food_name: item.food_name === undefined? "Unnamed mystery item" : item.food_name,
+      brand_name: item.brand_name === undefined? "" : item.brand_name,
       packItems: {packItems},
-      trav_name: item.trav_name,
-      image: item.image
+      trav_name: !item.trav_name? "" : item.trav_name,
+      image: !item? "" : item.image
     };
   }
  
@@ -199,6 +203,8 @@ class ItemAdjust extends Component {
         cals_per_serving: newCalsPs
       }
 
+      console.log(trip_day)
+
       const packItem = {
         id: newId,
         tripid: tripid,
@@ -223,19 +229,24 @@ class ItemAdjust extends Component {
               // then throw it
               throw error
             })
+          
           }
-          return res.json()
+          
+
         })
+      
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
           this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
-          this.props.getItems(e)
+      
                     
                 
         })
         .catch(error => {
           this.setState({ error })
         })
-
+        
+        this.props.getItems(e)
+          
         fetch(urlP, {
           method: 'POST',
           body: JSON.stringify(packItem),
@@ -253,10 +264,12 @@ class ItemAdjust extends Component {
               })
             }
             return res.json()
+            
           })
+          
           .then((newId, tripid, trip_day, trav_name, type, newQty) => {
             this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
-            this.props.getPackItems(e)
+            //this.props.getPackItems(e)
             this.props.routerProps.history.push("/trip/:tripName");
                   
           })

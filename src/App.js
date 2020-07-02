@@ -33,9 +33,9 @@ class App extends Component {
       selectedItem: DEFAULTITEM,
       item: DEFAULTITEM,
       selectTripItem: [],
-      items: [],
-      trips: [],
-      packItems: [],
+      items: ITEMS,
+      trips: TRIPS,
+      packItems: PACKITEMS,
     };
   }
 
@@ -247,13 +247,14 @@ class App extends Component {
 
  
 
-  addTrip = (iframe, tripName, tripTravelers, tripDates) => {
+  addTrip = (iframe, tripName, tripTravelers, tripDates, userid) => {
     const newTrips = [
       ...this.state.trips,
-      {iframe: iframe,
-       name: tripName,
+      {name: tripName,
+       iframe: iframe,
        traveler_names: tripTravelers,
-       trip_dates: tripDates[0]
+       trip_dates: tripDates[0],
+       userid: userid
       }
     ]
     this.setState({
@@ -291,12 +292,12 @@ class App extends Component {
 
   render() {
 
-   const test = "test"
-
+   
     const trips = this.state.trips
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
+   
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -387,7 +388,7 @@ class App extends Component {
               item= {this.state.item}
               trips={trips}
               items={items}
-              selectedTrip={selectedTrip}
+              selectedTrip={!selectedTrip? trips[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={itemTypes}
@@ -474,7 +475,7 @@ class App extends Component {
                 item= {this.state.item}
                 trips={trips}
                 items={items}
-                selectedTrip={selectedTrip}
+                selectedTrip={!selectedTrip? trips[0] : selectedTrip}
                 tripItems={tripItems}
                 itemTypes={itemTypes}
                 tripName={this.state.tripName}

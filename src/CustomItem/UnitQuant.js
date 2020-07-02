@@ -33,7 +33,7 @@ class UnitQuant extends Component {
       type = "number"
       min= "0"
       name="itemQuantity"
-      default value = {isNaN(input)? 0 : input}
+      defaultValue = {isNaN(input)? 0 : input}
     
       onChange = {buildHandleKeyUp((value) => {
         this.setState(
