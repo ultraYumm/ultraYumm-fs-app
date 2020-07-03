@@ -22,7 +22,7 @@ import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { ITEMS, DEFAULTITEM, TRIPS } from "../Defaults";
+import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
 
 
 class ItemAdjust extends Component {
@@ -53,13 +53,13 @@ class ItemAdjust extends Component {
 
   constructor(props) {
     super(props);
-    const item = this.props.selectedItem;
+    const item = this.props.item;
+
     const selectedTrip = this.props.selectedTrip
-    console.log(selectedTrip)
     const packItems = this.props.packItems
     const trips = this.props.trips
-    console.log(trips)
-   
+
+
 
     this.state = {
       name: !selectedTrip[0]? "" : selectedTrip[0].name,
@@ -71,10 +71,13 @@ class ItemAdjust extends Component {
       cals_per_serving: !item? "" : item.cals_per_serving,
       serving_weight_grams: !item? "" : item.serving_weight_grams,
       tripid: !selectedTrip[0]? trips[0].id : selectedTrip[0].id,
-      trip_dates: !selectedTrip[0]? trips[0].trip_dates : selectedTrip[0].trip_dates,
-      trip_day: item.trip_day === undefined ? trips[0].trip_dates[0] : item.trip_day,
+      
+      trip_dates: !selectedTrip[0]? trips[0].trip_dates : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
+
+      trip_day: item.trip_day === undefined ? trips[0].trip_dates[0].toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',') : item.trip_day,
+      
       type: !item.type? "" : item.type,
-      food_name: item.food_name === undefined? "Unnamed mystery item" : item.food_name,
+      food_name: item.food_name,
       brand_name: item.brand_name === undefined? "" : item.brand_name,
       packItems: {packItems},
       trav_name: !item.trav_name? "" : item.trav_name,
@@ -164,6 +167,7 @@ class ItemAdjust extends Component {
   
   render() {
 
+
       const onSubmitForm = (e) => {
       e.preventDefault()
       const newId =  uuidv4()
@@ -175,11 +179,13 @@ class ItemAdjust extends Component {
       const newUnit = this.state.serving_unit
       const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
       const tripid = this.state.tripid
+      
       const trip_day = this.state.trip_day
+
+      
       const trav_name = this.state.trav_name
       const type = this.state.type
     
-      
       
       
 
@@ -202,9 +208,6 @@ class ItemAdjust extends Component {
         serving_weight_grams: newWeight,
         cals_per_serving: newCalsPs
       }
-
-      console.log(trip_day)
-
       const packItem = {
         id: newId,
         tripid: tripid,
@@ -269,7 +272,6 @@ class ItemAdjust extends Component {
           
           .then((newId, tripid, trip_day, trav_name, type, newQty) => {
             this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
-            //this.props.getPackItems(e)
             this.props.routerProps.history.push("/trip/:tripName");
                   
           })
@@ -305,6 +307,10 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
+    console.log(this.state.trip_day)
+    
+
+    
 
     return (
       <section className="filterForm">
@@ -466,7 +472,7 @@ class ItemAdjust extends Component {
         
           <div className= "filterSelection"> 
     
-              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Select trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
+              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
                 <TripNames 
                 trips={trips}
                 handleSelectTrip={(selectedTrip, tripid) =>
@@ -476,10 +482,10 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Select date:{" "}<span className = "primaryFont blue skinBackground" >{trip_day}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day == PACKITEMS[0].trip_day? "" : trip_day}</span></h3>
                 <TripDates
                 name = {this.state.name}
-                trip_day = {this.state.trip_day}
+                defaultDay = {PACKITEMS[0].trip_day}
                 tripDates={this.state.trip_dates}
                 handleSelectDay={(selectedDay) =>
                   this.selectDay(selectedDay)
@@ -488,7 +494,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Select type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
                 handleSelectType={(selectedType) =>

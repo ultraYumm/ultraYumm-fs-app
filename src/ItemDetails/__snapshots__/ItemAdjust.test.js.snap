@@ -131,13 +131,12 @@ exports[`renders the UI as expected 1`] = `
             >
               <input
                 className="dataResult skinBackground"
-                default={true}
+                defaultValue={0}
                 id="serving quantity"
                 min="0"
                 name="itemQuantity"
                 onChange={[Function]}
                 type="number"
-                value={0}
               />
             </div>
           </div>
@@ -285,12 +284,12 @@ exports[`renders the UI as expected 1`] = `
           <i
             className="fas fa-feather black"
           />
-           Select trip:
+           Trip:
            
           <span
             className="primaryFont blue skinBackground"
           >
-            Escalante
+            My awesome trip
           </span>
         </h3>
         <ul
@@ -301,26 +300,9 @@ exports[`renders the UI as expected 1`] = `
               className="labelContainer"
             >
                
-              Escalante
+              My awesome trip
               <input
-                defaultValue="e"
-                name="check"
-                onClick={[Function]}
-                type="radio"
-              />
-              <span
-                className="checkmark"
-              />
-            </label>
-          </li>
-          <li>
-            <label
-              className="labelContainer"
-            >
-               
-              Tende
-              <input
-                defaultValue="t"
+                defaultValue="1"
                 name="check"
                 onClick={[Function]}
                 type="radio"
@@ -341,16 +323,12 @@ exports[`renders the UI as expected 1`] = `
           <i
             className="fas fa-calendar-day black"
           />
-           Select date:
+           Date:
            
           <span
             className="primaryFont blue skinBackground"
           >
-            <time
-              dateTime={"2019-03-23T09:25:43.511Z"}
-            >
-              Mar/23
-            </time>
+            
           </span>
         </h3>
         <ul
@@ -360,104 +338,23 @@ exports[`renders the UI as expected 1`] = `
             <label
               className="labelContainer"
             >
-              <time
-                dateTime={"2019-03-23T09:25:43.511Z"}
+              <a
+                aria-current={null}
+                className="noDeco"
+                href="/add-trip"
+                onClick={[Function]}
               >
-                Mar/23
-              </time>
+                create a trip to set custom dates
+              </a>
               <input
-                defaultValue="2019-03-23T09:25:43.511Z"
+                defaultValue="1000-01-01T01:01:01.111Z"
                 name="check"
                 onClick={[Function]}
                 type="checkbox"
               />
               <span
                 className="checkmark notChecked"
-                date="2019-03-23T09:25:43.511Z"
-              />
-            </label>
-          </li>
-          <li>
-            <label
-              className="labelContainer"
-            >
-              <time
-                dateTime={"2019-03-24T09:25:43.511Z"}
-              >
-                Mar/24
-              </time>
-              <input
-                defaultValue="2019-03-24T09:25:43.511Z"
-                name="check"
-                onClick={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="checkmark notChecked"
-                date="2019-03-24T09:25:43.511Z"
-              />
-            </label>
-          </li>
-          <li>
-            <label
-              className="labelContainer"
-            >
-              <time
-                dateTime={"2019-03-25T09:25:43.511Z"}
-              >
-                Mar/25
-              </time>
-              <input
-                defaultValue="2019-03-25T09:25:43.511Z"
-                name="check"
-                onClick={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="checkmark notChecked"
-                date="2019-03-25T09:25:43.511Z"
-              />
-            </label>
-          </li>
-          <li>
-            <label
-              className="labelContainer"
-            >
-              <time
-                dateTime={"2019-03-26T09:25:43.511Z"}
-              >
-                Mar/26
-              </time>
-              <input
-                defaultValue="2019-03-26T09:25:43.511Z"
-                name="check"
-                onClick={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="checkmark notChecked"
-                date="2019-03-26T09:25:43.511Z"
-              />
-            </label>
-          </li>
-          <li>
-            <label
-              className="labelContainer"
-            >
-              <time
-                dateTime={"2019-03-27T09:25:43.511Z"}
-              >
-                Mar/27
-              </time>
-              <input
-                defaultValue="2019-03-27T09:25:43.511Z"
-                name="check"
-                onClick={[Function]}
-                type="checkbox"
-              />
-              <span
-                className="checkmark notChecked"
-                date="2019-03-27T09:25:43.511Z"
+                date="1000-01-01T01:01:01.111Z"
               />
             </label>
           </li>
@@ -472,11 +369,13 @@ exports[`renders the UI as expected 1`] = `
           <i
             className="fas fa-utensils black"
           />
-           Select type:
+           Type:
            
           <span
             className="primaryFont blue skinBackground"
-          />
+          >
+            
+          </span>
         </h3>
         <ul
           className="scroll"
@@ -582,7 +481,9 @@ exports[`renders the UI as expected 1`] = `
            
           <span
             className="primaryFont blue skinBackground"
-          />
+          >
+            
+          </span>
         </h3>
         <ul
           className="scroll"
@@ -591,9 +492,9 @@ exports[`renders the UI as expected 1`] = `
             <label
               className="labelContainer"
             >
-              select trip first
+              
               <input
-                defaultValue="select trip first"
+                defaultValue=""
                 name="check"
                 onClick={[Function]}
                 type="checkbox"

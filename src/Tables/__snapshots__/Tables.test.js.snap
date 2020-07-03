@@ -17,7 +17,7 @@ exports[`renders the UI as expected 1`] = `
         <span
           className="graphText"
         >
-          1,923
+          149
            cals 
         </span>
         <i
@@ -30,7 +30,7 @@ exports[`renders the UI as expected 1`] = `
         <span
           className="graphText"
         >
-          117
+          12
            kg 
         </span>
         <i
@@ -57,16 +57,16 @@ exports[`renders the UI as expected 1`] = `
         className=" montebello black sticky resultsTitle"
       >
         <div>
-          Escalante
+          My awesome trip
         </div>
          Results! 
         <div
           className="montebello"
         >
           <time
-            dateTime={"2019-03-23T09:25:43.511Z"}
+            dateTime={"1000-01-01T01:01:01.111Z"}
           >
-            2019
+            0999
           </time>
         </div>
       </div>
@@ -285,9 +285,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-06-27T01:41:58.150Z"}
+            dateTime={"2020-07-03T21:17:56.512Z"}
           >
-            Fri-Jun-26
+            Fri-Jul-03
           </time>
         </td>
         <td
@@ -308,7 +308,7 @@ exports[`renders the UI as expected 1`] = `
             <div
               className="purple"
             >
-              apple
+              My favorite treat
             </div>
           </a>
         </td>
@@ -322,19 +322,19 @@ exports[`renders the UI as expected 1`] = `
           className="unitH"
           headers="unit ie tablespoon or cup header"
         >
-          medium (3" dia)
+          a handful
         </td>
         <td
           className="weightH  gram"
           headers="weight in grams header"
         >
-          182
+          100
            total gms
         </td>
         <td
           className="weightH  gram"
         >
-          95
+          120
            total cals
         </td>
         <td
@@ -359,9 +359,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-06-27T01:41:58.150Z"}
+            dateTime={"2020-07-03T21:17:56.513Z"}
           >
-            Fri-Jun-26
+            Fri-Jul-03
           </time>
         </td>
         <td
@@ -382,155 +382,7 @@ exports[`renders the UI as expected 1`] = `
             <div
               className="purple"
             >
-              Granola, House Blend
-            </div>
-          </a>
-        </td>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          cup
-        </td>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          28
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          500
-           total cals
-        </td>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-      <tr
-        className="one whiteBackground black"
-      >
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.151Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-        <td
-          className="type"
-        />
-        <td
-          className="traveler"
-        />
-        <td
-          className="itemH"
-        >
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/3"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              Intense Dark Twilight Delight 72% Cacao
-            </div>
-          </a>
-        </td>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          square
-        </td>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          11
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          545
-           total cals
-        </td>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-      <tr
-        className="one whiteBackground black"
-      >
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.151Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-        <td
-          className="type"
-        />
-        <td
-          className="traveler"
-        />
-        <td
-          className="itemH"
-        >
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/4"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              Beef Jerky
+              My favorite beverage
             </div>
           </a>
         </td>
@@ -550,235 +402,13 @@ exports[`renders the UI as expected 1`] = `
           className="weightH  gram"
           headers="weight in grams header"
         >
+          2
+           total gms
+        </td>
+        <td
+          className="weightH  gram"
+        >
           28
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          383
-           total cals
-        </td>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-      <tr
-        className="one whiteBackground black"
-      >
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.152Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-        <td
-          className="type"
-        />
-        <td
-          className="traveler"
-        />
-        <td
-          className="itemH"
-        >
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/5"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              dry red lentils
-            </div>
-          </a>
-        </td>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          cup
-        </td>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          192
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          358
-           total cals
-        </td>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-      <tr
-        className="one whiteBackground black"
-      >
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.152Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-        <td
-          className="type"
-        />
-        <td
-          className="traveler"
-        />
-        <td
-          className="itemH"
-        >
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/6"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              hard parmesan
-            </div>
-          </a>
-        </td>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          tsp
-        </td>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          5
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          21
-           total cals
-        </td>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-      <tr
-        className="one whiteBackground black"
-      >
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.153Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-        <td
-          className="type"
-        />
-        <td
-          className="traveler"
-        />
-        <td
-          className="itemH"
-        >
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/7"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              doggieKibble
-            </div>
-          </a>
-        </td>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          tsp
-        </td>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          5
-           total gms
-        </td>
-        <td
-          className="weightH  gram"
-        >
-          21
            total cals
         </td>
         <td
@@ -812,7 +442,7 @@ exports[`renders the UI as expected 1`] = `
           <img
             alt=""
             className="tableImage "
-            src="https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"
+            src="https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
           />
         </td>
       </tr>
@@ -845,7 +475,7 @@ exports[`renders the UI as expected 1`] = `
             <div
               className="purple"
             >
-              apple
+              My favorite treat
             </div>
           </a>
         </td>
@@ -895,9 +525,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-06-27T01:41:58.154Z"}
+            dateTime={"2020-07-03T21:17:56.522Z"}
           >
-            Fri-Jun-26
+            Fri-Jul-03
           </time>
         </td>
       </tr>
@@ -964,7 +594,7 @@ exports[`renders the UI as expected 1`] = `
           className="unitH"
           headers="unit ie tablespoon or cup header"
         >
-          medium (3" dia)
+          a handful
         </td>
       </tr>
     </tbody>
@@ -1012,7 +642,7 @@ exports[`renders the UI as expected 1`] = `
           className="weightH  gram"
           headers="weight in grams header"
         >
-          182
+          100
            total gms
         </td>
       </tr>
@@ -1036,7 +666,7 @@ exports[`renders the UI as expected 1`] = `
         <td
           className="weightH  gram"
         >
-          95
+          120
            total cals
         </td>
       </tr>
@@ -1121,7 +751,7 @@ exports[`renders the UI as expected 1`] = `
             <div
               className="purple"
             >
-              Granola, House Blend
+              My favorite beverage
             </div>
           </a>
         </td>
@@ -1147,7 +777,7 @@ exports[`renders the UI as expected 1`] = `
           className="brandId"
           headers="brand header"
         >
-          House Granola
+          My special instant mix
         </td>
       </tr>
     </tbody>
@@ -1171,561 +801,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-06-27T01:41:58.155Z"}
+            dateTime={"2020-07-03T21:17:56.523Z"}
           >
-            Fri-Jun-26
-          </time>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="type"
-          id="item type (ie breakfast) header"
-        >
-          <span
-            className="hidden"
-          >
-            Type
-          </span>
-          <i
-            alt="item type (ie breakfast) header"
-            className="fas fa-utensils"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="traveler"
-          id="traveler name header"
-        >
-          <span
-            className="hidden"
-          >
-            Traveler name
-          </span>
-          <i
-            alt="traveler name header"
-            className="fas fa-user-circle"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="unitH"
-          id="unit ie tablespoon or cup header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving unit
-          </span>
-          <i
-            alt="unit ie tablespoon or cup header"
-            className="fas fa-ruler-vertical"
-          />
-        </th>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          cup
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="servingH"
-          id="serving quantity header"
-        >
-          <span
-            className="hidden"
-          >
-            Quantity
-          </span>
-          <i
-            alt="serving quantity header"
-            className="fas fa-coins"
-          />
-        </th>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="weightH gram"
-          id="weight in grams header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving weight
-          </span>
-          <i
-            alt="weight in grams header"
-            className="fas fa-balance-scale"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          28
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          500
-           total cals
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="deleteH"
-          id="delete header"
-        >
-          <span
-            className="hidden"
-          >
-            Delete
-          </span>
-          <i
-            alt="delete header"
-            className="fas fa-trash-alt"
-          />
-        </th>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table
-    className="primaryFont whiteBackground mobileOnly"
-    id="results-filtered"
-  >
-    <tbody>
-      <tr
-        className="mobile"
-      >
-        <td
-          className="noBorder"
-        >
-          <img
-            alt=""
-            className="tableImage "
-            src="https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"
-          />
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr
-        className="itemH"
-      >
-        <th
-          className="itemH"
-          id="item name header"
-        >
-          <span
-            className="hidden"
-          >
-            Name
-          </span>
-          <i
-            alt="item name header"
-            className="fas fa-carrot"
-          />
-        </th>
-        <td>
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/3"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              Intense Dark Twilight Delight 72% Cacao
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="brandH"
-          id="brand header"
-        >
-          <span
-            className="hidden"
-          >
-            Brand
-          </span>
-          <i
-            alt="brand header"
-            className="fas fa-tag"
-          />
-        </th>
-        <td
-          className="brandId"
-          headers="brand header"
-        >
-          Ghirardelli Chocolate
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="date"
-          id="date header"
-        >
-          <span
-            className="hidden"
-          >
-            Date
-          </span>
-          <i
-            alt="date header"
-            className="fas fa-calendar-day"
-          />
-        </th>
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.156Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="type"
-          id="item type (ie breakfast) header"
-        >
-          <span
-            className="hidden"
-          >
-            Type
-          </span>
-          <i
-            alt="item type (ie breakfast) header"
-            className="fas fa-utensils"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="traveler"
-          id="traveler name header"
-        >
-          <span
-            className="hidden"
-          >
-            Traveler name
-          </span>
-          <i
-            alt="traveler name header"
-            className="fas fa-user-circle"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="unitH"
-          id="unit ie tablespoon or cup header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving unit
-          </span>
-          <i
-            alt="unit ie tablespoon or cup header"
-            className="fas fa-ruler-vertical"
-          />
-        </th>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          square
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="servingH"
-          id="serving quantity header"
-        >
-          <span
-            className="hidden"
-          >
-            Quantity
-          </span>
-          <i
-            alt="serving quantity header"
-            className="fas fa-coins"
-          />
-        </th>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="weightH gram"
-          id="weight in grams header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving weight
-          </span>
-          <i
-            alt="weight in grams header"
-            className="fas fa-balance-scale"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          11
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          545
-           total cals
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="deleteH"
-          id="delete header"
-        >
-          <span
-            className="hidden"
-          >
-            Delete
-          </span>
-          <i
-            alt="delete header"
-            className="fas fa-trash-alt"
-          />
-        </th>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table
-    className="primaryFont whiteBackground mobileOnly"
-    id="results-filtered"
-  >
-    <tbody>
-      <tr
-        className="mobile"
-      >
-        <td
-          className="noBorder"
-        >
-          <img
-            alt=""
-            className="tableImage "
-            src="https://nutritionix-api.s3.amazonaws.com/55312801c07cd0fd571ee6ee.jpeg"
-          />
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr
-        className="itemH"
-      >
-        <th
-          className="itemH"
-          id="item name header"
-        >
-          <span
-            className="hidden"
-          >
-            Name
-          </span>
-          <i
-            alt="item name header"
-            className="fas fa-carrot"
-          />
-        </th>
-        <td>
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/4"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              Beef Jerky
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="brandH"
-          id="brand header"
-        >
-          <span
-            className="hidden"
-          >
-            Brand
-          </span>
-          <i
-            alt="brand header"
-            className="fas fa-tag"
-          />
-        </th>
-        <td
-          className="brandId"
-          headers="brand header"
-        >
-          Lawless Jerky
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="date"
-          id="date header"
-        >
-          <span
-            className="hidden"
-          >
-            Date
-          </span>
-          <i
-            alt="date header"
-            className="fas fa-calendar-day"
-          />
-        </th>
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.157Z"}
-          >
-            Fri-Jun-26
+            Fri-Jul-03
           </time>
         </td>
       </tr>
@@ -1840,859 +918,31 @@ exports[`renders the UI as expected 1`] = `
           className="weightH  gram"
           headers="weight in grams header"
         >
+          2
+           total gms
+        </td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th
+          className="caloriesH cal calS"
+          id="total calories header"
+        >
+          <span
+            className="hidden"
+          >
+            Total calories
+          </span>
+          <i
+            alt="total calories header"
+            className="fas fa-fire-alt"
+          />
+        </th>
+        <td
+          className="weightH  gram"
+        >
           28
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          383
-           total cals
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="deleteH"
-          id="delete header"
-        >
-          <span
-            className="hidden"
-          >
-            Delete
-          </span>
-          <i
-            alt="delete header"
-            className="fas fa-trash-alt"
-          />
-        </th>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table
-    className="primaryFont whiteBackground mobileOnly"
-    id="results-filtered"
-  >
-    <tbody>
-      <tr
-        className="mobile"
-      >
-        <td
-          className="noBorder"
-        >
-          <img
-            alt=""
-            className="tableImage "
-            src="https://nix-tag-images.s3.amazonaws.com/230_thumb.jpg"
-          />
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr
-        className="itemH"
-      >
-        <th
-          className="itemH"
-          id="item name header"
-        >
-          <span
-            className="hidden"
-          >
-            Name
-          </span>
-          <i
-            alt="item name header"
-            className="fas fa-carrot"
-          />
-        </th>
-        <td>
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/5"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              dry red lentils
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="brandH"
-          id="brand header"
-        >
-          <span
-            className="hidden"
-          >
-            Brand
-          </span>
-          <i
-            alt="brand header"
-            className="fas fa-tag"
-          />
-        </th>
-        <td
-          className="brandId"
-          headers="brand header"
-        >
-          common
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="date"
-          id="date header"
-        >
-          <span
-            className="hidden"
-          >
-            Date
-          </span>
-          <i
-            alt="date header"
-            className="fas fa-calendar-day"
-          />
-        </th>
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.158Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="type"
-          id="item type (ie breakfast) header"
-        >
-          <span
-            className="hidden"
-          >
-            Type
-          </span>
-          <i
-            alt="item type (ie breakfast) header"
-            className="fas fa-utensils"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="traveler"
-          id="traveler name header"
-        >
-          <span
-            className="hidden"
-          >
-            Traveler name
-          </span>
-          <i
-            alt="traveler name header"
-            className="fas fa-user-circle"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="unitH"
-          id="unit ie tablespoon or cup header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving unit
-          </span>
-          <i
-            alt="unit ie tablespoon or cup header"
-            className="fas fa-ruler-vertical"
-          />
-        </th>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          cup
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="servingH"
-          id="serving quantity header"
-        >
-          <span
-            className="hidden"
-          >
-            Quantity
-          </span>
-          <i
-            alt="serving quantity header"
-            className="fas fa-coins"
-          />
-        </th>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="weightH gram"
-          id="weight in grams header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving weight
-          </span>
-          <i
-            alt="weight in grams header"
-            className="fas fa-balance-scale"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          192
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          358
-           total cals
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="deleteH"
-          id="delete header"
-        >
-          <span
-            className="hidden"
-          >
-            Delete
-          </span>
-          <i
-            alt="delete header"
-            className="fas fa-trash-alt"
-          />
-        </th>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table
-    className="primaryFont whiteBackground mobileOnly"
-    id="results-filtered"
-  >
-    <tbody>
-      <tr
-        className="mobile"
-      >
-        <td
-          className="noBorder"
-        >
-          <img
-            alt=""
-            className="tableImage "
-            src="https://nix-tag-images.s3.amazonaws.com/5149_thumb.jpg"
-          />
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr
-        className="itemH"
-      >
-        <th
-          className="itemH"
-          id="item name header"
-        >
-          <span
-            className="hidden"
-          >
-            Name
-          </span>
-          <i
-            alt="item name header"
-            className="fas fa-carrot"
-          />
-        </th>
-        <td>
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/6"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              hard parmesan
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="brandH"
-          id="brand header"
-        >
-          <span
-            className="hidden"
-          >
-            Brand
-          </span>
-          <i
-            alt="brand header"
-            className="fas fa-tag"
-          />
-        </th>
-        <td
-          className="brandId"
-          headers="brand header"
-        >
-          common
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="date"
-          id="date header"
-        >
-          <span
-            className="hidden"
-          >
-            Date
-          </span>
-          <i
-            alt="date header"
-            className="fas fa-calendar-day"
-          />
-        </th>
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.159Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="type"
-          id="item type (ie breakfast) header"
-        >
-          <span
-            className="hidden"
-          >
-            Type
-          </span>
-          <i
-            alt="item type (ie breakfast) header"
-            className="fas fa-utensils"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="traveler"
-          id="traveler name header"
-        >
-          <span
-            className="hidden"
-          >
-            Traveler name
-          </span>
-          <i
-            alt="traveler name header"
-            className="fas fa-user-circle"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="unitH"
-          id="unit ie tablespoon or cup header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving unit
-          </span>
-          <i
-            alt="unit ie tablespoon or cup header"
-            className="fas fa-ruler-vertical"
-          />
-        </th>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          tsp
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="servingH"
-          id="serving quantity header"
-        >
-          <span
-            className="hidden"
-          >
-            Quantity
-          </span>
-          <i
-            alt="serving quantity header"
-            className="fas fa-coins"
-          />
-        </th>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="weightH gram"
-          id="weight in grams header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving weight
-          </span>
-          <i
-            alt="weight in grams header"
-            className="fas fa-balance-scale"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          5
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          21
-           total cals
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="deleteH"
-          id="delete header"
-        >
-          <span
-            className="hidden"
-          >
-            Delete
-          </span>
-          <i
-            alt="delete header"
-            className="fas fa-trash-alt"
-          />
-        </th>
-        <td
-          className="delete"
-        >
-           
-          <label
-            className="tooltiptext delete"
-          >
-            click and confirm
-            <input
-              onClick={[Function]}
-              type="radio"
-            />
-          </label>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table
-    className="primaryFont whiteBackground mobileOnly"
-    id="results-filtered"
-  >
-    <tbody>
-      <tr
-        className="mobile"
-      >
-        <td
-          className="noBorder"
-        >
-          <img
-            alt=""
-            className="tableImage "
-            src="https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
-          />
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr
-        className="itemH"
-      >
-        <th
-          className="itemH"
-          id="item name header"
-        >
-          <span
-            className="hidden"
-          >
-            Name
-          </span>
-          <i
-            alt="item name header"
-            className="fas fa-carrot"
-          />
-        </th>
-        <td>
-          <a
-            aria-current={null}
-            className="noDeco"
-            href="/trip-item/7"
-            onClick={[Function]}
-          >
-            <div
-              className="purple"
-            >
-              doggieKibble
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="brandH"
-          id="brand header"
-        >
-          <span
-            className="hidden"
-          >
-            Brand
-          </span>
-          <i
-            alt="brand header"
-            className="fas fa-tag"
-          />
-        </th>
-        <td
-          className="brandId"
-          headers="brand header"
-        >
-          common
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="date"
-          id="date header"
-        >
-          <span
-            className="hidden"
-          >
-            Date
-          </span>
-          <i
-            alt="date header"
-            className="fas fa-calendar-day"
-          />
-        </th>
-        <td
-          className="date"
-        >
-          <time
-            dateTime={"2020-06-27T01:41:58.160Z"}
-          >
-            Fri-Jun-26
-          </time>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="type"
-          id="item type (ie breakfast) header"
-        >
-          <span
-            className="hidden"
-          >
-            Type
-          </span>
-          <i
-            alt="item type (ie breakfast) header"
-            className="fas fa-utensils"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="traveler"
-          id="traveler name header"
-        >
-          <span
-            className="hidden"
-          >
-            Traveler name
-          </span>
-          <i
-            alt="traveler name header"
-            className="fas fa-user-circle"
-          />
-        </th>
-        <td
-          className="type"
-        />
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="unitH"
-          id="unit ie tablespoon or cup header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving unit
-          </span>
-          <i
-            alt="unit ie tablespoon or cup header"
-            className="fas fa-ruler-vertical"
-          />
-        </th>
-        <td
-          className="unitH"
-          headers="unit ie tablespoon or cup header"
-        >
-          tsp
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="servingH"
-          id="serving quantity header"
-        >
-          <span
-            className="hidden"
-          >
-            Quantity
-          </span>
-          <i
-            alt="serving quantity header"
-            className="fas fa-coins"
-          />
-        </th>
-        <td
-          className="servingH black"
-          headers="serving quantity header"
-        >
-          1
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="weightH gram"
-          id="weight in grams header"
-        >
-          <span
-            className="hidden"
-          >
-            Serving weight
-          </span>
-          <i
-            alt="weight in grams header"
-            className="fas fa-balance-scale"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-          headers="weight in grams header"
-        >
-          5
-           total gms
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th
-          className="caloriesH cal calS"
-          id="total calories header"
-        >
-          <span
-            className="hidden"
-          >
-            Total calories
-          </span>
-          <i
-            alt="total calories header"
-            className="fas fa-fire-alt"
-          />
-        </th>
-        <td
-          className="weightH  gram"
-        >
-          21
            total cals
         </td>
       </tr>

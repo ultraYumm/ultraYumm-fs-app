@@ -19,6 +19,7 @@ class NewItemName extends Component {
     
 
     const name = this.props.name;
+    console.log(name)
     
     const buildHandleKeyUp = setter => (e) => {
 

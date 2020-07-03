@@ -8,6 +8,7 @@ import Footer from "./NavHome/Footer";
 import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
+import AddTripForm from "./AddTrip/AddTripForm";
 import TripResults from "./Tables/TripResults";
 import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
 import config from "./config";
@@ -28,11 +29,10 @@ class App extends Component {
     this.state = {
       searchTerm: "",
       searchResults: {},
-      selectedTripId: "e",
-      tripName: "Escalante",
+      selectedTripId: TRIPS[0].id,
+      tripName: TRIPS[0].name,
       selectedItem: DEFAULTITEM,
       item: DEFAULTITEM,
-      selectTripItem: [],
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
@@ -55,17 +55,20 @@ class App extends Component {
      
     })
       .then(res => {
+        console.log(res)
         if(!res.ok) {
           throw new Error(res.statusText);
         }
-        return res.json();
+        return res.json()
       })
       .then(data => {
-          this.setState({
+        this.setState({
           trips: data,
           error: null
         });
-      })
+      
+      }
+      )
       .catch(err => {
         this.setState({
           error: 'Sorry, could not get trips at this time.'
@@ -287,6 +290,8 @@ class App extends Component {
         })
 
     }
+    
+
 
 
 
@@ -294,9 +299,17 @@ class App extends Component {
 
    
     const trips = this.state.trips
+   
+    console.log(trips)
+   
+
+
+
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
+    console.log(selectedTrip[0])
+   
    
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
@@ -311,7 +324,7 @@ class App extends Component {
       }
     }
 
-    const itemTypes = ITEMTYPES
+    
 
 
   
@@ -332,11 +345,7 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-              common={this.state.searchResults.common}
-              branded={this.state.searchResults.branded}
-              trips={trips}
-
-              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
          
@@ -345,8 +354,34 @@ class App extends Component {
         />
 
         <Route
+          exact
           path= "/search-bar"
-          component= {SearchForm}/>
+          render={(routerProps) => (
+            <SearchForm
+              routerProps={routerProps}
+              handleUpdate={(searchTerm) => this.updateSearchTerm(searchTerm)}
+              handleResults={(searchResults) =>
+                this.updateSearchResults(searchResults)
+              }
+             
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path= "/add-trip"
+          render={(routerProps) => (
+            <AddTripForm
+              routerProps={routerProps}
+              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(iframe, tripName, tripTravelers, tripDates)
+              }
+         
+             
+            />
+          )}
+        />
 
         <Route
           path="/my-trips"
@@ -384,16 +419,16 @@ class App extends Component {
               currentT = ""
               newT= ""
               s = ""
-              selectedItem={this.state.selectedItem}
-              item= {this.state.item}
-              trips={trips}
-              items={items}
-              selectedTrip={!selectedTrip? trips[0] : selectedTrip}
-              selectedTripItems={selectedTripItems}
-              tripItems={tripItems}
-              itemTypes={itemTypes}
-              tripName={""}
-              packItems = {this.state.packItems}
+              selectedItem= {ITEMS[0]}
+              item= {ITEMS[0]}
+              trips={TRIPS}
+              items= {ITEMS}
+              selectedTrip={TRIPS[0]}
+              selectedTripItems={PACKITEMS}
+              tripItems={ITEMS}
+              itemTypes={ITEMTYPES}
+              tripName={TRIPS[0].name}
+              packItems = {PACKITEMS}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -421,7 +456,7 @@ class App extends Component {
               selectedTrip={selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
-              itemTypes={itemTypes}
+              itemTypes={ITEMTYPES}
               handleSelectTripItem={(selectTripItem) =>
                 this.selectTripItem(selectTripItem)
                             }
@@ -477,7 +512,7 @@ class App extends Component {
                 items={items}
                 selectedTrip={!selectedTrip? trips[0] : selectedTrip}
                 tripItems={tripItems}
-                itemTypes={itemTypes}
+                itemTypes={ITEMTYPES}
                 tripName={this.state.tripName}
                 packItems = {this.state.packItems}
                 
@@ -519,7 +554,7 @@ class App extends Component {
                 selectedTrip={selectedTrip}
                 selectedTripItems={selectedTripItems}
                 tripItems={tripItems}
-                itemTypes={itemTypes}
+                itemTypes={ITEMTYPES}
                 tripName={this.state.tripName}
                 packItems = {this.state.packItems}
                 

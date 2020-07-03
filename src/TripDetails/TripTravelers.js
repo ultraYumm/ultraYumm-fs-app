@@ -7,12 +7,12 @@ import '../FormElements/FormElements.css';
 
 class TripTravelers extends Component {
   static defaultProps = {
-    tripTravelers:  ["select trip first"],
+    tripTravelers:  [""],
   }
 
   render() {
       
-    const tripTravelers = this.props.tripTravelers
+    const tripTravelers = this.props.tripTravelers.toString().replace('{', "").replace("}","").replace(/\s+/g,"").trim().split(',')
   
    
     function onlyOne(checkbox) {
@@ -30,7 +30,7 @@ class TripTravelers extends Component {
           {tripTravelers.map((name)=> (
             <li key= {name}>
 
-            <label className="labelContainer">{name}
+            <label className="labelContainer">{name.substring(1, name.length-1)}
                 <input type="checkbox"
                   name= "check"
                   defaultValue = {name}

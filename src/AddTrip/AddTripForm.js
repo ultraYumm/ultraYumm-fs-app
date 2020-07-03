@@ -51,9 +51,12 @@ class AddTripForm extends Component {
             name: tripName,
             iframe: iframe,
             traveler_names: tripTravelers,
-            trip_dates: tripDates,
+            trip_dates: tripDates[0],
             userid: userid
           }
+
+          console.log(tripName)
+
 
       
 
@@ -61,7 +64,6 @@ class AddTripForm extends Component {
         const endpoint = config.endpointT
 
         const url = API + endpoint;
-        console.log(url)
         const API_TOKEN = config.API_UY_KEY
 
 
@@ -82,9 +84,6 @@ class AddTripForm extends Component {
           }
           )
 
-          //console.log(inputValues)
-
-         
 
         .then(res => {
         if (!res.ok) {
@@ -100,7 +99,6 @@ class AddTripForm extends Component {
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
     
         this.props.routerProps.history.push("/my-trips")
-            console.log(inputValues)
       
     }
     
