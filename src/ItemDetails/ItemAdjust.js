@@ -27,7 +27,7 @@ import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
 
 class ItemAdjust extends Component {
   static defaultProps = {
-    selectedTrip: TRIPS,
+    selectedTrip: TRIPS[0],
     trips: TRIPS,
     items: ITEMS,
     tripItems:ITEMS,
@@ -42,46 +42,59 @@ class ItemAdjust extends Component {
     id: "",
     serving_qty: null,
     serving_weight_grams: null,
-    trip_day: "2000-01-02T01:01:01.001Z",
+    trip_day: PACKITEMS[0].trip_day,
     type: "",
     food_name: "",
     brand_name: "",
-    image: "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
+    image: ITEMS[0].image
 
   }
 
 
   constructor(props) {
     super(props);
-    const item = this.props.item;
-
+    
     const selectedTrip = this.props.selectedTrip
     const packItems = this.props.packItems
     const trips = this.props.trips
+    const selectedItem = this.props.selectedItem === undefined ? PACKITEMS[0] : this.props.selectedItem
 
 
 
     this.state = {
-      name: !selectedTrip[0]? "" : selectedTrip[0].name,
-      selectedTripId: !selectedTrip[0]? "": selectedTrip[0].id,
-      selectedTrip: !selectedTrip[0]? "" : selectedTrip[0],
-      id: !item? "" : item.id,
-      serving_qty: !item? "" : item.serving_qty,
-      serving_unit: !item? "" : item.serving_unit,
-      cals_per_serving: !item? "" : item.cals_per_serving,
-      serving_weight_grams: !item? "" : item.serving_weight_grams,
+      selectedItem: selectedItem,
+      selectedTrip: selectedTrip,
+
+      name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
+      
+      selectedTripId: !selectedTrip[0]? PACKITEMS[0].id: selectedTrip[0].id,
+      
+      selectedTrip: !selectedTrip[0]? TRIPS[0] : selectedTrip[0],
+      
+      id:  selectedItem.id,
+      serving_qty: selectedItem.serving_qty,
+      serving_unit: selectedItem.serving_unit,
+      cals_per_serving: selectedItem.cals_per_serving,
+      serving_weight_grams: selectedItem.serving_weight_grams,
+      food_name: selectedItem.food_name,
+      brand_name: selectedItem.brand_name,
+      packItems: {packItems},
+      image: selectedItem.image,
+
       tripid: !selectedTrip[0]? trips[0].id : selectedTrip[0].id,
       
-      trip_dates: !selectedTrip[0]? trips[0].trip_dates : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
-
-      trip_day: item.trip_day === undefined ? trips[0].trip_dates[0].toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',') : item.trip_day,
+      trip_dates: !selectedTrip[0]? trips[0].trip_dates : 
+      selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
       
-      type: !item.type? "" : item.type,
-      food_name: item.food_name,
-      brand_name: item.brand_name === undefined? "" : item.brand_name,
-      packItems: {packItems},
-      trav_name: !item.trav_name? "" : item.trav_name,
-      image: !item? "" : item.image
+      traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
+      
+      trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
+      
+      type: !selectedTrip[0]? PACKITEMS[0].type : selectedItem.type,
+
+      trav_name: !selectedTrip[0]? PACKITEMS[0].trav_name : selectedItem.trav_name,
+
+      
     };
   }
  
@@ -273,13 +286,16 @@ class ItemAdjust extends Component {
           .then((newId, tripid, trip_day, trav_name, type, newQty) => {
             this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
             this.props.routerProps.history.push("/trip/:tripName");
+            this.props.getPackitems(e)
+  
                   
           })
 
           .catch(error => {
             this.setState({ error })
           })
-  
+
+          
 
   
 
@@ -292,6 +308,7 @@ class ItemAdjust extends Component {
     const item = this.props.selectedItem;
     const image = item.image
     const name = item.food_name;
+    
     const brand = !item.brand_name ? "common" : item.brand_name;
     const quant = Math.round(item.serving_qty);
     const unit = item.serving_unit
@@ -307,7 +324,23 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
-    console.log(this.state.trip_day)
+
+    console.log("selected trip", this.props.selectTrip)
+    console.log("trip day", this.state.trip_day)
+    console.log("type", this.state.type)
+    console.log("trav_name", this.state.trav_name)
+    console.log("name", this.state.name)
+    console.log("foodname", this.state.food_name)
+
+    console.log("item id ", this.state.id)
+    console.log("tripid ", this.state.tripid)
+
+    console.log("selectedItem", this.state.selectedItem)
+
+    console.log("tripTravelers", this.state.tripTravelers)
+
+    console.log("serving quantity", this.state.serving_qty)
+
     
 
     

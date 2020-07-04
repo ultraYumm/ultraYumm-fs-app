@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../FormElements/FormElements.css';
+import { TRIPS } from "../Defaults"
 
 
 
@@ -10,10 +11,10 @@ class TripName extends Component {
   render() {
   
     const selectedTrip = this.props.selectedTrip
-    const tripName = selectedTrip[0].name
+   
   
     return (
-        <div>{tripName}</div>
+        <div>{!selectedTrip[0]?TRIPS[0].name : selectedTrip[0].name}</div>
    )}
   
 }

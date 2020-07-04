@@ -1,6 +1,5 @@
 export const ITEMS= [
   {
- "id": 1,
  "food_name": "My favorite treat",
  "serving_unit": "a handful",
  "brand_name": null,
@@ -11,8 +10,7 @@ export const ITEMS= [
  },
  
  {
- "id": 2,
- "food_name": "My favorite beverage",
+  "food_name": "My favorite beverage",
  "brand_name": 	"My special instant mix",
  "serving_unit": "oz",
  "serving_qty": 1,
@@ -39,11 +37,10 @@ export const DEFAULTITEM = [
 
 
   export const PACKITEMS= [
-    { "id":  1,
-      "tripid": "1",
+    { "tripid": "1",
       "trip_day": "1000-01-01T01:01:01.111Z",
-      "trav_name": "",
-      "type": "",
+      "trav_name": "TBD",
+      "type": "TBD",
       "serving_qty": 1
   },
   
@@ -52,7 +49,7 @@ export const DEFAULTITEM = [
   export const IMAGE= "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
   export const TRIPS = [
-    {"id": "1",
+    {"id": 1,
     "name":"My awesome trip",
     "traveler_names": [""],
     "iframe": 'https://earth.google.com', 
@@ -63,7 +60,7 @@ export const DEFAULTITEM = [
   ]
 
   export const ITEMTYPES = [
-    {"type": ["Breakfast", "Lunch", "Dinner", "Snack", "Other"]}
+    {"type": ["Breakfast", "Lunch", "Dinner", "Snack", "Other", "TBD"]}
     
   ]
   

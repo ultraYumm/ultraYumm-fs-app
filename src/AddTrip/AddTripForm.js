@@ -20,6 +20,8 @@ class AddTripForm extends Component {
 
   render() {
 
+    const getTrips = this.props.getTrips
+
     const moment= require('moment') 
     
     const onSubmitForm = (e) => {
@@ -55,10 +57,9 @@ class AddTripForm extends Component {
             userid: userid
           }
 
-          console.log(tripName)
+          console.log(inputValues)
 
-
-      
+        
 
         const API = config.API_UY_ENDPOINT   
         const endpoint = config.endpointT
@@ -76,10 +77,12 @@ class AddTripForm extends Component {
         fetch(url, {
           
             method: 'POST',
-            headers: {
-              Authorization: `Bearer ${API_TOKEN}`
-            },
             body: JSON.stringify(inputValues),
+            headers: {
+              'content-type': 'application/json',
+              'authorization': `bearer ${API_TOKEN}`
+            }
+           
             
           }
           )
@@ -93,10 +96,20 @@ class AddTripForm extends Component {
             throw error
             })
         }
+      
+       
         return res.json()
+      
+        
         })
         
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
+
+       
+
+
+       
+    
     
         this.props.routerProps.history.push("/my-trips")
       
@@ -130,7 +143,8 @@ class AddTripForm extends Component {
 
     return (
         <form onSubmit={onSubmitForm}>
-         <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton/></h2> 
+         <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton
+         /></h2> 
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>

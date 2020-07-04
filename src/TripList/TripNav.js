@@ -21,12 +21,14 @@ class TripNav extends Component {
   render() {
 
     const trips = this.props.trips
+    const getTrips = this.props.getTrips
   
     
     
        
     return (
-      <section className = "tripSection">
+      <section className = "tripSection"
+      onMouseOver = {getTrips}>
        
        <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
           <div className = "tripContainer">

@@ -31,8 +31,8 @@ class App extends Component {
       searchResults: {},
       selectedTripId: TRIPS[0].id,
       tripName: TRIPS[0].name,
-      selectedItem: DEFAULTITEM,
-      item: DEFAULTITEM,
+      selectedItem: ITEMS[0],
+      item: ITEMS[0],
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
@@ -299,16 +299,11 @@ class App extends Component {
 
    
     const trips = this.state.trips
-   
     console.log(trips)
-   
-
-
-
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-    console.log(selectedTrip[0])
+    console.log(selectedTrip)
    
    
     const packItems = this.state.packItems 
@@ -377,7 +372,16 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
-         
+           
+              getItems = {(e) =>
+                this.handleGetItems(e)}
+ 
+              getPackItems = {(e) =>
+              this.handleGetPackItems(e)}
+
+              getTrips = {(e) =>
+                this.handleGetTrips(e)}
+ 
              
             />
           )}
@@ -391,6 +395,8 @@ class App extends Component {
               handleSelectTrip={(selectedTripId, tripName) =>
                 this.selectTrip(selectedTripId, tripName)
               }
+              getTrips = {e => this.handleGetTrips(e)}
+
              
             />
           )}
@@ -419,10 +425,10 @@ class App extends Component {
               currentT = ""
               newT= ""
               s = ""
-              selectedItem= {ITEMS[0]}
+              selectedItem= {!this.state.selectedItem? ITEMS[0] : this.state.selectedItem}
               item= {ITEMS[0]}
-              trips={TRIPS}
-              items= {ITEMS}
+              trips={!trips? TRIPS : trips}
+              items= {!items? ITEMS : items}
               selectedTrip={TRIPS[0]}
               selectedTripItems={PACKITEMS}
               tripItems={ITEMS}
@@ -452,6 +458,7 @@ class App extends Component {
           path="/trip/:tripName"
           render={(routerProps) => (
             <TripResults
+              trips = {trips}
               routerProps={routerProps}
               selectedTrip={selectedTrip}
               selectedTripItems={selectedTripItems}

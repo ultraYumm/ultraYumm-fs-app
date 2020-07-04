@@ -6,7 +6,6 @@ import Moment from "react-moment";
 //import SaveButton from "../FormElements/SaveButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
-import GoToFiltersButton from "../FormElements/GoToFiltersButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
 import TripPackGraph from "../TripDetails/TripPackGraph";
 import TripCalorieGraph from "../TripDetails/TripCalorieGraph";
@@ -34,7 +33,7 @@ import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
-import { ITEMS, TRIPS } from "../Defaults";
+import { ITEMS, TRIPS, PACKITEMS} from "../Defaults";
 import { withRouter } from "react-router-dom";
 
 
@@ -42,7 +41,7 @@ import { withRouter } from "react-router-dom";
 
 class TripResults extends Component {
   static defaultProps = {
-    selectedTrip: TRIPS,
+    selectedTrip: TRIPS[0],
     items: ITEMS,
     tripItems:ITEMS,
     selectedTripItems: ITEMS,
@@ -117,6 +116,7 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.props.selectedTrip;
+    console.log("selected trip", selectedTrip)
    
   
     const selectedTripItems = this.props.selectedTripItems;
@@ -158,7 +158,7 @@ class TripResults extends Component {
 
       return resultsObject;
     });
-
+    
     const sum_CalServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * selectServingQuantArray[i]), 0)
 
     const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
@@ -184,7 +184,7 @@ class TripResults extends Component {
          
             <div className=" montebello black sticky resultsTitle">
               <TripName selectedTrip={selectedTrip}/>&nbsp;Results!&nbsp; 
-              <TripYear selectedTrip={selectedTrip}/>
+              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip}/>
             </div>
           </h2>
         
@@ -205,13 +205,8 @@ class TripResults extends Component {
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
-            <NavLink 
-            className= "hidden" 
-            to={`/trip-filter/${selectedTrip[0].food_name}`}>
-              <GoToFiltersButton />
-            </NavLink>
-
-            <NavLink to={`/add-custom/${selectedTrip[0].food_name}`}>
+            
+            <NavLink to={`/add-custom/${!selectedTrip[0]? ITEMS[0].food_name :  selectedTrip[0].food_name}`}>
               <AddCustomButton />
             </NavLink>
 
