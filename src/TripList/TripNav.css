@@ -58,11 +58,6 @@
 }
 
 
-.tripLi:hover {
-    margin-bottom: 100px;
-    transition: 0.9s;   
-}
-  
 
 .tripImage {
     display: inline-block;
@@ -125,10 +120,6 @@
    
 }
 
-
-.tripLi:hover {
-    margin-bottom: 200px;
-}
   
 
 }
@@ -167,10 +158,6 @@
 }
 
 
-.tripLi:hover {
-    margin-right: 500px;
-
-}
 
 }
 
@@ -196,11 +183,6 @@
    
 }
 
-
-
-.tripLi:hover {
-    margin-right: 1200px; 
-}
 
         
 }

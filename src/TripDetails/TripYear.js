@@ -20,7 +20,8 @@ class TripYear extends Component {
 
     
 
-    const tripYear = <Moment format= "YYYY">{selectedTrip.trip_dates[0].toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0]}</Moment>
+    const tripYear = <Moment format= "YYYY">{selectedTrip.trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0]}</Moment>
+
    
   
     return (

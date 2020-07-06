@@ -167,12 +167,15 @@ class TripResults extends Component {
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
 
+    console.log(results)
+
 
     return (
       <section className="lightBlueBackground"
       onMouseOver = {getItems}>      
        
-        <div className = "lightBlueBackground sticky" onMouseOver = {getPackItems}>
+        <div className = "lightBlueBackground sticky" 
+        onMouseOver = {getPackItems}>
            <div className="charts sticky cloudBlueBackground">
           <TripCalorieGraph cals={sum_CalServProducts}/>
           <TripPackGraph weight={sum_WeightServProducts}/>
@@ -239,7 +242,7 @@ class TripResults extends Component {
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
-                    <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>    
+                  {item.trip_day === ""? "TBD" : <Moment format="ddd-MMM-DD">item.trip_day</Moment> }    
                   </td>
 
                   <td className="type">
@@ -305,7 +308,7 @@ class TripResults extends Component {
 
          
           {results.map((item, key) => (
-          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={item}>
+          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={key}>
             
             <tbody>
              <tr className = "mobile" >
@@ -338,7 +341,7 @@ class TripResults extends Component {
 
             <tbody>
               <tr>  
-                <BrandHeader/>
+              <BrandHeader/>
                       <ItemBrand
                       brand = {!item.brand_name ? "common" : item.brand_name}
                       />
@@ -349,7 +352,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                      <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>          
+                     {item.trip_day === ""? "TBD" : <Moment format="ddd-MMM-DD">item.trip_day</Moment> }     
             </td>
 
             </tr>

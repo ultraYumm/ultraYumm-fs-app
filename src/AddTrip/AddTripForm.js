@@ -4,7 +4,7 @@ import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
-import { TRIPS, TRIP_NAME } from "../Defaults";
+import { TRIPS, TRIP_NAME, TRAVELER_NAMES } from "../Defaults";
 
 
 class AddTripForm extends Component {
@@ -159,7 +159,7 @@ class AddTripForm extends Component {
     
     
     const validateTripName = () => {
-        if (this.props.trips.find((trip) => trip.name === tripName[0] || {TRIP_NAME})){
+        if (this.props.trips.find((trip) => trip.name === tripName)){
         return (" this nice trip name already exists, please pick a different name")}
         else return ("")
            
@@ -168,6 +168,7 @@ class AddTripForm extends Component {
       const nameCheck = () => ((this.props.trips.map((trip) => trip.name === tripName)))
       const checkArray = nameCheck()
       const dupName = checkArray.includes(true)
+      console.log(dupName)
 
       const startDate = this.state.startDate
       const endDate = this.state.endDate
@@ -186,7 +187,7 @@ class AddTripForm extends Component {
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
-                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  defaultValue = {TRIP_NAME}                    onChange={e => createTripName(e.target.value)}
+                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  placeholder = {TRIP_NAME} required                    onChange={e => createTripName(e.target.value)}
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
@@ -194,7 +195,7 @@ class AddTripForm extends Component {
             <div className= "labelWidthPlan">
                  <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" 
-                 defaultValue = {TRIPS[0].traveler_names}
+                 defaultValue = {TRAVELER_NAMES}
                  id= "traveler-name"
                  onChange={e => createTravNames(e.target.value)}
                  

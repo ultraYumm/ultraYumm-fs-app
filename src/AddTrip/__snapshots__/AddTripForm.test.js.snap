@@ -38,10 +38,11 @@ exports[`renders the UI as expected 1`] = `
       </span>
       <input
         className="skinBackground black search"
-        defaultValue="my awesome trip"
         id="new-trip-name"
         name="tripName"
         onChange={[Function]}
+        placeholder="my awesome trip"
+        required={true}
         type="text"
       />
       <span

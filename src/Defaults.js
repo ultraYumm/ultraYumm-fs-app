@@ -49,12 +49,13 @@ export const DEFAULTITEM = [
   export const IMAGE= "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
   export const TRIP_NAME = "my awesome trip"
+  export const TRAVELER_NAMES = ["Lewis"," Clark", " Alexandra", "TBD"]
    
   export const TRIPS = [
     {
      "id": 0,
-    "name":"My awesome trip",
-    "traveler_names": ["Lewis"," Clark", " Alexandra", "TBD"],
+    "name":"",
+    "traveler_names": ["TBD"],
     "iframe": 'https://earth.google.com', 
     "trip_dates": 
     ["1000-01-01T01:01:01.111Z"]},

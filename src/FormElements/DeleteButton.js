@@ -59,9 +59,9 @@ class DeleteButton extends Component {
         className= "primaryFont white redBackground moreButton sticky"
         onClick={this.handleClickDelete}
         >
-        delete selected<span className = "primaryFont text">
+        confirm delete <span className = "primaryFont text">
             
-            :&nbsp;{name}</span> 
+            &nbsp;<strong>{name}</strong></span> 
         </div>
     )
     }  

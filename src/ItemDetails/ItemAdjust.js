@@ -177,9 +177,12 @@ class ItemAdjust extends Component {
       trav_name: input,
     });
   };
+
+ 
   
   render() {
 
+    console.log(this.state.trav_name)
 
       const onSubmitForm = (e) => {
       e.preventDefault()
@@ -193,7 +196,7 @@ class ItemAdjust extends Component {
       const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
       const tripid = this.state.tripid      
       const trip_day = this.state.trip_day
-      const trav_name = this.state.trav_name
+      const trav_name = this.state.trav_name === undefined ?  "TBD" : this.state.trav_name
       const type = this.state.type
     
       const API = config.API_UY_ENDPOINT   
@@ -312,8 +315,9 @@ class ItemAdjust extends Component {
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
 
-    console.log(this.state.tripDay)
-    console.log(this.state.trip_dates)   
+    console.log("tripday", this.state.tripDay)
+    console.log("tripdates", this.state.trip_dates)
+    console.log("tripdates", this.state.brand_name)      
 
     return (
       <section className="filterForm">
@@ -481,7 +485,9 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" ? "" : trip_day}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
+              this.state.trip_dates === {}
+              ? "" : trip_day}</span></h3>
                 <TripDates
                 name = {this.state.name}
                 defaultDay = {PACKITEMS[0].trip_day}

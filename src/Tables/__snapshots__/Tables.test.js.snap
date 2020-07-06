@@ -57,7 +57,7 @@ exports[`renders the UI as expected 1`] = `
         className=" montebello black sticky resultsTitle"
       >
         <div>
-          My awesome trip
+          
         </div>
          Results! 
         <div
@@ -89,12 +89,14 @@ exports[`renders the UI as expected 1`] = `
         className="primaryFont white redBackground moreButton sticky"
         onClick={[Function]}
       >
-        delete selected
+        confirm delete 
         <span
           className="primaryFont text"
         >
-          : 
-          
+           
+          <strong>
+            
+          </strong>
         </span>
       </div>
     </div>
@@ -269,9 +271,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-06T09:24:42.474Z"}
+            dateTime={null}
           >
-            Mon-Jul-06
+            Invalid date
           </time>
         </td>
         <td
@@ -343,9 +345,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-06T09:24:42.498Z"}
+            dateTime={null}
           >
-            Mon-Jul-06
+            Invalid date
           </time>
         </td>
         <td
@@ -509,9 +511,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-06T09:24:42.500Z"}
+            dateTime={null}
           >
-            Mon-Jul-06
+            Invalid date
           </time>
         </td>
       </tr>
@@ -785,9 +787,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-06T09:24:42.502Z"}
+            dateTime={null}
           >
-            Mon-Jul-06
+            Invalid date
           </time>
         </td>
       </tr>
