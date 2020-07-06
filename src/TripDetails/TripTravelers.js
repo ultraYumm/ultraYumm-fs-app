@@ -27,8 +27,8 @@ class TripTravelers extends Component {
       return (
       
           <ul className= "scroll"> 
-          {tripTravelers.map((name)=> (
-            <li key= {name}>
+          {tripTravelers.map((name, key)=> (
+            <li key= {key}>
 
             <label className="labelContainer">{name}
                 <input type="checkbox"

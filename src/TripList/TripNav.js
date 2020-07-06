@@ -68,22 +68,3 @@ class TripNav extends Component {
 
 export default TripNav
 
-
-/*onClick={() => console.log()}*/
-              
-  /*return (
-   <section className = "tripSection">
-    <h2 className= "montebello">My trips!</h2>
-       <ul className= "trips">      
-           <li className= "trips tripLi">
-              <TripImages
-               trips= {trips}>
-              </TripImages>
-              <TripNames
-              trips= {trips}>  
-              </TripNames>
-           </li>     
-        </ul>
-   </section>
-   
-)*/

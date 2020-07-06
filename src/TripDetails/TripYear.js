@@ -16,14 +16,10 @@ class TripYear extends Component {
   render() {
   
     const selectedTrip = this.props.selectedTrip
-    console.log(selectedTrip)
-
-    
-
+  
     const tripYear = <Moment format= "YYYY">{selectedTrip.trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0]}</Moment>
 
-   
-  
+    
     return (
         <div className= "montebello">{
           !selectedTrip| 

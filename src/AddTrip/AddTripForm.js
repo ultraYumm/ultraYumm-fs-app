@@ -30,7 +30,7 @@ class AddTripForm extends Component {
    
     const moment= require('moment') 
   
-    const  re = /:\s|,\s/;
+    const  re = /:\s|\s/;
     
     const onSubmitForm = (e) => {
 
@@ -148,7 +148,7 @@ class AddTripForm extends Component {
         }, []);
 
        
-        if (duplicate.length>0) {return ('please pick a unique name for the one and only' + duplicate.join(','))}
+        if (duplicate.length>0) {return ('please pick a unique name for the one and only ' + duplicate.join(','))}
     
     } 
     
@@ -168,8 +168,7 @@ class AddTripForm extends Component {
       const nameCheck = () => ((this.props.trips.map((trip) => trip.name === tripName)))
       const checkArray = nameCheck()
       const dupName = checkArray.includes(true)
-      console.log(dupName)
-
+  
       const startDate = this.state.startDate
       const endDate = this.state.endDate
 

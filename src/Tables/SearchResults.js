@@ -174,7 +174,7 @@ class SearchResults extends Component {
               <tbody>
 
               {newBrandCommonArr.map((item, key) => (
-                <tr className="one whiteBackground black" key={item.id}>
+                <tr className="one whiteBackground black" key={key}>
                    
                    <TableItemImage image = {item.image}/>
                 
@@ -224,8 +224,8 @@ class SearchResults extends Component {
          </table>
 
          
-          {newBrandCommonArr.map((item) => ( 
-          <table id="search-results" className="primaryFont whiteBackground mobileOnly noBorder"  key={item.id}>
+          {newBrandCommonArr.map((item, key) => ( 
+          <table id="search-results" className="primaryFont whiteBackground mobileOnly noBorder"  key={key}>
            
            <tbody>
             <tr className = "mobile">

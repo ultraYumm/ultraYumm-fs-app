@@ -69,7 +69,7 @@ class ItemAdjust extends Component {
       
       selectedTripId: !selectedTrip[0]? PACKITEMS[0].id: selectedTrip[0].id,
       
-      selectedTrip: !selectedTrip[0]? TRIPS[0] : selectedTrip[0],
+      //selectedTrip: !selectedTrip[0]? TRIPS[0] : selectedTrip[0],
       
       id:  selectedItem.id,
       serving_qty: selectedItem.serving_qty,
@@ -86,8 +86,10 @@ class ItemAdjust extends Component {
       trip_dates: !selectedTrip[0]? trips[0].trip_dates : 
       selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
       
-      traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
-      
+
+       traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
+
+
       trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
       
       type: !selectedTrip[0] | selectedItem.type === undefined ? PACKITEMS[0].type : selectedItem.type,
@@ -182,8 +184,7 @@ class ItemAdjust extends Component {
   
   render() {
 
-    console.log(this.state.trav_name)
-
+  
       const onSubmitForm = (e) => {
       e.preventDefault()
       const newId =  uuidv4()
@@ -314,10 +315,7 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
-
-    console.log("tripday", this.state.tripDay)
-    console.log("tripdates", this.state.trip_dates)
-    console.log("tripdates", this.state.brand_name)      
+  
 
     return (
       <section className="filterForm">
@@ -486,7 +484,8 @@ class ItemAdjust extends Component {
 
             <div className= "filterSelection">
               <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
-              this.state.trip_dates === {}
+              this.state.trip_dates === {} |
+              this.state.trip_dates === "{}"
               ? "" : trip_day}</span></h3>
                 <TripDates
                 name = {this.state.name}

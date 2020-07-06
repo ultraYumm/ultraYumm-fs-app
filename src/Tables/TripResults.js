@@ -167,9 +167,7 @@ class TripResults extends Component {
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
 
-    console.log(results)
-
-
+  
     return (
       <section className="lightBlueBackground"
       onMouseOver = {getItems}>      
@@ -242,7 +240,7 @@ class TripResults extends Component {
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
-                  {item.trip_day === ""? "TBD" : <Moment format="ddd-MMM-DD">item.trip_day</Moment> }    
+                  {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
                   </td>
 
                   <td className="type">
@@ -352,7 +350,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                     {item.trip_day === ""? "TBD" : <Moment format="ddd-MMM-DD">item.trip_day</Moment> }     
+                     {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
             </td>
 
             </tr>
