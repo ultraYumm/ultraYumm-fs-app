@@ -13,9 +13,8 @@ class TripTravelers extends Component {
   render() {
       
     const tripTravelers = this.props.tripTravelers.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
-    console.log(tripTravelers)
-  
-   
+ 
+    
     function onlyOne(checkbox) {
    
       const checkboxes =  document.getElementsByName('check')

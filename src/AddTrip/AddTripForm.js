@@ -4,8 +4,7 @@ import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
-import { TRIPS } from "../Defaults";
-import Moment from 'react-moment';
+import { TRIPS, TRIP_NAME } from "../Defaults";
 
 
 class AddTripForm extends Component {
@@ -17,9 +16,11 @@ class AddTripForm extends Component {
     constructor(props) {
     
         super(props);
+       
         this.state = {
           startDate: null,
-          endDate:  null
+          endDate:  null,
+          name: TRIPS[0].name
         }
       }
       
@@ -115,7 +116,6 @@ class AddTripForm extends Component {
 
 
     const validateDate = () => {
-        
         const startDate = this.state.startDate
         const endDate = this.state.endDate
         if (moment(endDate).isBefore(moment(startDate)) === true)
@@ -141,14 +141,12 @@ class AddTripForm extends Component {
     const checkDupes = () => {
   
       if (travNames) {
-        
         const arr = travNames.split(re)
         let duplicate = arr.reduce((acc,currentValue,index, array) => {
-          if(array.indexOf(currentValue)!=index && !acc.includes(currentValue)) acc.push(currentValue);
+          if(array.indexOf(currentValue)!==index && !acc.includes(currentValue)) acc.push(currentValue);
           return acc;
         }, []);
 
-        console.log(duplicate)
        
         if (duplicate.length>0) {return ('please pick a unique name for the one and only' + duplicate.join(','))}
     
@@ -156,32 +154,25 @@ class AddTripForm extends Component {
     
       else return ("")
     }
-
-    console.log(checkDupes())
-
-     
+      
     const tripName = this.state.name
     
+    
     const validateTripName = () => {
-        
-        
-        if (this.props.trips.find((trip) => trip.name === tripName)){
+        if (this.props.trips.find((trip) => trip.name === tripName[0] || {TRIP_NAME})){
         return (" this nice trip name already exists, please pick a different name")}
         else return ("")
            
       }
 
       const nameCheck = () => ((this.props.trips.map((trip) => trip.name === tripName)))
-
       const checkArray = nameCheck()
-      
       const dupName = checkArray.includes(true)
 
       const startDate = this.state.startDate
       const endDate = this.state.endDate
 
       const dateCheck = () => (moment(endDate).isBefore(moment(startDate)) === true)
-
       const backDates = (dateCheck())
 
       const  error = () => {"duplicate trip name or backwards dates"}
@@ -195,8 +186,7 @@ class AddTripForm extends Component {
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
-                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  defaultValue = "my awesome trip" required
-                    onChange={e => createTripName(e.target.value)}
+                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  defaultValue = {TRIP_NAME}                    onChange={e => createTripName(e.target.value)}
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
@@ -205,7 +195,7 @@ class AddTripForm extends Component {
                  <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" 
                  defaultValue = {TRIPS[0].traveler_names}
-                 placeholder = "Me, my buddy" id= "traveler-name"
+                 id= "traveler-name"
                  onChange={e => createTravNames(e.target.value)}
                  
                  /><span className= "error cloudBlue">{checkDupes()}</span>

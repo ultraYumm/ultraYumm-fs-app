@@ -81,7 +81,7 @@ class ItemAdjust extends Component {
       packItems: {packItems},
       image: selectedItem.image,
 
-      tripid: !selectedTrip[0]? trips[0].id : selectedTrip[0].id,
+      tripid: !selectedTrip[0]? TRIPS[0].id : selectedTrip[0].id,
       
       trip_dates: !selectedTrip[0]? trips[0].trip_dates : 
       selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
@@ -90,7 +90,7 @@ class ItemAdjust extends Component {
       
       trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
       
-      type: !selectedTrip[0] | selectedItem.type == undefined ? PACKITEMS[0].type : selectedItem.type,
+      type: !selectedTrip[0] | selectedItem.type === undefined ? PACKITEMS[0].type : selectedItem.type,
 
       trav_name: !selectedTrip[0]? PACKITEMS[0].trav_name : selectedItem.trav_name,
 
@@ -191,17 +191,11 @@ class ItemAdjust extends Component {
       const newQty = !this.state.serving_qty? 1 : this.state.serving_qty
       const newUnit = this.state.serving_unit
       const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
-      const tripid = this.state.tripid
-      
+      const tripid = this.state.tripid      
       const trip_day = this.state.trip_day
-
-      
       const trav_name = this.state.trav_name
       const type = this.state.type
     
-      
-      
-
       const API = config.API_UY_ENDPOINT   
       const  endpointI = config.endpointI
       const  endpointP = config.endpointP
@@ -209,8 +203,6 @@ class ItemAdjust extends Component {
       const urlI = API + endpointI;
       const urlP = API + endpointP;
       
-  
-
       const item = {
         id: newId,
         food_name: newName,
@@ -221,6 +213,7 @@ class ItemAdjust extends Component {
         serving_weight_grams: newWeight,
         cals_per_serving: newCalsPs
       }
+      
       const packItem = {
         id: newId,
         tripid: tripid,
@@ -247,7 +240,6 @@ class ItemAdjust extends Component {
             })
           
           }
-          
 
         })
       
@@ -278,15 +270,12 @@ class ItemAdjust extends Component {
               this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
               this.props.routerProps.history.push("/trip/:tripName");
               this.props.getPackitems(e)
-    
                     
             })
   
             .catch(error => {
               this.setState({ error })
             })
-      
-                    
                 
         })
        
@@ -297,14 +286,7 @@ class ItemAdjust extends Component {
         this.props.getItems(e)
         this.props.getPackItems(e)
         this.props.getTrips(e)
-          
-        
 
-          
-
-  
-
-  
     }
     
       
@@ -330,31 +312,13 @@ class ItemAdjust extends Component {
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
 
-    console.log("selected trip", this.props.selectedTrip)
-    console.log("trip day", this.state.trip_day)
-    console.log("type", this.state.type)
-    console.log("trav_name", this.state.trav_name)
-    console.log("name", this.state.name)
-    console.log("foodname", this.state.food_name)
-    console.log("type", this.state.type)
-
-    console.log("item id ", this.state.id)
-    console.log("tripid ", this.state.tripid)
-
-    console.log("selectedItem", this.state.selectedItem)
-
-    console.log("tripTravelers", this.state.tripTravelers)
-
-    console.log("serving quantity", this.state.serving_qty)
-
-    
-
-    
+    console.log(this.state.tripDay)
+    console.log(this.state.trip_dates)   
 
     return (
       <section className="filterForm">
            
-           <div className = "iconButtonsContainer">
+          <div className = "iconButtonsContainer">
                 <div className = "back">
               <BackButton/>  
               </div>
@@ -409,7 +373,6 @@ class ItemAdjust extends Component {
                     handleAdjustQuant = {(inputValue) =>
                       this.adjustQuant(inputValue)
                     }
-
                     />
                   </div>
                 </div>
@@ -427,7 +390,6 @@ class ItemAdjust extends Component {
                     handleAdjustUnit = {(inputValue, id) =>
                       this.adjustUnit(inputValue, id)
                     }
-
                     />
                   </div>
                 </div>
@@ -447,7 +409,6 @@ class ItemAdjust extends Component {
                   }
                   />
                   </div>
-
                 </div>
 
                 <div className="inputBox">
@@ -464,10 +425,9 @@ class ItemAdjust extends Component {
                    this.adjustCals(inputValue, id)
                  }
                   />
-
                   </div>
-                
                 </div>
+
               </div>
 
               <div className="resultsContainer">
@@ -521,15 +481,14 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day == PACKITEMS[0].trip_day? "" : trip_day}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" ? "" : trip_day}</span></h3>
                 <TripDates
                 name = {this.state.name}
                 defaultDay = {PACKITEMS[0].trip_day}
                 tripDates={this.state.trip_dates}
                 handleSelectDay={(selectedDay) =>
                   this.selectDay(selectedDay)
-                }
-                />
+                }/>
             </div>
 
             <div className= "filterSelection">
@@ -538,8 +497,7 @@ class ItemAdjust extends Component {
                 id = {id}
                 handleSelectType={(selectedType) =>
                   this.selectType(selectedType)
-                }
-                />
+                }/>
              </div>
 
              <div className="filterSelection">
@@ -547,8 +505,7 @@ class ItemAdjust extends Component {
                 <TripTravelers tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)
-                }
-                />
+                }/>
              </div>
           </div>
           <div className = "mobileOnly">

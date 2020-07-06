@@ -63,11 +63,7 @@ exports[`renders the UI as expected 1`] = `
         <div
           className="montebello"
         >
-          <time
-            dateTime={"1000-01-01T01:01:01.111Z"}
-          >
-            0999
-          </time>
+          
         </div>
       </div>
     </h2>
@@ -107,19 +103,7 @@ exports[`renders the UI as expected 1`] = `
     >
       <a
         aria-current={null}
-        className="hidden"
-        href="/trip-filter/undefined"
-        onClick={[Function]}
-      >
-        <div
-          className="primaryFont red skinBackground moreButton sticky"
-        >
-          Go to filters
-        </div>
-      </a>
-      <a
-        aria-current={null}
-        href="/add-custom/undefined"
+        href="/add-custom/My favorite treat"
         onClick={[Function]}
       >
         <div
@@ -285,9 +269,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-03T21:17:56.512Z"}
+            dateTime={"2020-07-06T09:24:42.474Z"}
           >
-            Fri-Jul-03
+            Mon-Jul-06
           </time>
         </td>
         <td
@@ -302,7 +286,7 @@ exports[`renders the UI as expected 1`] = `
           <a
             aria-current={null}
             className="noDeco"
-            href="/trip-item/1"
+            href="/trip-item/undefined"
             onClick={[Function]}
           >
             <div
@@ -359,9 +343,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-03T21:17:56.513Z"}
+            dateTime={"2020-07-06T09:24:42.498Z"}
           >
-            Fri-Jul-03
+            Mon-Jul-06
           </time>
         </td>
         <td
@@ -376,7 +360,7 @@ exports[`renders the UI as expected 1`] = `
           <a
             aria-current={null}
             className="noDeco"
-            href="/trip-item/2"
+            href="/trip-item/undefined"
             onClick={[Function]}
           >
             <div
@@ -469,7 +453,7 @@ exports[`renders the UI as expected 1`] = `
           <a
             aria-current={null}
             className="noDeco"
-            href="/trip-item/1"
+            href="/trip-item/undefined"
             onClick={[Function]}
           >
             <div
@@ -525,9 +509,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-03T21:17:56.522Z"}
+            dateTime={"2020-07-06T09:24:42.500Z"}
           >
-            Fri-Jul-03
+            Mon-Jul-06
           </time>
         </td>
       </tr>
@@ -745,7 +729,7 @@ exports[`renders the UI as expected 1`] = `
           <a
             aria-current={null}
             className="noDeco"
-            href="/trip-item/2"
+            href="/trip-item/undefined"
             onClick={[Function]}
           >
             <div
@@ -801,9 +785,9 @@ exports[`renders the UI as expected 1`] = `
           className="date"
         >
           <time
-            dateTime={"2020-07-03T21:17:56.523Z"}
+            dateTime={"2020-07-06T09:24:42.502Z"}
           >
-            Fri-Jul-03
+            Mon-Jul-06
           </time>
         </td>
       </tr>
@@ -1012,7 +996,7 @@ exports[`renders the UI as expected 2`] = `
         </div>
       </div>
       <h2
-        className="montebello searchResultsTitle black"
+        className="montebello searchResultsTitle white"
       >
          
         See your highest energy results!

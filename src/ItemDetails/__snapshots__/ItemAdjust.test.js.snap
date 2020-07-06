@@ -302,7 +302,7 @@ exports[`renders the UI as expected 1`] = `
                
               My awesome trip
               <input
-                defaultValue="1"
+                defaultValue={0}
                 name="check"
                 onClick={[Function]}
                 type="radio"
@@ -344,7 +344,11 @@ exports[`renders the UI as expected 1`] = `
                 href="/add-trip"
                 onClick={[Function]}
               >
-                create a trip to set custom dates
+                no dates set for 
+                <strong>
+                  My awesome trip
+                </strong>
+                 - create a new trip with your custom dates and travelers
               </a>
               <input
                 defaultValue="1000-01-01T01:01:01.111Z"
@@ -374,7 +378,7 @@ exports[`renders the UI as expected 1`] = `
           <span
             className="primaryFont blue skinBackground"
           >
-            
+            TBD
           </span>
         </h3>
         <ul
@@ -465,6 +469,23 @@ exports[`renders the UI as expected 1`] = `
               />
             </label>
           </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+               
+              TBD
+              <input
+                defaultValue="TBD"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
         </ul>
       </div>
       <div
@@ -482,7 +503,7 @@ exports[`renders the UI as expected 1`] = `
           <span
             className="primaryFont blue skinBackground"
           >
-            
+            me
           </span>
         </h3>
         <ul
@@ -492,9 +513,57 @@ exports[`renders the UI as expected 1`] = `
             <label
               className="labelContainer"
             >
-              
+              Lewis
               <input
-                defaultValue=""
+                defaultValue="Lewis"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              Clark
+              <input
+                defaultValue="Clark"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              Alexandra
+              <input
+                defaultValue="Alexandra"
+                name="check"
+                onClick={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="checkmark"
+              />
+            </label>
+          </li>
+          <li>
+            <label
+              className="labelContainer"
+            >
+              TBD
+              <input
+                defaultValue="TBD"
                 name="check"
                 onClick={[Function]}
                 type="checkbox"

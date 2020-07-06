@@ -47,7 +47,20 @@
     height: 100px;
     font-weight: bolder;
     opacity: 1;
+    transition-timing-function: ease-in-out;
    
+}
+
+.tripImage:hover {
+    transition-timing-function: ease-in-out;
+
+
+}
+
+
+.tripLi:hover {
+    margin-bottom: 100px;
+    transition: 0.9s;   
 }
   
 
@@ -64,15 +77,14 @@
     width: 200px;
     height: 100px;
     transition: 0.9s;
-    opacity: 1;
-    
+      
 }   
   
   
   
 .trip {
     display: inline-block; 
-    width: 10%; 
+    width: 50%; 
     padding-left: 30px;
     vertical-align: middle;
     height: 50px;
@@ -100,8 +112,9 @@
 
 
 .tripImage:hover {
-    width: 270px;
-    height: 170px;
+    width: 500px;
+    height: 300px;
+    transition: 0.9s;
    
 }   
    
@@ -111,6 +124,12 @@
     height: 220px;
    
 }
+
+
+.tripLi:hover {
+    margin-bottom: 200px;
+}
+  
 
 }
 
@@ -129,21 +148,28 @@
 
 
 .tripImage {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     
     
 }
 
 
 .tripImage:hover {
-    width: 300px;
-    height: 200px;
+    width: 800px;
+    height: 600px;
    
 }
 
 .trip {
     font-size: 30px;
+    width: 100%; 
+}
+
+
+.tripLi:hover {
+    margin-right: 500px;
+
 }
 
 }
@@ -165,10 +191,17 @@
 
 
 .tripImage:hover {
-    width: 700px;
-    height: 500px;
+    width: 1200px;
+    height: 800px;
    
 }
+
+
+
+.tripLi:hover {
+    margin-right: 1200px; 
+}
+
         
 }
 

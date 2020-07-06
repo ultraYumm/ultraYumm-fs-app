@@ -33,7 +33,7 @@ import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
-import { ITEMS, TRIPS, PACKITEMS} from "../Defaults";
+import { ITEMS, TRIPS } from "../Defaults";
 import { withRouter } from "react-router-dom";
 
 
@@ -45,6 +45,7 @@ class TripResults extends Component {
     items: ITEMS,
     tripItems:ITEMS,
     selectedTripItems: ITEMS,
+  
     
   };
 
@@ -116,7 +117,7 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.props.selectedTrip;
-    console.log("selected trip", selectedTrip)
+   
    
   
     const selectedTripItems = this.props.selectedTripItems;
@@ -164,13 +165,14 @@ class TripResults extends Component {
     const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
 
     const getPackItems = this.props.getPackItems
+    const getItems = this.props.getItems
 
 
     return (
       <section className="lightBlueBackground"
-      onMouseOver = {getPackItems}>      
+      onMouseOver = {getItems}>      
        
-        <div className = "lightBlueBackground sticky">
+        <div className = "lightBlueBackground sticky" onMouseOver = {getPackItems}>
            <div className="charts sticky cloudBlueBackground">
           <TripCalorieGraph cals={sum_CalServProducts}/>
           <TripPackGraph weight={sum_WeightServProducts}/>
@@ -183,8 +185,8 @@ class TripResults extends Component {
           <h2 className="montebello black sticky resultsTitle">
          
             <div className=" montebello black sticky resultsTitle">
-              <TripName selectedTrip={selectedTrip}/>&nbsp;Results!&nbsp; 
-              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip}/>
+              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/>&nbsp;Results!&nbsp; 
+              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/>
             </div>
           </h2>
         
@@ -234,7 +236,7 @@ class TripResults extends Component {
            
 
               {results.map((item, key) => (
-                <tr className="one whiteBackground black" key={item.id}>
+                <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
                     <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>    
@@ -244,7 +246,7 @@ class TripResults extends Component {
                     {item.type}
                   </td>
 
-                  <td className="traveler">
+                  <td className="traveler"> 
                     {item.trav_name}
                   </td>
 
@@ -303,7 +305,7 @@ class TripResults extends Component {
 
          
           {results.map((item, key) => (
-          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={item.id}>
+          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={item}>
             
             <tbody>
              <tr className = "mobile" >

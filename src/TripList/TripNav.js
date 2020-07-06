@@ -34,14 +34,12 @@ class TripNav extends Component {
           <div className = "tripContainer">
           <ul className= "trips blueBackground">
             
-              {trips.map (trip => 
+              {trips.map ((trip, key) => 
               <li className= "tripLi"
-             key = {trip.id}
-            
-            
+             key = {key}
              ><iframe className= "tripImage" title= "trip url link" src= {trip.iframe}></iframe>
              <NavLink to={`/trip/${trip.name}`}>
-              <p
+              <div
               className = "trip skin"
               onClick={() => {
                  const selectTripId = trip.id
@@ -52,7 +50,7 @@ class TripNav extends Component {
               
               >{trip.name}
                 
-              </p>
+              </div>
               </NavLink>
               </li>
               

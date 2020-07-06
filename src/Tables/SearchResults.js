@@ -132,7 +132,7 @@ class SearchResults extends Component {
         </div> 
        
         </div>
-          <h2 className="montebello searchResultsTitle black">
+          <h2 className="montebello searchResultsTitle white">
             {" "}
             See your highest energy results!
           </h2>

@@ -10,7 +10,7 @@ import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
 import AddTripForm from "./AddTrip/AddTripForm";
 import TripResults from "./Tables/TripResults";
-import { DEFAULTITEM, PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
+import { PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
 import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
@@ -55,7 +55,6 @@ class App extends Component {
      
     })
       .then(res => {
-        console.log(res)
         if(!res.ok) {
           throw new Error(res.statusText);
         }
@@ -292,36 +291,24 @@ class App extends Component {
     }
     
 
-
-
-
   render() {
 
    
     const trips = this.state.trips
-    console.log(trips)
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-    console.log(selectedTrip)
-   
-   
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
     );
     const selectedTripItemsId = selectedTripItems.map((item) => item.id)
-  
     var tripItems = [];
     for (let i = 0; i < items.length; i++) {
       if (selectedTripItemsId.includes(items[i].id)) {
         tripItems.push(items[i]);
       }
     }
-
-    
-
-
   
     return (
       <div className="App">
@@ -386,9 +373,6 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
-           
-            
-             
             />
           )}
         />
@@ -402,8 +386,6 @@ class App extends Component {
                 this.selectTrip(selectedTripId, tripName)
               }
               getTrips = {e => this.handleGetTrips(e)}
-
-             
             />
           )}
         />
@@ -435,11 +417,11 @@ class App extends Component {
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
               items= {!items? ITEMS : items}
-              selectedTrip={selectedTrip == TRIPS[0]? TRIPS[0] : selectedTrip}
-              tripItems={selectedTrip == TRIPS[0]? ITEMS : tripItems}
+              selectedTrip={selectedTrip === TRIPS[0]? TRIPS[0] : selectedTrip}
+              tripItems={selectedTrip === TRIPS[0]? ITEMS : tripItems}
               itemTypes={ITEMTYPES}
-              tripName={selectedTrip == TRIPS[0]? TRIPS[0].name : this.state.tripName}
-              packItems = {selectedTrip == TRIPS[0]?PACKITEMS: this.state.packItems}
+              tripName={selectedTrip === TRIPS[0]? TRIPS[0].name : this.state.tripName}
+              packItems = {selectedTrip === TRIPS[0]?PACKITEMS: this.state.packItems}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -480,6 +462,10 @@ class App extends Component {
               handleDeletePackItem = {(idToDelete) => this.deletePackItem(idToDelete)}
               getPackItems = {(e) =>
                 this.handleGetPackItems(e)
+              }
+
+              getItems = {(e) =>
+                this.handleGetItems(e)
               }
               
             />

@@ -166,12 +166,17 @@ exports[`App Component renders the UI as expected 1`] = `
           </span>
           <input
             className="skinBackground black search"
+            defaultValue="my awesome trip"
             id="new-trip-name"
             name="tripName"
-            placeholder="Escalante"
-            required={true}
+            onChange={[Function]}
             type="text"
           />
+          <span
+            className="error cloudBlue"
+          >
+             this nice trip name already exists, please pick a different name
+          </span>
         </label>
       </div>
       <div
@@ -190,11 +195,24 @@ exports[`App Component renders the UI as expected 1`] = `
           </span>
           <input
             className="skinBackground purple names"
+            defaultValue={
+              Array [
+                "Lewis",
+                " Clark",
+                " Alexandra",
+                "TBD",
+              ]
+            }
             id="traveler-name"
             name="tripTravelers"
-            placeholder="Stef, Jack, Emi, Marielle..."
+            onChange={[Function]}
             type="text"
           />
+          <span
+            className="error cloudBlue"
+          >
+            
+          </span>
         </label>
       </div>
       <div
@@ -211,16 +229,16 @@ exports[`App Component renders the UI as expected 1`] = `
           >
             <a
               className="white montebello"
-              href="https://www.google.com/maps"
+              href="https://www.google.com/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Location URL
+              Website
             </a>
           </span>
           <input
             className="skinBackground purple names"
-            defaultValue="https://earth.google.com/"
+            defaultValue="https://earth.google.com"
             id="map-link"
             name="tripURL"
             type="url"

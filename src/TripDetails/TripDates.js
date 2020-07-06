@@ -26,7 +26,6 @@ class TripDates extends Component {
   
   const tripDates = this.props.tripDates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
 
-  console.log(tripDates)
   const id = this.props.id
   function onlyOne(checkbox) {
   const checkboxes =  document.getElementsByName('check')
@@ -56,7 +55,7 @@ class TripDates extends Component {
               defaultValue = {date}
              
               onClick={() => {
-                console.log(date)
+             
                             const selectedDay = date
                             onlyOne(this)
                             this.props.handleSelectDay(selectedDay, id)
