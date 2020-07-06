@@ -48,6 +48,7 @@
     font-weight: bolder;
     opacity: 1;
     transition-timing-function: ease-in-out;
+    
    
 }
 
@@ -107,8 +108,8 @@
 
 
 .tripImage:hover {
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 200px;
     transition: 0.9s;
    
 }   
@@ -117,6 +118,7 @@
 .tripLi {
     padding: 50px;
     height: 220px;
+
    
 }
 
@@ -139,7 +141,7 @@
 
 
 .tripImage {
-    width: 400px;
+    width: 300px;
     height: 300px;
     
     
@@ -147,8 +149,8 @@
 
 
 .tripImage:hover {
-    width: 800px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
    
 }
 
@@ -178,8 +180,8 @@
 
 
 .tripImage:hover {
-    width: 1200px;
-    height: 800px;
+    width: 700px;
+    height: 500px;
    
 }
 

@@ -185,7 +185,7 @@ class TripResults extends Component {
         </div>
           <h2 className="montebello black sticky resultsTitle">
          
-            <div className=" montebello black sticky resultsTitle">
+            <div className=" montebello white sticky resultsTitle">
               <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/>&nbsp;Results!&nbsp; 
               <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/>
             </div>

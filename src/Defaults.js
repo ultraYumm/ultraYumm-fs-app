@@ -37,7 +37,7 @@ export const DEFAULTITEM = [
 
 
   export const PACKITEMS= [
-    { "tripid": 0,
+    { "tripid": 1000000,
       "trip_day": "1000-01-01T01:01:01.111Z",
       "trav_name": "me",
       "type": "TBD",
@@ -48,12 +48,12 @@ export const DEFAULTITEM = [
   
   export const IMAGE= "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
-  export const TRIP_NAME = "my awesome trip"
+  export const TRIP_NAME = "awesome trip"
   export const TRAVELER_NAMES = ["Lewis"," Clark", " Alexandra", "TBD"]
    
   export const TRIPS = [
     {
-     "id": 0,
+     "id": 1000000,
     "name":"",
     "traveler_names": ["TBD"],
     "iframe": 'https://earth.google.com', 

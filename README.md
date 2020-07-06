@@ -45,7 +45,7 @@ This a work in progress! Planned user functionality includes the following:
 - Back-end: SQL, Node.js, Mocha & Chai, REST APIs 3
 
 ## Author
-Stephanie LeBlond email: smaleblond@gmail.com cell: 310-989-7801
+Stephanie LeBlond email: smaleblond@gmail.com 
 
 ## Contributors Wanted!
 I'm building and enhancing this app as a volunteer project in my spare time for anyone to use and enjoy.

@@ -335,7 +335,7 @@ class ItemAdjust extends Component {
           </div>
 
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text}  <GoButton /></h2>
+          <h2 className="montebello white">{text}<GoButton /></h2>
                 
             <div className= "white primaryFont"></div>  
                 <div>

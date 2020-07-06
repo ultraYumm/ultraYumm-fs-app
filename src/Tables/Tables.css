@@ -159,7 +159,7 @@ h2.resultsTitle, div.resultsTitle {
 
 .searchResultsTitle {
      text-align: center;
-     margin-top: -20px;
+     margin-top: -10px;
 }
  
 
@@ -377,13 +377,13 @@ td {
 
     
 td, th {
-font-size: 19px;
+font-size: 17px;
 
 }
 
 
 .itemH {
-     font-size: 19px;
+     font-size: 17px;
 
 }
 
@@ -449,13 +449,13 @@ th.date, tr.date  {
 
 
 td, th {
-     font-size: 20px;
+     font-size: 18px;
 
 }
 
 
 .itemH {
-     font-size: 20px;
+     font-size: 18px;
 
 }
 
@@ -511,13 +511,13 @@ td, th {
 
 
 td, th {
-     font-size: 25px;
+     font-size: 22px;
 
 }
 
 
 .itemH {
-     font-size: 25px;
+     font-size: 22px;
 
 }
 

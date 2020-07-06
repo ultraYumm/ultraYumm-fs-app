@@ -180,13 +180,15 @@ class AddTripForm extends Component {
     
 
     return (
-        <form onSubmit={dupName | backDates === true? error : onSubmitForm}>
+        <form className= "planTrip" onSubmit={dupName | backDates === true? error : onSubmitForm}>
          <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton
          /></h2> 
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
-                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  placeholder = {TRIP_NAME} required                    onChange={e => createTripName(e.target.value)}
+                    <input type="text" name="tripName" 
+                    maxlength="12"
+                    className="skinBackground black search" id= "new-trip-name"  placeholder = {TRIP_NAME} required                    onChange={e => createTripName(e.target.value)}
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
