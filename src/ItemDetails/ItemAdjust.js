@@ -90,7 +90,7 @@ class ItemAdjust extends Component {
       
       trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
       
-      type: !selectedTrip[0]? PACKITEMS[0].type : selectedItem.type,
+      type: !selectedTrip[0] | selectedItem.type == undefined ? PACKITEMS[0].type : selectedItem.type,
 
       trav_name: !selectedTrip[0]? PACKITEMS[0].trav_name : selectedItem.trav_name,
 
@@ -253,47 +253,52 @@ class ItemAdjust extends Component {
       
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
           this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
+
+          fetch(urlP, {
+            method: 'POST',
+            body: JSON.stringify(packItem),
+            headers: {
+              'content-type': 'application/json',
+              'authorization': `bearer ${config.API_UY_KEY}`
+            }
+          })
+            .then(res => {
+              if (!res.ok) {
+                // get the error message from the response,
+                return res.json().then(error => {
+                  // then throw it
+                  throw error
+                })
+              }
+              return res.json()
+              
+            })
+            
+            .then((newId, tripid, trip_day, trav_name, type, newQty) => {
+              this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
+              this.props.routerProps.history.push("/trip/:tripName");
+              this.props.getPackitems(e)
+    
+                    
+            })
+  
+            .catch(error => {
+              this.setState({ error })
+            })
       
                     
                 
         })
+       
         .catch(error => {
           this.setState({ error })
         })
         
         this.props.getItems(e)
+        this.props.getPackItems(e)
+        this.props.getTrips(e)
           
-        fetch(urlP, {
-          method: 'POST',
-          body: JSON.stringify(packItem),
-          headers: {
-            'content-type': 'application/json',
-            'authorization': `bearer ${config.API_UY_KEY}`
-          }
-        })
-          .then(res => {
-            if (!res.ok) {
-              // get the error message from the response,
-              return res.json().then(error => {
-                // then throw it
-                throw error
-              })
-            }
-            return res.json()
-            
-          })
-          
-          .then((newId, tripid, trip_day, trav_name, type, newQty) => {
-            this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
-            this.props.routerProps.history.push("/trip/:tripName");
-            this.props.getPackitems(e)
-  
-                  
-          })
-
-          .catch(error => {
-            this.setState({ error })
-          })
+        
 
           
 
@@ -325,12 +330,13 @@ class ItemAdjust extends Component {
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
 
-    console.log("selected trip", this.props.selectTrip)
+    console.log("selected trip", this.props.selectedTrip)
     console.log("trip day", this.state.trip_day)
     console.log("type", this.state.type)
     console.log("trav_name", this.state.trav_name)
     console.log("name", this.state.name)
     console.log("foodname", this.state.food_name)
+    console.log("type", this.state.type)
 
     console.log("item id ", this.state.id)
     console.log("tripid ", this.state.tripid)

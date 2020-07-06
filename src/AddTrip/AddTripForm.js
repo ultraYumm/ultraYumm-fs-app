@@ -4,25 +4,32 @@ import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
+import { TRIPS } from "../Defaults";
+import Moment from 'react-moment';
 
 
 class AddTripForm extends Component {
 
+  static defaultProps = {
+    trips: []
+  };
+
     constructor(props) {
+    
         super(props);
         this.state = {
           startDate: null,
-          endDate: null
+          endDate:  null
         }
       }
-      
       
 
   render() {
 
-    const getTrips = this.props.getTrips
-
+   
     const moment= require('moment') 
+  
+    const  re = /:\s|,\s/;
     
     const onSubmitForm = (e) => {
 
@@ -30,7 +37,6 @@ class AddTripForm extends Component {
 
       let iframe =e.target.tripURL.value
       let tripName = e.target.tripName.value
-      var re = /:\s|,\s/;
       let tripTravelers = e.target.tripTravelers.value.split(re)
       let userid = 1
 
@@ -57,23 +63,12 @@ class AddTripForm extends Component {
             userid: userid
           }
 
-          console.log(inputValues)
-
-        
-
         const API = config.API_UY_ENDPOINT   
         const endpoint = config.endpointT
 
         const url = API + endpoint;
         const API_TOKEN = config.API_UY_KEY
 
-
-        const startDate = this.state.startDate
-        const endDate = this.state.endDate
-
-        if (moment(endDate).isBefore(moment(startDate)) === true)
-        {this.props.routerProps.history.push("/")}
-        else 
         fetch(url, {
           
             method: 'POST',
@@ -82,11 +77,8 @@ class AddTripForm extends Component {
               'content-type': 'application/json',
               'authorization': `bearer ${API_TOKEN}`
             }
-           
-            
           }
           )
-
 
         .then(res => {
         if (!res.ok) {
@@ -99,17 +91,10 @@ class AddTripForm extends Component {
       
        
         return res.json()
-      
         
         })
         
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
-
-       
-
-
-       
-    
     
         this.props.routerProps.history.push("/my-trips")
       
@@ -132,41 +117,111 @@ class AddTripForm extends Component {
     const validateDate = () => {
         
         const startDate = this.state.startDate
-        
         const endDate = this.state.endDate
-      
-       
         if (moment(endDate).isBefore(moment(startDate)) === true)
-        return ("hmmm...end date should be later than current date")
+        return (" hmmm...end date should be later than current date")
            
       }
 
+    const createTripName = (name) =>{
+      this.setState({
+          name: name,
+      });
+      }
+
+    const createTravNames = (names) =>{
+      this.setState({
+          traveler_names: names,
+      });
+      }
+
+    const travNames = this.state.traveler_names
+
+    
+    const checkDupes = () => {
+  
+      if (travNames) {
+        
+        const arr = travNames.split(re)
+        let duplicate = arr.reduce((acc,currentValue,index, array) => {
+          if(array.indexOf(currentValue)!=index && !acc.includes(currentValue)) acc.push(currentValue);
+          return acc;
+        }, []);
+
+        console.log(duplicate)
+       
+        if (duplicate.length>0) {return ('please pick a unique name for the one and only' + duplicate.join(','))}
+    
+    } 
+    
+      else return ("")
+    }
+
+    console.log(checkDupes())
+
+     
+    const tripName = this.state.name
+    
+    const validateTripName = () => {
+        
+        
+        if (this.props.trips.find((trip) => trip.name === tripName)){
+        return (" this nice trip name already exists, please pick a different name")}
+        else return ("")
+           
+      }
+
+      const nameCheck = () => ((this.props.trips.map((trip) => trip.name === tripName)))
+
+      const checkArray = nameCheck()
+      
+      const dupName = checkArray.includes(true)
+
+      const startDate = this.state.startDate
+      const endDate = this.state.endDate
+
+      const dateCheck = () => (moment(endDate).isBefore(moment(startDate)) === true)
+
+      const backDates = (dateCheck())
+
+      const  error = () => {"duplicate trip name or backwards dates"}
+
+    
+
     return (
-        <form onSubmit={onSubmitForm}>
+        <form onSubmit={dupName | backDates === true? error : onSubmitForm}>
          <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton
          /></h2> 
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
-                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name" placeholder="Escalante" required/>
+                    <input type="text" name="tripName" className="skinBackground black search" id= "new-trip-name"  defaultValue = "my awesome trip" required
+                    onChange={e => createTripName(e.target.value)}
+                    /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
 
             <div className= "labelWidthPlan">
                  <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
-                 <input type="text" name="tripTravelers" className= "skinBackground purple names" placeholder = "Stef, Jack, Emi, Marielle..." id= "traveler-name"/>  
+                 <input type="text" name="tripTravelers" className= "skinBackground purple names" 
+                 defaultValue = {TRIPS[0].traveler_names}
+                 placeholder = "Me, my buddy" id= "traveler-name"
+                 onChange={e => createTravNames(e.target.value)}
+                 
+                 /><span className= "error cloudBlue">{checkDupes()}</span>
                 </label>
             </div>
             <div className= "labelWidthPlan">
-                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/maps" target= "_blank" rel="noopener noreferrer" className= "white montebello">Location URL</a></span>
-                 <input type="url" name="tripURL" className= "skinBackground purple names" defaultValue = "https://earth.google.com/" id= "map-link"/>  
+                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" target= "_blank" rel="noopener noreferrer" className= "white montebello">Website</a></span>
+                 <input type="url" name="tripURL" className= "skinBackground purple names"   defaultValue = {TRIPS[0].iframe} id= "map-link"/>  
                 </label>
             </div><br></br>
 
             <div className= "dates">
                 <div className= "labelWidthDates">
                 <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan">Start date</span>
-                <input type="date" name="startDate" id= "start-date"
+                <input type="date" name="startDate" 
+                id= "start-date"
                 onChange={e => createStartDate(e.target.value)}
                 
                 /> </label> <br></br>

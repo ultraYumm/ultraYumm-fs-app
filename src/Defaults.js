@@ -39,7 +39,7 @@ export const DEFAULTITEM = [
   export const PACKITEMS= [
     { "tripid": "1",
       "trip_day": "1000-01-01T01:01:01.111Z",
-      "trav_name": "TBD",
+      "trav_name": "me",
       "type": "TBD",
       "serving_qty": 1
   },
@@ -51,7 +51,7 @@ export const DEFAULTITEM = [
   export const TRIPS = [
     {"id": 1,
     "name":"My awesome trip",
-    "traveler_names": [""],
+    "traveler_names": ["Lewis"," Clark", " Alexandra"],
     "iframe": 'https://earth.google.com', 
     "trip_dates": 
     [

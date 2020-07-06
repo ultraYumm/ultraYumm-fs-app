@@ -200,6 +200,7 @@ input[type="number"]{
 
 .error {
     font-size: 10px;
+    padding-left: 3px;
 }
 
 

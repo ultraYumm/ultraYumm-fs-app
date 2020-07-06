@@ -9,9 +9,7 @@ import { NavLink} from 'react-router-dom'
 
 class TripDates extends Component {
 
-  static defaultProps = {
-    tripDates:  [""],
-  }
+  
 
   constructor(props) {
     super(props);
@@ -23,8 +21,7 @@ class TripDates extends Component {
      
   render() {
   
-  const name = this.props.name
-  
+    
   const defaultDay = this.props.defaultDay
   
   const tripDates = this.props.tripDates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
@@ -47,11 +44,11 @@ class TripDates extends Component {
       {tripDates.map((date, key)=> (
           <li key= {date}>
           <label className="labelContainer">
-            {date === defaultDay? 
+            {date === defaultDay | tripDates[0] === "" ? 
             <NavLink className = "noDeco"
             to={`/add-trip`}
             >
-            create a trip to set custom dates</NavLink>
+            no dates set for <strong>{this.props.name}</strong> - create a new trip with your custom dates and travelers</NavLink>
             
             :<Moment format= "MMM/DD">{date}</Moment>}
               <input type="checkbox"

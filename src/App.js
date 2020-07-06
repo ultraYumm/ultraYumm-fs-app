@@ -343,6 +343,19 @@ class App extends Component {
                handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+
+              trips = {trips}
+
+              getItems = {(e) =>
+                this.handleGetItems(e)}
+ 
+              getPackItems = {(e) =>
+              this.handleGetPackItems(e)}
+
+              getTrips = {(e) =>
+                this.handleGetTrips(e)}
+
+ 
          
             />
           )}
@@ -358,6 +371,7 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
+        
              
             />
           )}
@@ -373,15 +387,7 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
            
-              getItems = {(e) =>
-                this.handleGetItems(e)}
- 
-              getPackItems = {(e) =>
-              this.handleGetPackItems(e)}
-
-              getTrips = {(e) =>
-                this.handleGetTrips(e)}
- 
+            
              
             />
           )}
@@ -429,12 +435,11 @@ class App extends Component {
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
               items= {!items? ITEMS : items}
-              selectedTrip={TRIPS[0]}
-              selectedTripItems={PACKITEMS}
-              tripItems={ITEMS}
+              selectedTrip={selectedTrip == TRIPS[0]? TRIPS[0] : selectedTrip}
+              tripItems={selectedTrip == TRIPS[0]? ITEMS : tripItems}
               itemTypes={ITEMTYPES}
-              tripName={TRIPS[0].name}
-              packItems = {PACKITEMS}
+              tripName={selectedTrip == TRIPS[0]? TRIPS[0].name : this.state.tripName}
+              packItems = {selectedTrip == TRIPS[0]?PACKITEMS: this.state.packItems}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -449,6 +454,10 @@ class App extends Component {
 
              getPackItems = {(e) =>
               this.handleGetPackItems(e)
+            }
+
+            getTrips = {(e) =>
+              this.handleGetTrips(e)
             }
             />
           )}
@@ -492,6 +501,9 @@ class App extends Component {
                 }
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
+
+                  getTrips = {(e) =>
+                    this.handleGetTrips(e)}
               />
             )
           }}
@@ -535,6 +547,9 @@ class App extends Component {
   
                 getPackItems = {(e) =>
                 this.handleGetPackItems(e)}
+
+                getTrips = {(e) =>
+                  this.handleGetTrips(e)}
               />
             )
           }}
@@ -578,6 +593,9 @@ class App extends Component {
 
                 getPackItems = {(e) =>
                   this.handleGetPackItems(e)}
+
+                getTrips = {(e) =>
+                    this.handleGetTrips(e)}
 
               />
               )

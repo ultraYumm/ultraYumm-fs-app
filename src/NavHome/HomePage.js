@@ -9,6 +9,8 @@ import AddTripForm from "../AddTrip/AddTripForm";
 
 class HomePage extends Component {
   render() {
+
+    const trips = this.props.trips
     
   
     return (
@@ -34,6 +36,8 @@ class HomePage extends Component {
         <AddTripForm
          routerProps={this.props.routerProps}
          handleAddTrip = {this.props.handleAddTrip}
+         trips = {trips}
+         getTrips= {this.props.handleGetTrips}
         />
       </div>
     );

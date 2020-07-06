@@ -12,16 +12,14 @@ class TripYear extends Component {
   render() {
   
     const selectedTrip = this.props.selectedTrip
-    //console.log(selectedTrip[0].id)
-    //console.log(selectedTrip.id)
-    //console.log(selectedTrip)
-    //console.log(TRIPS[0])
+    console.log(selectedTrip)
+    
 
     const tripYear = <Moment format= "YYYY">{!selectedTrip[0]? "" : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0]}</Moment>
    
   
     return (
-        <div className= "montebello">{selectedTrip[0].id === 1? "" : tripYear}</div>
+        <div className= "montebello">{selectedTrip[0].id === 1 | selectedTrip[0].trip_dates === "{}" ? "" : tripYear}</div>
    )}
   
 }
