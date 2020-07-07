@@ -52,4 +52,4 @@ I'm building and enhancing this app as a volunteer project in my spare time for 
 Pull requests are welcome. I have tons more to learn about web and app development so please aso share your feedback and suggestions.
 
 ## Demo
-https://build.ultrayumm.vercel.app
+Link to live app: https://ultrayumm-fs-app.now.sh/
