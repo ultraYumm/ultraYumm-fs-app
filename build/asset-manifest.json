@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0762d380.chunk.css",
+    "main.js": "/static/js/main.bcb51ac8.chunk.js",
+    "main.js.map": "/static/js/main.bcb51ac8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3a1e3059.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3a1e3059.js.map",
+    "static/js/2.c82e8685.chunk.js": "/static/js/2.c82e8685.chunk.js",
+    "static/js/2.c82e8685.chunk.js.map": "/static/js/2.c82e8685.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e47c0e75e0f5b7bb1e7ac7bce0b7c7d5.js": "/precache-manifest.e47c0e75e0f5b7bb1e7ac7bce0b7c7d5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.0762d380.chunk.css.map": "/static/css/main.0762d380.chunk.css.map",
+    "static/js/2.c82e8685.chunk.js.LICENSE.txt": "/static/js/2.c82e8685.chunk.js.LICENSE.txt",
+    "static/media/Font.css": "/static/media/Montebello-Sans.9953981b.ttf",
+    "static/media/NutritionixAPI.c48f1b22.png": "/static/media/NutritionixAPI.c48f1b22.png",
+    "static/media/snowyOwl.GIF": "/static/media/snowyOwl.46c28c4d.GIF",
+    "static/media/uYhomeLogo.4137a3cb.png": "/static/media/uYhomeLogo.4137a3cb.png",
+    "static/media/uYtitle.528791ea.png": "/static/media/uYtitle.528791ea.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a1e3059.js",
+    "static/js/2.c82e8685.chunk.js",
+    "static/css/main.0762d380.chunk.css",
+    "static/js/main.bcb51ac8.chunk.js"
+  ]
+}
