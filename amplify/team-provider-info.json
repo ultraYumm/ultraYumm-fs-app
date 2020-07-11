@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ultrayummfsapp-dev-225603-authRole",
+            "UnauthRoleArn": "arn:aws:iam::774176499128:role/amplify-ultrayummfsapp-dev-225603-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::774176499128:role/amplify-ultrayummfsapp-dev-225603-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-ultrayummfsapp-dev-225603-deployment",
+            "UnauthRoleName": "amplify-ultrayummfsapp-dev-225603-unauthRole",
+            "StackName": "amplify-ultrayummfsapp-dev-225603",
+            "StackId": "arn:aws:cloudformation:us-west-2:774176499128:stack/amplify-ultrayummfsapp-dev-225603/b6137570-c0df-11ea-84d2-0696a78c5fe8",
+            "AmplifyAppId": "d3ly31cxh32gqz"
+        },
+        "categories": {
+            "auth": {
+                "ultrayummfsappc615b40d": {}
+            }
+        }
+    }
+}

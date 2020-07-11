@@ -1,3 +1,5 @@
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
@@ -15,6 +17,7 @@ import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
+Amplify.configure(awsconfig);
 
 class App extends Component {
   
@@ -38,6 +41,8 @@ class App extends Component {
       packItems: PACKITEMS,
     };
   }
+
+  
 
   handleGetTrips(e) {
     e.preventDefault();
@@ -311,11 +316,15 @@ class App extends Component {
     }
   
     return (
+      
       <div className="App">
+        <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
        
         />
+        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
 
         <Route
           exact
