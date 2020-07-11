@@ -317,9 +317,9 @@ class App extends Component {
   
     return (
       
-      <div className="App">
+/*<div className="App">
         <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>*/
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
        
