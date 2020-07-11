@@ -317,9 +317,8 @@ class App extends Component {
   
     return (
       
-/*<div className="App">
-        <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>*/
+<div className="App">
+        
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
        
@@ -608,4 +607,6 @@ export default App;
 /*
 <div className={"loader " + (this.state.fetchSuccess? "hide":"")}>
 <img src="https://i.redd.it/o6m7b0l6h6pz.gif"/>
-</div>*/
+</div>
+/*<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>*/
