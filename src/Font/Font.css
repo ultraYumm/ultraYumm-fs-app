@@ -1,4 +1,13 @@
 /* Color Theme Swatches in RGBA - represents color and font palette for this app*/
+:root{
+
+  --amplify-primary-color: rgba(38, 11, 9, 1); 
+  --amplify-primary-tint:  rgba(3, 52, 115);
+  --amplify-primary-shade: rgba(38, 11, 9, 1); 
+  --amplify-font-family: 'Poppins', sans-serif;
+
+  }
+
 
 .plum { 
     color: rgba(166, 88, 94, 1);

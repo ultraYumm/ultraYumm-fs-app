@@ -31,13 +31,23 @@
     border-radius: 10px;
 }
   
-.myTrips {
-    top: 0;
+.myTrips, .signIn {
     right: 0; 
-    padding-right: 15px;
+    top: 0;
     position: inherit;
     padding-top: 15px;
     font-weight: bolder;
+}
+
+.myTrips {
+    padding-right: 15px;
+    
+}
+
+
+.signIn {
+    padding-right: 100px;
+    
 }
     
 .home {

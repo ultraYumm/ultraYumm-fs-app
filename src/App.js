@@ -1,10 +1,11 @@
-//import Amplify, { Auth } from 'aws-amplify';
-//import awsconfig from './aws-exports';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports'
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
+import SignInBox from "./NavHome/SignInBox";
 import HomePage from "./NavHome/HomePage";
 import Footer from "./NavHome/Footer";
 import TripNav from "./TripList/TripNav";
@@ -17,7 +18,7 @@ import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
-//Amplify.configure(awsconfig);
+Amplify.configure(awsconfig);
 
 class App extends Component {
   
@@ -321,9 +322,8 @@ class App extends Component {
       
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
-       
         />
-        <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+        
 
         <Route
           exact
@@ -349,9 +349,6 @@ class App extends Component {
 
               getTrips = {(e) =>
                 this.handleGetTrips(e)}
-
- 
-         
             />
           )}
         />
@@ -366,8 +363,6 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-        
-             
             />
           )}
         />
@@ -398,6 +393,15 @@ class App extends Component {
           )}
         />
 
+          <Route
+          path="/sign-in"
+          render={(routerProps) => (
+            <SignInBox
+            routerProps={routerProps}
+
+            />)}/>
+
+
         <Route
           path="/trip-filter/:tripid"
           render={() => (
@@ -409,6 +413,7 @@ class App extends Component {
           )}
         />
 
+        
         <Route
           path="/add-custom"
           render={(routerProps) => (
@@ -603,8 +608,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-<div className={"loader " + (this.state.fetchSuccess? "hide":"")}>
-<img src="https://i.redd.it/o6m7b0l6h6pz.gif"/>
-</div>*/
