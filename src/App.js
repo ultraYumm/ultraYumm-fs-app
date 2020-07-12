@@ -1,5 +1,5 @@
-import Amplify, { Auth } from 'aws-amplify';
-import awsconfig from './aws-exports';
+//import Amplify, { Auth } from 'aws-amplify';
+//import awsconfig from './aws-exports';
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
@@ -17,7 +17,7 @@ import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
-Amplify.configure(awsconfig);
+//Amplify.configure(awsconfig);
 
 class App extends Component {
   
@@ -319,6 +319,7 @@ class App extends Component {
       
 <div className="App">
         
+      
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
         />
