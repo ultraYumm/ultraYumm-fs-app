@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/trips",
+            "lambdaFunction": "ultrayummfsappc767b1d3",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "uyserver2020",
+    "apiName": "uyserver2020",
+    "functionArns": [
+        {
+            "lambdaFunction": "ultrayummfsappc767b1d3"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-ultrayummfsapp-dev-225603-authRole",
+        "unAuthRoleName": "amplify-ultrayummfsapp-dev-225603-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "ultrayummfsappc767b1d3",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
