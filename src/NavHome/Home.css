@@ -167,7 +167,7 @@ padding-right: 5px;
 
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 20px;
     font-size: 20px;
@@ -268,12 +268,25 @@ div.descriptionText {
 }
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 50px;
     font-size: 30px;
+}
+
+
+.myTrips, {
+
+    margin-right: 95px
+}
+
+
+
+.myTrips, .signIn {
+  
     margin-right: 10px
 }
+
 
 
 .attribution {
@@ -320,7 +333,7 @@ div.descriptionText {
 }
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 60px;
     font-size: 40px;

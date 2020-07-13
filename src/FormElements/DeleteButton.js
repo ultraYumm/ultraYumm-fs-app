@@ -31,7 +31,7 @@ class DeleteButton extends Component {
         })
 
         .then(() => {
-            this.props.handleDeletePackItem(idToDelete)
+            this.props.handleDeleteItem(idToDelete)
           })
 
           .then(res => {

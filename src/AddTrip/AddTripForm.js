@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import GoButton from '../FormElements/GoButton';
+import DeleteButton from '../FormElements/DeleteButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
@@ -31,6 +32,8 @@ class AddTripForm extends Component {
     const moment= require('moment') 
   
     const  re = /:\s|\s/;
+
+    const userid = this.props.userid
     
     const onSubmitForm = (e) => {
 
@@ -39,7 +42,7 @@ class AddTripForm extends Component {
       let iframe =e.target.tripURL.value
       let tripName = e.target.tripName.value
       let tripTravelers = e.target.tripTravelers.value.split(re)
-      let userid = 1
+      
 
       const  getDates = () => {
         var dateArray = [];

@@ -40,6 +40,7 @@ class App extends Component {
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
+      userid: 1,
     };
   }
 
@@ -52,6 +53,8 @@ class App extends Component {
    
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
+
+    const userid = this.state.userid
 
    
     fetch(url, {
@@ -68,7 +71,9 @@ class App extends Component {
       })
       .then(data => {
         this.setState({
-          trips: data,
+          trips: data.filter(trip =>
+            trip.userid !== userid
+            ),
           error: null
         });
       
@@ -125,6 +130,8 @@ class App extends Component {
    
     const API_TOKEN = config.API_UY_KEY
 
+    const userid = this.state.userid
+
     const urls = [
       API + endpointI,
       API + endpointT,
@@ -153,7 +160,9 @@ class App extends Component {
       .then(data => {
           this.setState({
           items: data[0],
-          trips: data[1],
+          trips: data[1].filter(trip =>
+            trip.userid !== userid
+            ),
           packItems: data[2]
         });
       })
@@ -295,9 +304,13 @@ class App extends Component {
         })
 
     }
+
+    
     
 
   render() {
+
+    const userid = 1
 
    
     const trips = this.state.trips
@@ -349,6 +362,8 @@ class App extends Component {
 
               getTrips = {(e) =>
                 this.handleGetTrips(e)}
+              
+              userid = {userid}
             />
           )}
         />
@@ -376,6 +391,7 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+            
             />
           )}
         />
@@ -389,6 +405,8 @@ class App extends Component {
                 this.selectTrip(selectedTripId, tripName)
               }
               getTrips = {e => this.handleGetTrips(e)}
+
+              getPackItems = {e => this.handleGetPackItems(e)}
             />
           )}
         />

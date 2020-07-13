@@ -4,6 +4,10 @@ import '../FormElements/FormElements.css';
 import './TripNav.css';
 import { NavLink} from 'react-router-dom'
 import { TRIPS } from "../Defaults";
+import DeleteButton from "../FormElements/DeleteButton";
+import Delete from "../ItemDetails/Delete";
+import DeleteHeader from "../Tables/DeleteHeader";
+
 
 
 
@@ -14,6 +18,24 @@ class TripNav extends Component {
       trips: TRIPS,
     };
 
+    constructor(props) {
+      super(props);
+      this.state = {
+        idToDelete: "",
+        nameOfDelete: "",
+      };
+    }
+
+    
+    selectItemToDelete = (id, name) => {
+    
+      this.setState({
+        idToDelete: id,
+        nameOfDelete: name
+      });
+      
+    };
+
 
 
 
@@ -22,6 +44,8 @@ class TripNav extends Component {
 
     const trips = this.props.trips
     const getTrips = this.props.getTrips
+
+    const getPackItems = this.props.getPackItems
   
     
     
@@ -31,8 +55,25 @@ class TripNav extends Component {
       onMouseOver = {getTrips}>
        
        <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
-          <div className = "tripContainer">
-          <ul className= "trips blueBackground">
+          
+        <div className="iconButtonContainer">
+             <DeleteButton
+            name = {this.state.nameOfDelete}
+            idToDelete = {this.state.idToDelete}
+          
+            handleDeleteItem = {(idToDelete) =>
+              this.props.handleDeletePackItem(idToDelete)
+            
+            }
+
+            getPackItems = {getPackItems}
+             />
+          </div>
+
+          
+          <div className = "tripContainer ">
+          <ul className= "trips blueBackground ">
+            
             
               {trips.map ((trip, key) => 
               <li className= "tripLi"
@@ -52,7 +93,25 @@ class TripNav extends Component {
                 
               </div>
               </NavLink>
+              <div className = "navDelete whiteBackground">
+              <div className = "black headDelete">
+          <DeleteHeader/>
+          </div>
+            
+              <Delete
+                  idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
+                  id = {trip.id}
+                  name = {trip.name}
+                  handleDeleteItem = {(idToDelete) =>
+                    this.props.handleDeletePackItem(idToDelete)
+                  
+                  }
+                 
+                  /></div>
+              
               </li>
+
+              
               
               )}
       

@@ -7,6 +7,9 @@
     /*background-image: url("https://i.ibb.co/Bzx3zKz/ostrander-Original.jpg");*/
 }
 
+.headDelete {
+    text-align: center;
+}
     
 .tripContainer {
     width: auto;
@@ -43,7 +46,7 @@
 
 
 .tripLi {
-    padding: 20px;
+    /*padding: 20px;*/
     height: 100px;
     font-weight: bolder;
     opacity: 1;
@@ -61,16 +64,17 @@
 
 
 .tripImage {
-    display: inline-block;
-    width: 100px;
+    /*display: inline-block;*/
+    width: 40%; 
     height: 50px;
     border-radius: 50px;
     opacity: 1;
+    text-align: center
 }
 
 
 .tripImage:hover {
-    width: 200px;
+    width: 45%; 
     height: 100px;
     transition: 0.9s;
       
@@ -79,28 +83,50 @@
   
   
 .trip {
-    display: inline-block; 
-    width: 50%; 
-    padding-left: 30px;
+    /*display: inline-block; */
+    width: 40%; 
+    /*padding-left: 30px;*/
     vertical-align: middle;
     height: 50px;
     padding-bottom: 30px;
     opacity: 1;
     font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+   
     
 }
 
+ .navDelete {
+    float: right;
+    width: 50px;
+   
+    border-left: 1px solid white;  
+    border-right: 2px solid white;
+
+    margin-top: -100px;
+    padding-top: 1px;
+ 
+    
+ }
+
+
+   
 
 
 @media only screen and (min-width: 768px) {
 
 .trip {
     font-size: 20px;
+    width: 50%; 
+   
 }
 
 
 .tripImage {
-    width: 250px;
+    width: 50%; 
     height: 150px;
     
     
@@ -108,7 +134,7 @@
 
 
 .tripImage:hover {
-    width: 300px;
+    width: 55%;
     height: 200px;
     transition: 0.9s;
    
@@ -122,7 +148,14 @@
    
 }
 
+
+
+.navDelete {
+    margin-top: -170px;
+    width: 60px;
   
+    
+ }
 
 }
 
@@ -132,16 +165,16 @@
         
 
 .tripLi, .trip {
-       width: 30%;
-       display: inline-block;
-       text-align: center;
+    width: 50%;
+     display: inline-block; 
+    text-align: center;
    
 
 }
 
 
 .tripImage {
-    width: 300px;
+    width: 50%;
     height: 300px;
     
     
@@ -149,7 +182,7 @@
 
 
 .tripImage:hover {
-    width: 400px;
+    width: 35%;
     height: 400px;
    
 }
@@ -167,12 +200,14 @@
 @media only screen and (min-width: 2500px) {
 
 .trip {
+    width: 50%;
     font-size: 40px;
+   
 }
 
 
 .tripImage {
-    width: 600px;
+    width: 50%;
     height: 400px;
     
     
@@ -180,11 +215,17 @@
 
 
 .tripImage:hover {
-    width: 700px;
+    width: 55%;
     height: 500px;
    
 }
 
+
+.navDelete {
+    width: 80px;
+  
+    
+ }
 
         
 }

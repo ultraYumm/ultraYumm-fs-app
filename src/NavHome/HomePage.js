@@ -43,6 +43,7 @@ class HomePage extends Component {
          handleAddTrip = {this.props.handleAddTrip}
          trips = {trips}
          getTrips= {this.props.handleGetTrips}
+         userid = {this.props.userid}
         />
       </div>
     );

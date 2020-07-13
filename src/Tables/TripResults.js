@@ -198,7 +198,7 @@ class TripResults extends Component {
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
           
-            handleDeletePackItem = {(idToDelete) =>
+            handleDeleteItem = {(idToDelete) =>
               this.props.handleDeletePackItem(idToDelete)
             
             }
@@ -292,7 +292,7 @@ class TripResults extends Component {
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {item.id}
                   name = {item.food_name}
-                  handleDeletePackItem = {(idToDelete) =>
+                  handleDeleteItem = {(idToDelete) =>
                     this.props.handleDeletePackItem(idToDelete)
                   
                   }
