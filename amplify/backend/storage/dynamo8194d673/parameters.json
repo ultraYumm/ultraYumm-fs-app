@@ -1,0 +1,5 @@
+{
+    "tableName": "ultrayumm",
+    "partitionKeyName": "test",
+    "partitionKeyType": "S"
+}

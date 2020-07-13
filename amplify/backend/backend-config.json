@@ -11,6 +11,10 @@
 		"dynamoe0a86998": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation"
+		},
+		"dynamo8194d673": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"function": {
