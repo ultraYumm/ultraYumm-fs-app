@@ -7,6 +7,7 @@ import { TRIPS } from "../Defaults";
 import DeleteButton from "../FormElements/DeleteButton";
 import Delete from "../ItemDetails/Delete";
 import DeleteHeader from "../Tables/DeleteHeader";
+import config from "../config";
 
 
 
@@ -44,9 +45,8 @@ class TripNav extends Component {
 
     const trips = this.props.trips
     const getTrips = this.props.getTrips
+    console.log(this.state.idToDelete)
 
-    const getPackItems = this.props.getPackItems
-  
     
     
        
@@ -56,17 +56,20 @@ class TripNav extends Component {
        
        <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
           
+      
+
         <div className="iconButtonContainer">
+      
+
              <DeleteButton
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
           
             handleDeleteItem = {(idToDelete) =>
-              this.props.handleDeletePackItem(idToDelete)
+              this.props.handleDeleteTrip(idToDelete)
             
             }
-
-            getPackItems = {getPackItems}
+           endpoint = {config.endpointT}
              />
           </div>
 
@@ -90,22 +93,32 @@ class TripNav extends Component {
                }}
               
               >{trip.name}
-                
+               
               </div>
               </NavLink>
+              
+             
+             
               <div className = "navDelete whiteBackground">
+              <NavLink to={`/edit-trip/${trip.name}`}>
+              <div className = "navEdit white">edit</div>
+              </NavLink>
+
+              <NavLink to={`/add-trip/${trip.name}`}>
+              <div className = "navCopy white">copy</div>
+              </NavLink>
+              
               <div className = "black headDelete">
           <DeleteHeader/>
           </div>
+        
+       
             
               <Delete
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {trip.id}
                   name = {trip.name}
-                  handleDeleteItem = {(idToDelete) =>
-                    this.props.handleDeletePackItem(idToDelete)
-                  
-                  }
+                 
                  
                   /></div>
               

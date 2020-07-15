@@ -14,7 +14,7 @@ class TripNames extends Component {
 
   
   render() {
-
+    const stateName = this.props.stateName   
     const trips = this.props.trips
 
        
@@ -23,11 +23,10 @@ class TripNames extends Component {
             <ul className= "scroll"> 
             {trips.map((trip, key)=> (
               <li key= {key}>
-              <label className= "labelContainer"> {trip.name}
+              <label className= "labelContainer"> <span className={ stateName === trip.name ?  ' red bold'  : ' black'}>{trip.name}</span>
                    <input 
                    type="radio"
-                   name= "check"
-                   defaultValue = {trip.id}
+                    defaultValue = {trip.id}
                    
                    onClick={() => {
                     const selectedTrip = trip

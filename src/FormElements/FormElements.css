@@ -412,13 +412,6 @@ button[type="button"]{
 
 
 
-/*.filterSelection {
-  width: 45%;
- 
- display: inline-block
-}*/
-
-
 
 .filterContainer {
     height: auto;
@@ -473,37 +466,18 @@ button[type="button"]{
     z-index: 1;
 }
 
+
+
 .checked {
-    background-color:  rgba(191, 4, 4);
-    z-index: 1;
+    font:red;
+   
 }
 
-.notChecked {
-    background-color: #eee;
-}
-
- /*On mouse-over, add a grey background color*/ 
 .labelContainer:hover input ~ .checkmark {
     background-color:  rgba(191, 4, 4);
     z-index: 1;
   }
-  
 
-/* Show the indicator (dot/circle) when checked */
-.labelContainer input:checked ~ .checkmark:after {
-    display: block;
-    background-color:   rgba(191, 4, 4);
-}
-
-/* Style the indicator (dot/circle) */
-.labelContainer .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: blue;
-}
 
 
 .charts {

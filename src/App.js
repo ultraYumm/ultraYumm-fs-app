@@ -40,7 +40,7 @@ class App extends Component {
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
-      userid: 1,
+      userid: 2,
     };
   }
 
@@ -305,18 +305,31 @@ class App extends Component {
 
     }
 
+  deleteTrip = idToDelete => {
+      const newTrips = this.state.trips.filter(trip =>
+          trip.id !== idToDelete
+          )
+          this.setState({
+           trips: newTrips
+          })
+  
+      }
+  
+
     
     
 
   render() {
 
-    const userid = 1
+    const userid = this.state.userid
 
    
     const trips = this.state.trips
+    console.log(trips)
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
+    console.log(selectedTrip)
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -396,6 +409,41 @@ class App extends Component {
           )}
         />
 
+
+        <Route
+          exact
+          path= "/edit-trip/:tripName"
+          render={(routerProps) => (
+            <AddTripForm
+            tripName = {selectedTrip[0].name}
+              routerProps={routerProps}
+              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(iframe, tripName, tripTravelers, tripDates)
+              }
+            
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path= "/copy-trip/:tripName"
+          render={(routerProps) => (
+            <AddTripForm
+            
+              routerProps={routerProps}
+              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(iframe, tripName, tripTravelers, tripDates)
+              }
+            
+            />
+          )}
+        />
+
+
+
+
+
         <Route
           path="/my-trips"
           render={() => (
@@ -405,8 +453,9 @@ class App extends Component {
                 this.selectTrip(selectedTripId, tripName)
               }
               getTrips = {e => this.handleGetTrips(e)}
-
               getPackItems = {e => this.handleGetPackItems(e)}
+              handleDeleteTrip = {(idToDelete) => this.deleteTrip(idToDelete)}
+              
             />
           )}
         />

@@ -13,15 +13,10 @@ class TripTravelers extends Component {
   render() {
       
     const tripTravelers = this.props.tripTravelers.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
+
+    const stateName = this.props.stateName
  
     
-    function onlyOne(checkbox) {
-   
-      const checkboxes =  document.getElementsByName('check')
-      checkboxes.forEach((item) => {
-          if (item !== checkbox) item.checked = false
-      })
-  }
     
   
       return (
@@ -30,13 +25,12 @@ class TripTravelers extends Component {
           {tripTravelers.map((name, key)=> (
             <li key= {key}>
 
-            <label className="labelContainer">{name}
+            <label className="labelContainer"><span className={ stateName === name ?  ' red bold'  : ' black'}>{name}</span>
                 <input type="checkbox"
-                  name= "check"
+                  name= "radio"
                   defaultValue = {name}
                   onClick={() => {
                   const selectedTraveler = name
-                  onlyOne(this)
                   this.props.handleSelectTraveler(selectedTraveler)
                 
                 }}

@@ -35,6 +35,7 @@ import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
 import { ITEMS, TRIPS } from "../Defaults";
 import { withRouter } from "react-router-dom";
+import config from "../config";
 
 
 
@@ -203,7 +204,7 @@ class TripResults extends Component {
             
             }
 
-            getPackItems = {getPackItems}
+            endpoint = {config.endpointP}
              />
           </div>
 
@@ -292,11 +293,7 @@ class TripResults extends Component {
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {item.id}
                   name = {item.food_name}
-                  handleDeleteItem = {(idToDelete) =>
-                    this.props.handleDeletePackItem(idToDelete)
-                  
-                  }
-                 
+               
                   />
                  
                 </tr>
@@ -426,10 +423,7 @@ class TripResults extends Component {
              idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
              id = {item.id}
              name = {item.food_name}
-             handleDeletePackItem = {(idToDelete) =>
-              this.props.handleDeletePackItem(idToDelete)
-            
-            }
+             
             />
             </tr>
             </tbody>

@@ -23,6 +23,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
+import { ThemeConsumer } from "styled-components";
 
 
 class ItemAdjust extends Component {
@@ -68,9 +69,7 @@ class ItemAdjust extends Component {
       name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
       
       selectedTripId: !selectedTrip[0]? PACKITEMS[0].id: selectedTrip[0].id,
-      
-      //selectedTrip: !selectedTrip[0]? TRIPS[0] : selectedTrip[0],
-      
+            
       id:  selectedItem.id,
       serving_qty: selectedItem.serving_qty,
       serving_unit: selectedItem.serving_unit,
@@ -87,7 +86,7 @@ class ItemAdjust extends Component {
       selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
       
 
-       traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
+      traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
 
 
       trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
@@ -474,7 +473,8 @@ class ItemAdjust extends Component {
           <div className= "filterSelection"> 
     
               <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
-                <TripNames 
+                <TripNames
+                stateName = {this.state.name} 
                 trips={trips}
                 handleSelectTrip={(selectedTrip, tripid) =>
                   this.selectTrip(selectedTrip, tripid)
@@ -488,7 +488,7 @@ class ItemAdjust extends Component {
               this.state.trip_dates === "{}"
               ? "" : trip_day}</span></h3>
                 <TripDates
-                name = {this.state.name}
+                stateDate = {this.state.trip_day}
                 defaultDay = {PACKITEMS[0].trip_day}
                 tripDates={this.state.trip_dates}
                 handleSelectDay={(selectedDay) =>
@@ -500,6 +500,7 @@ class ItemAdjust extends Component {
               <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
+                stateType = {!this.state.type? "TBD" : this.state.type}
                 handleSelectType={(selectedType) =>
                   this.selectType(selectedType)
                 }/>
@@ -507,7 +508,9 @@ class ItemAdjust extends Component {
 
              <div className="filterSelection">
               <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.trav_name}</span></h3>
-                <TripTravelers tripTravelers={this.state.traveler_names}
+                <TripTravelers 
+                stateName = {this.state.trav_name}
+                tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)
                 }/>
