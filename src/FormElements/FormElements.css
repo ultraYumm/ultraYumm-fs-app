@@ -343,6 +343,10 @@ button[type="button"]{
 }
 
 
+.greetings {
+    padding: 50px;
+}
+
 .filter, .reset {
     width: 10%;
     text-align: center;

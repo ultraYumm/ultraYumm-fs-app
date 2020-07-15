@@ -4,9 +4,24 @@ import config from "../config";
 import GoButton from "../FormElements/GoButton";
 import "../FormElements/FormElements.css";
 import { withRouter } from "react-router-dom";
+import { Auth } from 'aws-amplify';
+
 
 
 class SearchForm extends Component {
+
+  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+    console.log(user)
+    let id = user.attributes.sub
+    let username = user.username
+
+    this.props.getUser(id, username)
+   
+  });
+
+    }
+
+
   render() {
     const onSubmitForm = (e) => {
       e.preventDefault();

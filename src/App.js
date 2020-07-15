@@ -6,6 +6,7 @@ import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
 import SignInBox from "./NavHome/SignInBox";
+import AuthStateApp from "./NavHome/AuthStateApp";
 import HomePage from "./NavHome/HomePage";
 import Footer from "./NavHome/Footer";
 import TripNav from "./TripList/TripNav";
@@ -18,6 +19,7 @@ import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
+import { Auth } from 'aws-amplify';
 Amplify.configure(awsconfig);
 
 class App extends Component {
@@ -40,7 +42,8 @@ class App extends Component {
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
-      userid: 2,
+      userid: 1,
+      username: ""
     };
   }
 
@@ -173,6 +176,19 @@ class App extends Component {
         });
       })
     }
+
+    componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+      console.log(user)
+      let id = user.attributes.sub
+      let username = user.username
+  
+         
+      this.setState ({
+        userid: id,
+        username: username
+      }) });
+  
+      }
 
 
   handleGetPackItems(e) {
@@ -314,6 +330,15 @@ class App extends Component {
           })
   
       }
+
+  getUser = (userid, username) => {
+    
+        this.setState({
+          userid: userid,
+          username: username
+        })
+
+    }
   
 
     
@@ -322,14 +347,10 @@ class App extends Component {
   render() {
 
     const userid = this.state.userid
-
-   
     const trips = this.state.trips
-    console.log(trips)
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-    console.log(selectedTrip)
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -375,8 +396,12 @@ class App extends Component {
 
               getTrips = {(e) =>
                 this.handleGetTrips(e)}
+
+              getUser = {(id, username) => this.getUser(id, username)}  
               
               userid = {userid}
+              
+              getUser = {(id, username) => this.getUser(id, username)}
             />
           )}
         />
@@ -391,6 +416,7 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
+             
             />
           )}
         />
@@ -404,6 +430,7 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+
             
             />
           )}
@@ -421,6 +448,7 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
             
+            
             />
           )}
         />
@@ -435,16 +463,14 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+
             
             />
           )}
         />
 
 
-
-
-
-        <Route
+       <Route
           path="/my-trips"
           render={() => (
             <TripNav
@@ -455,6 +481,8 @@ class App extends Component {
               getTrips = {e => this.handleGetTrips(e)}
               getPackItems = {e => this.handleGetPackItems(e)}
               handleDeleteTrip = {(idToDelete) => this.deleteTrip(idToDelete)}
+
+              getUser = {(id, username) => this.getUser(id, username)}
               
             />
           )}
@@ -465,8 +493,19 @@ class App extends Component {
           render={(routerProps) => (
             <SignInBox
             routerProps={routerProps}
+            getUser = {(id, username) => this.getUser(id, username)}             
 
             />)}/>
+
+<Route
+          path="/sign-in2"
+          render={(routerProps) => (
+            <AuthStateApp
+            routerProps={routerProps}
+            getUser = {(id, username) => this.getUser(id, username)}             
+
+            />)}/>
+
 
 
         <Route
