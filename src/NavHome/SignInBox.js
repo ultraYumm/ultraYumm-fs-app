@@ -22,7 +22,8 @@ class SignInBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     id: ""
+     id: "",
+     username: ""
     };
   }
 
@@ -40,9 +41,11 @@ handleUsers(id) {
   componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
     console.log(user)
     let id = user.attributes.sub
+    let username = user.username
    
     this.setState ({
-      id
+      id,
+      username
     }) });
 
     }
@@ -55,6 +58,7 @@ handleUsers(id) {
   render() {
 
     console.log(this.state.id)
+    console.log(this.state.username)
 
     
 
