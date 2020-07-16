@@ -4,9 +4,7 @@ import '../Font/Font.css';
 import { NavLink} from 'react-router-dom'
 import MyTrips from './MyTrips';
 import SignIn from './SignIn';
-import {AuthStateApp} from './SignTest';
 import uYhomeLogo from '../Images/uYhomeLogo.png';
-
 import { AmplifyAuthenticator, AmplifySignOut} from '@aws-amplify/ui-react';
 
 
@@ -32,15 +30,21 @@ class NavBar extends Component {
       </nav>
 
       <SignIn
+      myAccountText = {this.props.myAccountText}
       /> 
  
-      <MyTrips
-      getTrips = {getTrips}
-      /> 
-       
+    
   
       </div>
     );
   }
 }
 export default NavBar;
+
+
+/*
+<MyTrips
+getTrips = {getTrips}
+myTripText = {this.props.myTripText}
+/>*/ 
+ 

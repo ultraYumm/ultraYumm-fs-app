@@ -1,6 +1,4 @@
 
-
-
 .navContainer {
     width: 100%;
     text-align: center;
@@ -48,6 +46,10 @@
 .signIn {
     padding-right: 100px;
     
+}
+
+.goTo {
+    font-size: 16px;
 }
     
 .home {

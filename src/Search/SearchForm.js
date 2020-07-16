@@ -81,7 +81,7 @@ class SearchForm extends Component {
     return (
       <div>
         <form onSubmit={onSubmitForm}>
-          <h2 className="white"><i className ="fas fa-skiing"></i> Quick search!</h2>
+          <h2 className="white"><i className ="fas fa-skiing"></i>quick search!</h2>
           <label htmlFor="searchTerm" className="white montebello searchTerm"><i className ="fas fa-cookie-bite"></i> By name or brand 
           </label>
           <input

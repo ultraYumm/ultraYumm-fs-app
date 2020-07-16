@@ -184,7 +184,7 @@ class AddTripForm extends Component {
 
     return (
         <form className= "planTrip" onSubmit={dupName | backDates === true? error : onSubmitForm}>
-         <h2 className= "white"><i className ="fas fa-shoe-prints"></i> Plan a trip! <GoButton
+         <h2 className= "white"><i className="fas fa-seedling"></i>plan a trip! <GoButton
          /></h2> 
    
             <div className= "labelWidthPlan">

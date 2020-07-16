@@ -42,6 +42,7 @@ class App extends Component {
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
+      users: [],
       userid: 1,
       username: ""
     };
@@ -130,6 +131,7 @@ class App extends Component {
     const  endpointI = config.endpointI
     const  endpointT = config.endpointT
     const  endpointP = config.endpointP
+    const  endpointU = config.endpointU
    
     const API_TOKEN = config.API_UY_KEY
 
@@ -137,6 +139,7 @@ class App extends Component {
 
     const urls = [
       API + endpointI,
+      API + endpointU,
       API + endpointT,
       API + endpointP,
     ]
@@ -163,10 +166,9 @@ class App extends Component {
       .then(data => {
           this.setState({
           items: data[0],
-          trips: data[1].filter(trip =>
-            trip.userid !== userid
-            ),
-          packItems: data[2]
+          users: data[1],
+          trips: data[2],
+          packItems: data[3]
         });
       })
       
@@ -177,18 +179,6 @@ class App extends Component {
       })
     }
 
-    componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
-      console.log(user)
-      let id = user.attributes.sub
-      let username = user.username
-  
-         
-      this.setState ({
-        userid: id,
-        username: username
-      }) });
-  
-      }
 
 
   handleGetPackItems(e) {
@@ -332,11 +322,65 @@ class App extends Component {
       }
 
   getUser = (userid, username) => {
+    const trips = this.state.trips
     
         this.setState({
           userid: userid,
-          username: username
+          username: username,
+          trips: trips.filter(trip =>
+            trip.userid === userid
+            ),
         })
+        console.log(this.state.userid)
+        console.log(this.state.users)
+        const users = this.state.users
+        const match = () =>  users.filter(user =>
+          user.id === userid
+          )
+
+          console.log(match())
+
+
+        const inputValues = {
+      id: this.state.userid,
+      username: this.state.username
+    }
+
+
+    const API = config.API_UY_ENDPOINT   
+    const endpoint = config.endpointU
+
+    const url = API + endpoint;
+    const API_TOKEN = config.API_UY_KEY
+
+    
+
+
+    fetch(url, {
+          
+      method: 'POST',
+      body: JSON.stringify(inputValues),
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${API_TOKEN}`
+      }
+    }
+    )
+
+  .then(res => {
+  if (!res.ok) {
+      // get the error message from the response
+      return res.json().then(error => {
+      // then throw it
+      throw error
+      })
+  }
+
+ 
+  return res.json()
+  
+  })
+  
 
     }
   
@@ -347,6 +391,8 @@ class App extends Component {
   render() {
 
     const userid = this.state.userid
+    console.log(this.state.users)
+    const username = this.state.username
     const trips = this.state.trips
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
@@ -369,6 +415,9 @@ class App extends Component {
       
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
+        myTripText = {username === "" ? "" : `${username}'s trips`}
+        myAccountText = {username === "" ? "get started" : `my ${username} account`}
+        
         />
         
 
@@ -382,22 +431,12 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
-                this.addTrip(iframe, tripName, tripTravelers, tripDates)
-              }
-
-              trips = {trips}
-
+              
               getItems = {(e) =>
                 this.handleGetItems(e)}
  
               getPackItems = {(e) =>
               this.handleGetPackItems(e)}
-
-              getTrips = {(e) =>
-                this.handleGetTrips(e)}
-
-              getUser = {(id, username) => this.getUser(id, username)}  
               
               userid = {userid}
               
@@ -416,6 +455,7 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
+              getUser = {(id, username) => this.getUser(id, username)}             
              
             />
           )}
@@ -431,6 +471,7 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
+              getUser = {(id, username) => this.getUser(id, username)} 
             
             />
           )}
@@ -447,7 +488,8 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
-            
+
+              getUser = {(id, username) => this.getUser(id, username)}    
             
             />
           )}
@@ -464,6 +506,7 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
+              getUser = {(id, username) => this.getUser(id, username)}            
             
             />
           )}
@@ -483,7 +526,7 @@ class App extends Component {
               handleDeleteTrip = {(idToDelete) => this.deleteTrip(idToDelete)}
 
               getUser = {(id, username) => this.getUser(id, username)}
-              
+              myTripText = {username === "" ? "" : `${username}'s trips`}
             />
           )}
         />
@@ -493,11 +536,19 @@ class App extends Component {
           render={(routerProps) => (
             <SignInBox
             routerProps={routerProps}
-            getUser = {(id, username) => this.getUser(id, username)}             
+            getUser = {(id, username) => this.getUser(id, username)} 
+            trips = {trips}
+            
+            handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+              this.addTrip(iframe, tripName, tripTravelers, tripDates)
+            }
+            
+            addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+            
 
             />)}/>
 
-<Route
+          <Route
           path="/sign-in2"
           render={(routerProps) => (
             <AuthStateApp
@@ -609,6 +660,8 @@ class App extends Component {
 
                   getTrips = {(e) =>
                     this.handleGetTrips(e)}
+                  addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+                  username = {this.props.username}
               />
             )
           }}

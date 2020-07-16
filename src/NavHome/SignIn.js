@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import './Home.css';
+import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom'
 
 
@@ -10,13 +11,13 @@ class SignIn extends Component {
    
    
     return (
-      <div  className= "myTrips primaryFont"
+      <div  className= "myTrips montebello"
       >
           <NavLink className = "noDeco"
 to={`/sign-in`}
 >
-<span className = "signIn white"
->my account</span></NavLink>
+<span className = "myTrips white"
+>{this.props.myAccountText}</span></NavLink>
 
         </div>
     );
@@ -25,3 +26,14 @@ to={`/sign-in`}
 export default SignIn;
 
 
+/*
+<div  className= "myTrips primaryFont"
+      >
+          <NavLink className = "noDeco"
+to={`/sign-in`}
+>
+<span className = "signIn white"
+>{this.props.myAccountText}</span></NavLink>
+
+        </div>
+    ); */

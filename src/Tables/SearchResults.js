@@ -146,9 +146,12 @@ class SearchResults extends Component {
         </div>
         
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={`/add-custom`}
+            <NavLink to={this.props.username === "" ? `/add-custom` : `/sign-in`}
            >
-              <AddCustomButton />
+              <AddCustomButton 
+              addButtonText = {this.props.addButtonText}
+              
+              />
             </NavLink>
 
             <NavLink to={`/`}>

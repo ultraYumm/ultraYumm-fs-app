@@ -9,7 +9,10 @@ import AuthStateApp from "./AuthStateApp";
 import { AmplifyAuthenticator, AmplifyGreetings, AmplifyVerifyContact, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from '../aws-exports';
-import { NavLink} from 'react-router-dom'
+import AddTripForm from "../AddTrip/AddTripForm";
+import { NavLink} from 'react-router-dom';
+import AddCustomButton from "../FormElements/AddCustomButton";
+import config from "../config";
 
 
 Auth.currentCredentials().then(creds => console.log(creds));
@@ -30,9 +33,9 @@ class SignInBox extends Component {
   
   
   componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
-    console.log(user)
-    let id = user.attributes.sub
-    let username = user.username
+   
+    const id = user.attributes.sub
+    const username = user.username
 
     this.props.getUser(id, username)
    
@@ -41,11 +44,39 @@ class SignInBox extends Component {
       username
     }) });
 
-    }
+  
+  }
 
-   
+
+    
+    
+
+
+  
 
   render() {
+    const trips = this.props.trips
+
+
+    const AuthStateApp = () => {
+      const [authState, setAuthState] = React.useState();
+      const [user, setUser] = React.useState();
+  
+      React.useEffect(() => {
+          return onAuthUIStateChange((nextAuthState, authData) => {
+              setAuthState(nextAuthState);
+              setUser(authData)
+          });
+      }, []);
+  
+      
+    return authState === AuthState.SignedIn && user ? (
+       
+            <span>&nbsp;{user.username}
+        </span>
+      ) : "";
+  }
+
     console.log(AuthState)
     console.log(AmplifySignOut)
 
@@ -56,25 +87,43 @@ class SignInBox extends Component {
 
       <AmplifyAuthenticator>
     <div className = "montebello">
-    <div className = "primaryFont black greetings">Hi&nbsp;{this.state.username}, go to&nbsp;<NavLink
+   
+    <div className = "primaryFont black greetings">Hi<strong><AuthStateApp/></strong>, go to
+    <br></br><NavLink
           to={`/search-bar`}
-          className = "noDeco bold"><i className ="fas fa-skiing"></i>&nbsp;
-          Quick search
-            </NavLink>&nbsp;&nbsp;
+          className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>&nbsp;
+          quick search
+            </NavLink>
+            <br></br>
             <NavLink
           to={`/add-trip`}
-          className = "noDeco bold"><i className="fas fa-seedling"></i>&nbsp;
-            Plan a trip
-            </NavLink>&nbsp;&nbsp;
+          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>&nbsp;
+            plan a trip
+            </NavLink>
+            <br></br>
       <NavLink
           to={`/my-trips`}
-          className = "noDeco montebello"><i className ="fas fa-shoe-prints"></i>&nbsp;
+          className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>&nbsp;
             my trips
+            </NavLink> 
+            <br></br>
+            <NavLink
+          to={`/add-custom`}
+          className = "noDeco montebello goTo"
+         ><i class="fas fa-stroopwafel"></i>&nbsp;
+         make your own item
             </NavLink> 
    </div>
     <AmplifySignOut/> 
    
     </div>
+    <AddTripForm
+         routerProps={this.props.routerProps}
+         handleAddTrip = {this.props.handleAddTrip}
+         trips = {trips}
+         getTrips= {this.props.handleGetTrips}
+         getUser ={this.props.getUser}
+        />
   </AmplifyAuthenticator>
   
 
@@ -91,15 +140,13 @@ class SignInBox extends Component {
           <div className = "primaryFont"></div>
           <h1 className= "black montebello title">
          Get more energy!<span>&nbsp;&nbsp;</span>
-            <span className="lighter">pack lighter<span>{signIn()}</span></span>
+            <span className="lighter">pack lighter
+           
+            <span>{signIn()}</span></span>
+           
           </h1>
          
         </div>
-
-        <AuthStateApp/>
-
-
-       
        
       </div>
     );

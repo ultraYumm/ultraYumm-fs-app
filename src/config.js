@@ -4,14 +4,13 @@ export default {
     NUTRI_REMOTEUSER: 0,
     NUTRI_APID: 'e701e874',
     NUTRI_DETAILED:  'true',
-    API_UY_ENDPOINT: 'https://intense-lowlands-99380.herokuapp.com/api',
+    //API_UY_ENDPOINT: 'https://intense-lowlands-99380.herokuapp.com/api',
     API_UY_KEY: '0cb0cebe-b280-11ea-b3de-0242ac130004',
     endpointI: '/items',
     endpointT: '/my-trips',
     endpointP: '/pack-items',
-    
-
-    //API_UY_ENDPOINT: 'http://localhost:8000/api',
+    endpointU: '/users',
+    API_UY_ENDPOINT: 'http://localhost:8000/api',
 
   
 }

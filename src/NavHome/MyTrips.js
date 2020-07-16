@@ -18,7 +18,7 @@ class MyTrips extends Component {
         to={`/my-trips`}
         >
         <span className = "myTrips white"
-        >My trips</span></NavLink>
+        >{this.props.myTripText}</span></NavLink>
       </div>
     );
   }

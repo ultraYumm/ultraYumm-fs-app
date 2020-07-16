@@ -39,7 +39,7 @@ class TripDates extends Component {
           <span className={ stateDate === date ?  ' red bold'  : ' black'}>
             {date === defaultDay | tripDates[0] === "" ? 
             <NavLink className = "noDeco"
-            to={`/add-trip`}
+            to={`/sign-in`}
             >
             no dates set for <strong>{this.props.name}</strong> trip - adjust your trip selection above or create a new one with your custom dates and travelers</NavLink>
             :<Moment format= "MMM/DD">{date}</Moment>}
