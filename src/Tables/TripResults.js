@@ -26,8 +26,6 @@ import DateHeader from "./DateHeader";
 import TypeHeader from "./TypeHeader";
 import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
-import BackButton from '../FormElements/BackButton';
-import ForwardButton from '../FormElements/ForwardButton';
 import DeleteButton from '../FormElements/DeleteButton';
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
@@ -36,6 +34,7 @@ import '../FormElements/FormElements.css';
 import { ITEMS, TRIPS } from "../Defaults";
 import { withRouter } from "react-router-dom";
 import config from "../config";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';   
 
 
 
@@ -205,6 +204,15 @@ class TripResults extends Component {
 
             endpoint = {config.endpointP}
              />
+
+             <div>  
+                                              <ReactHTMLTableToExcel  
+                                                className="btn btn-info"  
+                                                table="results-filtered"  
+                                                filename="TripResults"  
+                                                sheet="Sheet"  
+                                                buttonText="Export excel" />  
+                                </div>  
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
@@ -305,7 +313,7 @@ class TripResults extends Component {
 
          
           {results.map((item, key) => (
-          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={key}>
+          <table id="results-filtered-mobile" className="primaryFont whiteBackground mobileOnly" key={key}>
             
             <tbody>
              <tr className = "mobile" >
