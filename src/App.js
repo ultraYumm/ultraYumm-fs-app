@@ -19,10 +19,11 @@ import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
-import { Auth } from 'aws-amplify';
+
 Amplify.configure(awsconfig);
 
 class App extends Component {
+  
   
   static defaultProps = {
     items: ITEMS,
@@ -75,9 +76,7 @@ class App extends Component {
       })
       .then(data => {
         this.setState({
-          trips: data.filter(trip =>
-            trip.userid !== userid
-            ),
+          trips: data.filter(trip => (trip.userid === userid)),
           error: null
         });
       
@@ -164,10 +163,11 @@ class App extends Component {
 
       Promise.all(fetches)
       .then(data => {
+        console.log(data)
           this.setState({
           items: data[0],
           users: data[1],
-          trips: data[2],
+          trips: data[2].filter(trip => (trip.userid === userid)),
           packItems: data[3]
         });
       })
@@ -331,14 +331,13 @@ class App extends Component {
             trip.userid === userid
             ),
         })
-        console.log(this.state.userid)
-        console.log(this.state.users)
+      
         const users = this.state.users
         const match = () =>  users.filter(user =>
           user.id === userid
           )
 
-          console.log(match())
+         
 
 
         const inputValues = {
@@ -390,10 +389,14 @@ class App extends Component {
 
   render() {
 
+    
     const userid = this.state.userid
-    console.log(this.state.users)
+    console.log(userid)
     const username = this.state.username
+    console.log(username)
     const trips = this.state.trips
+    console.log("trips", trips)
+   
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
@@ -416,7 +419,7 @@ class App extends Component {
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
         myTripText = {username === "" ? "" : `${username}'s trips`}
-        myAccountText = {username === "" ? "get started" : `my ${username} account`}
+        myAccountText = {username === "" ? "get started" : "my account"}
         
         />
         
@@ -471,7 +474,8 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
-              getUser = {(id, username) => this.getUser(id, username)} 
+              getUser = {(id, username) => this.getUser(id, username)}
+              getTrips = {e => this.handleGetTrips(e)} 
             
             />
           )}
@@ -489,7 +493,8 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
-              getUser = {(id, username) => this.getUser(id, username)}    
+              getUser = {(id, username) => this.getUser(id, username)}
+              getTrips = {e => this.handleGetTrips(e)}    
             
             />
           )}
@@ -506,7 +511,9 @@ class App extends Component {
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
-              getUser = {(id, username) => this.getUser(id, username)}            
+              getUser = {(id, username) => this.getUser(id, username)} 
+              
+              getTrips = {e => this.handleGetTrips(e)}
             
             />
           )}
@@ -527,6 +534,8 @@ class App extends Component {
 
               getUser = {(id, username) => this.getUser(id, username)}
               myTripText = {username === "" ? "" : `${username}'s trips`}
+
+              username = {username}
             />
           )}
         />
@@ -544,6 +553,8 @@ class App extends Component {
             }
             
             addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+
+            getTrips = {e => this.handleGetTrips(e)} 
             
 
             />)}/>
@@ -611,6 +622,8 @@ class App extends Component {
             getTrips = {(e) =>
               this.handleGetTrips(e)
             }
+
+            getUser = {(id, username) => this.getUser(id, username)}    
             />
           )}
         />
@@ -637,6 +650,10 @@ class App extends Component {
               getItems = {(e) =>
                 this.handleGetItems(e)
               }
+
+              addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+
+               
               
             />
           )}
@@ -708,6 +725,8 @@ class App extends Component {
 
                 getTrips = {(e) =>
                   this.handleGetTrips(e)}
+
+                  getUser = {(id, username) => this.getUser(id, username)}    
               />
             )
           }}
@@ -754,6 +773,8 @@ class App extends Component {
 
                 getTrips = {(e) =>
                     this.handleGetTrips(e)}
+
+                getUser = {(id, username) => this.getUser(id, username)}    
 
               />
               )

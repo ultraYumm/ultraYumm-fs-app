@@ -52,14 +52,12 @@ export const DEFAULTITEM = [
   export const TRAVELER_NAMES = ["Lewis"," Clark", " Alexandra", "TBD"]
    
   export const TRIPS = [
-    {
-     "id": 1000000,
+    {"id": 1000000,
     "name":"",
     "traveler_names": ["TBD"],
     "iframe": 'https://earth.google.com', 
     "trip_dates": 
-    ["1000-01-01T01:01:01.111Z"]},
-         
+    ["1000-01-01T01:01:01.111Z"]},    
   ]
 
   export const ITEMTYPES = [

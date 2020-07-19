@@ -20,11 +20,8 @@ import NewItemBrand from "../CustomItem/NewItemBrand";
 import ItemImage from "../ItemDetails/ItemImage"
 import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
-
-
+import { Auth } from 'aws-amplify';
 import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
-import { ThemeConsumer } from "styled-components";
-
 
 class ItemAdjust extends Component {
   static defaultProps = {
@@ -57,7 +54,7 @@ class ItemAdjust extends Component {
     
     const selectedTrip = this.props.selectedTrip
     const packItems = this.props.packItems
-    const trips = this.props.trips
+    const trips = this.props.trips.length === 0? TRIPS : this.props.trips
     const selectedItem = this.props.selectedItem === undefined ? PACKITEMS[0] : this.props.selectedItem
 
 
@@ -178,6 +175,17 @@ class ItemAdjust extends Component {
       trav_name: input,
     });
   };
+
+  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+
+    let id = user.attributes.sub
+    let username = user.username
+
+    this.props.getUser(id, username)
+   
+  });
+
+    }
 
  
   

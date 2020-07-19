@@ -8,11 +8,10 @@ import { withRouter } from "react-router-dom";
 import AuthStateApp from "./AuthStateApp";
 import { AmplifyAuthenticator, AmplifyGreetings, AmplifyVerifyContact, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import awsconfig from '../aws-exports';
 import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom';
-import AddCustomButton from "../FormElements/AddCustomButton";
-import config from "../config";
+
+
 
 
 Auth.currentCredentials().then(creds => console.log(creds));
@@ -47,13 +46,6 @@ class SignInBox extends Component {
   
   }
 
-
-    
-    
-
-
-  
-
   render() {
     const trips = this.props.trips
 
@@ -77,9 +69,6 @@ class SignInBox extends Component {
       ) : "";
   }
 
-    console.log(AuthState)
-    console.log(AmplifySignOut)
-
     Auth.currentCredentials().then(creds => console.log(creds));
 
 
@@ -89,18 +78,19 @@ class SignInBox extends Component {
     <div className = "montebello">
    
     <div className = "primaryFont black greetings">Hi<strong><AuthStateApp/></strong>, go to
+    <br></br>
+    <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>&nbsp;
+            plan a trip
+            </NavLink> 
     <br></br><NavLink
           to={`/search-bar`}
           className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>&nbsp;
           quick search
             </NavLink>
             <br></br>
-            <NavLink
-          to={`/add-trip`}
-          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>&nbsp;
-            plan a trip
-            </NavLink>
-            <br></br>
+           
       <NavLink
           to={`/my-trips`}
           className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>&nbsp;
@@ -114,6 +104,7 @@ class SignInBox extends Component {
          make your own item
             </NavLink> 
    </div>
+   
     <AmplifySignOut/> 
    
     </div>
@@ -123,6 +114,7 @@ class SignInBox extends Component {
          trips = {trips}
          getTrips= {this.props.handleGetTrips}
          getUser ={this.props.getUser}
+         getTrips = {this.props.getTrips}
         />
   </AmplifyAuthenticator>
   

@@ -11,7 +11,7 @@ import { Auth } from 'aws-amplify';
 class SearchForm extends Component {
 
   componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
-    console.log(user)
+
     let id = user.attributes.sub
     let username = user.username
 
@@ -79,8 +79,8 @@ class SearchForm extends Component {
     };
 
     return (
-      <div>
-        <form onSubmit={onSubmitForm}>
+      
+        <form className= "myPlans" onSubmit={onSubmitForm}>
           <h2 className="white"><i className ="fas fa-skiing"></i>quick search!</h2>
           <label htmlFor="searchTerm" className="white montebello searchTerm"><i className ="fas fa-cookie-bite"></i> By name or brand 
           </label>
@@ -95,7 +95,7 @@ class SearchForm extends Component {
 
           <GoButton/>
         </form>
-      </div>
+  
     );
   }
 }

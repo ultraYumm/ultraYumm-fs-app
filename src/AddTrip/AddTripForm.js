@@ -6,6 +6,7 @@ import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
 import { TRIPS, TRIP_NAME, TRAVELER_NAMES } from "../Defaults";
+import { Auth } from 'aws-amplify';
 
 
 class AddTripForm extends Component {
@@ -21,10 +22,33 @@ class AddTripForm extends Component {
         this.state = {
           startDate: null,
           endDate:  null,
-          name: TRIPS[0].name
+          name: TRIPS[0].name,
+          id: "",
+          username: ""
+          
         }
       }
       
+      componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+        let id = user.attributes.sub
+        let username = user.username
+    
+        this.props.getUser(id, username)
+
+
+        this.setState ({
+          id,
+          username
+        })
+
+        
+
+
+        
+       
+      });
+    
+        }
 
   render() {
 
@@ -33,7 +57,7 @@ class AddTripForm extends Component {
   
     const  re = /:\s|\s/;
 
-    const userid = this.props.userid
+    const userid = this.state.id
     
     const onSubmitForm = (e) => {
 
@@ -99,8 +123,11 @@ class AddTripForm extends Component {
         })
         
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
+
+        this.props.getTrips(e)
     
         this.props.routerProps.history.push("/my-trips")
+
       
     }
     
@@ -183,14 +210,14 @@ class AddTripForm extends Component {
     
 
     return (
-        <form className= "planTrip" onSubmit={dupName | backDates === true? error : onSubmitForm}>
+        <form className= "myPlans" onSubmit={dupName | backDates === true? error : onSubmitForm}>
          <h2 className= "white"><i className="fas fa-seedling"></i>plan a trip! <GoButton
          /></h2> 
    
             <div className= "labelWidthPlan">
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
                     <input type="text" name="tripName" 
-                    maxlength="12"
+                    maxlength="18"
                     className="skinBackground black search" id= "new-trip-name"  placeholder = {TRIP_NAME} required                    onChange={e => createTripName(e.target.value)}
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>

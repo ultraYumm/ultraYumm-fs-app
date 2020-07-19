@@ -8,6 +8,8 @@ import DeleteButton from "../FormElements/DeleteButton";
 import Delete from "../ItemDetails/Delete";
 import DeleteHeader from "../Tables/DeleteHeader";
 import config from "../config";
+import { Auth } from 'aws-amplify';
+
 
 
 
@@ -27,6 +29,18 @@ class TripNav extends Component {
       };
     }
 
+
+  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+
+    let id = user.attributes.sub
+    let username = user.username
+
+    this.props.getUser(id, username)
+   
+  });
+
+    }
+
     
     selectItemToDelete = (id, name) => {
     
@@ -37,6 +51,7 @@ class TripNav extends Component {
       
     };
 
+   
 
 
 
@@ -44,6 +59,8 @@ class TripNav extends Component {
   render() {
 
     const trips = this.props.trips
+
+    console.log(trips.length)
     const getTrips = this.props.getTrips
     console.log(this.state.idToDelete)
 
@@ -54,7 +71,7 @@ class TripNav extends Component {
       <section className = "tripSection"
       onMouseOver = {getTrips}>
        
-       <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i> My trips!</h2>
+       <h2 className= "montebello"><i className ="fas fa-shoe-prints"></i>{trips.length === 0? "No trips yet!" :  "My trips!"}</h2>
           
       
 
@@ -71,6 +88,13 @@ class TripNav extends Component {
             }
            endpoint = {config.endpointT}
              />
+
+          <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>
+            plan a trip
+            </NavLink> 
+
           </div>
 
           

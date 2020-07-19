@@ -181,8 +181,7 @@ class TripResults extends Component {
           </div>
         
           <div className = "iconButtonContainer sticky">
-        <BackButton/>
-        <ForwardButton/>
+         
         </div>
           <h2 className="montebello black sticky resultsTitle">
          
@@ -211,7 +210,10 @@ class TripResults extends Component {
           <div className="filterButtonContainer moreContainer sticky">
             
             <NavLink to={`/add-custom/${!selectedTrip[0]? ITEMS[0].food_name :  selectedTrip[0].food_name}`}>
-              <AddCustomButton />
+              <AddCustomButton 
+               addButtonText = {this.props.addButtonText}
+              
+              />
             </NavLink>
 
             <NavLink to={`/`}>
