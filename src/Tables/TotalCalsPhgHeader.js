@@ -14,8 +14,7 @@ class TotalCalsPhgHeader extends Component {
     return (
         
         <th className="caloriesH" id= "total calories per 100grams header">
-            <span className="hidden">Total calories per 100 grams</span>
-          <i className ="fab fa-superpowers super" alt= "total calories per 100grams header"></i></th>
+          <i className ="fab fa-superpowers" alt= "total calories per 100grams header"></i>&nbsp;calories/<br></br>100grams</th>
     )
 }
 }

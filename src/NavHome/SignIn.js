@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import './Home.css';
-import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom'
 
 

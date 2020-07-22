@@ -114,8 +114,6 @@ div.labelWidthDates {
 }
 
 
-
-
 .customize {
     margin-left: -35px;
     position: absolute;
@@ -165,21 +163,13 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
     color: grey;
    
   }
-  
-.tooltiptext:hover{
-    visibility: visible;
-    font-size: 9px;
-    color:white;
-    opacity: 1;
-}    
-
+ 
 
 .tooltip {
     position: relative;
 }
   
-.tooltip .tooltiptext {
-    visibility: hidden;
+.tooltiptext {
     width: 9px;
     text-align: top;
     border-radius: 6px;
@@ -189,8 +179,16 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
     /* Position the tooltip */
     position: absolute;
     z-index: 40;
-    color: grey;
+    color: transparent;
 }
+
+ 
+.tooltiptext:hover {
+    font-size: 9px;
+    color:white;
+    opacity: 1;
+}    
+
   
 
 
@@ -246,6 +244,7 @@ button:hover {
 }
 
 
+
 .filterButtonContainer {
    width: 50%;
    margin-left: auto;
@@ -259,6 +258,18 @@ button:hover {
    /*margin: 10px;*/
 }
 
+
+.buttonBox {
+    width: 100%;
+    text-align: center;
+}
+
+.iconButtonContainer {
+    display: inline-block;
+    padding: 10px;
+   
+
+}
 
 
 .iconButtonsContainer {
@@ -432,6 +443,15 @@ button[type="button"]{
     text-align: center;
     display: inline-block;
     width: 80%;
+}
+
+.summary {
+    zoom: 0.3
+}
+
+
+.summary:hover {
+    display:inherit;
 }
 
 
@@ -960,9 +980,8 @@ div.labelWidthDates {
     display: inline-block;
     text-align: center;
 
-
 }
-    
+
 
 button {
     font-size: 33px;

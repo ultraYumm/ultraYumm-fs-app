@@ -400,6 +400,7 @@ class App extends Component {
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
+    console.log(selectedTrip)
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -634,7 +635,7 @@ class App extends Component {
             <TripResults
               trips = {trips}
               routerProps={routerProps}
-              selectedTrip={selectedTrip}
+              selectedTrip={selectedTrip === TRIPS[0]? TRIPS[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={ITEMTYPES}
@@ -649,6 +650,11 @@ class App extends Component {
 
               getItems = {(e) =>
                 this.handleGetItems(e)
+              }
+
+
+              getTrips = {(e) =>
+                this.handleGetTrips(e)
               }
 
               addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}

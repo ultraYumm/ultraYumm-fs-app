@@ -18,8 +18,8 @@ class Cals_per_serving extends Component {
  
 
     return (
-        <td className="weightH  gram">
-         {calories} total cals 
+        <td className="weightH gram">
+         {calories}
        </td>
    )}
   

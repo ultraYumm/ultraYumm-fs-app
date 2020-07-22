@@ -19,7 +19,7 @@ th {
 th, td {
      /*padding: 1px;*/
      border: 1px;
-     text-align: left;
+     text-align: center;
      transition: 0.3s;
      
 }
@@ -56,9 +56,12 @@ td {
 .itemH {
      font-size: 18px;
      font-weight: bold;
+     text-align: left
     
+}
 
-
+.brandH, .brandId, .date {
+     text-align: left;
 }
 
    
@@ -154,12 +157,12 @@ h2.resultsTitle, div.resultsTitle {
      justify-content: center;
      margin-left: auto;
      margin-right: auto;
+     padding-bottom: 10px;
          
 }
 
 .searchResultsTitle {
      text-align: center;
-     margin-top: -10px;
 }
  
 
@@ -228,6 +231,12 @@ input.add {
      display: none;
      padding: 0;
     
+}
+
+th, td {
+     /*padding: 1px;*/
+     text-align: left;
+     
 }
 
 
@@ -366,7 +375,6 @@ td {
 
 .resultsTitle {
      width: 50%;
-     margin-top: -10px;
     
 }
        
@@ -429,14 +437,10 @@ th.date, tr.date  {
 
 
 
-.searchResultsTitle {
-     margin-top: -23px;
-}
-
 
 
 .resultsTitle {
-    margin-top: -12px;
+    margin-top: 30px;
     
 }
           
@@ -496,7 +500,7 @@ td, th {
 
 
 .resultsTitle {
-     margin-top: -53px;
+     margin-top: 20px;
     
 }
 
@@ -525,9 +529,5 @@ td, th {
      width: 120px;   
 }
 
-
-.searchResultsTitle {
-     margin-top: -93px;
-}
 
 }

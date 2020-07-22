@@ -3,13 +3,13 @@ import '../Font/Font.css';
 import '../FormElements/FormElements.css';
 import Moment from 'react-moment';
 import { NavLink} from 'react-router-dom'
+import { ITEMS, TRIPS, PACKITEMS } from "../Defaults";
 
 
 
 
 class TripDates extends Component {
 
-  
 
   constructor(props) {
     super(props);
@@ -33,7 +33,7 @@ class TripDates extends Component {
     
       <ul className= "scroll"> 
       {tripDates.map((date, key)=> (
-          <li key= {date}>
+          <li key= {key}>
           <label className="labelContainer">
           
           <span className={ stateDate === date ?  ' red bold'  : ' black'}>
@@ -41,7 +41,7 @@ class TripDates extends Component {
             <NavLink className = "noDeco"
             to={`/sign-in`}
             >
-            no dates set for <strong>{this.props.name}</strong> trip - adjust your trip selection or create a new one with your custom dates and travelers</NavLink>
+            plan a trip</NavLink>
             :<Moment format= "MMM/DD">{date}</Moment>}
             </span>
           

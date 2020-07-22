@@ -241,7 +241,7 @@ class AddTripForm extends Component {
 
             <div className= "dates">
                 <div className= "labelWidthDates">
-                <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan">Start date</span>
+                <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan ">Start date</span>
                 <input type="date" name="startDate" 
                 id= "start-date"
                 onChange={e => createStartDate(e.target.value)}

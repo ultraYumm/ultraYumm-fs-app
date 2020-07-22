@@ -27,16 +27,16 @@ import TypeHeader from "./TypeHeader";
 import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
 import DeleteButton from '../FormElements/DeleteButton';
+import ExcelButton from '../FormElements/ExcelButton';
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
-import { ITEMS, TRIPS } from "../Defaults";
+import { ITEMS, TRIPS, PACKITEMS } from "../Defaults";
 import { withRouter } from "react-router-dom";
 import config from "../config";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';   
-
-
+import TripTravelers from "../TripDetails/TripTravelers";
+import TripDates from "../TripDetails/TripDates";
 
 
 class TripResults extends Component {
@@ -45,6 +45,8 @@ class TripResults extends Component {
     items: ITEMS,
     tripItems:ITEMS,
     selectedTripItems: ITEMS,
+    results: PACKITEMS,
+
   
     
   };
@@ -59,7 +61,10 @@ class TripResults extends Component {
       selectedTrip: [],
       items: [],
       tripItems: [],
-      selectedTripItems: []
+      selectedTripItems: [],
+      trav_name: "",
+      trip_day: "",
+      results: PACKITEMS
     };
   }
 
@@ -82,27 +87,18 @@ class TripResults extends Component {
     
     this.setState({
       trip_day: input,
-      id: id
     });
   };
 
 
-  selectType = (input, id) => {
-  
-    this.setState({
-      type: input,
-      id: id
-    });
-  };
 
-
-  selectTraveler = (input, id) => {
+  selectTraveler = (input) => {
     
     this.setState({
       trav_name: input,
-      id: id
     });
   };
+
 
 
   selectItemToDelete = (id, name) => {
@@ -113,15 +109,25 @@ class TripResults extends Component {
     });
     
   };
+
+  undoFilter = () => {
+    
+    this.setState({
+      filter: "none"
+    });
+    
+  };
+
  
 
   render() {
     const selectedTrip = this.props.selectedTrip;
-   
-   
+    console.log(selectedTrip)
+     
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
+    console.log(tripItems)
 
 
     const imageArray = tripItems.map((items) => items.image);
@@ -159,6 +165,18 @@ class TripResults extends Component {
 
       return resultsObject;
     });
+
+    const filteredResults = 
+     results.filter(result => (result.trav_name===this.state.trav_name)
+     )
+
+     const resultstoUse = () => {
+       if (!this.state.trav_name || this.state.trav_name === "" || this.state.filter === "none") {return results} 
+      return filteredResults}
+
+    console.log(results)
+
+    console.log(filteredResults)
     
     const sum_CalServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * selectServingQuantArray[i]), 0)
 
@@ -166,17 +184,47 @@ class TripResults extends Component {
 
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
+    const getTrips = this.props.getTrips
 
   
     return (
+      <div>
+     
       <section className="lightBlueBackground"
-      onMouseOver = {getItems}>      
+      onMouseOver = {getTrips}>      
        
         <div className = "lightBlueBackground sticky" 
         onMouseOver = {getPackItems}>
            <div className="charts sticky cloudBlueBackground">
           <TripCalorieGraph cals={sum_CalServProducts}/>
           <TripPackGraph weight={sum_WeightServProducts}/>
+
+
+          <div className="filterSelection summary">
+      
+              <h3 className="filterCategory">  Filter by traveler&nbsp;<i className="fas fa-undo black" onClick = {this.undoFilter}
+             ></i></h3>
+                <TripTravelers 
+                stateName = {this.state.trav_name}
+                tripTravelers={!selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names}
+                handleSelectTraveler={(selectedTraveler) =>
+                  this.selectTraveler(selectedTraveler)
+                }/>
+             </div>
+
+             <div className= "filterSelection summary">
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}</h3>
+                <TripDates
+                stateDate = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                tripDates={!selectedTrip[0]? TRIPS[0].trip_dates : selectedTrip[0].trip_dates}
+                handleSelectDay={(selectedDay) =>
+                  this.selectDay(selectedDay)
+                }/>
+            </div>
+
+              
+
           </div>
         
           <div className = "iconButtonContainer sticky">
@@ -191,8 +239,20 @@ class TripResults extends Component {
           </h2>
         
        
-        <div className="iconButtonContainer">
+        <div className>
+          <div className="iconButtonContainer"> 
+             <ExcelButton
+             sheet= {!selectedTrip[0]? TRIPS[0] : selectedTrip}
+             table="results-filtered"  
+             filename="TripResults.xls"    />
+             </div>
+             <div className="iconButtonContainer">
+           
+            
              <PrintButton/>
+             </div>
+             </div>
+             <div>
              <DeleteButton
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
@@ -201,18 +261,8 @@ class TripResults extends Component {
               this.props.handleDeletePackItem(idToDelete)
             
             }
-
             endpoint = {config.endpointP}
              />
-
-             <div>  
-                                              <ReactHTMLTableToExcel  
-                                                className="btn btn-info"  
-                                                table="results-filtered"  
-                                                filename="TripResults"  
-                                                sheet="Sheet"  
-                                                buttonText="Export excel" />  
-                                </div>  
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
@@ -247,7 +297,7 @@ class TripResults extends Component {
               </tr>
            
 
-              {results.map((item, key) => (
+              {resultstoUse().map((item, key) => (
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
@@ -312,7 +362,7 @@ class TripResults extends Component {
           </table>
 
          
-          {results.map((item, key) => (
+          {resultstoUse().map((item, key) => (
           <table id="results-filtered-mobile" className="primaryFont whiteBackground mobileOnly" key={key}>
             
             <tbody>
@@ -439,10 +489,8 @@ class TripResults extends Component {
             </tbody>
             </table>
           ))}
-
-          
-
       </section>
+      </div>
     );
   }
 }
@@ -469,10 +517,21 @@ this.selectTraveler(selectedTraveler)
 />
 </div>
 
-<div className="tableScroll tableAdjust add">
-{" "}
-<TripDates tripDates={tripDates}
-  handleSelectDay={(selectedDay) =>
-  this.selectDay(selectedDay)
-  }/>
-</div>*/
+
+      
+
+
+
+             <div className= "filterSelection summary">
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}</h3>
+                <TripDates
+                stateDate = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                tripDates={!selectedTrip[0]? TRIPS[0].trip_dates : selectedTrip[0].trip_dates}
+                handleSelectDay={(selectedDay) =>
+                  this.selectDay(selectedDay)
+                }/>
+            </div>
+
+
+*/

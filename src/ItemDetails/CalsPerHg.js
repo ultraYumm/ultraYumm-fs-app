@@ -19,7 +19,7 @@ class CalsPerHg extends Component {
 
     return (
         <td className="caloriesH  calG">
-        {calsPHg} cals/ 100 gms
+        {calsPHg}
         </td>
           
    )}

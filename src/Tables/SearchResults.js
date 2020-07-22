@@ -123,15 +123,7 @@ class SearchResults extends Component {
         <div className = "sticky lightBlueBackground">
        
         <div className = "sticky">
-        <div className = "iconButtonsContainer">
-                <div className = "back">
-              <BackButton/>  
-              </div>
-              <div className = "forward">
-              <ForwardButton/> 
-        </div> 
-       
-        </div>
+     
           <h2 className="montebello searchResultsTitle white">
             {" "}
             See your highest energy results!
