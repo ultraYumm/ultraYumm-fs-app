@@ -3,7 +3,6 @@ import "../Font/Font.css";
 import TripName from "../TripDetails/TripName";
 import TripYear from "../TripDetails/TripYear";
 import Moment from "react-moment";
-//import SaveButton from "../FormElements/SaveButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
@@ -45,9 +44,8 @@ class TripResults extends Component {
     items: ITEMS,
     tripItems:ITEMS,
     selectedTripItems: ITEMS,
-    results: PACKITEMS,
-
-  
+    results: PACKITEMS
+ 
     
   };
 
@@ -64,7 +62,8 @@ class TripResults extends Component {
       selectedTripItems: [],
       trav_name: "",
       trip_day: "",
-      results: PACKITEMS
+      results: PACKITEMS,
+      
     };
   }
 
@@ -113,23 +112,22 @@ class TripResults extends Component {
   undoFilter = () => {
     
     this.setState({
-      filter: "none"
+      trav_name: "",
+      trip_day: ""
     });
     
   };
+  
 
  
 
   render() {
     const selectedTrip = this.props.selectedTrip;
-    console.log(selectedTrip)
-     
+    
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
-    console.log(tripItems)
-
-
+    
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
@@ -138,9 +136,6 @@ class TripResults extends Component {
 
     const fixedCalPerUnitArray = tripItems.map((items) => items.cals_per_serving);
 
-    const selectServingQuantArray = selectedTripItems
-      .map((items) => items.serving_qty)
-      .sort();
 
     const fixedServingWeightArray = tripItems.map(
       (items) => items.serving_weight_grams
@@ -166,32 +161,55 @@ class TripResults extends Component {
       return resultsObject;
     });
 
-    const filteredResults = 
-     results.filter(result => (result.trav_name===this.state.trav_name)
+    const filterResults = () => {
+      if (selectedTrip[0].trip_dates === "{}") {
+        const resultA = results.filter(result => result.trav_name === this.state.trav_name)
+        return resultA
+       }
+     else return results.filter(result => (result.trip_day === this.state.trip_day || result.trav_name === this.state.trav_name)
      )
+    }
+
+    const filteredResults = filterResults ()
+
+   
 
      const resultstoUse = () => {
-       if (!this.state.trav_name || this.state.trav_name === "" || this.state.filter === "none") {return results} 
-      return filteredResults}
+       
+       if (selectedTrip[0].trip_dates === "{}" && this.state.trav_name.length === 0) {
+        return results
+       }
+       else if (selectedTrip[0].trip_dates === "{}" && this.state.trav_name.length > 0) {
+        return filteredResults
+       }
+       else if (this.state.trip_day.length === 0 && this.state.trav_name.length === 0) {return results}
+       else if (this.state.trip_day.length > 0 || this.state.trav_name.length > 0) {return filteredResults}}
 
-    console.log(results)
+     
+     const datatoCalc = resultstoUse()
 
-    console.log(filteredResults)
+     const fixedCalPerUnitCalc = datatoCalc.map((items) => items.cals_per_serving);
+
+     const selectServingQuantCalc = datatoCalc
+       .map((items) => items.serving_qty)
+       .sort();
+ 
+     const fixedServingWeightCalc = datatoCalc.map(
+       (items) => items.serving_weight_grams
+     );
     
-    const sum_CalServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * selectServingQuantArray[i]), 0)
+    const sum_CalServProducts = fixedCalPerUnitCalc.reduce((sum, val, i) => sum + (val * selectServingQuantCalc[i]), 0)
 
-    const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
+    const sum_WeightServProducts = fixedServingWeightCalc.reduce((sum, val, i) => sum + (val * selectServingQuantCalc[i]), 0)
 
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
-    const getTrips = this.props.getTrips
-
-  
+     
     return (
       <div>
      
       <section className="lightBlueBackground"
-      onMouseOver = {getTrips}>      
+      onMouseOver = {getItems}>      
        
         <div className = "lightBlueBackground sticky" 
         onMouseOver = {getPackItems}>
@@ -201,9 +219,9 @@ class TripResults extends Component {
 
 
           <div className="filterSelection summary">
+          <h2 className="filterCategory black">  Filters: &nbsp; <i className="fas fa-undo black" onClick = {this.undoFilter}></i> </h2> <br></br>
       
-              <h3 className="filterCategory">  Filter by traveler&nbsp;<i className="fas fa-undo black" onClick = {this.undoFilter}
-             ></i></h3>
+              <h3 className="filterCategory"> <i className ="fas fa-user-circle black"></i>&nbsp;by traveler</h3>
                 <TripTravelers 
                 stateName = {this.state.trav_name}
                 tripTravelers={!selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names}
@@ -213,9 +231,9 @@ class TripResults extends Component {
              </div>
 
              <div className= "filterSelection summary">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}</h3>
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;by date:{" "}</h3>
                 <TripDates
-                stateDate = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                stateDate = {!results[0]? PACKITEMS[0].trip_day : this.state.trip_day}
                 defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
                 tripDates={!selectedTrip[0]? TRIPS[0].trip_dates : selectedTrip[0].trip_dates}
                 handleSelectDay={(selectedDay) =>
@@ -247,8 +265,7 @@ class TripResults extends Component {
              filename="TripResults.xls"    />
              </div>
              <div className="iconButtonContainer">
-           
-            
+                       
              <PrintButton/>
              </div>
              </div>
@@ -498,40 +515,3 @@ class TripResults extends Component {
 export default withRouter (TripResults);
 
 
-
-
-/*<div className="tableScroll tableAdjust add">
-<ItemTypes itemTypes={itemTypes}
-handleSelectType={(selectedType) =>
-  this.selectType(selectedType)
-}
-/>
-</div>
-
-<div className="tableScroll tableAdjust add hidden">
-<TripTravelers
-tripTravelers={tripTravelers}
-handleSelectTraveler={(selectedTraveler) =>
-this.selectTraveler(selectedTraveler)
-}
-/>
-</div>
-
-
-      
-
-
-
-             <div className= "filterSelection summary">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}</h3>
-                <TripDates
-                stateDate = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
-                defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
-                tripDates={!selectedTrip[0]? TRIPS[0].trip_dates : selectedTrip[0].trip_dates}
-                handleSelectDay={(selectedDay) =>
-                  this.selectDay(selectedDay)
-                }/>
-            </div>
-
-
-*/

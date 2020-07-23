@@ -332,13 +332,6 @@ class App extends Component {
             ),
         })
       
-        const users = this.state.users
-        const match = () =>  users.filter(user =>
-          user.id === userid
-          )
-
-         
-
 
         const inputValues = {
       id: this.state.userid,
@@ -474,6 +467,8 @@ class App extends Component {
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+
+              trips = {trips}
 
               getUser = {(id, username) => this.getUser(id, username)}
               getTrips = {e => this.handleGetTrips(e)} 

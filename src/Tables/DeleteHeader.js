@@ -13,7 +13,7 @@ class DeleteHeader extends Component {
 
     return (
         
-        <th className="deleteH" id= "delete header">
+        <th className="deleteH" id= "delete header headDelete">
           <span className="hidden">Delete</span>
           <i className ="fas fa-trash-alt" alt= "delete header"></i></th>    )
 }

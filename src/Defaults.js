@@ -48,8 +48,8 @@ export const DEFAULTITEM = [
   
   export const IMAGE= "https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png"
 
-  export const TRIP_NAME = "an awesome trip"
-  export const TRAVELER_NAMES = ["Lewis"," Clark", " Alexandra", "TBD"]
+  export const TRIP_NAME = "mount happyFoot"
+  export const TRAVELER_NAMES = ["Curly Lucky Furry ..."]
    
   export const TRIPS = [
     {"id": 1000000,

@@ -17,7 +17,7 @@ class TripPackGraph extends Component {
     return (
      
         <div className= "primaryFont black">
-          <span className= "graphText">{weightText} kg </span>
+          <span className= "graphText">{weightText} grams </span>
           <i className= "fas fa-hiking"></i>
         </div>
 

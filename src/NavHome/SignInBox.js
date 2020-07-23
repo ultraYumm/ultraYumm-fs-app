@@ -5,18 +5,10 @@ import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import { Auth } from 'aws-amplify';
 import { withRouter } from "react-router-dom";
-import AuthStateApp from "./AuthStateApp";
-import { AmplifyAuthenticator, AmplifyGreetings, AmplifyVerifyContact, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom';
-
-
-
-
-Auth.currentCredentials().then(creds => console.log(creds));
-// Auth.currentSession() does not currently support federated identities. Please store the auth0 session info manually(for example, store tokens into the local storage).
-
 
 
 class SignInBox extends Component {
@@ -114,7 +106,6 @@ class SignInBox extends Component {
          trips = {trips}
          getTrips= {this.props.handleGetTrips}
          getUser ={this.props.getUser}
-         getTrips = {this.props.getTrips}
         />
   </AmplifyAuthenticator>
   

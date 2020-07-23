@@ -1,8 +1,7 @@
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
-import BackButton from "../FormElements/BackButton";
-import ForwardButton from "../FormElements/ForwardButton";
+import { NavLink} from 'react-router-dom';
 import config from "../config";
 import GoButton from "../FormElements/GoButton";
 import ServUnit from "../CustomItem/ServUnit";
@@ -335,7 +334,15 @@ class ItemAdjust extends Component {
           </div>
 
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text}<GoButton /></h2>
+          <h2 className="montebello white">{text}<GoButton />
+          <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo white"><i className="fas fa-seedling"></i>&nbsp;
+            plan a new trip
+            </NavLink> 
+                     
+          </h2>
+
                 
             <div className= "white primaryFont"></div>  
                 <div>
@@ -473,7 +480,8 @@ class ItemAdjust extends Component {
         
           <div className= "filterSelection"> 
     
-              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
+              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
+             
                 <TripNames
                 stateName = {this.state.name} 
                 trips={trips}
@@ -484,7 +492,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont black" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
               this.state.trip_dates === {} |
               this.state.trip_dates === "{}"
               ? "" : trip_day}</span></h3>
@@ -498,7 +506,7 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
                 stateType = {!this.state.type? "TBD" : this.state.type}
@@ -508,7 +516,7 @@ class ItemAdjust extends Component {
              </div>
 
              <div className="filterSelection">
-              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.trav_name}</span></h3>
+              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;traveler:{" "}<span className = "primaryFont black">{this.state.trav_name}</span></h3>
                 <TripTravelers 
                 stateName = {this.state.trav_name}
                 tripTravelers={this.state.traveler_names}

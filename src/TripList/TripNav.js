@@ -59,13 +59,9 @@ class TripNav extends Component {
   render() {
 
     const trips = this.props.trips
-
-    console.log(trips.length)
+   
     const getTrips = this.props.getTrips
-    console.log(this.state.idToDelete)
-
-    
-    
+  
        
     return (
       <section className = "tripSection"
@@ -91,7 +87,7 @@ class TripNav extends Component {
 
           <NavLink
           to={`/add-trip`}
-          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>
+          className = "noDeco bold goTo black"><i className="fas fa-seedling"></i>
             plan a trip
             </NavLink> 
 
@@ -132,9 +128,9 @@ class TripNav extends Component {
               <div className = "navCopy white">copy</div>
               </NavLink>
               
-              <div className = "black headDelete">
+              
           <DeleteHeader/>
-          </div>
+       
         
        
             

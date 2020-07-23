@@ -24,15 +24,3 @@ to={`/sign-in`}
 }
 export default SignIn;
 
-
-/*
-<div  className= "myTrips primaryFont"
-      >
-          <NavLink className = "noDeco"
-to={`/sign-in`}
->
-<span className = "signIn white"
->{this.props.myAccountText}</span></NavLink>
-
-        </div>
-    ); */

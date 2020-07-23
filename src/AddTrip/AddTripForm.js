@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import GoButton from '../FormElements/GoButton';
-import DeleteButton from '../FormElements/DeleteButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
@@ -40,11 +39,7 @@ class AddTripForm extends Component {
           id,
           username
         })
-
-        
-
-
-        
+       
        
       });
     
@@ -190,7 +185,7 @@ class AddTripForm extends Component {
     
     const validateTripName = () => {
         if (this.props.trips.find((trip) => trip.name === tripName)){
-        return (" this nice trip name already exists, please pick a different name")}
+        return (` ${tripName} already exists, please create a different name`)}
         else return ("")
            
       }
@@ -207,14 +202,16 @@ class AddTripForm extends Component {
 
       const  error = () => {"duplicate trip name or backwards dates"}
 
-    
+      
+      const getTrips = this.props.getTrips
 
     return (
         <form className= "myPlans" onSubmit={dupName | backDates === true? error : onSubmitForm}>
-         <h2 className= "white"><i className="fas fa-seedling"></i>plan a trip! <GoButton
+         <h2 className= "white"><i className="fas fa-seedling"></i>&nbsp;plan a trip! <GoButton
          /></h2> 
    
-            <div className= "labelWidthPlan">
+            <div className= "labelWidthPlan"
+            onMouseOver = {getTrips}>
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
                     <input type="text" name="tripName" 
                     maxlength="18"
@@ -234,7 +231,7 @@ class AddTripForm extends Component {
                 </label>
             </div>
             <div className= "labelWidthPlan">
-                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" target= "_blank" rel="noopener noreferrer" className= "white montebello">Website</a></span>
+                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" SameSite= "None" target= "_blank" rel="noopener noreferrer" className= "white montebello">Website</a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names"   defaultValue = {TRIPS[0].iframe} id= "map-link"/>  
                 </label>
             </div><br></br>

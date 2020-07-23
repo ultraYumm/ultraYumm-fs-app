@@ -22,9 +22,9 @@ class ExcelButton extends Component {
         <button className= "tooltip iconButtons"
         type = "submit"><span className = "tooltiptext primaryFont white">export to xls</span>
         <ReactHTMLTableToExcel  
-          table= {this.props.table}
-          filename={this.props.filename}
-          sheet= {this.props.sheet}
+          table= "results-filtered"
+          filename= "ultraYumm"
+          sheet= "ultraYumm"
           buttonText={<i className="fas fa-file-excel black"></i>} />  
          
         </button>  
