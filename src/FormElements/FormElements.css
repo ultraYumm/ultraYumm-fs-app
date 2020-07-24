@@ -107,6 +107,10 @@ label {
 
 }
 
+.username {
+    font-size: 9px;
+}
+
 div.labelWidthDates {
    padding-bottom: 5px;
     
@@ -208,12 +212,12 @@ input[type="number"]{
 
 
 button[type="submit"], button[type="reset"]{
-   width: 70%;
+   width: 100%;
 }
   
 button {
     font-size: 20px;
-    height: 45px;
+    height: 55px;
     border-radius: 20px;
     transition: 0.1s;
     border: 1px solid transparent;

@@ -15,19 +15,21 @@ class ExcelButton extends Component {
     
   render() {
    
-   
 
     
     return (
-        <button className= "tooltip iconButtons"
+      <div className= "tooltip iconButtons">
+        <i className="fas fa-file-excel black"
         type = "submit"><span className = "tooltiptext primaryFont white">export to xls</span>
         <ReactHTMLTableToExcel  
           table= "results-filtered"
           filename= "ultraYumm"
-          sheet= "ultraYumm"
-          buttonText={<i className="fas fa-file-excel black"></i>} />  
+          buttonText= ""
+          sheet= "myTrip"
+          /> 
          
-        </button>  
+        </i>  
+        </div>
     )
     }  
 }

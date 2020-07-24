@@ -61,9 +61,6 @@ class SignInBox extends Component {
       ) : "";
   }
 
-    Auth.currentCredentials().then(creds => console.log(creds));
-
-
     const signIn = () => (
 
       <AmplifyAuthenticator>
@@ -92,7 +89,7 @@ class SignInBox extends Component {
             <NavLink
           to={`/add-custom`}
           className = "noDeco montebello goTo"
-         ><i class="fas fa-stroopwafel"></i>&nbsp;
+         ><i className="fas fa-stroopwafel"></i>&nbsp;
          make your own item
             </NavLink> 
    </div>
@@ -101,6 +98,7 @@ class SignInBox extends Component {
    
     </div>
     <AddTripForm
+         text = "plan a trip"
          routerProps={this.props.routerProps}
          handleAddTrip = {this.props.handleAddTrip}
          trips = {trips}

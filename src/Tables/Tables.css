@@ -4,7 +4,7 @@ table {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border-top: 1px solid  rgba(173, 192, 217);
+   
    
 }
    
@@ -138,10 +138,16 @@ td {
      text-align: center;
 }
  
-td.delete {
+td.delete, div.delete {
       text-align: center;
+      border-left: 1px solid transparent;
+      left: 0;
+      right: 0
+
 }
- 
+
+
+
 input.delete {
      text-align: center;
      width: 20px;

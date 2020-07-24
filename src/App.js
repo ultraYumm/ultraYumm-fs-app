@@ -13,6 +13,7 @@ import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
 import AddTripForm from "./AddTrip/AddTripForm";
+import EditTripForm from "./AddTrip/EditTripForm";
 import TripResults from "./Tables/TripResults";
 import { PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
 import config from "./config";
@@ -28,7 +29,8 @@ class App extends Component {
   static defaultProps = {
     items: ITEMS,
     trips: TRIPS,
-    packItems: PACKITEMS
+    packItems: PACKITEMS,
+    selectedTrip: TRIPS[0]
   };
   
   constructor(props) {
@@ -45,7 +47,8 @@ class App extends Component {
       packItems: PACKITEMS,
       users: [],
       userid: 1,
-      username: ""
+      username: "",
+     
     };
   }
 
@@ -393,7 +396,7 @@ class App extends Component {
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-    console.log(selectedTrip)
+    console.log("selectedTrip", selectedTrip.length)
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -438,6 +441,8 @@ class App extends Component {
               userid = {userid}
               
               getUser = {(id, username) => this.getUser(id, username)}
+
+              username = {username}
             />
           )}
         />
@@ -452,7 +457,8 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-              getUser = {(id, username) => this.getUser(id, username)}             
+              getUser = {(id, username) => this.getUser(id, username)} 
+              username = {username}            
              
             />
           )}
@@ -463,6 +469,7 @@ class App extends Component {
           path= "/add-trip"
           render={(routerProps) => (
             <AddTripForm
+             text = "plan a trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
@@ -471,7 +478,11 @@ class App extends Component {
               trips = {trips}
 
               getUser = {(id, username) => this.getUser(id, username)}
-              getTrips = {e => this.handleGetTrips(e)} 
+              getTrips = {e => this.handleGetTrips(e)}
+
+              username = {username}
+              
+              
             
             />
           )}
@@ -482,15 +493,18 @@ class App extends Component {
           exact
           path= "/edit-trip/:tripName"
           render={(routerProps) => (
-            <AddTripForm
-            tripName = {selectedTrip[0].name}
+            <EditTripForm
+            text = "edit your trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
               getUser = {(id, username) => this.getUser(id, username)}
-              getTrips = {e => this.handleGetTrips(e)}    
+              getTrips = {e => this.handleGetTrips(e)}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip} 
+              
+              username = {username}
             
             />
           )}
@@ -500,17 +514,18 @@ class App extends Component {
           exact
           path= "/copy-trip/:tripName"
           render={(routerProps) => (
-            <AddTripForm
-            
+            <EditTripForm
+            text = "copy your trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
 
-              getUser = {(id, username) => this.getUser(id, username)} 
-              
+              getUser = {(id, username) => this.getUser(id, username)}
               getTrips = {e => this.handleGetTrips(e)}
-            
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip} 
+              
+              username = {username}
             />
           )}
         />
@@ -532,9 +547,11 @@ class App extends Component {
               myTripText = {username === "" ? "" : `${username}'s trips`}
 
               username = {username}
+
             />
           )}
         />
+        
 
           <Route
           path="/sign-in"
@@ -570,9 +587,10 @@ class App extends Component {
           path="/trip-filter/:tripid"
           render={() => (
             <TripFilterForm
-              selectedTrip={selectedTrip}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
+              username = {username}
             />
           )}
         />
@@ -583,7 +601,7 @@ class App extends Component {
           render={(routerProps) => (
             <ItemAdjust
               routerProps={routerProps}
-              text = "Make your own item!"
+              text = "Make your own item"
               is = ""
               forT = ""
               onT = ""
@@ -594,7 +612,6 @@ class App extends Component {
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
               items= {!items? ITEMS : items}
-              selectedTrip={selectedTrip === TRIPS[0]? TRIPS[0] : selectedTrip}
               tripItems={selectedTrip === TRIPS[0]? ITEMS : tripItems}
               itemTypes={ITEMTYPES}
               tripName={selectedTrip === TRIPS[0]? TRIPS[0].name : this.state.tripName}
@@ -619,7 +636,9 @@ class App extends Component {
               this.handleGetTrips(e)
             }
 
-            getUser = {(id, username) => this.getUser(id, username)}    
+            getUser = {(id, username) => this.getUser(id, username)}
+            
+            username = {username}
             />
           )}
         />
@@ -630,7 +649,7 @@ class App extends Component {
             <TripResults
               trips = {trips}
               routerProps={routerProps}
-              selectedTrip={selectedTrip === TRIPS[0]? TRIPS[0] : selectedTrip}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={ITEMTYPES}
@@ -654,7 +673,7 @@ class App extends Component {
 
               addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
 
-               
+              username = {username}
               
             />
           )}
@@ -679,22 +698,20 @@ class App extends Component {
                   getTrips = {(e) =>
                     this.handleGetTrips(e)}
                   addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
-                  username = {this.props.username}
+                  username = {username}
               />
             )
           }}
         />
 
       
-
-
         <Route
           path="/item/:id"
           render={(routerProps) => {
             return (
               <ItemAdjust
                 routerProps={routerProps}
-                text = "Customize your item!"
+                text = "Customize your item"
                 is = ""
                 forT = ""
                 onT = ""
@@ -705,7 +722,7 @@ class App extends Component {
                 item= {this.state.item}
                 trips={trips}
                 items={items}
-                selectedTrip={!selectedTrip? trips[0] : selectedTrip}
+                selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
                 tripItems={tripItems}
                 itemTypes={ITEMTYPES}
                 tripName={this.state.tripName}
@@ -751,7 +768,7 @@ class App extends Component {
                 item= {this.state.item}
                 trips={trips}
                 items={items}
-                selectedTrip={selectedTrip}
+                selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
                 selectedTripItems={selectedTripItems}
                 tripItems={tripItems}
                 itemTypes={ITEMTYPES}

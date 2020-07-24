@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
+import '../Tables/Tables.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
 import { NavLink} from 'react-router-dom'
 import { TRIPS } from "../Defaults";
 import DeleteButton from "../FormElements/DeleteButton";
 import Delete from "../ItemDetails/Delete";
-import DeleteHeader from "../Tables/DeleteHeader";
+
 import config from "../config";
 import { Auth } from 'aws-amplify';
 
@@ -113,34 +114,50 @@ class TripNav extends Component {
                }}
               
               >{trip.name}
-               
               </div>
               </NavLink>
               
+              
              
-             
-              <div className = "navDelete whiteBackground">
-              <NavLink to={`/edit-trip/${trip.name}`}>
-              <div className = "navEdit white">edit</div>
+           
+              <ul className = "navActions skinBackground"
+              onMouseOver={() => {
+                const selectTripId = trip.id
+                const tripName = trip.name
+                this.props.handleSelectTrip(selectTripId, tripName)
+              
+              }}>
+                  <NavLink to={`/edit-trip/${trip.name}`}
+              >
+              <li className = "navEdit lightBlue noDeco">
+            edit
+              </li>
+              </NavLink>
+              
+              
+              <NavLink to={`/copy-trip/${trip.name}`}>
+
+              <li className = "navCopy lightBlue noDeco">
+             copy
+              </li>
               </NavLink>
 
-              <NavLink to={`/add-trip/${trip.name}`}>
-              <div className = "navCopy white">copy</div>
-              </NavLink>
-              
-              
-          <DeleteHeader/>
-       
-        
-       
-            
+              <li className = "navDelete black" ><span className = "navDelete deleteIcon">
+              <i className ="fas fa-trash-alt" alt= "delete header"></i></span>
+              <table>
+              <tbody>
+                <tr>
               <Delete
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {trip.id}
                   name = {trip.name}
+                  />
+                   </tr>
+                  </tbody>
+                  </table>
                  
-                 
-                  /></div>
+                  </li></ul>
+                  
               
               </li>
 

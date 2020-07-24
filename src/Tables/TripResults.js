@@ -51,18 +51,20 @@ class TripResults extends Component {
 
   constructor(props) {
     super(props);
+    const selectedTrip = this.props.selectedTrip
     this.state = {
       serving_qty: null,
       id: "",
       idToDelete: "",
       nameOfDelete: "",
-      selectedTrip: [],
       items: [],
       tripItems: [],
       selectedTripItems: [],
       trav_name: "",
       trip_day: "",
       results: PACKITEMS,
+      selectedTrip: selectedTrip.length === 0? TRIPS[0] : selectedTrip
+          
       
     };
   }
@@ -122,8 +124,7 @@ class TripResults extends Component {
  
 
   render() {
-    const selectedTrip = this.props.selectedTrip;
-    
+    const selectedTrip = this.state.selectedTrip;
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
@@ -250,19 +251,17 @@ class TripResults extends Component {
         </div>
           <h2 className="montebello black sticky resultsTitle">
          
-            <div className=" montebello white sticky resultsTitle">
-              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/>&nbsp;Results!&nbsp; 
-              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/>
+            <div className="primaryFont bold white sticky resultsTitle">
+              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/><span className = "montebello">&nbsp;Results!&nbsp; 
+              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/></span>
             </div>
           </h2>
         
        
-        <div className>
+           <div>
           <div className="iconButtonContainer"> 
              <ExcelButton
-             sheet= {!selectedTrip[0]? TRIPS[0] : selectedTrip}
-             table="results-filtered"  
-             filename="TripResults.xls"    />
+            />
              </div>
              <div className="iconButtonContainer">
                        
@@ -513,5 +512,3 @@ class TripResults extends Component {
 }
 
 export default withRouter (TripResults);
-
-

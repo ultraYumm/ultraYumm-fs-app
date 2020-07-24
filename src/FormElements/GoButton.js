@@ -18,8 +18,8 @@ class GoButton extends Component {
           <button 
             className= "white montebello blackBackground go"
             type = "submit">
-            Go!
-          </button>
+            Go!&nbsp;<span className = "primaryFont username bold">{this.props.username}</span>
+            </button>
       </div>
     )
  }  
