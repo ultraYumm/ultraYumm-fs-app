@@ -96,12 +96,13 @@ class EditTripForm extends Component {
         const API = config.API_UY_ENDPOINT   
         const endpoint = config.endpointT
 
-        const url = API + endpoint;
+        const url = API + endpoint +`${this.state.selectedTrip[0].id}`;
+        console.log(url)
         const API_TOKEN = config.API_UY_KEY
 
         fetch(url, {
           
-            method: 'POST',
+            method: this.props.method,
             body: JSON.stringify(inputValues),
             headers: {
               'content-type': 'application/json',
@@ -118,16 +119,15 @@ class EditTripForm extends Component {
             throw error
             })
         }
-      
-       
-        return res.json()
-        
-        })
+
         
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
 
         this.props.getTrips(e)
-    
+      
+        
+        })
+
         this.props.routerProps.history.push("/my-trips")
 
       

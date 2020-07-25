@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
+import Policies from "./NavHome/Policies";
 import SignInBox from "./NavHome/SignInBox";
 import AuthStateApp from "./NavHome/AuthStateApp";
 import HomePage from "./NavHome/HomePage";
@@ -326,6 +327,8 @@ class App extends Component {
 
   getUser = (userid, username) => {
     const trips = this.state.trips
+    const users = this.state.users
+
     
         this.setState({
           userid: userid,
@@ -350,7 +353,12 @@ class App extends Component {
 
     
 
+  
+    if (users.filter(user => user.id === userid)) {
+      console.log("welcome back existing user")
+    }  
 
+    else 
     fetch(url, {
           
       method: 'POST',
@@ -469,7 +477,8 @@ class App extends Component {
           path= "/add-trip"
           render={(routerProps) => (
             <AddTripForm
-             text = "plan a trip"
+              method= "POST"
+              text = "plan a trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
@@ -494,6 +503,7 @@ class App extends Component {
           path= "/edit-trip/:tripName"
           render={(routerProps) => (
             <EditTripForm
+            method= "PATCH"
             text = "edit your trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
@@ -509,27 +519,6 @@ class App extends Component {
             />
           )}
         />
-
-        <Route
-          exact
-          path= "/copy-trip/:tripName"
-          render={(routerProps) => (
-            <EditTripForm
-            text = "copy your trip"
-              routerProps={routerProps}
-              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
-                this.addTrip(iframe, tripName, tripTravelers, tripDates)
-              }
-
-              getUser = {(id, username) => this.getUser(id, username)}
-              getTrips = {e => this.handleGetTrips(e)}
-              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip} 
-              
-              username = {username}
-            />
-          )}
-        />
-
 
        <Route
           path="/my-trips"
@@ -798,6 +787,11 @@ class App extends Component {
               )
             }}
           />
+          <Route
+          path="/policies"
+          render={() => {
+            return (
+              <Policies/>)}}/>
      
      <Footer/>
       </div>

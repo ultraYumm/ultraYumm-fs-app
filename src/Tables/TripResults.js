@@ -260,12 +260,15 @@ class TripResults extends Component {
        
            <div>
           <div className="iconButtonContainer"> 
+             <div className = "excel">
              <ExcelButton
             />
+            </div>
              </div>
              <div className="iconButtonContainer">
-                       
+             <div className = "print">          
              <PrintButton/>
+             </div>
              </div>
              </div>
              <div>

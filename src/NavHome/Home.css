@@ -124,6 +124,7 @@ footer {
     display: block;
     z-index: 100;
     bottom: 0px;
+    height: 600px;
   
 }
 
@@ -137,17 +138,20 @@ height: 20px;
 display: flex;
 justify-content: space-evenly;
 padding: 0;
+width: 100%;
+}
+
+.email {
+ margin-top: 12px;
 }
 
 .social_icon {
-float: left;
+
+padding: 10px;
+
 
 }
 
-.contact_icon {
-padding-left: 10px;
-
-}
   
 .attribution {
 width: 20%;
@@ -191,6 +195,8 @@ padding-right: 5px;
     width: 10%;
   }
 
+
+
   
 }
 
@@ -221,6 +227,13 @@ div.descriptionText {
 
 
 }
+
+footer {
+   
+    min-height: 800px;
+  
+}
+
 }
 
 
@@ -277,7 +290,7 @@ div.descriptionText {
 }
 
 
-.myTrips, {
+.myTrips {
 
     margin-right: 95px
 }
@@ -296,7 +309,17 @@ div.descriptionText {
 }
 
 
-    
+
+.goTo {
+    font-size: 20px;
+}
+
+footer {
+   
+    min-height: 1000px;
+  
+}
+
 }
 
 
@@ -350,7 +373,16 @@ div.descriptionText {
     
 }
 
-    
+
+
+.goTo {
+    font-size: 25px;
 }
-    
+
+
+footer {
+   
+    min-height: 3000px
+}
+}
   

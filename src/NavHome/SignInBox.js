@@ -70,27 +70,26 @@ class SignInBox extends Component {
     <br></br>
     <NavLink
           to={`/add-trip`}
-          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>&nbsp;
-            plan a trip
+          className = "noDeco bold goTo"><i className="fas fa-seedling"></i>
+            <span className="goTo">plan a trip</span>
             </NavLink> 
     <br></br><NavLink
           to={`/search-bar`}
-          className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>&nbsp;
-          quick search
+          className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>
+           <span className="goTo">quick search</span>
             </NavLink>
             <br></br>
            
       <NavLink
           to={`/my-trips`}
-          className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>&nbsp;
-            my trips
+          className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>my trips
             </NavLink> 
             <br></br>
             <NavLink
           to={`/add-custom`}
           className = "noDeco montebello goTo"
-         ><i className="fas fa-stroopwafel"></i>&nbsp;
-         make your own item
+         ><i className="fas fa-stroopwafel"></i>
+          <span className="goTo">make your own item</span>
             </NavLink> 
    </div>
    

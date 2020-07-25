@@ -46,7 +46,7 @@
 
 .tripLi {
     /*padding: 20px;*/
-    height: 100px;
+    height: 120px;
     font-weight: bolder;
     opacity: 1;
     transition-timing-function: ease-in-out;
@@ -65,8 +65,8 @@
 .tripImage {
     /*display: inline-block;*/
     width: 40%; 
-    height: 50px;
-    border-radius: 50px;
+    height: 60px;
+    border-radius: 10px;
     opacity: 1;
     text-align: center
 }
@@ -100,11 +100,11 @@
 
  .navActions {
     float: right;
-    width: 150px;
-     margin-top: -100px;
+    width: 100px;
+    margin-top: -120px;
     padding-top: 1px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     border-radius: 5px;
 
  
@@ -131,20 +131,16 @@ float: left
       
    }
 
- .navCopy, .navEdit  {
+li.navEdit  {
     display: inline-block;
-    text-align: center;
     width: 25%;
     position: relative;
     vertical-align: middle;
-    margin-top: -50px;
+    margin-top: -40px;
+    margin-right: 10px;
+    font-size: 11px;
 
  }
-
- div.delete {
-    margin-left: 10px;
-
-}
 
 
 
@@ -170,8 +166,6 @@ float: left
 
 .tripImage:hover {
     width: 55%;
-    height: 200px;
-    transition: 0.9s;
    
 }   
    
@@ -184,13 +178,38 @@ float: left
 }
 
 
-
-.navDelete {
-    margin-top: -170px;
-    width: 60px;
+.navActions {
   
+    width: 150px;
+    margin-top: -180px;
+    padding-top: 1px;
     
+ 
  }
+
+
+ .navDelete {
+    width: 50%;
+    
+      
+   }
+
+
+div.delete {
+    font-size: 14px;
+    
+}
+
+
+   }
+
+li.navEdit  {
+ 
+    width: 25%;
+    margin-top: -90px;
+    margin-right: 20px;
+    font-size: 16px;
+
 
 }
 
@@ -199,26 +218,28 @@ float: left
 
         
 
+    
+
 .tripLi, .trip {
     width: 50%;
-     display: inline-block; 
-    text-align: center;
+    display: inline-block; 
+    text-align: left;
+    padding: 0px;
+    padding-left: 20px;
    
 
 }
 
 
 .tripImage {
-    width: 50%;
-    height: 300px;
-    
-    
+    border-radius: 30px;
+   
 }
 
 
+
 .tripImage:hover {
-    width: 35%;
-    height: 400px;
+    width: 65%; 
    
 }
 
@@ -229,10 +250,32 @@ float: left
 
 
 
+
+.navActions {
+  
+    width: 150px;
+    margin-top: -200px;
+    padding-top: 1px;
+    margin-right: 100px
+    
+ 
+ }
+
+ 
+
+
+
 }
 
 
 @media only screen and (min-width: 2500px) {
+
+
+.tripLi {
+    padding: 20px
+   
+    
+}
 
 .trip {
     width: 50%;
@@ -260,6 +303,14 @@ float: left
     width: 80px;
   
     
+ }
+
+
+.navActions {
+  
+   margin-right: 150px
+    
+ 
  }
 
         

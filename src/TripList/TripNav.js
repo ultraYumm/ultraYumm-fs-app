@@ -73,6 +73,11 @@ class TripNav extends Component {
       
 
         <div className="iconButtonContainer">
+        <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo black plan"><i className="fas fa-seedling"></i>
+            plan a trip
+            </NavLink> 
       
 
              <DeleteButton
@@ -86,11 +91,7 @@ class TripNav extends Component {
            endpoint = {config.endpointT}
              />
 
-          <NavLink
-          to={`/add-trip`}
-          className = "noDeco bold goTo black"><i className="fas fa-seedling"></i>
-            plan a trip
-            </NavLink> 
+        
 
           </div>
 
@@ -132,14 +133,7 @@ class TripNav extends Component {
               <li className = "navEdit lightBlue noDeco">
             edit
               </li>
-              </NavLink>
               
-              
-              <NavLink to={`/copy-trip/${trip.name}`}>
-
-              <li className = "navCopy lightBlue noDeco">
-             copy
-              </li>
               </NavLink>
 
               <li className = "navDelete black" ><span className = "navDelete deleteIcon">

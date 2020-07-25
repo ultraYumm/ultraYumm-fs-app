@@ -248,6 +248,11 @@ button:hover {
 }
 
 
+.plan {
+    float: left;
+
+}
+
 
 .filterButtonContainer {
    width: 50%;
@@ -271,6 +276,7 @@ button:hover {
 .iconButtonContainer {
     display: inline-block;
     padding: 10px;
+    vertical-align: bottom;
    
 
 }
@@ -339,6 +345,13 @@ button:hover {
 .super {
     zoom: 1.8;
     margin-left: -5px
+}
+
+.excel {
+   
+    margin-bottom: -56px;
+    margin-left: -3px;
+    margin-right: -15px;
 }
 
 
@@ -554,7 +567,7 @@ svg {
 
 .graphText {
     padding-right: 10px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .inputBox {
@@ -720,7 +733,7 @@ button {
 
 .reset, .moreButton, .filter {
     font-size: 14px;
-    width: 30%
+    width: 35%
 
 }
 text {
@@ -800,7 +813,6 @@ button {
 }
 
 
-
 .adjustImage {
 
     margin-right: 40px;
@@ -819,7 +831,7 @@ button {
 
 .reset, .moreButton, .filter {
     font-size: 20px;
-    width: 30%
+    width: 40%
 
 }
 
@@ -886,6 +898,17 @@ input[type="date"] {
     width: 150px
 }
 
+
+.excel {
+   
+    margin-bottom: -83px;
+    margin-left: -3px;
+    margin-right: -5px;
+}
+
+.print {
+    padding-bottom: 18px;
+}
 
 
 .resultsContainer {
@@ -1220,6 +1243,14 @@ button {
 
 .resultBox {
     width: 20%;
+   
+}
+
+
+
+.excel {
+   
+    margin-bottom: -73px;
    
 }
 

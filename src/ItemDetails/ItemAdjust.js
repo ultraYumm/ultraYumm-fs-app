@@ -325,7 +325,7 @@ class ItemAdjust extends Component {
 
     return (
       <section className="filterForm">
-           
+       
          
           <div className = "adjustImage" >
           <ItemImage 
@@ -334,12 +334,11 @@ class ItemAdjust extends Component {
           </div>
 
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text}<GoButton />
-          <NavLink
-          to={`/add-trip`}
-          className = "noDeco bold goTo white"><i className="fas fa-seedling"></i>&nbsp;
-            plan a new trip
-            </NavLink> 
+       
+           
+          <h2 className="montebello white">{text} <GoButton 
+           username = {this.props.username}/>
+          
                      
           </h2>
 
@@ -479,8 +478,15 @@ class ItemAdjust extends Component {
           <div className="filterContainer">
         
           <div className= "filterSelection"> 
+          <div className = "plan">
+        <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo blue"><i className="fas fa-seedling"></i>
+            plan a new trip
+            </NavLink>
+            </div>
     
-              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-shoe-prints black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
              
                 <TripNames
                 stateName = {this.state.name} 

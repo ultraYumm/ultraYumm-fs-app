@@ -93,7 +93,8 @@ class SearchForm extends Component {
             id="searchTerm"
           />
 
-          <GoButton/>
+          <GoButton
+           username = {this.props.username}/>
         </form>
   
     );

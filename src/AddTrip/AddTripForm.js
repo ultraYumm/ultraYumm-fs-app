@@ -11,19 +11,22 @@ import { Auth } from 'aws-amplify';
 class AddTripForm extends Component {
 
   static defaultProps = {
-    trips: []
+    trips: [],
+    selectedTrip: TRIPS[0],
+    name: TRIPS[0].name,
   };
 
     constructor(props) {
     
         super(props);
-       
+        const selectedTrip = this.props.selectedTrip
         this.state = {
           startDate: null,
           endDate:  null,
           name: TRIPS[0].name,
           id: "",
-          username: ""
+          username: "",
+          selectedTrip: selectedTrip.length === 0? TRIPS[0] : selectedTrip
           
         }
       }
@@ -94,7 +97,7 @@ class AddTripForm extends Component {
 
         fetch(url, {
           
-            method: 'POST',
+            method: this.props.method,
             body: JSON.stringify(inputValues),
             headers: {
               'content-type': 'application/json',
@@ -207,7 +210,8 @@ class AddTripForm extends Component {
 
     return (
         <form className= "myPlans" onSubmit={dupName | backDates === true? error : onSubmitForm}>
-         <h2 className= "white"><i className="fas fa-seedling"></i>&nbsp;{this.props.text}&nbsp;<GoButton
+         <h2 className= "white"><i className="fas fa-seedling"></i>{this.props.text}&nbsp;<GoButton
+         username = {this.props.username}
          /></h2> 
    
             <div className= "labelWidthPlan"
