@@ -35,10 +35,18 @@ class SignInBox extends Component {
       username
     }) });
 
+   
+
   
   }
+  
 
   render() {
+
+    function refreshPage() {
+      window.location.reload(false);
+    }
+  
     const trips = this.props.trips
 
 
@@ -92,8 +100,9 @@ class SignInBox extends Component {
           <span className="goTo">make your own item</span>
             </NavLink> 
    </div>
-   
+    <div onClick = {refreshPage}>
     <AmplifySignOut/> 
+    </div>
    
     </div>
     <AddTripForm

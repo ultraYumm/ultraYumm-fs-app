@@ -109,7 +109,7 @@ class SearchResults extends Component {
     newBrandCommonArr.sort(
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
-
+console.log(this.props.username)
 
     
     return (
@@ -130,7 +130,7 @@ class SearchResults extends Component {
         </div>
         
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={this.props.username === "" ? `/add-custom` : `/sign-in`}
+            <NavLink to={!this.props.username ?  `/sign-in` : `/add-custom`}
            >
               <AddCustomButton 
               addButtonText = {this.props.addButtonText}

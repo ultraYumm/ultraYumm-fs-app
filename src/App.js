@@ -597,14 +597,14 @@ class App extends Component {
               currentT = ""
               newT= ""
               s = ""
-              selectedItem= {!this.state.selectedItem? ITEMS[0] : this.state.selectedItem}
+              selectedItem= {ITEMS[0]}
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
               items= {!items? ITEMS : items}
               tripItems={selectedTrip === TRIPS[0]? ITEMS : tripItems}
               itemTypes={ITEMTYPES}
               tripName={selectedTrip === TRIPS[0]? TRIPS[0].name : this.state.tripName}
-              packItems = {selectedTrip === TRIPS[0]?PACKITEMS: this.state.packItems}
+              packItems = {selectedTrip === TRIPS[0]? PACKITEMS: this.state.packItems}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -660,7 +660,7 @@ class App extends Component {
                 this.handleGetTrips(e)
               }
 
-              addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+              addButtonText = {!username ? "Sign in to make your own item" : "Make your own item"}
 
               username = {username}
               

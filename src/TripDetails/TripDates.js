@@ -7,30 +7,21 @@ import Moment from 'react-moment';
 
 class TripDates extends Component {
 
-
-  constructor(props) {
-    super(props);
-    this.state = {
-    	checked: false
-	}
+  static defaultProps = {
+    tripDates:  ["no dates set"],
   }
   
         
   render() {
   
     
-    const defaultDay = this.props.defaultDay
-    
     const tripDates = this.props.tripDates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
-  
-    const id = this.props.id
-    function onlyOne(checkbox) {
-    const checkboxes =  document.getElementsByName('check')
-      checkboxes.forEach((item) => {
-          if (item !== checkbox) item.checked = false
-        
-      })
-  }
+
+    console.log(tripDates)
+    
+    const stateDate = this.props.stateDate
+
+    const defaultDay = this.props.defaultDay
   
   
   
@@ -38,30 +29,24 @@ class TripDates extends Component {
       
         <ul className= "scroll"> 
         {tripDates.map((date, key)=> (
-            <li key= {date}>
-            <label className="labelContainer">
+            <li key= {key}>
+            <label className="labelContainer"><span
+            className={ stateDate === date ?  ' red bold'  : ' black'}
+            >
               {date === defaultDay | tripDates[0] === "" ? 
             "no dates set"
-              :<Moment format= "MMM/DD">{date}</Moment>}
+              :<Moment format= "MMM/DD">{date}</Moment>}</span>
                 <input type="checkbox"
-                name= "check"
-                defaultValue = {date}
-               
+                name= "radio"
+                defaultValue = {tripDates[0]}        
                 onClick={() => {
                
                               const selectedDay = date
-                              onlyOne(this)
-                              this.props.handleSelectDay(selectedDay, id)
-                              this.setState ({
-                                checked: true,
-                                date: selectedDay
-                              })
+                              this.props.handleSelectDay(selectedDay)
                             
                             }}
                 />
-                <span 
-                date = {date} 
-                className= {"checkmark " + (this.state.selectedDay === date? "checked" : "notChecked")}></span>
+                     <span className="checkmark"></span>
             </label>
             </li>))}
   

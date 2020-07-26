@@ -63,9 +63,8 @@ class ItemAdjust extends Component {
       selectedTrip: selectedTrip,
 
       name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
-      
-      selectedTripId: !selectedTrip[0]? PACKITEMS[0].id: selectedTrip[0].id,
-            
+    
+
       id:  selectedItem.id,
       serving_qty: selectedItem.serving_qty,
       serving_unit: selectedItem.serving_unit,
@@ -85,7 +84,7 @@ class ItemAdjust extends Component {
       traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
 
 
-      trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
+      trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates[0].toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
       
       type: !selectedTrip[0] | selectedItem.type === undefined ? PACKITEMS[0].type : selectedItem.type,
 
@@ -321,10 +320,12 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
+    const getTrips = this.props.getTrips
   
 
     return (
-      <section className="filterForm">
+      <section className="filterForm"
+      onMouseOver = {getTrips}>
        
          
           <div className = "adjustImage" >

@@ -286,7 +286,7 @@ class TripResults extends Component {
 
           <div className="filterButtonContainer moreContainer sticky">
             
-            <NavLink to={`/add-custom/${!selectedTrip[0]? ITEMS[0].food_name :  selectedTrip[0].food_name}`}>
+            <NavLink to={`/add-custom/${!selectedTrip[0]? TRIPS[0].name :  selectedTrip[0].name}`}>
               <AddCustomButton 
                addButtonText = {this.props.addButtonText}
               
@@ -320,7 +320,7 @@ class TripResults extends Component {
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
-                  {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
+                  {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
                   </td>
 
                   <td className="type">
@@ -426,7 +426,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                     {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
+                     {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
             </td>
 
             </tr>

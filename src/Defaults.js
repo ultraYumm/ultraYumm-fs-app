@@ -39,7 +39,7 @@ export const DEFAULTITEM = [
   export const PACKITEMS= [
     { "tripid": 1000000,
       "trip_day": "1000-01-01T01:01:01.111Z",
-      "trav_name": "me",
+      "trav_name": "TBD",
       "type": "TBD",
       "serving_qty": 1
   },
