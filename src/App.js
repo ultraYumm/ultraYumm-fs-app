@@ -421,15 +421,11 @@ class App extends Component {
       
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
-<<<<<<< HEAD
-        />
-=======
         myTripText = {username === "" ? "" : `${username}'s trips`}
         myAccountText = {username === "" ? "get started" : "my account"}
         
         />
         
->>>>>>> feature
 
         <Route
           exact
