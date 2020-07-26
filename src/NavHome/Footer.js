@@ -21,10 +21,12 @@ class Footer extends Component {
             <li className= "social_icon email"> <a href="mailto:mailto:ultrayummprod@gmail.com?subject=Likes, dislikes, questions, a limerick...anything!" className = "noDeco" alt="subject"> <i className="fas fa-at social contact_icon black" alt= "Email" title="Email your feedback"></i></a>
             </li> 
 
-            <li className= "social_icon">
+            <li className= "social_icon email">
             <NavLink
-          to={`/policies`}>
-          <i className ="fas fa-user-secret black"></i>
+          to={`/policies`}
+          className = "noDeco">
+            
+         <i className="fas fa-info-circle black social contact_icon"></i>
             </NavLink> 
             </li>
     

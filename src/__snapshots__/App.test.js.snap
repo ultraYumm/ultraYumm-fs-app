@@ -31,13 +31,13 @@ exports[`App Component renders the UI as expected 1`] = `
       <a
         aria-current={null}
         className="noDeco"
-        href="/my-trips"
+        href="/sign-in"
         onClick={[Function]}
       >
         <span
           className="myTrips white"
         >
-          My trips
+          get started
         </span>
       </a>
     </div>
@@ -88,212 +88,47 @@ exports[`App Component renders the UI as expected 1`] = `
         </div>
       </div>
     </div>
-    <div>
-      <form
-        onSubmit={[Function]}
-      >
-        <h2
-          className="white"
-        >
-          <i
-            className="fas fa-skiing"
-          />
-           Quick search!
-        </h2>
-        <label
-          className="white montebello searchTerm"
-          htmlFor="searchTerm"
-        >
-          <i
-            className="fas fa-cookie-bite"
-          />
-           By name or brand
-        </label>
-        <input
-          className="skinBackground purple"
-          id="searchTerm"
-          name="searchTerm"
-          placeholder="Granola"
-          required={true}
-          type="text"
-        />
-        <div
-          className="goContainer go"
-        >
-          <button
-            className="white montebello blackBackground go"
-            type="submit"
-          >
-            Go!
-          </button>
-        </div>
-      </form>
-    </div>
     <form
+      className="myPlans"
       onSubmit={[Function]}
     >
       <h2
         className="white"
       >
         <i
-          className="fas fa-shoe-prints"
+          className="fas fa-skiing"
         />
-         Plan a trip! 
-        <div
-          className="goContainer go"
-        >
-          <button
-            className="white montebello blackBackground go"
-            type="submit"
-          >
-            Go!
-          </button>
-        </div>
+        quick search!
       </h2>
-      <div
-        className="labelWidthPlan"
+      <label
+        className="white montebello searchTerm"
+        htmlFor="searchTerm"
       >
-        <label
-          htmlFor="new-trip-name"
-        >
-          <i
-            className="fas fa-feather white"
-          />
-          <span
-            className="labelWidthPlan white montebello"
-          >
-            New trip name
-          </span>
-          <input
-            className="skinBackground black search"
-            id="new-trip-name"
-            name="tripName"
-            onChange={[Function]}
-            placeholder="my awesome trip"
-            required={true}
-            type="text"
-          />
-          <span
-            className="error cloudBlue"
-          >
-             this nice trip name already exists, please pick a different name
-          </span>
-        </label>
-      </div>
+        <i
+          className="fas fa-cookie-bite"
+        />
+         By name or brand
+      </label>
+      <input
+        className="skinBackground purple"
+        id="searchTerm"
+        name="searchTerm"
+        placeholder="Granola"
+        required={true}
+        type="text"
+      />
       <div
-        className="labelWidthPlan"
+        className="goContainer go"
       >
-        <label
-          htmlFor="traveler-name"
+        <button
+          className="white montebello blackBackground go"
+          type="submit"
         >
-          <i
-            className="fas fa-user-friends white"
-          />
+          Go! 
           <span
-            className="labelWidthPlan white montebello"
-          >
-            Traveler names
-          </span>
-          <input
-            className="skinBackground purple names"
-            defaultValue={
-              Array [
-                "Lewis",
-                " Clark",
-                " Alexandra",
-                "TBD",
-              ]
-            }
-            id="traveler-name"
-            name="tripTravelers"
-            onChange={[Function]}
-            type="text"
+            className="primaryFont username bold"
           />
-          <span
-            className="error cloudBlue"
-          >
-            
-          </span>
-        </label>
-      </div>
-      <div
-        className="labelWidthPlan"
-      >
-        <label
-          htmlFor="map-link"
-        >
-          <i
-            className="fas fa-drafting-compass white"
-          />
-          <span
-            className="labelWidthPlan white"
-          >
-            <a
-              className="white montebello"
-              href="https://www.google.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Website
-            </a>
-          </span>
-          <input
-            className="skinBackground purple names"
-            defaultValue="https://earth.google.com"
-            id="map-link"
-            name="tripURL"
-            type="url"
-          />
-        </label>
-      </div>
-      <br />
-      <div
-        className="dates"
-      >
-        <div
-          className="labelWidthDates"
-        >
-          <label
-            htmlFor="start-date"
-          >
-            <span
-              className="white montebello labelWidthPlan"
-            >
-              Start date
-            </span>
-            <input
-              id="start-date"
-              name="startDate"
-              onChange={[Function]}
-              type="date"
-            />
-             
-          </label>
-           
-          <br />
-        </div>
-        <div
-          className="labelWidthDates"
-        >
-          <label
-            htmlFor="end-date"
-          >
-            <span
-              className="white montebello labelWidthPlan"
-            >
-              End date
-            </span>
-            <input
-              id="end-date"
-              name="endDate"
-              onChange={[Function]}
-              type="date"
-            />
-            <span
-              className="error cloudBlue"
-            />
-          </label>
-        </div>
+        </button>
       </div>
     </form>
   </div>
@@ -302,7 +137,7 @@ exports[`App Component renders the UI as expected 1`] = `
       className="social"
     >
       <li
-        className="social social_icon"
+        className="social_icon email"
       >
          
         <a
@@ -318,7 +153,23 @@ exports[`App Component renders the UI as expected 1`] = `
           />
         </a>
       </li>
-      <li>
+      <li
+        className="social_icon email"
+      >
+        <a
+          aria-current={null}
+          className="noDeco"
+          href="/policies"
+          onClick={[Function]}
+        >
+          <i
+            className="fas fa-info-circle black social contact_icon"
+          />
+        </a>
+      </li>
+      <li
+        className="social_icon"
+      >
          
         <a
           href="https://www.nutritionix.com"

@@ -109,7 +109,7 @@ class SearchResults extends Component {
     newBrandCommonArr.sort(
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
-console.log(this.props.username)
+
 
     
     return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Font/Font.css';
 import '../Tables/Tables.css';
+import '../NavHome/Home.css';
 import '../FormElements/FormElements.css';
 import './TripNav.css';
 import { NavLink} from 'react-router-dom'

@@ -17,7 +17,7 @@ class TripDates extends Component {
     
     const tripDates = this.props.tripDates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
 
-    console.log(tripDates)
+    
     
     const stateDate = this.props.stateDate
 

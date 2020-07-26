@@ -97,7 +97,7 @@ class EditTripForm extends Component {
         const endpoint = config.endpointT
 
         const url = API + endpoint +`${this.state.selectedTrip[0].id}`;
-        console.log(url)
+ 
         const API_TOKEN = config.API_UY_KEY
 
         fetch(url, {
@@ -190,12 +190,9 @@ class EditTripForm extends Component {
     const tripName = this.state.name
 
   const selectedTrip = this.state.selectedTrip
-  console.log("selectedTrip", selectedTrip)
-  console.log("selectedTripdatelenght", selectedTrip[0].trip_dates.length)
-
+ 
   const datesArray = selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
 
-  console.log(datesArray[0])
 
   const currentStartDate = <Moment format= "MM/DD/YY">{datesArray[0]}</Moment>
   const currentEndDate = <Moment format= "MM/DD/YY">{datesArray.pop()}</Moment>

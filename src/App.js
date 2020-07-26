@@ -53,8 +53,6 @@ class App extends Component {
     };
   }
 
-  
-
   handleGetTrips(e) {
     e.preventDefault();
     const API = config.API_UY_ENDPOINT   
@@ -167,7 +165,7 @@ class App extends Component {
 
       Promise.all(fetches)
       .then(data => {
-        console.log(data)
+      
           this.setState({
           items: data[0],
           users: data[1],
@@ -395,16 +393,15 @@ class App extends Component {
 
     
     const userid = this.state.userid
-    console.log(userid)
+    
     const username = this.state.username
-    console.log(username)
+    
     const trips = this.state.trips
-    console.log("trips", trips)
-   
+
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
-    console.log("selectedTrip", selectedTrip.length)
+   
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId

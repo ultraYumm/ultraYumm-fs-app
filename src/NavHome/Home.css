@@ -1,4 +1,6 @@
 
+
+
 .navContainer {
     width: 100%;
     text-align: center;
@@ -81,7 +83,6 @@
     text-align: center;
 }   
 
-
 .descriptionText {
     text-align: center;
     width: 90%;
@@ -124,7 +125,6 @@ footer {
     display: block;
     z-index: 100;
     bottom: 0px;
-    height: 600px;
   
 }
 
@@ -139,11 +139,9 @@ display: flex;
 justify-content: space-evenly;
 padding: 0;
 width: 100%;
+text-align: center
 }
 
-.email {
- margin-top: 12px;
-}
 
 .social_icon {
 
@@ -157,6 +155,17 @@ padding: 10px;
 width: 20%;
 float: right;
 padding-right: 5px;
+}
+
+.policies .tripSection {
+height: 650px;
+}
+
+
+
+.coreValues {
+    width: 100%;
+    border-radius: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -196,8 +205,16 @@ padding-right: 5px;
   }
 
 
+.policies, .tripSection  {
+    height: 700px;
+}
 
   
+.coreValues {
+    width: 65%;
+}
+
+    
 }
 
 @media only screen and (min-width: 1000px) {
@@ -227,12 +244,12 @@ div.descriptionText {
 
 
 }
-
-footer {
-   
-    min-height: 800px;
   
+  
+.coreValues {
+    width: 50%;
 }
+
 
 }
 
@@ -314,10 +331,9 @@ div.descriptionText {
     font-size: 20px;
 }
 
-footer {
-   
-    min-height: 1000px;
   
+.coreValues {
+    width: 30%;
 }
 
 }
@@ -380,9 +396,15 @@ div.descriptionText {
 }
 
 
-footer {
-   
-    min-height: 3000px
+.coreValues {
+    width: 55%;
 }
+
+
+.policies, .tripSection  {
+    height: 1500px;
+}
+
+
 }
   

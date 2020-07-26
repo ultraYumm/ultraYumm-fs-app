@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Home.css';
 import '../Font/Font.css';
 import "../FormElements/FormElements.css";
+import CoreValuesImg from "../Images/CoreValues.png";
+
 
 
 class Privacy extends Component {
@@ -10,9 +12,10 @@ class Privacy extends Component {
   render() {
 
     return (
-      <div className= "home">
+      <div className= "home policies">
       <h1 className= "black montebello title">Policies</h1>
       <ul className= "primaryFont black greetings">
+      <img  src={CoreValuesImg} alt="ultraYumm core values" className= "coreValues"/>
         <li>
           <a href="https://app.termly.io/document/privacy-policy/f83a3a02-644a-4fa0-bd68-0067d7053a4c" alt= "privacy" className= "noDeco goTo" target= "_blank" rel="noopener noreferrer">Privacy</a></li>
 
@@ -32,7 +35,6 @@ class Privacy extends Component {
     )
   }
 }
+
+
 export default Privacy;
-
-
- 
