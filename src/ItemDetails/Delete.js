@@ -23,16 +23,13 @@ class Delete extends Component {
     return (
         <td className="delete">
         {" "}
-        <label className= "tooltiptext delete">click and confirm       
-         <input
-          type= "radio"
-          onClick={() => {
+        <div className= "delete lightBlue"
+        onClick={() => {
           this.props.idToDelete(id, name)
          
-        }}
-      
-        />
-         </label>
+        }}>click and confirm       
+       
+         </div>
         </td>
       
       

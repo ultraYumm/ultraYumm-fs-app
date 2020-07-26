@@ -1,30 +1,37 @@
-//import Amplify, { Auth } from 'aws-amplify';
-//import awsconfig from './aws-exports';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports'
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import "./Font/Font.css";
 import NavBar from "./NavHome/NavBar";
+import Policies from "./NavHome/Policies";
+import SignInBox from "./NavHome/SignInBox";
+import AuthStateApp from "./NavHome/AuthStateApp";
 import HomePage from "./NavHome/HomePage";
 import Footer from "./NavHome/Footer";
 import TripNav from "./TripList/TripNav";
 import TripFilterForm from "./TripFilter/TripFilterForm";
 import SearchForm from "./Search/SearchForm";
 import AddTripForm from "./AddTrip/AddTripForm";
+import EditTripForm from "./AddTrip/EditTripForm";
 import TripResults from "./Tables/TripResults";
 import { PACKITEMS, ITEMS, TRIPS, ITEMTYPES } from "./Defaults";
 import config from "./config";
 import "./FormElements/FormElements.css";
 import ItemAdjust from "./ItemDetails/ItemAdjust";
 import SearchResults from "./Tables/SearchResults";
-//Amplify.configure(awsconfig);
+
+Amplify.configure(awsconfig);
 
 class App extends Component {
+  
   
   static defaultProps = {
     items: ITEMS,
     trips: TRIPS,
-    packItems: PACKITEMS
+    packItems: PACKITEMS,
+    selectedTrip: TRIPS[0]
   };
   
   constructor(props) {
@@ -39,10 +46,12 @@ class App extends Component {
       items: ITEMS,
       trips: TRIPS,
       packItems: PACKITEMS,
+      users: [],
+      userid: 1,
+      username: "",
+     
     };
   }
-
-  
 
   handleGetTrips(e) {
     e.preventDefault();
@@ -51,6 +60,8 @@ class App extends Component {
    
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
+
+    const userid = this.state.userid
 
    
     fetch(url, {
@@ -67,7 +78,7 @@ class App extends Component {
       })
       .then(data => {
         this.setState({
-          trips: data,
+          trips: data.filter(trip => (trip.userid === userid)),
           error: null
         });
       
@@ -121,11 +132,15 @@ class App extends Component {
     const  endpointI = config.endpointI
     const  endpointT = config.endpointT
     const  endpointP = config.endpointP
+    const  endpointU = config.endpointU
    
     const API_TOKEN = config.API_UY_KEY
 
+    const userid = this.state.userid
+
     const urls = [
       API + endpointI,
+      API + endpointU,
       API + endpointT,
       API + endpointP,
     ]
@@ -150,10 +165,12 @@ class App extends Component {
 
       Promise.all(fetches)
       .then(data => {
+      
           this.setState({
           items: data[0],
-          trips: data[1],
-          packItems: data[2]
+          users: data[1],
+          trips: data[2].filter(trip => (trip.userid === userid)),
+          packItems: data[3]
         });
       })
       
@@ -163,6 +180,7 @@ class App extends Component {
         });
       })
     }
+
 
 
   handleGetPackItems(e) {
@@ -294,15 +312,96 @@ class App extends Component {
         })
 
     }
+
+  deleteTrip = idToDelete => {
+      const newTrips = this.state.trips.filter(trip =>
+          trip.id !== idToDelete
+          )
+          this.setState({
+           trips: newTrips
+          })
+  
+      }
+
+  getUser = (userid, username) => {
+    const trips = this.state.trips
+    const users = this.state.users
+
+    
+        this.setState({
+          userid: userid,
+          username: username,
+          trips: trips.filter(trip =>
+            trip.userid === userid
+            ),
+        })
+      
+
+        const inputValues = {
+      id: this.state.userid,
+      username: this.state.username
+    }
+
+
+    const API = config.API_UY_ENDPOINT   
+    const endpoint = config.endpointU
+
+    const url = API + endpoint;
+    const API_TOKEN = config.API_UY_KEY
+
+    
+
+  
+    if (users.filter(user => user.id === userid)) {
+      console.log("welcome back existing user")
+    }  
+
+    else 
+    fetch(url, {
+          
+      method: 'POST',
+      body: JSON.stringify(inputValues),
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${API_TOKEN}`
+      }
+    }
+    )
+
+  .then(res => {
+  if (!res.ok) {
+      // get the error message from the response
+      return res.json().then(error => {
+      // then throw it
+      throw error
+      })
+  }
+
+ 
+  return res.json()
+  
+  })
+  
+
+    }
+  
+
+    
     
 
   render() {
 
-   
+    
+    const userid = this.state.userid
+    
+    const username = this.state.username
+    
     const trips = this.state.trips
+
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
+   
     const packItems = this.state.packItems 
     const selectedTripItems = packItems.filter(
       (items) => items.tripid === selectedTripId
@@ -322,7 +421,15 @@ class App extends Component {
       
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
+<<<<<<< HEAD
         />
+=======
+        myTripText = {username === "" ? "" : `${username}'s trips`}
+        myAccountText = {username === "" ? "get started" : "my account"}
+        
+        />
+        
+>>>>>>> feature
 
         <Route
           exact
@@ -334,23 +441,18 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
-                this.addTrip(iframe, tripName, tripTravelers, tripDates)
-              }
-
-              trips = {trips}
-
+              
               getItems = {(e) =>
                 this.handleGetItems(e)}
  
               getPackItems = {(e) =>
               this.handleGetPackItems(e)}
+              
+              userid = {userid}
+              
+              getUser = {(id, username) => this.getUser(id, username)}
 
-              getTrips = {(e) =>
-                this.handleGetTrips(e)}
-
- 
-         
+              username = {username}
             />
           )}
         />
@@ -365,7 +467,8 @@ class App extends Component {
               handleResults={(searchResults) =>
                 this.updateSearchResults(searchResults)
               }
-        
+              getUser = {(id, username) => this.getUser(id, username)} 
+              username = {username}            
              
             />
           )}
@@ -376,15 +479,50 @@ class App extends Component {
           path= "/add-trip"
           render={(routerProps) => (
             <AddTripForm
+              method= "POST"
+              text = "plan a trip"
               routerProps={routerProps}
               handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
                 this.addTrip(iframe, tripName, tripTravelers, tripDates)
               }
+
+              trips = {trips}
+
+              getUser = {(id, username) => this.getUser(id, username)}
+              getTrips = {e => this.handleGetTrips(e)}
+
+              username = {username}
+              
+              
+            
             />
           )}
         />
 
+
         <Route
+          exact
+          path= "/edit-trip/:tripName"
+          render={(routerProps) => (
+            <EditTripForm
+            method= "PATCH"
+            text = "edit your trip"
+              routerProps={routerProps}
+              handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+                this.addTrip(iframe, tripName, tripTravelers, tripDates)
+              }
+
+              getUser = {(id, username) => this.getUser(id, username)}
+              getTrips = {e => this.handleGetTrips(e)}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip} 
+              
+              username = {username}
+            
+            />
+          )}
+        />
+
+       <Route
           path="/my-trips"
           render={() => (
             <TripNav
@@ -393,42 +531,82 @@ class App extends Component {
                 this.selectTrip(selectedTripId, tripName)
               }
               getTrips = {e => this.handleGetTrips(e)}
+              getPackItems = {e => this.handleGetPackItems(e)}
+              handleDeleteTrip = {(idToDelete) => this.deleteTrip(idToDelete)}
+
+              getUser = {(id, username) => this.getUser(id, username)}
+              myTripText = {username === "" ? "" : `${username}'s trips`}
+
+              username = {username}
+
             />
           )}
         />
+        
+
+          <Route
+          path="/sign-in"
+          render={(routerProps) => (
+            <SignInBox
+            routerProps={routerProps}
+            getUser = {(id, username) => this.getUser(id, username)} 
+            trips = {trips}
+            
+            handleAddTrip={(iframe, tripName, tripTravelers, tripDates) =>
+              this.addTrip(iframe, tripName, tripTravelers, tripDates)
+            }
+            
+            addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+
+            getTrips = {e => this.handleGetTrips(e)} 
+            
+
+            />)}/>
+
+          <Route
+          path="/sign-in2"
+          render={(routerProps) => (
+            <AuthStateApp
+            routerProps={routerProps}
+            getUser = {(id, username) => this.getUser(id, username)}             
+
+            />)}/>
+
+
 
         <Route
           path="/trip-filter/:tripid"
           render={() => (
             <TripFilterForm
-              selectedTrip={selectedTrip}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
+              username = {username}
             />
           )}
         />
 
+        
         <Route
           path="/add-custom"
           render={(routerProps) => (
             <ItemAdjust
               routerProps={routerProps}
-              text = "Make your own item!"
+              text = "Make your own item"
               is = ""
               forT = ""
               onT = ""
               currentT = ""
               newT= ""
               s = ""
-              selectedItem= {!this.state.selectedItem? ITEMS[0] : this.state.selectedItem}
+              selectedItem= {ITEMS[0]}
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
               items= {!items? ITEMS : items}
-              selectedTrip={selectedTrip === TRIPS[0]? TRIPS[0] : selectedTrip}
               tripItems={selectedTrip === TRIPS[0]? ITEMS : tripItems}
               itemTypes={ITEMTYPES}
               tripName={selectedTrip === TRIPS[0]? TRIPS[0].name : this.state.tripName}
-              packItems = {selectedTrip === TRIPS[0]?PACKITEMS: this.state.packItems}
+              packItems = {selectedTrip === TRIPS[0]? PACKITEMS: this.state.packItems}
 
               handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
                 this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
@@ -448,6 +626,10 @@ class App extends Component {
             getTrips = {(e) =>
               this.handleGetTrips(e)
             }
+
+            getUser = {(id, username) => this.getUser(id, username)}
+            
+            username = {username}
             />
           )}
         />
@@ -458,7 +640,7 @@ class App extends Component {
             <TripResults
               trips = {trips}
               routerProps={routerProps}
-              selectedTrip={selectedTrip}
+              selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               itemTypes={ITEMTYPES}
@@ -474,6 +656,15 @@ class App extends Component {
               getItems = {(e) =>
                 this.handleGetItems(e)
               }
+
+
+              getTrips = {(e) =>
+                this.handleGetTrips(e)
+              }
+
+              addButtonText = {!username ? "Sign in to make your own item" : "Make your own item"}
+
+              username = {username}
               
             />
           )}
@@ -497,21 +688,21 @@ class App extends Component {
 
                   getTrips = {(e) =>
                     this.handleGetTrips(e)}
+                  addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+                  username = {username}
               />
             )
           }}
         />
 
       
-
-
         <Route
           path="/item/:id"
           render={(routerProps) => {
             return (
               <ItemAdjust
                 routerProps={routerProps}
-                text = "Customize your item!"
+                text = "Customize your item"
                 is = ""
                 forT = ""
                 onT = ""
@@ -522,7 +713,7 @@ class App extends Component {
                 item= {this.state.item}
                 trips={trips}
                 items={items}
-                selectedTrip={!selectedTrip? trips[0] : selectedTrip}
+                selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
                 tripItems={tripItems}
                 itemTypes={ITEMTYPES}
                 tripName={this.state.tripName}
@@ -543,6 +734,8 @@ class App extends Component {
 
                 getTrips = {(e) =>
                   this.handleGetTrips(e)}
+
+                  getUser = {(id, username) => this.getUser(id, username)}    
               />
             )
           }}
@@ -566,7 +759,7 @@ class App extends Component {
                 item= {this.state.item}
                 trips={trips}
                 items={items}
-                selectedTrip={selectedTrip}
+                selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
                 selectedTripItems={selectedTripItems}
                 tripItems={tripItems}
                 itemTypes={ITEMTYPES}
@@ -590,10 +783,17 @@ class App extends Component {
                 getTrips = {(e) =>
                     this.handleGetTrips(e)}
 
+                getUser = {(id, username) => this.getUser(id, username)}    
+
               />
               )
             }}
           />
+          <Route
+          path="/policies"
+          render={() => {
+            return (
+              <Policies/>)}}/>
      
      <Footer/>
       </div>
@@ -602,10 +802,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-<div className={"loader " + (this.state.fetchSuccess? "hide":"")}>
-<img src="https://i.redd.it/o6m7b0l6h6pz.gif"/>
-</div>
-/*<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=641858383084084&autoLogAppEvents=1" nonce="HV34mOzB"></script>*/

@@ -16,7 +16,7 @@ class NewItemBrand extends Component {
 
 
     const brand = this.props.brand
-
+    
     const buildHandleKeyUp = setter => (e) => {
      
       e.preventDefault() 
@@ -36,7 +36,7 @@ class NewItemBrand extends Component {
           type="text" 
           name="brandName" 
           className="skinBackground black search" id= "custom-brand-name"
-          defaultValue= {brand}
+          defaultValue= {brand === "false" ? "common" : brand}
           onChange = {buildHandleKeyUp((value) => {
             this.setState(
               {brand_name: value}

@@ -4,9 +4,24 @@ import config from "../config";
 import GoButton from "../FormElements/GoButton";
 import "../FormElements/FormElements.css";
 import { withRouter } from "react-router-dom";
+import { Auth } from 'aws-amplify';
+
 
 
 class SearchForm extends Component {
+
+  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+
+    let id = user.attributes.sub
+    let username = user.username
+
+    this.props.getUser(id, username)
+   
+  });
+
+    }
+
+
   render() {
     const onSubmitForm = (e) => {
       e.preventDefault();
@@ -64,9 +79,9 @@ class SearchForm extends Component {
     };
 
     return (
-      <div>
-        <form onSubmit={onSubmitForm}>
-          <h2 className="white"><i className ="fas fa-skiing"></i> Quick search!</h2>
+      
+        <form className= "myPlans" onSubmit={onSubmitForm}>
+          <h2 className="white"><i className ="fas fa-skiing"></i>quick search!</h2>
           <label htmlFor="searchTerm" className="white montebello searchTerm"><i className ="fas fa-cookie-bite"></i> By name or brand 
           </label>
           <input
@@ -78,9 +93,10 @@ class SearchForm extends Component {
             id="searchTerm"
           />
 
-          <GoButton/>
+          <GoButton
+           username = {this.props.username}/>
         </form>
-      </div>
+  
     );
   }
 }

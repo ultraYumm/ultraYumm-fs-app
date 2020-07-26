@@ -4,11 +4,15 @@ import GoButton from '../FormElements/GoButton';
 import '../FormElements/FormElements.css';
 import { withRouter } from "react-router-dom";
 import config from "../config";
-import { TRIPS, TRIP_NAME, TRAVELER_NAMES } from "../Defaults";
+import { TRIPS } from "../Defaults";
 import { Auth } from 'aws-amplify';
+import Moment from 'react-moment';
 
 
-class AddTripForm extends Component {
+
+
+
+class EditTripForm extends Component {
 
   static defaultProps = {
     trips: [],
@@ -92,7 +96,8 @@ class AddTripForm extends Component {
         const API = config.API_UY_ENDPOINT   
         const endpoint = config.endpointT
 
-        const url = API + endpoint;
+        const url = API + endpoint +`${this.state.selectedTrip[0].id}`;
+ 
         const API_TOKEN = config.API_UY_KEY
 
         fetch(url, {
@@ -114,16 +119,15 @@ class AddTripForm extends Component {
             throw error
             })
         }
-      
-       
-        return res.json()
-        
-        })
+
         
         this.props.handleAddTrip(iframe, tripName, tripTravelers, tripDates, userid)
 
         this.props.getTrips(e)
-    
+      
+        
+        })
+
         this.props.routerProps.history.push("/my-trips")
 
       
@@ -184,6 +188,16 @@ class AddTripForm extends Component {
     }
       
     const tripName = this.state.name
+
+  const selectedTrip = this.state.selectedTrip
+ 
+  const datesArray = selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')
+
+
+  const currentStartDate = <Moment format= "MM/DD/YY">{datesArray[0]}</Moment>
+  const currentEndDate = <Moment format= "MM/DD/YY">{datesArray.pop()}</Moment>
+
+
     
     
     const validateTripName = () => {
@@ -210,7 +224,7 @@ class AddTripForm extends Component {
 
     return (
         <form className= "myPlans" onSubmit={dupName | backDates === true? error : onSubmitForm}>
-         <h2 className= "white"><i className="fas fa-seedling"></i>{this.props.text}&nbsp;<GoButton
+         <h2 className= "white"><i className="fas fa-seedling"></i>&nbsp;{this.props.text}&nbsp;<GoButton
          username = {this.props.username}
          /></h2> 
    
@@ -219,7 +233,7 @@ class AddTripForm extends Component {
                 <label htmlFor= "new-trip-name"><i className ="fas fa-feather white"></i><span className= "labelWidthPlan white montebello">New trip name</span>
                     <input type="text" name="tripName" 
                     maxLength= "18"
-                    className="skinBackground black search" id= "new-trip-name"  placeholder = {TRIP_NAME} required                    onChange={e => createTripName(e.target.value)}
+                    className="skinBackground black search" id= "new-trip-name"  defaultValue = {selectedTrip.length === 0 ? TRIPS[0].name : selectedTrip[0].name} required                    onChange={e => createTripName(e.target.value)}
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
@@ -227,7 +241,7 @@ class AddTripForm extends Component {
             <div className= "labelWidthPlan">
                  <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" 
-                 defaultValue = {TRAVELER_NAMES}
+                 defaultValue = {selectedTrip.length === 0 ? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").replace(/,/g , " ").trim().split(',')}
                  id= "traveler-name"
                  onChange={e => createTravNames(e.target.value)}
                  
@@ -236,13 +250,13 @@ class AddTripForm extends Component {
             </div>
             <div className= "labelWidthPlan">
                  <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" target= "_blank" rel="noopener noreferrer" className= "white montebello">Website</a></span>
-                 <input type="url" name="tripURL" className= "skinBackground purple names"   defaultValue = {TRIPS[0].iframe} id= "map-link"/>  
+                 <input type="url" name="tripURL" className= "skinBackground purple names"   defaultValue = {selectedTrip[0].iframe} id= "map-link"/>  
                 </label>
             </div><br></br>
 
             <div className= "dates">
                 <div className= "labelWidthDates">
-                <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan ">Start date</span>
+    <label htmlFor= "start-date"><span className= "white montebello labelWidthPlan ">Start date<span></span>:&nbsp;<span>{selectedTrip[0].trip_dates.length < 3  ? "none set" : currentStartDate}</span></span> 
                 <input type="date" name="startDate" 
                 id= "start-date"
                 onChange={e => createStartDate(e.target.value)}
@@ -251,7 +265,7 @@ class AddTripForm extends Component {
 
             </div>
             <div className= "labelWidthDates">
-                <label htmlFor= "end-date"><span className= "white montebello labelWidthPlan">End date</span>
+                <label htmlFor= "end-date"><span className= "white montebello labelWidthPlan">End date<span></span>:&nbsp;<span>{selectedTrip[0].trip_dates.length < 3  ? "none set" : currentEndDate}</span></span> 
                 <input type="date" name="endDate" id= "end-date"
                 onChange={e => createEndDate(e.target.value)}
                 /><span className= "error cloudBlue">{validateDate()}</span></label>
@@ -266,4 +280,4 @@ class AddTripForm extends Component {
 
 
 
-export default withRouter(AddTripForm)
+export default withRouter(EditTripForm)

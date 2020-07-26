@@ -107,13 +107,15 @@ label {
 
 }
 
+.username {
+    font-size: 9px;
+}
+
 div.labelWidthDates {
    padding-bottom: 5px;
     
 
 }
-
-
 
 
 .customize {
@@ -165,21 +167,13 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
     color: grey;
    
   }
-  
-.tooltiptext:hover{
-    visibility: visible;
-    font-size: 9px;
-    color:white;
-    opacity: 1;
-}    
-
+ 
 
 .tooltip {
     position: relative;
 }
   
-.tooltip .tooltiptext {
-    visibility: hidden;
+.tooltiptext {
     width: 9px;
     text-align: top;
     border-radius: 6px;
@@ -189,8 +183,16 @@ input[name="unit"], input[name="quantInput"], input[type="text"], input[type="ur
     /* Position the tooltip */
     position: absolute;
     z-index: 40;
-    color: grey;
+    color: transparent;
 }
+
+ 
+.tooltiptext:hover {
+    font-size: 9px;
+    color:white;
+    opacity: 1;
+}    
+
   
 
 
@@ -210,12 +212,12 @@ input[type="number"]{
 
 
 button[type="submit"], button[type="reset"]{
-   width: 70%;
+   width: 100%;
 }
   
 button {
     font-size: 20px;
-    height: 45px;
+    height: 55px;
     border-radius: 20px;
     transition: 0.1s;
     border: 1px solid transparent;
@@ -246,6 +248,12 @@ button:hover {
 }
 
 
+.plan {
+    float: left;
+
+}
+
+
 .filterButtonContainer {
    width: 50%;
    margin-left: auto;
@@ -259,6 +267,19 @@ button:hover {
    /*margin: 10px;*/
 }
 
+
+.buttonBox {
+    width: 100%;
+    text-align: center;
+}
+
+.iconButtonContainer {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: bottom;
+   
+
+}
 
 
 .iconButtonsContainer {
@@ -326,6 +347,13 @@ button:hover {
     margin-left: -5px
 }
 
+.excel {
+   
+    margin-bottom: -56px;
+    margin-left: -3px;
+    margin-right: -15px;
+}
+
 
 button[type="button"]{
    width: 10%;
@@ -342,6 +370,10 @@ button[type="button"]{
   
 }
 
+
+.greetings {
+    padding: 50px;
+}
 
 .filter, .reset {
     width: 10%;
@@ -412,13 +444,6 @@ button[type="button"]{
 
 
 
-/*.filterSelection {
-  width: 45%;
- 
- display: inline-block
-}*/
-
-
 
 .filterContainer {
     height: auto;
@@ -435,6 +460,15 @@ button[type="button"]{
     text-align: center;
     display: inline-block;
     width: 80%;
+}
+
+.summary {
+    zoom: 0.3
+}
+
+
+.summary:hover {
+    display:inherit;
 }
 
 
@@ -473,37 +507,18 @@ button[type="button"]{
     z-index: 1;
 }
 
+
+
 .checked {
-    background-color:  rgba(191, 4, 4);
-    z-index: 1;
+    font:red;
+   
 }
 
-.notChecked {
-    background-color: #eee;
-}
-
- /*On mouse-over, add a grey background color*/ 
 .labelContainer:hover input ~ .checkmark {
     background-color:  rgba(191, 4, 4);
     z-index: 1;
   }
-  
 
-/* Show the indicator (dot/circle) when checked */
-.labelContainer input:checked ~ .checkmark:after {
-    display: block;
-    background-color:   rgba(191, 4, 4);
-}
-
-/* Style the indicator (dot/circle) */
-.labelContainer .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: blue;
-}
 
 
 .charts {
@@ -552,7 +567,7 @@ svg {
 
 .graphText {
     padding-right: 10px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .inputBox {
@@ -644,8 +659,8 @@ svg {
     
 }
 
-.planTrip {
-    padding-top: 45px;
+.myPlans {
+    padding-top: 50px;
 }
 
 
@@ -718,7 +733,7 @@ button {
 
 .reset, .moreButton, .filter {
     font-size: 14px;
-    width: 30%
+    width: 35%
 
 }
 text {
@@ -798,7 +813,6 @@ button {
 }
 
 
-
 .adjustImage {
 
     margin-right: 40px;
@@ -817,7 +831,7 @@ button {
 
 .reset, .moreButton, .filter {
     font-size: 20px;
-    width: 30%
+    width: 40%
 
 }
 
@@ -885,6 +899,17 @@ input[type="date"] {
 }
 
 
+.excel {
+   
+    margin-bottom: -83px;
+    margin-left: -3px;
+    margin-right: -5px;
+}
+
+.print {
+    padding-bottom: 18px;
+}
+
 
 .resultsContainer {
     
@@ -928,7 +953,7 @@ div.labelWidthDates {
 
 
 
-.planTrip {
+.myPlans {
     padding-top: 80px;
 }
 
@@ -941,7 +966,7 @@ div.labelWidthDates {
 
 
 
-.planTrip {
+.myPlans {
     padding-top: 120px;
 }
 
@@ -982,9 +1007,8 @@ div.labelWidthDates {
     display: inline-block;
     text-align: center;
 
-
 }
-    
+
 
 button {
     font-size: 33px;
@@ -1219,6 +1243,14 @@ button {
 
 .resultBox {
     width: 20%;
+   
+}
+
+
+
+.excel {
+   
+    margin-bottom: -73px;
    
 }
 

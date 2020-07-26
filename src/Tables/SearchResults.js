@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
-import SaveButton from "../FormElements/SaveButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
@@ -15,7 +14,6 @@ import ServingUnit from "../ItemDetails/ServingUnit";
 import CalsPerHg from "../ItemDetails/CalsPerHg";
 import CalsPerServing from "../ItemDetails/CalsPerServing";
 import ServingWeight from "../ItemDetails/ServingWeight";
-//import Add from "../ItemDetails/Add";
 import { DEFAULTITEM, PACKITEMS} from "../Defaults";
 import ImageHeader from "./ImageHeader"
 import ItemHeader from "./ItemHeader"
@@ -25,9 +23,6 @@ import UnitHeader from "./UnitHeader";
 import WeightGHeader from "./WeightGHeader";
 import TotalCalHeader from "./TotalCalHeader";
 import TotalCalsPhgHeader from "./TotalCalsPhgHeader";
-//import AddHeader from "./AddHeader";
-import BackButton from '../FormElements/BackButton';
-import ForwardButton from '../FormElements/ForwardButton';
 import { v4 as uuidv4 } from 'uuid';
 import { withRouter } from "react-router-dom";
 
@@ -123,15 +118,7 @@ class SearchResults extends Component {
         <div className = "sticky lightBlueBackground">
        
         <div className = "sticky">
-        <div className = "iconButtonsContainer">
-                <div className = "back">
-              <BackButton/>  
-              </div>
-              <div className = "forward">
-              <ForwardButton/> 
-        </div> 
-       
-        </div>
+     
           <h2 className="montebello searchResultsTitle white">
             {" "}
             See your highest energy results!
@@ -140,15 +127,15 @@ class SearchResults extends Component {
 
         <div className="iconButtonContainer">
           <PrintButton />
-          <span className= "mobileHide">
-          <SaveButton />
-          </span>
         </div>
         
           <div className="filterButtonContainer moreContainer">
-            <NavLink to={`/add-custom`}
+            <NavLink to={!this.props.username ?  `/sign-in` : `/add-custom`}
            >
-              <AddCustomButton />
+              <AddCustomButton 
+              addButtonText = {this.props.addButtonText}
+              
+              />
             </NavLink>
 
             <NavLink to={`/`}>

@@ -11,44 +11,40 @@ import { ITEMTYPES } from "../Defaults";
 class ItemTypes extends Component {
 
   static defaultProps = {
-    itemTypes: ITEMTYPES
+    itemTypes: ITEMTYPES,
+    stateType: "TBD"
   }
+
+  
 
   
   render() {
-      
-    
+
+    const stateType = this.props.stateType   
     const itemTypes = this.props.itemTypes
     const itemTypesArray = itemTypes[0].type
    
-    function onlyOne(checkbox) {
-    const checkboxes =  document.getElementsByName('check')
-      checkboxes.forEach((item) => {
-          if (item !== checkbox) item.checked = false
-      })
-  }
-  
+   
       return (
 
           <ul className= "scroll">
-          {itemTypesArray.map((type)=> (
-            <li key= {type}>
+          {itemTypesArray.map((type, key)=> (
+            <li key= {key}>
           
-            <label className="labelContainer"> {type}
-                 <input type="checkbox"
+            <label className= "labelContainer"> <span className={ stateType === type ?  ' red bold'  : ' black'}>{type}</span>
+                 <input type="radio"
+      
 
                  defaultValue = {type}
-          
-                  name= "check"
+  
                   onClick={() => {
                     const selectedType = type
-                    onlyOne(this)
                     this.props.handleSelectType(selectedType)
                   
                   }}
                  
                  />
-                 <span className="checkmark"></span>
+          <span className= "checkmark"></span>
              </label>
             </li>
           ))}        
@@ -60,3 +56,4 @@ class ItemTypes extends Component {
   
 
 export default ItemTypes
+

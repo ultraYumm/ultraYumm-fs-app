@@ -31,13 +31,27 @@
     border-radius: 10px;
 }
   
-.myTrips {
-    top: 0;
+.myTrips, .signIn {
     right: 0; 
-    padding-right: 15px;
+    top: 0;
     position: inherit;
     padding-top: 15px;
     font-weight: bolder;
+}
+
+.myTrips {
+    padding-right: 15px;
+    
+}
+
+
+.signIn {
+    padding-right: 100px;
+    
+}
+
+.goTo {
+    font-size: 16px;
 }
     
 .home {
@@ -68,7 +82,6 @@
     width: 100%;
     text-align: center;
 }   
-
 
 .descriptionText {
     text-align: center;
@@ -125,22 +138,34 @@ height: 20px;
 display: flex;
 justify-content: space-evenly;
 padding: 0;
+width: 100%;
+text-align: center
 }
+
 
 .social_icon {
-float: left;
+
+padding: 10px;
+
 
 }
 
-.contact_icon {
-padding-left: 10px;
-
-}
   
 .attribution {
 width: 20%;
 float: right;
 padding-right: 5px;
+}
+
+.policies .tripSection {
+height: 650px;
+}
+
+
+
+.coreValues {
+    width: 100%;
+    border-radius: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -157,7 +182,7 @@ padding-right: 5px;
 
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 20px;
     font-size: 20px;
@@ -179,7 +204,17 @@ padding-right: 5px;
     width: 10%;
   }
 
+
+.policies, .tripSection  {
+    height: 700px;
+}
+
   
+.coreValues {
+    width: 65%;
+}
+
+    
 }
 
 @media only screen and (min-width: 1000px) {
@@ -209,6 +244,13 @@ div.descriptionText {
 
 
 }
+  
+  
+.coreValues {
+    width: 50%;
+}
+
+
 }
 
 
@@ -258,12 +300,25 @@ div.descriptionText {
 }
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 50px;
     font-size: 30px;
+}
+
+
+.myTrips {
+
+    margin-right: 95px
+}
+
+
+
+.myTrips, .signIn {
+  
     margin-right: 10px
 }
+
 
 
 .attribution {
@@ -271,7 +326,16 @@ div.descriptionText {
 }
 
 
-    
+
+.goTo {
+    font-size: 20px;
+}
+
+  
+.coreValues {
+    width: 30%;
+}
+
 }
 
 
@@ -310,7 +374,7 @@ div.descriptionText {
 }
 
 
-.myTrips {
+.myTrips, .signIn {
     
     padding-top: 60px;
     font-size: 40px;
@@ -325,7 +389,22 @@ div.descriptionText {
     
 }
 
-    
+
+
+.goTo {
+    font-size: 25px;
 }
-    
+
+
+.coreValues {
+    width: 55%;
+}
+
+
+.policies, .tripSection  {
+    height: 1500px;
+}
+
+
+}
   

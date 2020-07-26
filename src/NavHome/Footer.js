@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Home.css';
 import '../Font/Font.css';
 import NutritionixAPI from '../Images/NutritionixAPI.png';
+import { NavLink} from 'react-router-dom';
 
 
 
@@ -17,10 +18,19 @@ class Footer extends Component {
         <footer>
         <ul className= "social">
 
-            <li className= "social social_icon"> <a href="mailto:mailto:ultrayummprod@gmail.com?subject=Likes, dislikes, questions, a limerick...anything!" className = "noDeco" alt="subject"> <i className="fas fa-at social contact_icon black" alt= "Email" title="Email your feedback"></i></a>
+            <li className= "social_icon email"> <a href="mailto:mailto:ultrayummprod@gmail.com?subject=Likes, dislikes, questions, a limerick...anything!" className = "noDeco" alt="subject"> <i className="fas fa-at social contact_icon black" alt= "Email" title="Email your feedback"></i></a>
             </li> 
+
+            <li className= "social_icon email">
+            <NavLink
+          to={`/policies`}
+          className = "noDeco">
+            
+         <i className="fas fa-info-circle black social contact_icon"></i>
+            </NavLink> 
+            </li>
     
-            <li> <a href= "https://www.nutritionix.com" target= "_blank" rel="noopener noreferrer"> 
+            <li className= "social_icon"> <a href= "https://www.nutritionix.com" target= "_blank" rel="noopener noreferrer"> 
               <img className="attribution" src= {NutritionixAPI} alt="Nutritionix"/></a></li> 
 
       </ul>

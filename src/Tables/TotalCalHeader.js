@@ -14,8 +14,8 @@ class TotalCalHeader extends Component {
     return (
         
         <th className="caloriesH cal calS" id= "total calories header">
-               <span className="hidden">Total calories</span>
-          <i className ="fas fa-fire-alt" alt= "total calories header"></i></th>
+               <span className="hidden">Total calories&nbsp;</span>
+          <i className ="fas fa-fire-alt" alt= "total calories header"></i>&nbsp;calories</th>
     )
 }
 }

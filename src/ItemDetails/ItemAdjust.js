@@ -1,8 +1,7 @@
 import "../Font/Font.css";
 import "../FormElements/FormElements.css";
 import React, { Component } from "react";
-import BackButton from "../FormElements/BackButton";
-import ForwardButton from "../FormElements/ForwardButton";
+import { NavLink} from 'react-router-dom';
 import config from "../config";
 import GoButton from "../FormElements/GoButton";
 import ServUnit from "../CustomItem/ServUnit";
@@ -20,10 +19,8 @@ import NewItemBrand from "../CustomItem/NewItemBrand";
 import ItemImage from "../ItemDetails/ItemImage"
 import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
-
-
+import { Auth } from 'aws-amplify';
 import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
-
 
 class ItemAdjust extends Component {
   static defaultProps = {
@@ -56,7 +53,7 @@ class ItemAdjust extends Component {
     
     const selectedTrip = this.props.selectedTrip
     const packItems = this.props.packItems
-    const trips = this.props.trips
+    const trips = this.props.trips.length === 0? TRIPS : this.props.trips
     const selectedItem = this.props.selectedItem === undefined ? PACKITEMS[0] : this.props.selectedItem
 
 
@@ -66,11 +63,8 @@ class ItemAdjust extends Component {
       selectedTrip: selectedTrip,
 
       name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
-      
-      selectedTripId: !selectedTrip[0]? PACKITEMS[0].id: selectedTrip[0].id,
-      
-      //selectedTrip: !selectedTrip[0]? TRIPS[0] : selectedTrip[0],
-      
+    
+
       id:  selectedItem.id,
       serving_qty: selectedItem.serving_qty,
       serving_unit: selectedItem.serving_unit,
@@ -87,10 +81,10 @@ class ItemAdjust extends Component {
       selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(','),
       
 
-       traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
+      traveler_names: !selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names.toString().replace('{', "").replace("}","").split(/[ ,]+/),
 
 
-      trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates.toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
+      trip_day: !selectedTrip[0]? PACKITEMS[0].trip_day : selectedTrip[0].trip_dates[0].toString().replace('{', "").replace("}","").replace(/"/g,"").replace("","").replace(/\s+/g,"").trim().split(',')[0],
       
       type: !selectedTrip[0] | selectedItem.type === undefined ? PACKITEMS[0].type : selectedItem.type,
 
@@ -179,6 +173,17 @@ class ItemAdjust extends Component {
       trav_name: input,
     });
   };
+
+  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+
+    let id = user.attributes.sub
+    let username = user.username
+
+    this.props.getUser(id, username)
+   
+  });
+
+    }
 
  
   
@@ -315,19 +320,14 @@ class ItemAdjust extends Component {
     const stateCalsnf = (stateQty * stateCalsPs)
     const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
+    const getTrips = this.props.getTrips
   
 
     return (
-      <section className="filterForm">
-           
-          <div className = "iconButtonsContainer">
-                <div className = "back">
-              <BackButton/>  
-              </div>
-              <div className = "forward">
-              <ForwardButton/> 
-          </div> 
-          </div>    
+      <section className="filterForm"
+      onMouseOver = {getTrips}>
+       
+         
           <div className = "adjustImage" >
           <ItemImage 
           image = {image}
@@ -335,7 +335,14 @@ class ItemAdjust extends Component {
           </div>
 
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-          <h2 className="montebello white">{text}<GoButton /></h2>
+       
+           
+          <h2 className="montebello white">{text} <GoButton 
+           username = {this.props.username}/>
+          
+                     
+          </h2>
+
                 
             <div className= "white primaryFont"></div>  
                 <div>
@@ -472,9 +479,18 @@ class ItemAdjust extends Component {
           <div className="filterContainer">
         
           <div className= "filterSelection"> 
+          <div className = "plan">
+        <NavLink
+          to={`/add-trip`}
+          className = "noDeco bold goTo blue"><i className="fas fa-seedling"></i>
+            plan a new trip
+            </NavLink>
+            </div>
     
-              <h3 className="filterCategory"><i className ="fas fa-feather black"></i>&nbsp;Trip:{" "}<span className = "primaryFont blue skinBackground">{this.state.name}</span></h3>       
-                <TripNames 
+              <h3 className="filterCategory"><i className ="fas fa-shoe-prints black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
+             
+                <TripNames
+                stateName = {this.state.name} 
                 trips={trips}
                 handleSelectTrip={(selectedTrip, tripid) =>
                   this.selectTrip(selectedTrip, tripid)
@@ -483,12 +499,12 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont blue skinBackground" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;Date:{" "}<span className = "primaryFont black" >{this.state.trip_day === PACKITEMS[0].trip_day | this.state.trip_day === "undefined" | this.state.trip_day === undefined | this.state.trip_dates === "" |  this.state.trip_dates[0] === "" | this.state.trip_dates === undefined |
               this.state.trip_dates === {} |
               this.state.trip_dates === "{}"
               ? "" : trip_day}</span></h3>
                 <TripDates
-                name = {this.state.name}
+                stateDate = {this.state.trip_day}
                 defaultDay = {PACKITEMS[0].trip_day}
                 tripDates={this.state.trip_dates}
                 handleSelectDay={(selectedDay) =>
@@ -497,17 +513,20 @@ class ItemAdjust extends Component {
             </div>
 
             <div className= "filterSelection">
-              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont blue skinBackground">{this.state.type}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-utensils black"></i>&nbsp;Type:{" "}<span className = "primaryFont black">{this.state.type}</span></h3>
                 <ItemTypes itemTypes={itemTypes}
                 id = {id}
+                stateType = {!this.state.type? "TBD" : this.state.type}
                 handleSelectType={(selectedType) =>
                   this.selectType(selectedType)
                 }/>
              </div>
 
              <div className="filterSelection">
-              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;Select traveler:{" "}<span className = "primaryFont blue skinBackground">{this.state.trav_name}</span></h3>
-                <TripTravelers tripTravelers={this.state.traveler_names}
+              <h3 className="filterCategory">  <i className ="fas fa-user-circle black"></i>&nbsp;traveler:{" "}<span className = "primaryFont black">{this.state.trav_name}</span></h3>
+                <TripTravelers 
+                stateName = {this.state.trav_name}
+                tripTravelers={this.state.traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)
                 }/>

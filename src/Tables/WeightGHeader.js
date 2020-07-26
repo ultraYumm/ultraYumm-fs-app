@@ -14,8 +14,8 @@ class WeightGHeader extends Component {
     return (
         
         <th className="weightH gram"  id= "weight in grams header">
-             <span className="hidden">Serving weight</span>
-          <i className ="fas fa-balance-scale" alt= "weight in grams header"></i></th>
+             <span className="hidden">Serving weight&nbsp;</span>
+          <i className ="fas fa-balance-scale" alt= "weight in grams header"></i>&nbsp;&nbsp;grams</th>
     )
 }
 }

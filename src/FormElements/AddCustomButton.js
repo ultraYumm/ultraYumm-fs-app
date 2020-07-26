@@ -14,7 +14,7 @@ class AddCustomButton extends Component {
     return (
         <div 
             className= "montebello red skinBackground moreButton sticky">
-            Make your own item
+           {this.props.addButtonText}
         </div>
     
     )

@@ -3,7 +3,6 @@ import "../Font/Font.css";
 import TripName from "../TripDetails/TripName";
 import TripYear from "../TripDetails/TripYear";
 import Moment from "react-moment";
-//import SaveButton from "../FormElements/SaveButton";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
 import SearchMoreButton from "../FormElements/SearchMoreButton";
@@ -26,17 +25,17 @@ import DateHeader from "./DateHeader";
 import TypeHeader from "./TypeHeader";
 import TravlrHeader from "./TravlrHeader";
 import DeleteHeader from "./DeleteHeader";
-import BackButton from '../FormElements/BackButton';
-import ForwardButton from '../FormElements/ForwardButton';
 import DeleteButton from '../FormElements/DeleteButton';
+import ExcelButton from '../FormElements/ExcelButton';
 import ItemImage from "../ItemDetails/ItemImage";
 import ItemBrand from "../ItemDetails/ItemBrand";
 import BrandHeader from "./BrandHeader";
 import '../FormElements/FormElements.css';
-import { ITEMS, TRIPS } from "../Defaults";
+import { ITEMS, TRIPS, PACKITEMS } from "../Defaults";
 import { withRouter } from "react-router-dom";
-
-
+import config from "../config";
+import TripTravelers from "../TripDetails/TripTravelers";
+import TripDates from "../TripDetails/TripDates";
 
 
 class TripResults extends Component {
@@ -45,21 +44,28 @@ class TripResults extends Component {
     items: ITEMS,
     tripItems:ITEMS,
     selectedTripItems: ITEMS,
-  
+    results: PACKITEMS
+ 
     
   };
 
   constructor(props) {
     super(props);
+    const selectedTrip = this.props.selectedTrip
     this.state = {
       serving_qty: null,
       id: "",
       idToDelete: "",
       nameOfDelete: "",
-      selectedTrip: [],
       items: [],
       tripItems: [],
-      selectedTripItems: []
+      selectedTripItems: [],
+      trav_name: "",
+      trip_day: "",
+      results: PACKITEMS,
+      selectedTrip: selectedTrip.length === 0? TRIPS[0] : selectedTrip
+          
+      
     };
   }
 
@@ -82,27 +88,18 @@ class TripResults extends Component {
     
     this.setState({
       trip_day: input,
-      id: id
     });
   };
 
 
-  selectType = (input, id) => {
-  
-    this.setState({
-      type: input,
-      id: id
-    });
-  };
 
-
-  selectTraveler = (input, id) => {
+  selectTraveler = (input) => {
     
     this.setState({
       trav_name: input,
-      id: id
     });
   };
+
 
 
   selectItemToDelete = (id, name) => {
@@ -113,17 +110,25 @@ class TripResults extends Component {
     });
     
   };
+
+  undoFilter = () => {
+    
+    this.setState({
+      trav_name: "",
+      trip_day: ""
+    });
+    
+  };
+  
+
  
 
   render() {
-    const selectedTrip = this.props.selectedTrip;
-   
-   
+    const selectedTrip = this.state.selectedTrip;
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
-
-
+    
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
@@ -132,9 +137,6 @@ class TripResults extends Component {
 
     const fixedCalPerUnitArray = tripItems.map((items) => items.cals_per_serving);
 
-    const selectServingQuantArray = selectedTripItems
-      .map((items) => items.serving_qty)
-      .sort();
 
     const fixedServingWeightArray = tripItems.map(
       (items) => items.serving_weight_grams
@@ -159,16 +161,54 @@ class TripResults extends Component {
 
       return resultsObject;
     });
-    
-    const sum_CalServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * selectServingQuantArray[i]), 0)
 
-    const sum_WeightServProducts = fixedCalPerUnitArray.reduce((sum, val, i) => sum + (val * fixedServingWeightArray[i]), 0)/1000
+    const filterResults = () => {
+      if (selectedTrip[0].trip_dates === "{}") {
+        const resultA = results.filter(result => result.trav_name === this.state.trav_name)
+        return resultA
+       }
+     else return results.filter(result => (result.trip_day === this.state.trip_day || result.trav_name === this.state.trav_name)
+     )
+    }
+
+    const filteredResults = filterResults ()
+
+   
+
+     const resultstoUse = () => {
+       
+       if (selectedTrip[0].trip_dates === "{}" && this.state.trav_name.length === 0) {
+        return results
+       }
+       else if (selectedTrip[0].trip_dates === "{}" && this.state.trav_name.length > 0) {
+        return filteredResults
+       }
+       else if (this.state.trip_day.length === 0 && this.state.trav_name.length === 0) {return results}
+       else if (this.state.trip_day.length > 0 || this.state.trav_name.length > 0) {return filteredResults}}
+
+     
+     const datatoCalc = resultstoUse()
+
+     const fixedCalPerUnitCalc = datatoCalc.map((items) => items.cals_per_serving);
+
+     const selectServingQuantCalc = datatoCalc
+       .map((items) => items.serving_qty)
+       .sort();
+ 
+     const fixedServingWeightCalc = datatoCalc.map(
+       (items) => items.serving_weight_grams
+     );
+    
+    const sum_CalServProducts = fixedCalPerUnitCalc.reduce((sum, val, i) => sum + (val * selectServingQuantCalc[i]), 0)
+
+    const sum_WeightServProducts = fixedServingWeightCalc.reduce((sum, val, i) => sum + (val * selectServingQuantCalc[i]), 0)
 
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
-
-  
+     
     return (
+      <div>
+     
       <section className="lightBlueBackground"
       onMouseOver = {getItems}>      
        
@@ -177,40 +217,80 @@ class TripResults extends Component {
            <div className="charts sticky cloudBlueBackground">
           <TripCalorieGraph cals={sum_CalServProducts}/>
           <TripPackGraph weight={sum_WeightServProducts}/>
+
+
+          <div className="filterSelection summary">
+          <h2 className="filterCategory black">  Filters: &nbsp; <i className="fas fa-undo black" onClick = {this.undoFilter}></i> </h2> <br></br>
+      
+              <h3 className="filterCategory"> <i className ="fas fa-user-circle black"></i>&nbsp;by traveler</h3>
+                <TripTravelers 
+                stateName = {this.state.trav_name}
+                tripTravelers={!selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names}
+                handleSelectTraveler={(selectedTraveler) =>
+                  this.selectTraveler(selectedTraveler)
+                }/>
+             </div>
+
+             <div className= "filterSelection summary">
+              <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;by date:{" "}</h3>
+                <TripDates
+                stateDate = {!results[0]? PACKITEMS[0].trip_day : this.state.trip_day}
+                defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
+                tripDates={!selectedTrip[0]? TRIPS[0].trip_dates : selectedTrip[0].trip_dates}
+                handleSelectDay={(selectedDay) =>
+                  this.selectDay(selectedDay)
+                }/>
+            </div>
+
+              
+
           </div>
         
           <div className = "iconButtonContainer sticky">
-        <BackButton/>
-        <ForwardButton/>
+         
         </div>
           <h2 className="montebello black sticky resultsTitle">
          
-            <div className=" montebello white sticky resultsTitle">
-              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/>&nbsp;Results!&nbsp; 
-              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/>
+            <div className="primaryFont bold white sticky resultsTitle">
+              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/><span className = "montebello">&nbsp;Results!&nbsp; 
+              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/></span>
             </div>
           </h2>
         
        
-        <div className="iconButtonContainer">
+           <div>
+          <div className="iconButtonContainer"> 
+             <div className = "excel">
+             <ExcelButton
+            />
+            </div>
+             </div>
+             <div className="iconButtonContainer">
+             <div className = "print">          
              <PrintButton/>
+             </div>
+             </div>
+             </div>
+             <div>
              <DeleteButton
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
           
-            handleDeletePackItem = {(idToDelete) =>
+            handleDeleteItem = {(idToDelete) =>
               this.props.handleDeletePackItem(idToDelete)
             
             }
-
-            getPackItems = {getPackItems}
+            endpoint = {config.endpointP}
              />
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
             
-            <NavLink to={`/add-custom/${!selectedTrip[0]? ITEMS[0].food_name :  selectedTrip[0].food_name}`}>
-              <AddCustomButton />
+            <NavLink to={`/add-custom/${!selectedTrip[0]? TRIPS[0].name :  selectedTrip[0].name}`}>
+              <AddCustomButton 
+               addButtonText = {this.props.addButtonText}
+              
+              />
             </NavLink>
 
             <NavLink to={`/`}>
@@ -236,11 +316,11 @@ class TripResults extends Component {
               </tr>
            
 
-              {results.map((item, key) => (
+              {resultstoUse().map((item, key) => (
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
-                  {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
+                  {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
                   </td>
 
                   <td className="type">
@@ -292,11 +372,7 @@ class TripResults extends Component {
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {item.id}
                   name = {item.food_name}
-                  handleDeletePackItem = {(idToDelete) =>
-                    this.props.handleDeletePackItem(idToDelete)
-                  
-                  }
-                 
+               
                   />
                  
                 </tr>
@@ -305,8 +381,8 @@ class TripResults extends Component {
           </table>
 
          
-          {results.map((item, key) => (
-          <table id="results-filtered" className="primaryFont whiteBackground mobileOnly" key={key}>
+          {resultstoUse().map((item, key) => (
+          <table id="results-filtered-mobile" className="primaryFont whiteBackground mobileOnly" key={key}>
             
             <tbody>
              <tr className = "mobile" >
@@ -350,7 +426,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                     {item.trip_day === ""? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
+                     {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
             </td>
 
             </tr>
@@ -426,49 +502,16 @@ class TripResults extends Component {
              idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
              id = {item.id}
              name = {item.food_name}
-             handleDeletePackItem = {(idToDelete) =>
-              this.props.handleDeletePackItem(idToDelete)
-            
-            }
+             
             />
             </tr>
             </tbody>
             </table>
           ))}
-
-          
-
       </section>
+      </div>
     );
   }
 }
 
 export default withRouter (TripResults);
-
-
-
-
-/*<div className="tableScroll tableAdjust add">
-<ItemTypes itemTypes={itemTypes}
-handleSelectType={(selectedType) =>
-  this.selectType(selectedType)
-}
-/>
-</div>
-
-<div className="tableScroll tableAdjust add hidden">
-<TripTravelers
-tripTravelers={tripTravelers}
-handleSelectTraveler={(selectedTraveler) =>
-this.selectTraveler(selectedTraveler)
-}
-/>
-</div>
-
-<div className="tableScroll tableAdjust add">
-{" "}
-<TripDates tripDates={tripDates}
-  handleSelectDay={(selectedDay) =>
-  this.selectDay(selectedDay)
-  }/>
-</div>*/

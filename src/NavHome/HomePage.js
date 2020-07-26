@@ -5,12 +5,11 @@ import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import snowyOwl from "../Images/snowyOwl.GIF";
 import SearchForm from "../Search/SearchForm";
-import AddTripForm from "../AddTrip/AddTripForm";
+
 
 class HomePage extends Component {
   render() {
-
-    const trips = this.props.trips
+   
     
   
     return (
@@ -26,21 +25,20 @@ class HomePage extends Component {
              <div className="snowyOwlcontainer"><img className="snowyOwl" src={snowyOwl} alt="snowy owl gif" /></div>
           </div>
         </div>
+        
+       
 
         <SearchForm
           routerProps={this.props.routerProps}
           handleUpdate={this.props.handleUpdate}
           handleResults={this.props.handleResults}
+          getUser ={this.props.getUser}
         />
 
-        <AddTripForm
-         routerProps={this.props.routerProps}
-         handleAddTrip = {this.props.handleAddTrip}
-         trips = {trips}
-         getTrips= {this.props.handleGetTrips}
-        />
+       
       </div>
     );
   }
 }
 export default HomePage;
+
