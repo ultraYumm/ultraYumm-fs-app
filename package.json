@@ -12,12 +12,9 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "aws-amplify": "^3.0.20",
-<<<<<<< HEAD
-=======
     "aws-amplify-react": "^4.1.19",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
->>>>>>> feature
     "jquery-tablesort": "0.0.11",
     "moment": "^2.26.0",
     "node-pre-gyp": "0.6.x",
