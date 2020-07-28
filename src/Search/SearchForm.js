@@ -10,16 +10,27 @@ import { Auth } from 'aws-amplify';
 
 class SearchForm extends Component {
 
-  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+  componentDidMount () {
+  try {Auth.currentAuthenticatedUser()
+    .then(user => {
 
     let id = user.attributes.sub
     let username = user.username
 
     this.props.getUser(id, username)
+    .catch(err => console.log(err))
    
-  });
+  })
+  .then(this.props.getTrips)
+  .catch(err => console.log(err));
 
     }
+    catch (ex) {
+      console.log("waiting for login", ex);
+      alert("Waiting for login");
+    }
+
+  }
 
 
   render() {
@@ -34,6 +45,7 @@ class SearchForm extends Component {
       const remoteUser = config.NUTRI_REMOTEUSER;
       const detailed = config.NUTRI_DETAILED;
       const getURL = config.API_NUTRI_ENDPOINT;
+      
 
       function formatQueryParams(params) {
         const queryItems = Object.keys(params).map(
@@ -76,11 +88,15 @@ class SearchForm extends Component {
           .catch((err) => {});
       }
       getResults(searchTerm)
+      this.props.getTrips(e)
     };
+   
+    const getTrips = this.props.getTrips
 
     return (
       
-        <form className= "myPlans" onSubmit={onSubmitForm}>
+        <form className= "myPlans" onSubmit={onSubmitForm}
+        onMouseOver = {getTrips}>
           <h2 className="white"><i className ="fas fa-skiing"></i>quick search!</h2>
           <label htmlFor="searchTerm" className="white montebello searchTerm"><i className ="fas fa-cookie-bite"></i> By name or brand 
           </label>
@@ -91,6 +107,8 @@ class SearchForm extends Component {
             placeholder="Granola"
             required
             id="searchTerm"
+          
+           
           />
 
           <GoButton

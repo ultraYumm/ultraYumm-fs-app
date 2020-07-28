@@ -33,6 +33,10 @@ class HomePage extends Component {
           handleUpdate={this.props.handleUpdate}
           handleResults={this.props.handleResults}
           getUser ={this.props.getUser}
+          trips = {this.props.trips}
+          selectTrip= {this.props.selectTrip}
+
+          getTrips = {this.props.getTrips}
         />
 
        

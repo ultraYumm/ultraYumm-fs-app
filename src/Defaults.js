@@ -32,7 +32,7 @@ export const DEFAULTITEM = [
       {attr_id: 208},
       {value: 120.204}
     ]
-    }]
+    }] 
 
 
 

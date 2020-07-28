@@ -60,7 +60,7 @@ class ItemAdjust extends Component {
 
     this.state = {
       selectedItem: selectedItem,
-      selectedTrip: selectedTrip,
+      selectedTrip: this.props.selectedTrip.id === 1000000 ? this.props.trips[0] : this.props.selectedTrip,
 
       name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
     
@@ -121,6 +121,7 @@ class ItemAdjust extends Component {
       trip_dates: tripDates,
       traveler_names: tripTravelers
     });
+    this.props.handleSelectTrip(tripid, tripName)
   };
 
   adjustQuant = (input) => {
@@ -174,6 +175,7 @@ class ItemAdjust extends Component {
     });
   };
 
+
   componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
 
     let id = user.attributes.sub
@@ -181,9 +183,12 @@ class ItemAdjust extends Component {
 
     this.props.getUser(id, username)
    
-  });
+  })
+
 
     }
+
+ 
 
  
   
@@ -254,6 +259,7 @@ class ItemAdjust extends Component {
       
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
           this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
+          this.props.getItems(e)
 
           fetch(urlP, {
             method: 'POST',
@@ -277,10 +283,14 @@ class ItemAdjust extends Component {
             
             .then((newId, tripid, trip_day, trav_name, type, newQty) => {
               this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
+
+              
               this.props.routerProps.history.push("/trip/:tripName");
+              
               this.props.getPackitems(e)
                     
             })
+
   
             .catch(error => {
               this.setState({ error })
@@ -292,8 +302,6 @@ class ItemAdjust extends Component {
           this.setState({ error })
         })
         
-        this.props.getItems(e)
-        this.props.getPackItems(e)
         this.props.getTrips(e)
 
     }
@@ -322,6 +330,8 @@ class ItemAdjust extends Component {
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
     const getTrips = this.props.getTrips
   
+    console.log(this.props.trips)
+    console.log(this.state.selectedTrip)
 
     return (
       <section className="filterForm"

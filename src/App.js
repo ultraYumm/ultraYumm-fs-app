@@ -170,7 +170,8 @@ class App extends Component {
           items: data[0],
           users: data[1],
           trips: data[2].filter(trip => (trip.userid === userid)),
-          packItems: data[3]
+          packItems: data[3],
+          
         });
       })
       
@@ -249,6 +250,7 @@ class App extends Component {
     });
   };
 
+  
 
 
   addItem = (newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
@@ -349,15 +351,18 @@ class App extends Component {
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
 
-    
+    console.log(userid)
+    console.log(users)
 
+    console.log(users.filter(user => user.id === userid).length)
   
-    if (users.filter(user => user.id === userid)) {
+    if (users.filter(user => user.id === userid).length === 1) {
       console.log("welcome back existing user")
     }  
 
     else 
     fetch(url, {
+      
           
       method: 'POST',
       body: JSON.stringify(inputValues),
@@ -365,9 +370,13 @@ class App extends Component {
         'content-type': 'application/json',
         'authorization': `bearer ${API_TOKEN}`
       }
+      
     }
+   
+   
     )
 
+   
   .then(res => {
   if (!res.ok) {
       // get the error message from the response
@@ -379,6 +388,7 @@ class App extends Component {
 
  
   return res.json()
+ 
   
   })
   
@@ -395,11 +405,21 @@ class App extends Component {
     const userid = this.state.userid
     
     const username = this.state.username
+
+    console.log(username)
     
     const trips = this.state.trips
 
+    console.log(trips)
+
+
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
+    
+    console.log(selectedTripId)
+    console.log(this.state.tripName)
+    
+
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
    
     const packItems = this.state.packItems 
@@ -449,6 +469,17 @@ class App extends Component {
               getUser = {(id, username) => this.getUser(id, username)}
 
               username = {username}
+
+              handleSelectTrip={(selectedTripId, tripName) =>
+                this.selectTrip(selectedTripId, tripName)
+              }
+
+            
+              trips = {trips}
+              
+              getTrips = {(e) =>
+                this.handleGetTrips(e)
+              }
             />
           )}
         />
@@ -464,7 +495,16 @@ class App extends Component {
                 this.updateSearchResults(searchResults)
               }
               getUser = {(id, username) => this.getUser(id, username)} 
-              username = {username}            
+              username = {username}
+
+              getTrips = {(e) =>
+                this.handleGetTrips(e)
+              }
+
+
+              
+            
+              
              
             />
           )}
@@ -554,8 +594,18 @@ class App extends Component {
             
             addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
 
-            getTrips = {e => this.handleGetTrips(e)} 
+            getTrips = {e => this.handleGetTrips(e)}
             
+            handleResults={(searchResults) =>
+              this.updateSearchResults(searchResults)
+            }
+
+            handleUpdate={(searchTerm) => this.updateSearchTerm(searchTerm)}
+           
+            getItems = {(e) =>
+              this.handleGetItems(e)}
+
+           
 
             />)}/>
 
@@ -626,7 +676,16 @@ class App extends Component {
             getUser = {(id, username) => this.getUser(id, username)}
             
             username = {username}
+            
+            
+            handleSelectTrip={(selectedTripId, tripName) =>
+              this.selectTrip(selectedTripId, tripName)
+            }   
+            
+            
             />
+
+            
           )}
         />
 
@@ -731,7 +790,11 @@ class App extends Component {
                 getTrips = {(e) =>
                   this.handleGetTrips(e)}
 
-                  getUser = {(id, username) => this.getUser(id, username)}    
+                  getUser = {(id, username) => this.getUser(id, username)}
+                  
+                  handleSelectTrip={(selectedTripId, tripName) =>
+                    this.selectTrip(selectedTripId, tripName)
+                  }   
               />
             )
           }}
@@ -779,7 +842,11 @@ class App extends Component {
                 getTrips = {(e) =>
                     this.handleGetTrips(e)}
 
-                getUser = {(id, username) => this.getUser(id, username)}    
+                getUser = {(id, username) => this.getUser(id, username)} 
+
+                handleSelectTrip={(selectedTripId, tripName) =>
+                  this.selectTrip(selectedTripId, tripName)
+                }   
 
               />
               )

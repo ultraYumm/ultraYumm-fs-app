@@ -4,11 +4,12 @@ import "../FormElements/FormElements.css";
 import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import { Auth } from 'aws-amplify';
-import { withRouter } from "react-router-dom";
 import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import SearchForm from "../Search/SearchForm";
 
 
 class SignInBox extends Component {
@@ -22,34 +23,51 @@ class SignInBox extends Component {
   }
 
   
-  
-  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+  componentDidMount () { 
    
+    
+    try {Auth.currentAuthenticatedUser()
+    
+    .then(user => {
+ 
     const id = user.attributes.sub
     const username = user.username
 
     this.props.getUser(id, username)
-   
+
+    .then((id, username) => 
     this.setState ({
       id,
       username
-    }) });
+    }) )
+    
+  })
+  .catch(err => console.log(err))
+  
 
-   
+  }
+
+  catch (ex) {
+    console.log("waiting for login", ex);
+    alert("Waiting for login");
+  }
+
+}
+
 
   
-  }
+
   
 
   render() {
 
+    
+
+  
     function refreshPage() {
       window.location.reload(false);
     }
-  
-    const trips = this.props.trips
-
-
+    
     const AuthStateApp = () => {
       const [authState, setAuthState] = React.useState();
       const [user, setUser] = React.useState();
@@ -71,10 +89,14 @@ class SignInBox extends Component {
 
     const signIn = () => (
 
+
+     
       <AmplifyAuthenticator>
     <div className = "montebello">
    
-    <div className = "primaryFont black greetings">Hi<strong><AuthStateApp/></strong>, go to
+    <div className = "primaryFont black greetings"
+     onMouseOver = {this.props.getTrips}
+    >Hi<strong><AuthStateApp/></strong>, go to
     <br></br>
     <NavLink
           to={`/add-trip`}
@@ -84,7 +106,9 @@ class SignInBox extends Component {
     <br></br><NavLink
           to={`/search-bar`}
           className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>
-           <span className="goTo">quick search</span>
+           <span className="goTo"
+           
+           >quick search</span>
             </NavLink>
             <br></br>
            
@@ -100,10 +124,9 @@ class SignInBox extends Component {
           <span className="goTo">make your own item</span>
             </NavLink> 
    </div>
-    <div onClick = {refreshPage}>
+   <div onClick = {refreshPage}>
     <AmplifySignOut/> 
     </div>
-   
     </div>
     <AddTripForm
          text = "plan a trip"
@@ -113,13 +136,23 @@ class SignInBox extends Component {
          getTrips= {this.props.handleGetTrips}
          getUser ={this.props.getUser}
         />
+
+<SearchForm
+          routerProps={this.props.routerProps}
+          handleUpdate={this.props.handleUpdate}
+          handleResults={this.props.handleResults}
+          getUser ={this.props.getUser}
+          trips = {this.props.trips}
+          getTrips = {this.props.getTrips}
+        />
   </AmplifyAuthenticator>
   
 
 
     );
      
-  
+    const trips = this.props.trips
+    
     return (
 
 
@@ -141,4 +174,14 @@ class SignInBox extends Component {
     );
   }
 }
-export default withRouter(SignInBox);
+export default withRouter (SignInBox);
+
+/*
+<AddTripForm
+text = "plan a trip"
+routerProps={this.props.routerProps}
+handleAddTrip = {this.props.handleAddTrip}
+trips = {trips}
+getTrips= {this.props.handleGetTrips}
+getUser ={this.props.getUser}
+/>*/

@@ -125,6 +125,7 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.state.selectedTrip;
+    console.log(selectedTrip.id)
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
@@ -173,7 +174,8 @@ class TripResults extends Component {
 
     const filteredResults = filterResults ()
 
-   
+   console.log(selectedTrip[0].trip_dates)
+   console.log(selectedTrip[0])
 
      const resultstoUse = () => {
        
