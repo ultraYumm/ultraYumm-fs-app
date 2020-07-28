@@ -272,6 +272,25 @@ class App extends Component {
     });
   }
 
+  addDefaultItem = (newId, newQty) => {
+    const items = this.state.items
+    const newItems = [
+      ...items,
+      { id: newId, 
+        food_name:  this.state.food_name,
+        image: this.state.selectedItem.image,
+        cals_per_serving: this.state.selectedItem.cals_per_serving,
+        serving_qty: newQty,
+        serving_unit: this.state.selectedItem.serving_unit,
+        serving_weight_grams: this.state.selectedItem.serving_weight_grams,
+        brand_name: this.state.selectedItem.brand_name,
+      }
+    ]
+    this.setState({
+      items: newItems,
+    });
+  }
+
  
 
   addTrip = (iframe, tripName, tripTravelers, tripDates, userid) => {
@@ -401,6 +420,8 @@ class App extends Component {
 
   render() {
 
+    console.log(this.state.selectedItem.brand_name)
+
     
     const userid = this.state.userid
     
@@ -433,6 +454,13 @@ class App extends Component {
         tripItems.push(items[i]);
       }
     }
+
+    const defaultBrand = this.state.item.defaultBrand
+    const defaultCalsPs = this.state.item.cals_per_serving
+    const defaultName = this.state.item.food_name
+    const defaultImage = this.state.item.image
+    const defaultWeight = this.state.item.serving_weight_grams
+    const defaultUnit = this.state.item.serving_unit
   
     return (
       
@@ -480,6 +508,8 @@ class App extends Component {
               getTrips = {(e) =>
                 this.handleGetTrips(e)
               }
+
+              goButtonText = "go!"
             />
           )}
         />
@@ -500,6 +530,8 @@ class App extends Component {
               getTrips = {(e) =>
                 this.handleGetTrips(e)
               }
+
+              goButtonText = "go!"
 
 
               
@@ -528,6 +560,8 @@ class App extends Component {
               getTrips = {e => this.handleGetTrips(e)}
 
               username = {username}
+
+              goButtonText = "go!"
               
               
             
@@ -553,6 +587,8 @@ class App extends Component {
               selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip} 
               
               username = {username}
+
+              goButtonText = "save"
             
             />
           )}
@@ -574,6 +610,8 @@ class App extends Component {
               myTripText = {username === "" ? "" : `${username}'s trips`}
 
               username = {username}
+
+              goButtonText = "go!"
 
             />
           )}
@@ -604,6 +642,8 @@ class App extends Component {
            
             getItems = {(e) =>
               this.handleGetItems(e)}
+            
+            goButtonText = "go!"
 
            
 
@@ -628,6 +668,7 @@ class App extends Component {
               selectedTripItems={selectedTripItems}
               tripItems={tripItems}
               username = {username}
+             
             />
           )}
         />
@@ -645,6 +686,7 @@ class App extends Component {
               currentT = ""
               newT= ""
               s = ""
+              goButtonText = "save"
               selectedItem= {ITEMS[0]}
               item= {ITEMS[0]}
               trips={!trips? TRIPS : trips}
@@ -757,15 +799,17 @@ class App extends Component {
             return (
               <ItemAdjust
                 routerProps={routerProps}
-                text = "Customize your item"
+                text = "Adjust quantity"
                 is = ""
                 forT = ""
                 onT = ""
                 currentT = ""
                 newT= ""
                 s = ""
+                goButtonText = "save"
                 selectedItem={this.state.selectedItem}
                 item= {this.state.item}
+                defaultBrand = {this.state.item.defaultBrand}
                 trips={trips}
                 items={items}
                 selectedTrip={selectedTrip.length === 0 ? TRIPS[0] : selectedTrip}
@@ -773,10 +817,11 @@ class App extends Component {
                 itemTypes={ITEMTYPES}
                 tripName={this.state.tripName}
                 packItems = {this.state.packItems}
-                
-                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
-                this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
-              }
+
+               
+                handleNewItem= {(newId, newQty) =>
+                  this.addDefaultItem(defaultBrand, defaultCalsPs, defaultName, newId, defaultImage, defaultWeight, newQty, defaultUnit)
+                }
 
                 handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
                   this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)
@@ -813,6 +858,7 @@ class App extends Component {
                 currentT = "Current "
                 newT= "New"
                 s = "'s "
+                goButtonText = "save"
                 //main difference below in props, this route passes selectedTripItem}
                 selectedItem={this.state.selectTripItem}
                 item= {this.state.item}
@@ -825,9 +871,10 @@ class App extends Component {
                 tripName={this.state.tripName}
                 packItems = {this.state.packItems}
                 
-                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
-                  this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
-                } 
+                handleNewItem= {(newId, newQty) =>
+                  this.addDefaultItem(defaultBrand, defaultCalsPs, defaultName, newId, defaultImage, defaultWeight, newQty, defaultUnit)
+                }
+  
 
                 handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
                 this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)

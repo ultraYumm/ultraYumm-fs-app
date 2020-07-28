@@ -223,19 +223,20 @@ class AddTripForm extends Component {
                     /><span className= "error cloudBlue">{validateTripName()}</span>
                 </label>
             </div>
-
+            
             <div className= "labelWidthPlan">
-                 <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler names</span>
+           
+                 <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler nicknames <span className = "tooltiptext primaryFont white">change preset</span></span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" 
                  defaultValue = {TRAVELER_NAMES}
                  id= "traveler-name"
                  onChange={e => createTravNames(e.target.value)}
                  
-                 /><span className= "error cloudBlue">{checkDupes()}</span>
+                 /><span className = "tooltiptext primaryFont white">space out</span><span className= "error cloudBlue">{checkDupes()}</span>
                 </label>
             </div>
             <div className= "labelWidthPlan">
-                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" target= "_blank" rel="noopener noreferrer" className= "white montebello">Website</a></span>
+                 <label htmlFor= "map-link"><i className ="fas fa-drafting-compass white"></i><span className= "labelWidthPlan white"><a href= "https://www.google.com/" target= "_blank" rel="noopener noreferrer" className= "white montebello">Location Website<span className = "tooltiptext primaryFont white">change preset</span></a></span>
                  <input type="url" name="tripURL" className= "skinBackground purple names"   defaultValue = {TRIPS[0].iframe} id= "map-link"/>  
                 </label>
             </div><br></br>

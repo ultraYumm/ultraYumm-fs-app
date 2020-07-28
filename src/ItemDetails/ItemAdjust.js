@@ -347,8 +347,10 @@ class ItemAdjust extends Component {
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
        
            
-          <h2 className="montebello white">{text} <GoButton 
-           username = {this.props.username}/>
+          <h2 className="montebello white">{text}<span className = "tooltiptext primaryFont white">change presets</span><GoButton 
+           username = {this.props.username}
+           
+           goButtonText = {this.props.goButtonText}/>
           
                      
           </h2>
@@ -384,7 +386,7 @@ class ItemAdjust extends Component {
                   <label
                     htmlFor= "serving quantity"
                     className= "labelWidth white"
-                  ><i className ="fas fa-coins white mobileHide"></i>&nbsp;Serving Quantity
+                  ><i className ="fas fa-coins white mobileHide"></i>&nbsp;<strong>Serving Quantity</strong>
                   </label>
                   <div className= "dataInput">
                     <UnitQuant
@@ -456,7 +458,7 @@ class ItemAdjust extends Component {
                     className="labelWidth white"
                   > <i className ="fas fa-hiking white mobileHide">
                   </i>&nbsp;
-                  <strong>Total Weight</strong>
+                  <strong>Total Weight (grams)</strong>
                   </label>
                   <div className="cellBox redBackground">
                     <Result
@@ -472,7 +474,7 @@ class ItemAdjust extends Component {
                   <label
                     className="labelWidth white"
                   > <i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;
-                    <strong>Total Calories</strong>
+                    <strong>Total Calories(cals)</strong>
                   </label>
                   <div className="cellBox redBackground">
                

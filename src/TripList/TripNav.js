@@ -115,7 +115,7 @@ class TripNav extends Component {
                
                }}
               
-              >{trip.name}
+              >{trip.name} results
               </div>
               </NavLink>
               
@@ -132,7 +132,7 @@ class TripNav extends Component {
                   <NavLink to={`/edit-trip/${trip.name}`}
               >
               <li className = "navEdit lightBlue noDeco">
-            edit
+            edit settings
               </li>
               
               </NavLink>

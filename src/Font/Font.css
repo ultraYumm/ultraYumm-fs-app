@@ -237,6 +237,11 @@ span {
   border-radius: 3px;
 }
 
+::placeholder, .opaque {
+opacity: 0.5
+}
+
+
 @media only screen and (min-width: 1px) and (max-width:320px) {
 
   
