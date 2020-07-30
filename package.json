@@ -27,7 +27,7 @@
     "react-html-table-to-excel": "^2.0.0",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.1",
     "react-scroll": "^1.7.16",
     "react-spreadsheet": "^0.4.46",
     "react-spreadsheet-grid": "^2.0.0",
