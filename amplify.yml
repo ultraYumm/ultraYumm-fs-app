@@ -2,9 +2,9 @@ version: 1
 frontend:
   phases:
     preBuild:
-     "react-scripts"
+      - npm install
     build:
-      "react-scripts build"
+      - npm build
   artifacts:
     baseDirectory: build
     files:
