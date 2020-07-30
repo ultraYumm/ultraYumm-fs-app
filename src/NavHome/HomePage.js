@@ -35,6 +35,8 @@ class HomePage extends Component {
           getUser ={this.props.getUser}
           trips = {this.props.trips}
           selectTrip= {this.props.selectTrip}
+          goButtonText = {this.props.goButtonText}
+          username = {this.props.username}
 
           getTrips = {this.props.getTrips}
         />

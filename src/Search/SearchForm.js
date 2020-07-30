@@ -97,7 +97,7 @@ class SearchForm extends Component {
       
         <form className= "myPlans" onSubmit={onSubmitForm}
         onMouseOver = {getTrips}>
-          <h2 className="white"><i className ="fas fa-skiing"></i>quick search!</h2>
+          <h2 className="white quick"><i className ="fas fa-skiing"></i>quick search!</h2>
           <label htmlFor="searchTerm" className="white montebello searchTerm"><i className ="fas fa-cookie-bite"></i> By name or brand 
           </label>
           <input
@@ -112,7 +112,8 @@ class SearchForm extends Component {
           />
 
           <GoButton
-           username = {this.props.username}/>
+            goButtonText = {this.props.goButtonText}
+            username = {this.props.username}/>
         </form>
   
     );

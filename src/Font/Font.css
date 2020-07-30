@@ -278,25 +278,27 @@ opacity: 0.5
 @media only screen and (min-width: 768px) {
 
   h2 {
-    font-size: 30px;
+    font-size: 25px;
+    padding-top: 28px
+    
     
   }
 
 
   .fas {
-    font-size: 20px;
+    font-size: 15px;
    
   }
 
 
   h3 {
-    font-size: 20px;
+    font-size: 15px;
     
   }
     
 
   ul, li, label {
-    font-size: 25px;
+    font-size: 20px;
   }
 
 
@@ -312,30 +314,26 @@ opacity: 0.5
 @media only screen and (min-width: 1000px) {
 
   h1 {
-    font-size: 60px;
+    font-size: 40px;
+    margin-top: -20px;
   }
 
-
-  h2 {
-    font-size: 30px;
-    
-  }
 
 
 
   h3 {
-    font-size: 25px;
+    font-size: 20px;
     
   }
     
 
   ul, li, label {
-    font-size: 30px;
+    font-size: 25px;
   }
    
 
   label {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   }
@@ -348,21 +346,16 @@ opacity: 0.5
   
 
   h2 {
-    font-size: 35px;
-    padding-top: 50px
+    font-size: 30px;
+    padding-top: 30px
     
   }
 
 
 
-  h3 {
-    font-size: 25px;
-    
-  }
-    
 
   ul, li, label {
-    font-size: 33px;
+    font-size: 30px;
   }
 
 
@@ -385,20 +378,21 @@ opacity: 0.5
   
 
   h2 {
-    font-size: 40px;
+    font-size: 35px;
+    padding-top: 80px;
     
   }
 
 
 
   h3 {
-    font-size: 30px;
+    font-size: 25px;
     
   }
     
 
   ul, li, label {
-    font-size: 35px;
+    font-size: 32px;
   }
     
   }

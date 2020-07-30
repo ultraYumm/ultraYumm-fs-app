@@ -211,7 +211,8 @@ class AddTripForm extends Component {
     return (
         <form className= "myPlans" onSubmit={dupName | backDates === true? error : onSubmitForm}>
          <h2 className= "white"><i className="fas fa-seedling"></i>{this.props.text}&nbsp;<GoButton
-         username = {this.props.username}
+          goButtonText = {this.props.goButtonText}
+          username = {this.props.username}
          /></h2> 
    
             <div className= "labelWidthPlan"
@@ -226,7 +227,7 @@ class AddTripForm extends Component {
             
             <div className= "labelWidthPlan">
            
-                 <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler nicknames <span className = "tooltiptext primaryFont white">change preset</span></span>
+                 <label htmlFor= "traveler-name"><i className ="fas fa-user-friends white"></i><span className= "labelWidthPlan white montebello">Traveler list by first name <span className = "tooltiptext primaryFont white">change preset</span></span>
                  <input type="text" name="tripTravelers" className= "skinBackground purple names" 
                  defaultValue = {TRAVELER_NAMES}
                  id= "traveler-name"

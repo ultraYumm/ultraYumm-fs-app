@@ -20,6 +20,7 @@ import ItemImage from "../ItemDetails/ItemImage"
 import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
 import { Auth } from 'aws-amplify';
+import AddCustomButton from "../FormElements/AddCustomButton";
 import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
 
 class ItemAdjust extends Component {
@@ -63,7 +64,6 @@ class ItemAdjust extends Component {
       selectedTrip: this.props.selectedTrip.id === 1000000 ? this.props.trips[0] : this.props.selectedTrip,
 
       name: !selectedTrip[0]? TRIPS[0].name: selectedTrip[0].name,
-    
 
       id:  selectedItem.id,
       serving_qty: selectedItem.serving_qty,
@@ -198,6 +198,9 @@ class ItemAdjust extends Component {
       const onSubmitForm = (e) => {
       e.preventDefault()
       const newId =  uuidv4()
+
+      const fixedSource = "nutritionix"
+     
       const newName = this.state.food_name
       const newBrand = this.state.brand_name
       const newCalsPs = isNaN(this.state.cals_per_serving)? 0 : this.state.cals_per_serving
@@ -209,6 +212,8 @@ class ItemAdjust extends Component {
       const trip_day = this.state.trip_day
       const trav_name = this.state.trav_name === undefined ?  "TBD" : this.state.trav_name
       const type = this.state.type
+
+      const newSource = !this.props.selectedItem.full_nutrients || this.props.selectedItem.source === ""?  "" : fixedSource
     
       const API = config.API_UY_ENDPOINT   
       const  endpointI = config.endpointI
@@ -219,13 +224,22 @@ class ItemAdjust extends Component {
       
       const item = {
         id: newId,
-        food_name: newName,
-        serving_unit: newUnit,
-        brand_name: newBrand,
+        
+        food_name: this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource? this.props.selectedItem.food_name: newName, 
+        
+        serving_unit:this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource? this.props.selectedItem.serving_unit : newUnit, 
+        
+        brand_name: this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource? this.props.selectedItem.brand_name: newBrand,
+        
         serving_qty:  newQty,
+        
         image: newImage,
-        serving_weight_grams: newWeight,
-        cals_per_serving: newCalsPs
+
+        source: newSource,
+        
+        serving_weight_grams: this.props.selectedItem.full_nutrients ||this.props.selectedItem.source === fixedSource ? this.props.selectedItem.serving_weight_grams : newWeight,
+        
+        cals_per_serving:  this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource? this.props.selectedItem.cals_per_serving : newCalsPs
       }
       
       const packItem = {
@@ -258,7 +272,7 @@ class ItemAdjust extends Component {
         })
       
         .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
-          this.props.handleNewItem(newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
+          this.props.handleNewItem(newId, newBrand, newSource, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
           this.props.getItems(e)
 
           fetch(urlP, {
@@ -305,8 +319,7 @@ class ItemAdjust extends Component {
         this.props.getTrips(e)
 
     }
-    
-      
+ 
     const trips = this.props.trips;   
     const itemTypes = this.props.itemTypes;
     const item = this.props.selectedItem;
@@ -314,6 +327,7 @@ class ItemAdjust extends Component {
     const name = item.food_name;
     
     const brand = !item.brand_name ? "common" : item.brand_name;
+
     const quant = Math.round(item.serving_qty);
     const unit = item.serving_unit
     const weight = Math.round(item.serving_weight_grams);
@@ -330,12 +344,13 @@ class ItemAdjust extends Component {
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
     const getTrips = this.props.getTrips
   
-    console.log(this.props.trips)
-    console.log(this.state.selectedTrip)
+    const fixedSource = "nutritionix"
 
     return (
       <section className="filterForm"
       onMouseOver = {getTrips}>
+         
+        
        
          
           <div className = "adjustImage" >
@@ -345,15 +360,23 @@ class ItemAdjust extends Component {
           </div>
 
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
-       
+        
            
-          <h2 className="montebello white">{text}<span className = "tooltiptext primaryFont white">change presets</span><GoButton 
-           username = {this.props.username}
+          <h2 className="montebello white">{!this.props.selectedItem.full_nutrients? "make your own item" : "adjust and save as new"}<span className = "tooltiptext primaryFont white">change presets</span>&nbsp;<GoButton 
+          
            
            goButtonText = {this.props.goButtonText}/>
           
                      
           </h2>
+          <span className = "skin note">{this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource? "name, unit, calorie and weight ratios are fixed for this searched item to preserve the integrity of your nutritional info & only new serving quantity can be saved" : "set your custom quantity, unit, weight and calorie ratios"}<br></br>
+          <br></br><span
+          className={ this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource?  ' visible'  : ' invisible'}><NavLink to={`/add-custom/`}
+          className = "noDeco white bold">
+          go to make your own item to input all custom data
+            </NavLink>
+            </span></span>
+         
 
                 
             <div className= "white primaryFont"></div>  
@@ -458,7 +481,7 @@ class ItemAdjust extends Component {
                     className="labelWidth white"
                   > <i className ="fas fa-hiking white mobileHide">
                   </i>&nbsp;
-                  <strong>Total Weight (grams)</strong>
+                  <strong>Total Weight<br></br> (grams)</strong>
                   </label>
                   <div className="cellBox redBackground">
                     <Result
@@ -474,7 +497,7 @@ class ItemAdjust extends Component {
                   <label
                     className="labelWidth white"
                   > <i className ="fas fa-fire-alt white mobileHide"></i>&nbsp;
-                    <strong>Total Calories(cals)</strong>
+                    <strong>Total Calories<br></br>(cals)</strong>
                   </label>
                   <div className="cellBox redBackground">
                
@@ -493,13 +516,13 @@ class ItemAdjust extends Component {
           <div className= "filterSelection"> 
           <div className = "plan">
         <NavLink
-          to={`/add-trip`}
+          to={this.props.username === undefined ? `/sign-in` : `/add-trip`}
           className = "noDeco bold goTo blue"><i className="fas fa-seedling"></i>
-            plan a new trip
+            {this.props.planTripText}
             </NavLink>
             </div>
     
-              <h3 className="filterCategory"><i className ="fas fa-shoe-prints black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name}</span></h3>
+              <h3 className="filterCategory"><i className ="fas fa-shoe-prints black"></i>&nbsp;Trip:{" "}<span className = "primaryFont black">{this.state.name.length === 0 ? "select or plan a new!" : this.state.name}</span></h3>
              
                 <TripNames
                 stateName = {this.state.name} 
@@ -545,7 +568,8 @@ class ItemAdjust extends Component {
              </div>
           </div>
           <div className = "mobileOnly">
-          <GoButton/>
+          <GoButton
+           goButtonText = {this.props.goButtonText}/>
         </div>
         </form>
       </section>

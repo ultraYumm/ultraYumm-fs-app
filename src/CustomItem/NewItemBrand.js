@@ -7,15 +7,25 @@ import '../FormElements/FormElements.css';
 class NewItemBrand extends Component {
 
   static defaultProps = {
-    brand: "Trader Go"
+    brand: "common"
   }
 
+
+  constructor(props) {
+    super(props);
+    const brand = this.props.brand
+
+    this.state = {
+      brand_name: brand
+    };
+  }
 
   
   render() {
 
 
     const brand = this.props.brand
+   
     
     const buildHandleKeyUp = setter => (e) => {
      
@@ -36,10 +46,11 @@ class NewItemBrand extends Component {
           type="text" 
           name="brandName" 
           className="skinBackground black search" id= "custom-brand-name"
-          defaultValue= {brand === "false" ? "common" : brand}
+          defaultValue= {brand}
           onChange = {buildHandleKeyUp((value) => {
             this.setState(
               {brand_name: value}
+
               )   
             })}
           />

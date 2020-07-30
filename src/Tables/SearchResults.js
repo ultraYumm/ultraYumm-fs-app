@@ -110,8 +110,6 @@ class SearchResults extends Component {
       (b, a) => parseFloat(a.calsPhg) - parseFloat(b.calsPhg)
     );
 
-
-    
     return (
       <section>
             

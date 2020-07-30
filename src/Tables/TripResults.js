@@ -125,14 +125,16 @@ class TripResults extends Component {
 
   render() {
     const selectedTrip = this.state.selectedTrip;
-    console.log(selectedTrip.id)
+  
   
     const selectedTripItems = this.props.selectedTripItems;
     const tripItems = this.props.tripItems;
+   
     
     const imageArray = tripItems.map((items) => items.image);
     const food_nameArray = tripItems.map((items) => items.food_name);
     const brandArray = tripItems.map((items) => items.brand_name);
+    const sourceArray = tripItems.map((items) => items.source);
     const fixedUnitArray = tripItems.map((items) => items.serving_unit);
 
 
@@ -147,11 +149,13 @@ class TripResults extends Component {
     const food_name = food_nameArray[i];
     const image = imageArray[i];
     const brand_name = brandArray[i];
+    const source = sourceArray[i];
     const serving_unit = fixedUnitArray[i];
     const cals_per_serving = fixedCalPerUnitArray[i];
     const serving_weight_grams = fixedServingWeightArray[i];
     const resultsObject = {
         image,
+        source,
         food_name,
         brand_name,
         serving_unit,
@@ -173,9 +177,6 @@ class TripResults extends Component {
     }
 
     const filteredResults = filterResults ()
-
-   console.log(selectedTrip[0].trip_dates)
-   console.log(selectedTrip[0])
 
      const resultstoUse = () => {
        
@@ -207,7 +208,7 @@ class TripResults extends Component {
 
     const getPackItems = this.props.getPackItems
     const getItems = this.props.getItems
-     
+
     return (
       <div>
      
@@ -274,6 +275,7 @@ class TripResults extends Component {
              </div>
              </div>
              <div>
+             <span className={ this.state.idToDelete === "" | !this.state.idToDelete ?  ' invisible'  : ' visible'}>
              <DeleteButton
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
@@ -284,6 +286,7 @@ class TripResults extends Component {
             }
             endpoint = {config.endpointP}
              />
+             </span>
           </div>
 
           <div className="filterButtonContainer moreContainer sticky">
@@ -309,6 +312,7 @@ class TripResults extends Component {
                 <TypeHeader/>
                 <TravlrHeader/>
                 <ItemHeader/>
+                <BrandHeader/>
                 <ServQuantHeader/>
                 <UnitHeader/>
                 <WeightGHeader/>
@@ -322,7 +326,7 @@ class TripResults extends Component {
                 <tr className="one whiteBackground black" key = {key}>
                 
                   <td className="date">
-                  {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
+                  {item.trip_day === PACKITEMS[0].trip_day  | item.trip_day === "" ? "TBD" : <Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}        
                   </td>
 
                   <td className="type">
@@ -346,6 +350,13 @@ class TripResults extends Component {
                       name = {item.food_name} />
                       </NavLink>
                     </td>
+
+                   
+                      <ItemBrand
+                      brand = {item.brand_name === "false" ? "common" : item.brand_name}
+                      />
+
+
                   <ServingQuant 
                     input = {Math.round(item.serving_qty)}
                     id = {item.id}
@@ -419,7 +430,7 @@ class TripResults extends Component {
               <tr>  
               <BrandHeader/>
                       <ItemBrand
-                      brand = {!item.brand_name ? "common" : item.brand_name}
+                      brand = {item.brand_name === "false" ? "common" : item.brand_name}
                       />
              </tr>
             </tbody>
@@ -428,7 +439,7 @@ class TripResults extends Component {
             <tr> 
             <DateHeader/>
             <td className="date">
-                     {item.trip_day === PACKITEMS[0].trip_day? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
+                     {item.trip_day === PACKITEMS[0].trip_day | item.trip_day === "" ? "TBD" :<Moment format="ddd-MMM-DD">{item.trip_day}</Moment>}     
             </td>
 
             </tr>

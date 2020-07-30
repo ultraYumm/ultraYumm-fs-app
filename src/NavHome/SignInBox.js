@@ -96,7 +96,7 @@ class SignInBox extends Component {
    
     <div className = "primaryFont black greetings"
      onMouseOver = {this.props.getTrips}
-    >Hi<strong><AuthStateApp/></strong>, go to
+    >Hi<strong><AuthStateApp/></strong>, where would you like to go?
     <br></br>
     <NavLink
           to={`/add-trip`}
@@ -105,46 +105,30 @@ class SignInBox extends Component {
             </NavLink> 
     <br></br><NavLink
           to={`/search-bar`}
-          className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>
+          className = "noDeco bold goTo"><i className ="fas fa-skiing"></i>&nbsp;
            <span className="goTo"
            
-           >quick search</span>
+           >quick item search to see calorie and weight info</span>
             </NavLink>
             <br></br>
            
       <NavLink
           to={`/my-trips`}
-          className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>my trips
+          className = "noDeco montebello goTo"><i className ="fas fa-shoe-prints"></i>&nbsp;my saved trips
             </NavLink> 
             <br></br>
             <NavLink
           to={`/add-custom`}
           className = "noDeco montebello goTo"
-         ><i className="fas fa-stroopwafel"></i>
-          <span className="goTo">make your own item</span>
+         ><i className="fas fa-stroopwafel"></i>&nbsp;
+          <span className="goTo">make your own pack item</span>
             </NavLink> 
    </div>
    <div onClick = {refreshPage}>
     <AmplifySignOut/> 
     </div>
     </div>
-    <AddTripForm
-         text = "plan a trip"
-         routerProps={this.props.routerProps}
-         handleAddTrip = {this.props.handleAddTrip}
-         trips = {trips}
-         getTrips= {this.props.handleGetTrips}
-         getUser ={this.props.getUser}
-        />
-
-<SearchForm
-          routerProps={this.props.routerProps}
-          handleUpdate={this.props.handleUpdate}
-          handleResults={this.props.handleResults}
-          getUser ={this.props.getUser}
-          trips = {this.props.trips}
-          getTrips = {this.props.getTrips}
-        />
+   
   </AmplifyAuthenticator>
   
 
@@ -175,13 +159,25 @@ class SignInBox extends Component {
   }
 }
 export default withRouter (SignInBox);
-
 /*
 <AddTripForm
 text = "plan a trip"
 routerProps={this.props.routerProps}
 handleAddTrip = {this.props.handleAddTrip}
 trips = {trips}
-getTrips= {this.props.handleGetTrips}
+getTrips= {this.props.getTrips}
 getUser ={this.props.getUser}
-/>*/
+goButtonText = {this.props.goButtonText}
+/>
+
+
+<SearchForm
+          routerProps={this.props.routerProps}
+          handleUpdate={this.props.handleUpdate}
+          handleResults={this.props.handleResults}
+          getUser ={this.props.getUser}
+          trips = {this.props.trips}
+          getTrips = {this.props.getTrips}
+          goButtonText = {this.props.goButtonText}
+        />
+*/

@@ -370,10 +370,6 @@ class App extends Component {
     const url = API + endpoint;
     const API_TOKEN = config.API_UY_KEY
 
-    console.log(userid)
-    console.log(users)
-
-    console.log(users.filter(user => user.id === userid).length)
   
     if (users.filter(user => user.id === userid).length === 1) {
       console.log("welcome back existing user")
@@ -419,27 +415,18 @@ class App extends Component {
     
 
   render() {
-
-    console.log(this.state.selectedItem.brand_name)
-
-    
     const userid = this.state.userid
     
     const username = this.state.username
 
-    console.log(username)
-    
+  
     const trips = this.state.trips
-
-    console.log(trips)
 
 
     const items = this.state.items    
     const selectedTripId = this.state.selectedTripId
     
-    console.log(selectedTripId)
-    console.log(this.state.tripName)
-    
+   
 
     const selectedTrip = trips.filter((trip) => trip.id === selectedTripId)
    
@@ -455,12 +442,6 @@ class App extends Component {
       }
     }
 
-    const defaultBrand = this.state.item.defaultBrand
-    const defaultCalsPs = this.state.item.cals_per_serving
-    const defaultName = this.state.item.food_name
-    const defaultImage = this.state.item.image
-    const defaultWeight = this.state.item.serving_weight_grams
-    const defaultUnit = this.state.item.serving_unit
   
     return (
       
@@ -470,7 +451,7 @@ class App extends Component {
         <NavBar 
         getTrips = {e => this.handleGetTrips(e)}
         myTripText = {username === "" ? "" : `${username}'s trips`}
-        myAccountText = {username === "" ? "get started" : "my account"}
+        myAccountText = {username === "" ? "get started" : "my stuff"}
         
         />
         
@@ -696,8 +677,8 @@ class App extends Component {
               tripName={selectedTrip === TRIPS[0]? TRIPS[0].name : this.state.tripName}
               packItems = {selectedTrip === TRIPS[0]? PACKITEMS: this.state.packItems}
 
-              handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
-                this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
+              handleNewItem= {(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                this.addItem(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit)
               }
 
               handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
@@ -724,6 +705,7 @@ class App extends Component {
               this.selectTrip(selectedTripId, tripName)
             }   
             
+            planTripText = {username === "" ? "sign in to plan a trip" : "plan a new trip"}
             
             />
 
@@ -783,7 +765,7 @@ class App extends Component {
                 handleSelectTripItem={(selectTripItem) =>
                   this.selectTripItem(selectTripItem)}
 
-                  getTrips = {(e) =>
+                getTrips = {(e) =>
                     this.handleGetTrips(e)}
                   addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
                   username = {username}
@@ -819,8 +801,8 @@ class App extends Component {
                 packItems = {this.state.packItems}
 
                
-                handleNewItem= {(newId, newQty) =>
-                  this.addDefaultItem(defaultBrand, defaultCalsPs, defaultName, newId, defaultImage, defaultWeight, newQty, defaultUnit)
+                handleNewItem= {(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                  this.addItem(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit)
                 }
 
                 handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
@@ -839,7 +821,9 @@ class App extends Component {
                   
                   handleSelectTrip={(selectedTripId, tripName) =>
                     this.selectTrip(selectedTripId, tripName)
-                  }   
+                  }
+                  planTripText = {username === "" ? "sign in to plan a trip" : "plan a new trip"}
+             
               />
             )
           }}
@@ -851,7 +835,7 @@ class App extends Component {
             return (
               <ItemAdjust
                 routerProps={routerProps}
-                text = "Customize your item"
+                text = "Adjust and save as new"
                 is = " is "
                 forT = " for "
                 onT = " on "
@@ -871,13 +855,12 @@ class App extends Component {
                 tripName={this.state.tripName}
                 packItems = {this.state.packItems}
                 
-                handleNewItem= {(newId, newQty) =>
-                  this.addDefaultItem(defaultBrand, defaultCalsPs, defaultName, newId, defaultImage, defaultWeight, newQty, defaultUnit)
+                handleNewItem= {(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                  this.addItem(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit)
                 }
-  
 
-                handleNewPackItem={(id, tripid, trip_day, trav_name, type, serving_qty) =>
-                this.addPackItem(id, tripid, trip_day, trav_name, type, serving_qty)
+                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
+                  this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
                 }
 
                 getItems = {(e) =>
@@ -893,7 +876,10 @@ class App extends Component {
 
                 handleSelectTrip={(selectedTripId, tripName) =>
                   this.selectTrip(selectedTripId, tripName)
-                }   
+                }
+                
+                planTripText = {username === "" ? "sign in to plan a trip" : "plan a new trip"}
+          
 
               />
               )

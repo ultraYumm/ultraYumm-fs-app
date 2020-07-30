@@ -225,6 +225,18 @@ input.add {
 }
 
 
+.visible {
+     visibility: visible;
+     padding: 5px;
+
+}
+
+.invisible {
+     display: none;
+
+}
+
+
 
 @media only screen and (min-width: 1px) and (max-width:666px){
 
@@ -246,7 +258,6 @@ th, td {
 }
 
 
- 
 
 
 }
@@ -435,6 +446,11 @@ th.date, tr.date  {
      width: 80px;   
 }
 
+
+.visible {
+     padding: 5px;
+
+}
 
 .imageH:hover {
      zoom: 200%;

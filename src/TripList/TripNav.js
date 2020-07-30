@@ -80,7 +80,7 @@ class TripNav extends Component {
             plan a trip
             </NavLink> 
       
-
+            <span className={ this.state.idToDelete === "" ?  ' invisible'  : ' visible'}>
              <DeleteButton
             name = {this.state.nameOfDelete}
             idToDelete = {this.state.idToDelete}
@@ -91,7 +91,7 @@ class TripNav extends Component {
             }
            endpoint = {config.endpointT}
              />
-
+</span>
         
 
           </div>
@@ -142,6 +142,7 @@ class TripNav extends Component {
               <table>
               <tbody>
                 <tr>
+
               <Delete
                   idToDelete = {(id, name) => this.selectItemToDelete(id, name)}
                   id = {trip.id}

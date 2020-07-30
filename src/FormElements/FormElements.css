@@ -116,7 +116,16 @@ div.labelWidthDates {
     
 
 }
-
+.note {
+    float: left;
+    margin: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+    text-align: center
+    
+    
+    
+}
 
 .customize {
     margin-left: -35px;
@@ -842,6 +851,17 @@ button {
    
 }
 
+.greetings {
+    padding: 10px;
+}
+
+
+.myPlans {
+    padding-top: 10px;
+}
+
+
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -952,11 +972,21 @@ div.labelWidthDates {
 }
 
 
-
-.myPlans {
-    padding-top: 80px;
+.greetings {
+    font-size: 20px;
 }
 
+.note {
+    float: left;
+    margin: 10px;
+    padding-left: 10px;
+    font-size: 12px;
+    text-align: left;
+    width: 100px;
+    
+    
+    
+}
 
 
 }
@@ -967,7 +997,7 @@ div.labelWidthDates {
 
 
 .myPlans {
-    padding-top: 120px;
+    padding-top: 10px;
 }
 
 input.dataResult {
@@ -1117,6 +1147,11 @@ form {
 }
 
 
+.note {
+    padding-left: 10px;
+    font-size: 15px;
+    width: 200px;
+}
 
     
 }
@@ -1253,6 +1288,14 @@ button {
     margin-bottom: -73px;
    
 }
+
+.note {
+    padding-left: 10px;
+    font-size: 25px;
+    width: 300px;
+}
+
+
 
 
 
