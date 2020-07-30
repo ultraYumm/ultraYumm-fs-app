@@ -4,7 +4,7 @@ import "../FormElements/FormElements.css";
 import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import { Auth } from 'aws-amplify';
-import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator,  AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import { NavLink} from 'react-router-dom';
 import { withRouter } from "react-router-dom";
@@ -25,7 +25,7 @@ class SignInBox extends Component {
    
     
     try {Auth.currentAuthenticatedUser()
-    
+    .catch(err => console.log(err))
     .then(user => {
  
     const id = user.attributes.sub
@@ -52,16 +52,8 @@ class SignInBox extends Component {
 
 }
 
-
-  
-
-  
-
   render() {
 
-    
-
-  
     function refreshPage() {
       window.location.reload(false);
     }
@@ -88,22 +80,15 @@ class SignInBox extends Component {
     const signIn = () => (
 
 
-     
+     <div>
+         
       <AmplifyAuthenticator>
-    <div className = "montebello">
-    <AmplifySignUp
-          slot="sign-up"
-          formFields={[
-            { type: "username" },
-            {
-              type: "password",
-            },
-            { type: "email" }
-          ]} />
+    <div className = "montebello"
+     >
    
     <div className = "primaryFont black greetings"
      onMouseOver = {this.props.getTrips}
-    >Hi<strong><AuthStateApp/></strong>, where would you like to go?
+    ><div className ="hi">Hi<strong><AuthStateApp/></strong>, where would you like to go?</div>
     <br></br>
     <NavLink
           to={`/add-trip`}
@@ -137,13 +122,12 @@ class SignInBox extends Component {
     </div>
    
   </AmplifyAuthenticator>
+  </div>
   
 
 
     );
-     
-  
-    
+
     return (
 
 
@@ -154,7 +138,9 @@ class SignInBox extends Component {
           <h1 className= "black montebello title">
          Get more energy!<span>&nbsp;&nbsp;</span>
             <span className="lighter">pack lighter
-           
+            <br></br><div 
+         
+          className={ this.props.myAccountText === "get started"?' hover primaryFont newAccount'  : ' invisible'}>for new accounts, a confirmation code will be emailed after sign-up</div>
             <span>{signIn()}</span></span>
            
           </h1>

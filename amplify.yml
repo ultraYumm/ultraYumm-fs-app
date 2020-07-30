@@ -4,7 +4,7 @@ frontend:
     preBuild:
       - npm install
     build:
-      - npm build
+      - npm run build
   artifacts:
     baseDirectory: build
     files:

@@ -382,6 +382,7 @@ button[type="button"]{
 
 .greetings {
     padding: 50px;
+    margin: 20px;
 }
 
 .filter, .reset {

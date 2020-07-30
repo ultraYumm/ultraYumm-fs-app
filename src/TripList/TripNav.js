@@ -32,15 +32,23 @@ class TripNav extends Component {
     }
 
 
-  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+  componentDidMount () { 
+    
+    try {Auth.currentAuthenticatedUser().then(user => {
 
     let id = user.attributes.sub
     let username = user.username
 
     this.props.getUser(id, username)
    
-  });
+  })
+  .catch(err => console.log(err))
 
+}
+  catch (ex) {
+    console.log("waiting for login", ex);
+    alert("waiting for login");
+  }
     }
 
     
