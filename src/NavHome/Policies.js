@@ -16,9 +16,11 @@ class Privacy extends Component {
       <h1 className= "black montebello title">Policies</h1>
       <ul className= "primaryFont black greetings">
       <img  src={CoreValuesImg} alt="ultraYumm core values" className= "coreValues"/>
-      <li>
-      My name is Stephanie and I coded this site after planning a Grand Canyon backpacking trip with my 2 girls and husband in 2019 - the wondrous Escalante Route. It seemed like there were no good tools out there to search for foods and plan specifically according to weight and calories. So now you are visiting site version 1.0! The core values listed above are what I deeply believe in, and my goal is to make a useful product for the outdoor recreation community. I am 100% self funded a do everything myself. At some point I may try to offset my costs through an affiliate prFull disclosure, this is a homemade prototype that I'm working on in my spare time and I still have much to learn about web development. Please send me your  <a href="mailto:mailto:ultrayummprod@gmail.com?subject= Please share your feedback, questions, anything!" className = "noDeco" alt="subject">comments</a>or post a review.
-        
+      <li className = "hello">
+      My name is Stephanie and I coded this site after planning a Grand Canyon backpacking trip with my 2 girls and husband in 2019, the wondrous <a href="https://www.google.com/maps/embed?pb=!4v1589308620339!6m8!1m7!1sH9R4rDjmbhhsQVA2f0Dq8Q!2m2!1d36.03291467946964!2d-111.8531019810478!3f9.17!4f0!5f0.7820865974627469" className = "noDeco" alt="url to escalante">Escalante&nbsp;</a>. It seemed like there were no good tools out there to search for foods and plan specifically according to weight and calories. So now you are visiting site version 1.0! <br></br> <br></br>
+      Full disclosure, this is a homemade prototype that I'm working on in my spare time. I still have much to learn about web development. Please send me your  <a href="mailto:mailto:ultrayummprod@gmail.com?subject= Please share your feedback, questions, anything!" className = "noDeco" alt="subject">comments&nbsp;</a>or post a review on <span>
+      <a href="https://www.facebook.com/ultraYumm" className = "noDeco" alt="subject"> <i className="fab fa-facebook" alt= "facebook page" title="Email your feedback"></i></a>
+</span> thank you!
         </li>   
 
         <li>
