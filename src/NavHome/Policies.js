@@ -17,9 +17,9 @@ class Privacy extends Component {
       <ul className= "primaryFont black greetings">
       <img  src={CoreValuesImg} alt="ultraYumm core values" className= "coreValues"/>
       <li className = "hello">
-      My name is Stephanie and I coded this site after planning a Grand Canyon backpacking trip with my 2 girls and husband in 2019, the wondrous <a href="https://www.google.com/maps/embed?pb=!4v1589308620339!6m8!1m7!1sH9R4rDjmbhhsQVA2f0Dq8Q!2m2!1d36.03291467946964!2d-111.8531019810478!3f9.17!4f0!5f0.7820865974627469" className = "noDeco" alt="url to escalante">Escalante&nbsp;</a>. It seemed like there were no good tools out there to search for foods and plan specifically according to weight and calories. So now you are visiting site version 1.0! <br></br> <br></br>
-      Full disclosure, this is a homemade prototype that I'm working on in my spare time. I still have much to learn about web development. Please send me your  <a href="mailto:mailto:ultrayummprod@gmail.com?subject= Please share your feedback, questions, anything!" className = "noDeco" alt="subject">comments&nbsp;</a>or post a review on <span>
-      <a href="https://www.facebook.com/ultraYumm" className = "noDeco" alt="subject"> <i className="fab fa-facebook" alt= "facebook page" title="Email your feedback"></i></a>
+      My name is Stephanie and I coded ultraYumm<span className ="tiny">©</span> after planning a Grand Canyon backpacking trip with my family along the wondrous <a href="https://www.grandcanyontrust.org/hikes/escalante-route" className = "noDeco" alt="url to escalante" target= "_blank" rel="noopener noreferrer">Escalante&nbsp;</a>route. It seemed like there were no good tools to search for foods and plan by weight constraints and calorie requirements. Fast forward, you are now visiting site version 1.0! <br></br> <br></br>
+      Full disclosure, this is a prototype, homemade with love, that I'm working on in my spare time. I also still have much to learn about web development. Please send me your  <a href="mailto:mailto:ultrayummprod@gmail.com?subject= Please share your feedback, questions, anything!" className = "noDeco" alt="subject" target= "_blank" rel="noopener noreferrer" >comments&nbsp;</a>or post a review on <span>
+      <a href="https://www.facebook.com/ultraYumm" className = "noDeco" alt="subject" target= "_blank" rel="noopener noreferrer"> <i className="fab fa-facebook" alt= "facebook page" title="Email your feedback"></i></a>
 </span> thank you!
         </li>   
 

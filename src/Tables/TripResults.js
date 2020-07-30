@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../Font/Font.css";
 import TripName from "../TripDetails/TripName";
-import TripYear from "../TripDetails/TripYear";
 import Moment from "react-moment";
 import PrintButton from "../FormElements/PrintButton";
 import AddCustomButton from "../FormElements/AddCustomButton";
@@ -120,6 +119,21 @@ class TripResults extends Component {
     
   };
   
+  revealFilter = () => {
+    
+    this.setState({
+      filter: "visible"
+    });
+    
+  };
+
+  unrevealFilter = () => {
+    
+    this.setState({
+      filter: "invisible"
+    });
+    
+  };
 
  
 
@@ -211,19 +225,32 @@ class TripResults extends Component {
 
     return (
       <div>
+        
      
       <section className="lightBlueBackground"
-      onMouseOver = {getItems}>      
+      onMouseOver = {getItems}
+          >      
        
+           
         <div className = "lightBlueBackground sticky" 
-        onMouseOver = {getPackItems}>
-           <div className="charts sticky cloudBlueBackground">
+        onMouseOver = {getPackItems}
+        >
+          <span className = "excel">
+          <ExcelButton
+         />
+         </span>
+           
+          
+           <div className="charts sticky cloudBlueBackground"
+           onMouseEnter= {this.revealFilter}>
+             
           <TripCalorieGraph cals={sum_CalServProducts}/>
           <TripPackGraph weight={sum_WeightServProducts}/>
-
-
           <div className="filterSelection summary">
-          <h2 className="filterCategory black">  Filters: &nbsp; <i className="fas fa-undo black" onClick = {this.undoFilter}></i> </h2> <br></br>
+          <h2 className="filterCategory black">  Filters: &nbsp; <i className="fas fa-undo black" onClick = {this.undoFilter}
+           
+          ></i> </h2> <br></br>
+          <div className={ this.state.filter === "visible"?' filterShow'  : ' filterHide'}>
       
               <h3 className="filterCategory"> <i className ="fas fa-user-circle black"></i>&nbsp;by traveler</h3>
                 <TripTravelers 
@@ -232,7 +259,7 @@ class TripResults extends Component {
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)
                 }/>
-             </div>
+           
 
              <div className= "filterSelection summary">
               <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;by date:{" "}</h3>
@@ -244,35 +271,32 @@ class TripResults extends Component {
                   this.selectDay(selectedDay)
                 }/>
             </div>
-
-              
+            </div>
+            </div>
 
           </div>
         
-          <div className = "iconButtonContainer sticky">
-         
-        </div>
+        <div>
+             <div className = "printExcel">
+        
+           
+          
+           
+
+             </div>
+           
           <h2 className="montebello black sticky resultsTitle">
          
             <div className="primaryFont bold white sticky resultsTitle">
-              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/><span className = "montebello">&nbsp;Results!&nbsp; 
-              <TripYear selectedTrip= {!selectedTrip[0]? TRIPS[0] : selectedTrip[0]}/></span>
+              <TripName selectedTrip={!selectedTrip[0]? TRIPS[0] : selectedTrip}/>
             </div>
           </h2>
         
        
-           <div>
-          <div className="iconButtonContainer"> 
-             <div className = "excel">
-             <ExcelButton
-            />
-            </div>
-             </div>
-             <div className="iconButtonContainer">
-             <div className = "print">          
+          <span className = "print">          
              <PrintButton/>
-             </div>
-             </div>
+             </span>
+          
              </div>
              <div>
              <span className={ this.state.idToDelete === "" | !this.state.idToDelete ?  ' invisible'  : ' visible'}>
@@ -305,7 +329,8 @@ class TripResults extends Component {
           </div>
           </div>
 
-          <table id="results-filtered" className="primaryFont desk">
+          <table id="results-filtered" className="primaryFont desk"
+          onMouseOver = {this.unrevealFilter}>
             <tbody>
               <tr className="blueBackground white">  
                 <DateHeader/>
@@ -395,7 +420,8 @@ class TripResults extends Component {
 
          
           {resultstoUse().map((item, key) => (
-          <table id="results-filtered-mobile" className="primaryFont whiteBackground mobileOnly" key={key}>
+          <table id="results-filtered-mobile" className="primaryFont whiteBackground mobileOnly" key={key}
+          onMouseOver = {this.unrevealFilter}>
             
             <tbody>
              <tr className = "mobile" >

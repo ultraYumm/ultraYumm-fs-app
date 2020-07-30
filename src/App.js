@@ -55,6 +55,7 @@ class App extends Component {
 
 
   handleGetTrips(e) {
+   
     e.preventDefault();
     const API = config.API_UY_ENDPOINT   
     const  endpoint = config.endpointT
@@ -256,12 +257,13 @@ class App extends Component {
   
 
 
-  addItem = (newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
+  addItem = (newId, newBrand, newSource, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
     const items = this.state.items
     const newItems = [
       ...items,
       { id: newId, 
         food_name: newName,
+        source: newSource,
         image: newImage,
         cals_per_serving: newCalsPs,
         serving_qty: newQty,
@@ -275,24 +277,6 @@ class App extends Component {
     });
   }
 
-  addDefaultItem = (newId, newQty) => {
-    const items = this.state.items
-    const newItems = [
-      ...items,
-      { id: newId, 
-        food_name:  this.state.food_name,
-        image: this.state.selectedItem.image,
-        cals_per_serving: this.state.selectedItem.cals_per_serving,
-        serving_qty: newQty,
-        serving_unit: this.state.selectedItem.serving_unit,
-        serving_weight_grams: this.state.selectedItem.serving_weight_grams,
-        brand_name: this.state.selectedItem.brand_name,
-      }
-    ]
-    this.setState({
-      items: newItems,
-    });
-  }
 
  
 

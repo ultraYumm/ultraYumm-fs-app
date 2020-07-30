@@ -18,7 +18,7 @@ class ExcelButton extends Component {
 
     
     return (
-      <div className= "tooltip iconButtons excel">
+      <div className= "tooltip iconButtons">
         <i className="fas fa-file-excel black" alt = "download to excel"
         type = "submit"><span className = "tooltiptext primaryFont white">export to xls</span>
         <ReactHTMLTableToExcel  

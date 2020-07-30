@@ -163,9 +163,10 @@ h2.resultsTitle, div.resultsTitle {
      justify-content: center;
      margin-left: auto;
      margin-right: auto;
-     padding-bottom: 10px;
-         
+     padding-bottom: 15px;
 }
+         
+
 
 .searchResultsTitle {
      text-align: center;
@@ -487,6 +488,10 @@ th.date, tr.date  {
 .resultsTitle {
     margin-top: 30px;
     
+}
+
+div.home, div.policies {
+     height: 800px;
 }
           
 }

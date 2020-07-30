@@ -31,7 +31,7 @@ class UnitQuant extends Component {
       <input className= "dataResult skinBackground"
       id = "serving quantity"
       type = "number"
-      min= "0"
+      min= "1" required
       name="itemQuantity"
       defaultValue = {isNaN(input)? 0 : input}
     

@@ -175,13 +175,15 @@ class ItemAdjust extends Component {
   };
 
 
-  componentDidMount () { try {Auth.currentAuthenticatedUser().then(user => {
+  componentDidMount () { try {Auth.currentAuthenticatedUser()
+    .catch(err => console.log(err))
+    .then(user => {
 
     let id = user.attributes.sub
     let username = user.username
 
     this.props.getUser(id, username)
-    .catch(err => console.log(err))
+   
    
   })
 }
@@ -209,7 +211,7 @@ catch (ex) {
       const newBrand = this.state.brand_name
       const newCalsPs = isNaN(this.state.cals_per_serving)? 0 : this.state.cals_per_serving
       const newImage = this.state.image
-      const newQty = !this.state.serving_qty? 1 : this.state.serving_qty
+      const newQty = this.state.serving_qty
       const newUnit = this.state.serving_unit
       const newWeight = isNaN(this.state.serving_weight_grams)? 0 : this.state.serving_weight_grams 
       const tripid = this.state.tripid      
@@ -217,7 +219,7 @@ catch (ex) {
       const trav_name = this.state.trav_name === undefined ?  "TBD" : this.state.trav_name
       const type = this.state.type
 
-      const newSource = !this.props.selectedItem.full_nutrients || this.props.selectedItem.source === ""?  "" : fixedSource
+      const newSource =this.props.selectedItem.full_nutrients || this.props.selectedItem.source === fixedSource?    fixedSource : this.props.selectedItem.source
     
       const API = config.API_UY_ENDPOINT   
       const  endpointI = config.endpointI
@@ -275,9 +277,9 @@ catch (ex) {
 
         })
       
-        .then((newId, newBrand, newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
+        .then((newId, newBrand, newSource,newCalsPs, newName, newImage, newWeight, newQty, newUnit) => {
           this.props.handleNewItem(newId, newBrand, newSource, newCalsPs, newName, newImage, newWeight, newQty, newUnit)
-          this.props.getItems(e)
+          
 
           fetch(urlP, {
             method: 'POST',
@@ -300,10 +302,7 @@ catch (ex) {
             })
             
             .then((newId, tripid, trip_day, trav_name, type, newQty) => {
-              this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)
-
-              
-              this.props.routerProps.history.push("/trip/:tripName");
+              this.props.handleNewPackItem(newId, tripid, trip_day, trav_name, type, newQty)    
               
               this.props.getPackitems(e)
                     
@@ -320,13 +319,20 @@ catch (ex) {
           this.setState({ error })
         })
         
-        this.props.getTrips(e)
+        .then(this.props.getTrips(e))
+       
+        .then((
+          this.props.routerProps.history.push("/trip/:tripName"))
 
+        )
+
+        
     }
  
     const trips = this.props.trips;   
     const itemTypes = this.props.itemTypes;
     const item = this.props.selectedItem;
+    console.log(item)
     const image = item.image
     const name = item.food_name;
     
