@@ -18,7 +18,7 @@ class Footer extends Component {
         <footer>
         <ul className= "social">
 
-            <li className= "social_icon email"> <a href="mailto:mailto:ultrayummprod@gmail.com?subject=Likes, dislikes, questions, a limerick...anything!" className = "noDeco" alt="subject"> <i className="fas fa-at social contact_icon black" alt= "Email" title="Email your feedback"></i></a>
+            <li className= "social_icon email"> <a href="mailto:mailto:ultrayummprod@gmail.com?subject= Please share your feedback, questions, anything!" className = "noDeco" alt="subject"> <i className="fas fa-at social contact_icon black" alt= "Email" title="Email your feedback"></i></a>
             </li> 
 
             <li className= "social_icon email">
