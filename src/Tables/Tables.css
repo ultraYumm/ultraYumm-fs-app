@@ -231,6 +231,29 @@ input.add {
 
 }
 
+
+.hover {
+     font-size: 14px;
+     color: rgba(242, 242, 242);
+     height: 80px;
+     width: 100%;
+     padding-top: 55px;
+    
+     
+}
+ 
+
+
+.hover:hover {
+     visibility: visible;
+     color: rgba(38, 11, 9, 1);
+      
+     transition: 1.4s ease;
+}
+ 
+
+
+
 .invisible {
      display: none;
 

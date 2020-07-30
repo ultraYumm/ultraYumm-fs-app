@@ -17,7 +17,10 @@
    z-index: 3;
    position: fixed;
 }
-  
+
+.newAccount {
+font-size: 12px;
+}
 .navbar:hover, .navbar:active {
     border: 1px solid rgba( 173, 192, 217);
 }
@@ -52,6 +55,7 @@
 
 .goTo {
     font-size: 16px;
+   
 }
     
 .home {
@@ -144,7 +148,6 @@ text-align: center
 
 
 .social_icon {
-
 padding: 10px;
 
 
@@ -242,6 +245,7 @@ div.descriptionText {
 
 h1.title {
     font-size: 45px;
+    padding-top: 20px;
 }
 
   
@@ -271,7 +275,7 @@ h1.title {
 
 
 h1.title {
-    font-size: 40px;
+    padding-top: 60px;
 }
 
 

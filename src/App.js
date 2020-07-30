@@ -53,6 +53,7 @@ class App extends Component {
     };
   }
 
+
   handleGetTrips(e) {
     e.preventDefault();
     const API = config.API_UY_ENDPOINT   
@@ -89,6 +90,8 @@ class App extends Component {
           error: 'Sorry, could not get trips at this time.'
         });
       })
+
+  
 
   }
 
@@ -611,7 +614,7 @@ class App extends Component {
               this.addTrip(iframe, tripName, tripTravelers, tripDates)
             }
             
-            addButtonText = {username === ""? "Sign in to make your own item" : "Make your own item"}
+            myAccountText = {username === "" ? "get started" : "my stuff"}
 
             getTrips = {e => this.handleGetTrips(e)}
             
@@ -625,6 +628,7 @@ class App extends Component {
               this.handleGetItems(e)}
             
             goButtonText = "go!"
+            
 
            
 
