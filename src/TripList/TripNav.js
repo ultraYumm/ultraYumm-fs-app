@@ -76,7 +76,7 @@ class TripNav extends Component {
         <div className="iconButtonContainer">
         <NavLink
           to={`/add-trip`}
-          className = "noDeco bold goTo black plan"><i className="fas fa-seedling"></i>
+          className = "noDeco bold goTo dark plan"><i className="fas fa-seedling"></i>
             plan a trip
             </NavLink> 
       
@@ -122,7 +122,7 @@ class TripNav extends Component {
               
              
            
-              <ul className = "navActions skinBackground"
+              <ul className = "navActions whiteBackground"
               onMouseOver={() => {
                 const selectTripId = trip.id
                 const tripName = trip.name

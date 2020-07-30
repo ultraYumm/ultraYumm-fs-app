@@ -27,7 +27,7 @@ class SearchForm extends Component {
     }
     catch (ex) {
       console.log("waiting for login", ex);
-      alert("Waiting for login");
+      alert("waiting for login");
     }
 
   }

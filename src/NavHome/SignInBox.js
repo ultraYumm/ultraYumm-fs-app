@@ -4,12 +4,10 @@ import "../FormElements/FormElements.css";
 import "../Font/Font.css";
 import uYtitle from "../Images/uYtitle.png";
 import { Auth } from 'aws-amplify';
-import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import AddTripForm from "../AddTrip/AddTripForm";
 import { NavLink} from 'react-router-dom';
 import { withRouter } from "react-router-dom";
-import SearchForm from "../Search/SearchForm";
 
 
 class SignInBox extends Component {
@@ -93,6 +91,15 @@ class SignInBox extends Component {
      
       <AmplifyAuthenticator>
     <div className = "montebello">
+    <AmplifySignUp
+          slot="sign-up"
+          formFields={[
+            { type: "username" },
+            {
+              type: "password",
+            },
+            { type: "email" }
+          ]} />
    
     <div className = "primaryFont black greetings"
      onMouseOver = {this.props.getTrips}
@@ -135,7 +142,7 @@ class SignInBox extends Component {
 
     );
      
-    const trips = this.props.trips
+  
     
     return (
 
@@ -159,25 +166,3 @@ class SignInBox extends Component {
   }
 }
 export default withRouter (SignInBox);
-/*
-<AddTripForm
-text = "plan a trip"
-routerProps={this.props.routerProps}
-handleAddTrip = {this.props.handleAddTrip}
-trips = {trips}
-getTrips= {this.props.getTrips}
-getUser ={this.props.getUser}
-goButtonText = {this.props.goButtonText}
-/>
-
-
-<SearchForm
-          routerProps={this.props.routerProps}
-          handleUpdate={this.props.handleUpdate}
-          handleResults={this.props.handleResults}
-          getUser ={this.props.getUser}
-          trips = {this.props.trips}
-          getTrips = {this.props.getTrips}
-          goButtonText = {this.props.goButtonText}
-        />
-*/

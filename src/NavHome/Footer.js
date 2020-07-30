@@ -26,7 +26,7 @@ class Footer extends Component {
           to={`/policies`}
           className = "noDeco">
             
-         <i className="fas fa-info-circle black social contact_icon"></i>
+         <i className="fas fa-info-circle black social contact_icon"></i><span className = "invisible">policies</span>
             </NavLink> 
             </li>
     

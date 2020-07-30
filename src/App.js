@@ -859,10 +859,6 @@ class App extends Component {
                   this.addItem(newBrand, newCalsPs, newSource, newName, newId, newImage, newWeight, newQty, newUnit)
                 }
 
-                handleNewItem= {(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit) =>
-                  this.addItem(newBrand, newCalsPs, newName, newId, newImage, newWeight, newQty, newUnit)
-                }
-
                 getItems = {(e) =>
                   this.handleGetItems(e)}
 

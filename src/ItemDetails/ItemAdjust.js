@@ -20,7 +20,6 @@ import ItemImage from "../ItemDetails/ItemImage"
 import Moment from 'react-moment';
 import { v4 as uuidv4 } from 'uuid';
 import { Auth } from 'aws-amplify';
-import AddCustomButton from "../FormElements/AddCustomButton";
 import { ITEMS, DEFAULTITEM, TRIPS, PACKITEMS } from "../Defaults";
 
 class ItemAdjust extends Component {
@@ -176,15 +175,20 @@ class ItemAdjust extends Component {
   };
 
 
-  componentDidMount () { Auth.currentAuthenticatedUser().then(user => {
+  componentDidMount () { try {Auth.currentAuthenticatedUser().then(user => {
 
     let id = user.attributes.sub
     let username = user.username
 
     this.props.getUser(id, username)
+    .catch(err => console.log(err))
    
   })
-
+}
+catch (ex) {
+  console.log("waiting for login", ex);
+  alert("waiting for login");
+}
 
     }
 
@@ -340,7 +344,6 @@ class ItemAdjust extends Component {
     const stateServWeight = parseInt(this.state.serving_weight_grams)
     const stateWeightnf = (stateQty * stateServWeight)
     const stateCalsnf = (stateQty * stateCalsPs)
-    const text = this.props.text
     const trip_day = <Moment format= "MMM/DD" >{this.state.trip_day}</Moment>
     const getTrips = this.props.getTrips
   
