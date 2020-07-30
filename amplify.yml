@@ -2,9 +2,11 @@ version: 1
 frontend:
   phases:
     preBuild:
-      - npm install
+      commands:
+        - npm install
     build:
-      - npm run build
+      commands:
+        - npm run build
   artifacts:
     baseDirectory: build
     files:
