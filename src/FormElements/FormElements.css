@@ -366,15 +366,10 @@ button:hover {
     margin-left: -5px
 }
 
-.excel {
-float: left;
-position: absolute;
-top: 45px;
-left: 100px;}
-
 .print {
 float: left;
 margin-top: -66px;
+width: 60%
 }
 
 
@@ -489,6 +484,12 @@ button[type="button"]{
 .summary {
     zoom: 0.7
 }
+
+
+.boost {
+    zoom: 0.9
+}
+
 
 
 .summary:hover {
@@ -878,10 +879,9 @@ button {
 
 
 .excel {
-    float: left;
     position: absolute;
-    top: 45px;
-    left: 10px;}
+    top: 134px;
+    left: 10px}
     
     .print {
     float: left;
@@ -1005,22 +1005,28 @@ div.labelWidthDates {
 }
 
 
+
+.excel {
+    position: absolute;
+    top: 205px;
+    left: 10px}
+    
+
 }
 
 
 @media only screen and (min-width: 1366px) {
 
 
-    .excel {
-        float: right;
-        margin-top: 60px;
-        left: 200px}
-     
+.excel {
+    
+    left: 200px}
+    
 
-        .print {
-            float: left;
-            padding-top: 50px;
-            }
+.print {
+    
+    padding-top: 50px;
+    }
 
 .myPlans {
     padding-top: 10px;
@@ -1319,7 +1325,7 @@ button {
 
 .excel {
   
-    top: 130px;
+    top: 340px;
     left: 170px;}
 
 

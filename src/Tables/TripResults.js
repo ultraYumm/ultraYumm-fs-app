@@ -235,10 +235,7 @@ class TripResults extends Component {
         <div className = "lightBlueBackground sticky" 
         onMouseOver = {getPackItems}
         >
-          <span className = "excel">
-          <ExcelButton
-         />
-         </span>
+          
            
           
            <div className="charts sticky cloudBlueBackground"
@@ -263,7 +260,7 @@ class TripResults extends Component {
          
            </div>
 <div className={ this.state.filter === "visible"?' filterShow'  : ' filterHide'}>
-             <div className= "filterSelection summary"
+             <div className= "filterSelection summary boost"
             >
               
               <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;by date:{" "}</h3>
@@ -334,6 +331,10 @@ class TripResults extends Component {
            
           </div>
           </div>
+          <span className = "excel mobileHide">
+          <ExcelButton
+         />
+         </span>
 
           <table id="results-filtered" className="primaryFont desk"
           onMouseOver = {this.unrevealFilter}>
