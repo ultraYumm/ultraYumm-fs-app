@@ -253,16 +253,22 @@ class TripResults extends Component {
           <div className={ this.state.filter === "visible"?' filterShow'  : ' filterHide'}>
       
               <h3 className="filterCategory"> <i className ="fas fa-user-circle black"></i>&nbsp;by traveler</h3>
+            
                 <TripTravelers 
                 stateName = {this.state.trav_name}
                 tripTravelers={!selectedTrip[0]? TRIPS[0].traveler_names : selectedTrip[0].traveler_names}
                 handleSelectTraveler={(selectedTraveler) =>
                   this.selectTraveler(selectedTraveler)
                 }/>
-           
-
-             <div className= "filterSelection summary">
+         
+           </div>
+<div className={ this.state.filter === "visible"?' filterShow'  : ' filterHide'}>
+             <div className= "filterSelection summary"
+            >
+              
               <h3 className="filterCategory"><i className ="fas fa-calendar-day black"></i>&nbsp;by date:{" "}</h3>
+              
+          
                 <TripDates
                 stateDate = {!results[0]? PACKITEMS[0].trip_day : this.state.trip_day}
                 defaultDay = {!results[0]? PACKITEMS[0].trip_day : results[0].trip_day}
@@ -270,7 +276,7 @@ class TripResults extends Component {
                 handleSelectDay={(selectedDay) =>
                   this.selectDay(selectedDay)
                 }/>
-            </div>
+          </div>
             </div>
             </div>
 

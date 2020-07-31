@@ -811,6 +811,10 @@ class App extends Component {
                     this.selectTrip(selectedTripId, tripName)
                   }
                   planTripText = {username === "" ? "sign in to plan a trip" : "plan a new trip"}
+
+                  username = {username}
+
+                  
              
               />
             )
@@ -863,6 +867,8 @@ class App extends Component {
                 }
                 
                 planTripText = {username === "" ? "sign in to plan a trip" : "plan a new trip"}
+
+                username = {username}
           
 
               />

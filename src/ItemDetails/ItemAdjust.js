@@ -176,7 +176,7 @@ class ItemAdjust extends Component {
 
 
   componentDidMount () { try {Auth.currentAuthenticatedUser()
-    .catch(err => console.log(err))
+   
     .then(user => {
 
     let id = user.attributes.sub
@@ -186,6 +186,7 @@ class ItemAdjust extends Component {
    
    
   })
+  .catch(err => console.log(err))
 }
 catch (ex) {
   console.log("waiting for login", ex);
@@ -332,7 +333,6 @@ catch (ex) {
     const trips = this.props.trips;   
     const itemTypes = this.props.itemTypes;
     const item = this.props.selectedItem;
-    console.log(item)
     const image = item.image
     const name = item.food_name;
     
@@ -354,6 +354,7 @@ catch (ex) {
     const getTrips = this.props.getTrips
   
     const fixedSource = "nutritionix"
+    console.log(this.props.username)
 
     return (
       <section className="filterForm"
@@ -371,10 +372,14 @@ catch (ex) {
         <form id="filter" onSubmit={onSubmitForm} className = "blueBackground">
         
            
-          <h2 className="montebello white">{!this.props.selectedItem.full_nutrients? "make your own item" : "adjust and save as new"}<span className = "tooltiptext primaryFont white">change presets</span>&nbsp;<GoButton 
+          <h2 className="montebello white">{!this.props.selectedItem.full_nutrients? "make your own item" : "adjust and save as new"}<span className = "tooltiptext primaryFont white">change presets</span>&nbsp;
+          
+          <div className={!this.props.username ?  ' invisible'  : ' visible'}>
+          <GoButton 
           
            
            goButtonText = {this.props.goButtonText}/>
+           </div>
           
                      
           </h2>

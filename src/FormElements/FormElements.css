@@ -139,7 +139,8 @@ div.labelWidthDates {
 
 
 .filterShow {
-    display: block
+    display: block;
+    height: px;
 }
 
 input {
@@ -368,7 +369,7 @@ button:hover {
 .excel {
 float: left;
 position: absolute;
-top: 40px;
+top: 45px;
 left: 100px;}
 
 .print {
@@ -486,7 +487,7 @@ button[type="button"]{
 }
 
 .summary {
-    zoom: 0.3
+    zoom: 0.7
 }
 
 
@@ -550,6 +551,7 @@ button[type="button"]{
     float: right;
     font-weight: bolder;
     border-radius: 2px;
+
 }
 
 
@@ -875,6 +877,17 @@ button {
 }
 
 
+.excel {
+    float: left;
+    position: absolute;
+    top: 45px;
+    left: 10px;}
+    
+    .print {
+    float: left;
+    margin-top: -66px;
+    }
+    
 
 }
 
@@ -998,6 +1011,16 @@ div.labelWidthDates {
 @media only screen and (min-width: 1366px) {
 
 
+    .excel {
+        float: right;
+        margin-top: 60px;
+        left: 200px}
+     
+
+        .print {
+            float: left;
+            padding-top: 50px;
+            }
 
 .myPlans {
     padding-top: 10px;
@@ -1123,6 +1146,7 @@ form {
 .charts {
     padding-top: 60px;
     border-radius: 5px;
+    
     
 }
 
@@ -1293,8 +1317,20 @@ button {
     width: 300px;
 }
 
+.excel {
+  
+    top: 130px;
+    left: 170px;}
 
 
+.print {
+      
+    top: 100px;
+    left: 0}
+ 
+
+     
+    
 
 
 }

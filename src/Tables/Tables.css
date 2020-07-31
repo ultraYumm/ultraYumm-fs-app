@@ -166,8 +166,6 @@ h2.resultsTitle, div.resultsTitle {
      padding-bottom: 15px;
 }
          
-
-
 .searchResultsTitle {
      text-align: center;
 }
@@ -490,7 +488,7 @@ th.date, tr.date  {
     
 }
 
-div.home, div.policies {
+div.policies {
      height: 800px;
 }
           
