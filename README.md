@@ -49,7 +49,7 @@ Stephanie LeBlond email: smaleblond@gmail.com
 
 ## Contributors Wanted!
 I'm building and enhancing this app as a volunteer project in my spare time for anyone to use and enjoy.
-Pull requests are welcome. I have tons more to learn about web and app development so please aso share your feedback and suggestions.
+Pull requests are welcome. I have tons more to learn about web and app development so please also share your feedback and suggestions.
 
 ## Demo
 Link to live app: https://www.ultrayumm.com/
