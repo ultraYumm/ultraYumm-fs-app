@@ -21,7 +21,7 @@ class HomePage extends Component {
             <span className="lighter">pack lighter</span>
           </h1>
           <div className= "primaryFont description">
-            <div className= "descriptionText"><strong>ultraYumm</strong> helps you plan and pack just the right amount of food for your trip. Search you favorite eats and allocate them in precise amounts to your travelers by day and by meal. Keep everyone energized and happy with ultra-light packs!</div>
+            <div className= "descriptionText"><strong>ultraYumm</strong> helps you plan and pack just the right amount of food for your trip. Search your favorite eats and allocate them in precise amounts to your travelers by day and by meal. Keep everyone energized and happy with ultra-light packs!</div>
              <div className="snowyOwlcontainer"><img className="snowyOwl" src={snowyOwl} alt="snowy owl gif" /></div>
           </div>
         </div>
