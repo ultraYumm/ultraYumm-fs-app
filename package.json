@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^7.1.2",
     "aws-amplify": "^3.0.22",
     "aws-amplify-react": "^4.1.19",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.0",
     "immer": "^7.0.7",
     "jquery-tablesort": "0.0.11",
